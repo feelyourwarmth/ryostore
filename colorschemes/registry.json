@@ -3,7 +3,7 @@
   "themes": [
     {
       "name": "ADW",
-      "path": "ADW",
+      "path": "colorschemes/ADW",
       "dark": {
         "mPrimary": "#3584e4",
         "mOnPrimary": "#ffffff",
@@ -43,7 +43,7 @@
     },
     {
       "name": "Ayu Blue",
-      "path": "Ayu Blue",
+      "path": "colorschemes/Ayu Blue",
       "dark": {
         "mPrimary": "#39BAE6",
         "mOnPrimary": "#0B0E14",
@@ -83,7 +83,7 @@
     },
     {
       "name": "Ayu Green",
-      "path": "Ayu Green",
+      "path": "colorschemes/Ayu Green",
       "dark": {
         "mPrimary": "#AAD94C",
         "mOnPrimary": "#0B0E14",
@@ -123,7 +123,7 @@
     },
     {
       "name": "Ayu Red",
-      "path": "Ayu Red",
+      "path": "colorschemes/Ayu Red",
       "dark": {
         "mPrimary": "#D95757",
         "mOnPrimary": "#0B0E14",
@@ -163,7 +163,7 @@
     },
     {
       "name": "Breeze",
-      "path": "Breeze",
+      "path": "colorschemes/Breeze",
       "dark": {
         "mPrimary": "#3daee9",
         "mOnPrimary": "#141618",
@@ -203,7 +203,7 @@
     },
     {
       "name": "Catppuccin Lavender",
-      "path": "Catppuccin Lavender",
+      "path": "colorschemes/Catppuccin Lavender",
       "dark": {
         "mPrimary": "#b4befe",
         "mOnPrimary": "#11111b",
@@ -243,7 +243,7 @@
     },
     {
       "name": "Cherry Blossom",
-      "path": "Cherry Blossom",
+      "path": "colorschemes/Cherry Blossom",
       "dark": {
         "mPrimary": "#F2C1D4",
         "mOnPrimary": "#2A1B21",
@@ -283,7 +283,7 @@
     },
     {
       "name": "Cream",
-      "path": "Cream",
+      "path": "colorschemes/Cream",
       "dark": {
         "mPrimary": "#a9b665",
         "mOnPrimary": "#282828",
@@ -323,7 +323,7 @@
     },
     {
       "name": "Cream Autumn",
-      "path": "Cream Autumn",
+      "path": "colorschemes/Cream Autumn",
       "dark": {
         "mPrimary": "#e0a84a",
         "mOnPrimary": "#282828",
@@ -363,7 +363,7 @@
     },
     {
       "name": "Cream Autumn Old",
-      "path": "Cream Autumn Old",
+      "path": "colorschemes/Cream Autumn Old",
       "dark": {
         "mPrimary": "#e0a84a",
         "mOnPrimary": "#282828",
@@ -403,7 +403,7 @@
     },
     {
       "name": "Cyberpunk",
-      "path": "Cyberpunk",
+      "path": "colorschemes/Cyberpunk",
       "dark": {
         "mPrimary": "#C4A82E",
         "mOnPrimary": "#0E1015",
@@ -443,7 +443,7 @@
     },
     {
       "name": "Doomed",
-      "path": "Doomed",
+      "path": "colorschemes/Doomed",
       "dark": {
         "mPrimary": "#51afef",
         "mOnPrimary": "#1c1e1e",
@@ -483,7 +483,7 @@
     },
     {
       "name": "Espresso Cream",
-      "path": "Espresso Cream",
+      "path": "colorschemes/Espresso Cream",
       "dark": {
         "mPrimary": "#e29578",
         "mOnPrimary": "#1a120b",
@@ -523,7 +523,7 @@
     },
     {
       "name": "Everdeer",
-      "path": "Everdeer",
+      "path": "colorschemes/Everdeer",
       "dark": {
         "mPrimary": "#ffb4a3",
         "mOnPrimary": "#621000",
@@ -563,7 +563,7 @@
     },
     {
       "name": "Everforest",
-      "path": "Everforest",
+      "path": "colorschemes/Everforest",
       "dark": {
         "mPrimary": "#A7C080",
         "mOnPrimary": "#232A2E",
@@ -603,7 +603,7 @@
     },
     {
       "name": "Flexoki",
-      "path": "Flexoki",
+      "path": "colorschemes/Flexoki",
       "dark": {
         "mPrimary": "#879a39",
         "mOnPrimary": "#1a1e0c",
@@ -643,7 +643,7 @@
     },
     {
       "name": "GitHub Dark",
-      "path": "GitHub Dark",
+      "path": "colorschemes/GitHub Dark",
       "dark": {
         "mPrimary": "#58a6ff",
         "mOnPrimary": "#010409",
@@ -683,7 +683,7 @@
     },
     {
       "name": "Gruber Darker",
-      "path": "Gruber Darker",
+      "path": "colorschemes/Gruber Darker",
       "dark": {
         "mPrimary": "#ffdd33",
         "mOnPrimary": "#181818",
@@ -723,7 +723,7 @@
     },
     {
       "name": "GruvboxAlt",
-      "path": "GruvboxAlt",
+      "path": "colorschemes/GruvboxAlt",
       "dark": {
         "mPrimary": "#ebdbb2",
         "mOnPrimary": "#282828",
@@ -763,7 +763,7 @@
     },
     {
       "name": "Hexa34C",
-      "path": "Hexa34C",
+      "path": "colorschemes/Hexa34C",
       "dark": {
         "mPrimary": "#9ad4a1",
         "mOnPrimary": "#003916",
@@ -803,7 +803,7 @@
     },
     {
       "name": "Horizon",
-      "path": "Horizon",
+      "path": "colorschemes/Horizon",
       "dark": {
         "mPrimary": "#25B2BC",
         "mOnPrimary": "#16161C",
@@ -843,7 +843,7 @@
     },
     {
       "name": "Kanagawa Dragon",
-      "path": "Kanagawa Dragon",
+      "path": "colorschemes/Kanagawa Dragon",
       "dark": {
         "mPrimary": "#8a9a7b",
         "mOnPrimary": "#181616",
@@ -883,7 +883,7 @@
     },
     {
       "name": "Kanagawa Paper",
-      "path": "Kanagawa Paper",
+      "path": "colorschemes/Kanagawa Paper",
       "dark": {
         "mPrimary": "#c4b28a",
         "mOnPrimary": "#1F1F28",
@@ -923,7 +923,7 @@
     },
     {
       "name": "Kemuri",
-      "path": "Kemuri",
+      "path": "colorschemes/Kemuri",
       "dark": {
         "mPrimary": "#cb9168",
         "mOnPrimary": "#242120",
@@ -963,7 +963,7 @@
     },
     {
       "name": "Kemuri Koke",
-      "path": "Kemuri Koke",
+      "path": "colorschemes/Kemuri Koke",
       "dark": {
         "mPrimary": "#8ba37e",
         "mOnPrimary": "#242120",
@@ -1003,7 +1003,7 @@
     },
     {
       "name": "Lilac AMOLED",
-      "path": "Lilac AMOLED",
+      "path": "colorschemes/Lilac AMOLED",
       "dark": {
         "mPrimary": "#b58fff",
         "mOnPrimary": "#000000",
@@ -1043,7 +1043,7 @@
     },
     {
       "name": "Matecito",
-      "path": "Matecito",
+      "path": "colorschemes/Matecito",
       "dark": {
         "mPrimary": "#8da383",
         "mOnPrimary": "#1e2320",
@@ -1083,7 +1083,7 @@
     },
     {
       "name": "Miasma",
-      "path": "Miasma",
+      "path": "colorschemes/Miasma",
       "dark": {
         "mPrimary": "#c9a554",
         "mOnPrimary": "#222222",
@@ -1123,7 +1123,7 @@
     },
     {
       "name": "Mine",
-      "path": "Mine",
+      "path": "colorschemes/Mine",
       "dark": {
         "mPrimary": "#e1e2d5",
         "mOnPrimary": "#1d1b1d",
@@ -1163,7 +1163,7 @@
     },
     {
       "name": "Monochrome",
-      "path": "Monochrome",
+      "path": "colorschemes/Monochrome",
       "dark": {
         "mPrimary": "#aaaaaa",
         "mOnPrimary": "#111111",
@@ -1203,7 +1203,7 @@
     },
     {
       "name": "Murasaki",
-      "path": "Murasaki",
+      "path": "colorschemes/Murasaki",
       "dark": {
         "mPrimary": "#e8bcfb",
         "mOnPrimary": "#8e0cc6",
@@ -1243,7 +1243,7 @@
     },
     {
       "name": "Murata",
-      "path": "Murata",
+      "path": "colorschemes/Murata",
       "dark": {
         "mPrimary": "#db6d6d",
         "mOnPrimary": "#1a1b1c",
@@ -1283,7 +1283,7 @@
     },
     {
       "name": "NaySayer",
-      "path": "NaySayer",
+      "path": "colorschemes/NaySayer",
       "dark": {
         "mPrimary": "#2ec09c",
         "mOnPrimary": "#062329",
@@ -1323,7 +1323,7 @@
     },
     {
       "name": "Neon Surf",
-      "path": "Neon Surf",
+      "path": "colorschemes/Neon Surf",
       "dark": {
         "mPrimary": "#00a8f4",
         "mOnPrimary": "#000000",
@@ -1363,7 +1363,7 @@
     },
     {
       "name": "Noctalia legacy",
-      "path": "Noctalia legacy",
+      "path": "colorschemes/Noctalia legacy",
       "dark": {
         "mPrimary": "#c7a1d8",
         "mOnPrimary": "#1a151f",
@@ -1403,7 +1403,7 @@
     },
     {
       "name": "Oasis Abyss",
-      "path": "Oasis Abyss",
+      "path": "colorschemes/Oasis Abyss",
       "dark": {
         "mPrimary": "#D06666",
         "mOnPrimary": "#1A1A1A",
@@ -1443,7 +1443,7 @@
     },
     {
       "name": "Occult Umbral",
-      "path": "Occult Umbral",
+      "path": "colorschemes/Occult Umbral",
       "dark": {
         "mPrimary": "#8B2E2E",
         "mOnPrimary": "#1C1C28",
@@ -1483,7 +1483,7 @@
     },
     {
       "name": "One",
-      "path": "One",
+      "path": "colorschemes/One",
       "dark": {
         "mPrimary": "#61afef",
         "mOnPrimary": "#1e2127",
@@ -1523,7 +1523,7 @@
     },
     {
       "name": "One Dark Two",
-      "path": "One Dark Two",
+      "path": "colorschemes/One Dark Two",
       "dark": {
         "mPrimary": "#62BAC6",
         "mOnPrimary": "#21252B",
@@ -1563,7 +1563,7 @@
     },
     {
       "name": "Osaka jade",
-      "path": "Osaka jade",
+      "path": "colorschemes/Osaka jade",
       "dark": {
         "mPrimary": "#1E9177",
         "mOnPrimary": "#B8C8C4",
@@ -1603,7 +1603,7 @@
     },
     {
       "name": "Oxide",
-      "path": "Oxide",
+      "path": "colorschemes/Oxide",
       "dark": {
         "mPrimary": "#B85A30",
         "mOnPrimary": "#1D1816",
@@ -1643,7 +1643,7 @@
     },
     {
       "name": "Oxocarbon",
-      "path": "Oxocarbon",
+      "path": "colorschemes/Oxocarbon",
       "dark": {
         "mPrimary": "#33b1ff",
         "mOnPrimary": "#161616",
@@ -1683,7 +1683,7 @@
     },
     {
       "name": "Peche",
-      "path": "Peche",
+      "path": "colorschemes/Peche",
       "dark": {
         "mPrimary": "#9DD2C0",
         "mOnPrimary": "#0e1214",
@@ -1723,7 +1723,7 @@
     },
     {
       "name": "Rose Pine Moon",
-      "path": "Rose Pine Moon",
+      "path": "colorschemes/Rose Pine Moon",
       "dark": {
         "mPrimary": "#ea9a97",
         "mOnPrimary": "#232136",
@@ -1763,7 +1763,7 @@
     },
     {
       "name": "Rosey AMOLED",
-      "path": "Rosey AMOLED",
+      "path": "colorschemes/Rosey AMOLED",
       "dark": {
         "mPrimary": "#ff8cb3",
         "mOnPrimary": "#000000",
@@ -1803,7 +1803,7 @@
     },
     {
       "name": "Shien",
-      "path": "Shien",
+      "path": "colorschemes/Shien",
       "dark": {
         "mPrimary": "#9B8BC1",
         "mOnPrimary": "#15131B",
@@ -1843,7 +1843,7 @@
     },
     {
       "name": "Shinonome",
-      "path": "Shinonome",
+      "path": "colorschemes/Shinonome",
       "dark": {
         "mPrimary": "#D5ACA9",
         "mOnPrimary": "#1A1D20",
@@ -1883,7 +1883,7 @@
     },
     {
       "name": "Solarized",
-      "path": "Solarized",
+      "path": "colorschemes/Solarized",
       "dark": {
         "mPrimary": "#b58900",
         "mOnPrimary": "#002b36",
@@ -1923,7 +1923,7 @@
     },
     {
       "name": "Sway Classic",
-      "path": "Sway Classic",
+      "path": "colorschemes/Sway Classic",
       "dark": {
         "mPrimary": "#4C7899",
         "mOnPrimary": "#FFFFFF",
@@ -1963,7 +1963,7 @@
     },
     {
       "name": "Tokyo Night Moon",
-      "path": "Tokyo Night Moon",
+      "path": "colorschemes/Tokyo Night Moon",
       "dark": {
         "mPrimary": "#7a88cf",
         "mOnPrimary": "#1f2335",
@@ -2003,7 +2003,7 @@
     },
     {
       "name": "Vesper",
-      "path": "Vesper",
+      "path": "colorschemes/Vesper",
       "dark": {
         "mPrimary": "#FFC799",
         "mOnPrimary": "#000000",

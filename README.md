@@ -1,10 +1,10 @@
-# Community palettes
+# ryoku-extras
 
-<p align="center">
-  <img src="https://assets.noctalia.dev/noctalia-logo.svg?v=2" alt="Noctalia Logo" style="width: 192px" />
-</p>
+Downloadable content for the Ryoku desktop. Each subdirectory is an
+independent catalogue the shell fetches on demand:
 
----
+- `colorschemes/` - color schemes (Settings -> Color scheme -> Download)
+- `plugins/` - shell plugins (Settings -> Plugins)
+- `scripts/` - extra scripts
 
-This is where we fetch all the additional palettes for noctalia from.
-If you want your palette to be added to noctalia, you will have to create a PR over here.
+Add or remove an item by editing the relevant `registry.json` and committing.
