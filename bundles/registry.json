@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "bundles": [
+    {
+      "id": "the-ricer",
+      "name": "The Ricer",
+      "description": "Eye-candy and theming tools that don't ship with Ryoku by default.",
+      "path": "bundles/the-ricer"
+    }
+  ]
+}

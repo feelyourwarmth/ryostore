@@ -1,0 +1,13 @@
+{
+  "id": "the-ricer",
+  "name": "The Ricer",
+  "description": "Eye-candy and theming tools that don't ship with Ryoku by default.",
+  "items": [
+    { "type": "package", "name": "aether",    "detect": "aether",    "summary": "Wallpaper-driven theme maker." },
+    { "type": "package", "name": "cbonsai",   "detect": "cbonsai",   "summary": "Grow a bonsai tree in the terminal." },
+    { "type": "package", "name": "cmatrix",   "detect": "cmatrix",   "summary": "Matrix rain screensaver." },
+    { "type": "package", "name": "pipes.sh",  "detect": "pipes.sh",  "summary": "Animated terminal pipes." },
+    { "type": "package", "name": "tty-clock", "detect": "tty-clock", "summary": "Fullscreen terminal clock." },
+    { "type": "plugin",  "name": "wallhaven", "summary": "Wallhaven frame popout." }
+  ]
+}

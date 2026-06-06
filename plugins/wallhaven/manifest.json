@@ -1,0 +1,31 @@
+{
+  "id": "wallhaven",
+  "name": "Wallhaven",
+  "version": "1.0.0",
+  "author": "Ryoku Team <hello@ryoku.sh>",
+  "description": "Browse wallhaven.cc and set wallpapers from the top-right frame corner.",
+  "license": "MIT",
+  "tags": ["wallpaper", "frame"],
+  "official": true,
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "framePanel": "ui/Panel.qml",
+    "settings": "ui/Settings.qml"
+  },
+  "frame": {
+    "edge": "top",
+    "align": "end",
+    "activation": "corner",
+    "label": "Wallhaven",
+    "icon": "wallpaper"
+  },
+  "commands": ["bin/ryoku-wallhaven-search"],
+  "dependencies": {
+    "commands": ["curl", "jq"]
+  },
+  "metadata": {
+    "defaultSettings": {
+      "apiKey": ""
+    }
+  }
+}

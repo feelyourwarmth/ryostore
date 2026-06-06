@@ -1,0 +1,26 @@
+{
+  "id": "template",
+  "name": "Template Plugin",
+  "version": "0.1.0",
+  "author": "Your Name <you@example.com>",
+  "description": "Minimal example frame plugin to copy when starting a new one.",
+  "license": "MIT",
+  "tags": ["example", "frame"],
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "framePanel": "ui/Panel.qml",
+    "settings": "ui/Settings.qml"
+  },
+  "frame": {
+    "edge": "top",
+    "align": "end",
+    "activation": "corner",
+    "label": "Template",
+    "icon": "extension"
+  },
+  "metadata": {
+    "defaultSettings": {
+      "greeting": "Hello from a Ryoku plugin"
+    }
+  }
+}
