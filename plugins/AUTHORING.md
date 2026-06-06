@@ -64,9 +64,11 @@ and a panel, and you name a corner with the `frame` block:
 
 ```json
 "frame": {
-  "edge": "top",        // top | bottom — which edge it slides from
-  "align": "end",       // start | center | end — position along that edge
-  "activation": "corner",
+  "edge": "top",              // top | bottom — which edge it slides from
+  "align": "end",             // start | center | end — position along that edge
+  "activationWidth": 320,     // optional px: how wide the hover zone is (default: a sane band)
+  "activationHeight": 16,     // optional px: how tall the hover zone is (default: the frame border)
+  "keybind": "Super+Shift+W", // optional: a global toggle shortcut, registered for you
   "label": "Wallhaven",
   "icon": "wallpaper"
 }
@@ -74,6 +76,15 @@ and a panel, and you name a corner with the `frame` block:
 
 Wallhaven is `top` + `end`, so it lives in the top-right corner. That is the whole
 integration: ship a service, ship a panel, name your corner.
+
+You own the **activation zone** and the **keybind**:
+
+- `activationWidth` / `activationHeight` set the size (px) of the corner/edge region that
+  opens the popout on hover. Leave them out for the default band. The shell builds the
+  hover detection and the input region from these — you write none of it.
+- `keybind` (e.g. `"Super+Shift+W"`, `"Ctrl+Alt+P"`) is registered with Hyprland when the
+  plugin loads and removed when it unloads; it toggles your popout. Use a free combo —
+  `Super+W`, for example, is already taken by Ryoku.
 
 ## The properties the shell sets
 
