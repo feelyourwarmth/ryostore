@@ -1,7 +1,7 @@
 {
   "id": "wallhaven",
   "name": "Wallhaven",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Browse wallhaven.cc and set wallpapers from the top-right frame corner.",
   "license": "MIT",
@@ -17,7 +17,7 @@
     "align": "end",
     "activationWidth": 320,
     "activationHeight": 16,
-    "keybind": "Super+Shift+W",
+    "key": "w",
     "label": "Wallhaven",
     "icon": "wallpaper"
   },
