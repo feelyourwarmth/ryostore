@@ -9,7 +9,7 @@ this repo and loads from Settings → Plugins.
 plugins/
   registry.json        # the installable list (see below)
   AUTHORING.md         # how to build a frame plugin
-  template/            # minimal example — copy it to start
+  template/            # minimal example - copy it to start
   wallhaven/           # the worked example
     manifest.json      # id, version, entry points, frame placement
     README.md          # required; embeds assets/preview.gif

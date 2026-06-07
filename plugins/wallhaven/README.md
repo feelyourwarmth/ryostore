@@ -25,9 +25,9 @@ rate limit; it is sent only to wallhaven.cc.
 The shell owns the screen frame and the hover/slide/focus behaviour. This plugin only
 ships two pieces:
 
-- `service/Main.qml` — the search and download logic. It loads once and keeps results
+- `service/Main.qml` - the search and download logic. It loads once and keeps results
   while the popout is closed. (`main` entry point.)
-- `ui/Panel.qml` — the popout UI. The shell shows it when you hover the corner and hides
+- `ui/Panel.qml` - the popout UI. The shell shows it when you hover the corner and hides
   it when you leave. It reads everything from the service via `pluginApi.mainInstance`.
   (`framePanel` entry point.)
 

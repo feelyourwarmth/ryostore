@@ -11,7 +11,7 @@ screen frame and a small popout slides in.
 - Has one button that increments a counter held in the service, so the count survives the
   popout closing and reopening.
 
-That is all it does on purpose — it is the smallest real plugin, meant to be gutted and
+That is all it does on purpose - it is the smallest real plugin, meant to be gutted and
 rebuilt into something useful.
 
 ## Install
@@ -23,9 +23,9 @@ rebuilt into something useful.
 The shell owns the screen frame and the hover/slide/focus behaviour. This plugin only
 ships two pieces:
 
-- `service/Main.qml` — the persistent state (the click counter). It loads once and keeps
+- `service/Main.qml` - the persistent state (the click counter). It loads once and keeps
   its value while the popout is closed. (`main` entry point.)
-- `ui/Panel.qml` — the popout UI. The shell shows it when you hover the corner and hides
+- `ui/Panel.qml` - the popout UI. The shell shows it when you hover the corner and hides
   it when you leave. It reads everything from the service via `pluginApi.mainInstance`.
   (`framePanel` entry point.)
 

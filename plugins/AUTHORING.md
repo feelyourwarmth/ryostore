@@ -1,12 +1,12 @@
 # Writing a frame plugin
 
 A frame plugin adds a popout that slides in when you hover a corner of the screen frame.
-You write two things — a service and a panel — and tell the shell which corner to use. The
+You write two things - a service and a panel - and tell the shell which corner to use. The
 shell does the hover detection, the slide animation, the focus and keyboard grab, and the
 input region. You never touch any of that.
 
 `plugins/wallhaven/` is the worked example throughout this guide. `plugins/template/` is
-the smallest possible version — copy it to start.
+the smallest possible version - copy it to start.
 
 ## Quickstart
 
@@ -50,12 +50,12 @@ cp -r plugins/template plugins/my-plugin
 }
 ```
 
-- **`main`** — persistent, non-visual logic. It loads once when the plugin is enabled and
+- **`main`** - persistent, non-visual logic. It loads once when the plugin is enabled and
   stays alive while the popout opens and closes, so its state survives. Wallhaven keeps
   the search results and current page here. This is your service.
-- **`framePanel`** — the popout UI. The shell mounts it in the frame and shows it on hover.
+- **`framePanel`** - the popout UI. The shell mounts it in the frame and shows it on hover.
   It reads everything from your service. This is the only visible piece.
-- **`settings`** — an optional options page shown in Settings → Plugins → your plugin → ⚙.
+- **`settings`** - an optional options page shown in Settings → Plugins → your plugin → ⚙.
 
 ## How your panel reaches the frame
 
@@ -64,8 +64,8 @@ and a panel, and you name a corner with the `frame` block:
 
 ```json
 "frame": {
-  "edge": "top",          // top | bottom — which edge it slides from
-  "align": "end",         // start | center | end — position along that edge
+  "edge": "top",          // top | bottom - which edge it slides from
+  "align": "end",         // start | center | end - position along that edge
   "activationWidth": 320, // optional px: how wide the hover zone is (default: a sane band)
   "activationHeight": 16, // optional px: how tall the hover zone is (default: the frame border)
   "key": "w",             // optional: your key in the Super+X plugins menu (toggles the popout)
@@ -81,7 +81,7 @@ You own the **activation zone** and the **shortcut**:
 
 - `activationWidth` / `activationHeight` set the size (px) of the corner/edge region that
   opens the popout on hover. Leave them out for the default band. The shell builds the
-  hover detection and the input region from these — you write none of it.
+  hover detection and the input region from these - you write none of it.
 - `key` is a single key (e.g. `"w"`, `"b"`) inside Ryoku's **plugins menu**: the user
   presses the leader (`Super+X` by default), then your key, and your popout toggles. This
   keeps plugin shortcuts out of the crowded `Super+<key>` space and never collides with
@@ -90,7 +90,7 @@ You own the **activation zone** and the **shortcut**:
 
 ## The properties the shell sets
 
-The shell sets these for you — declare them and read them, do not assign them.
+The shell sets these for you - declare them and read them, do not assign them.
 
 On your **`framePanel`** (`ui/Panel.qml`):
 
@@ -117,7 +117,7 @@ text: qsTr("Clicked %1 times").arg(service?.clickCount ?? 0)
 onClicked: service.increment()
 ```
 
-Use the `?.` and `?? default` guards — `service` is null until `main` has loaded.
+Use the `?.` and `?? default` guards - `service` is null until `main` has loaded.
 
 ## Settings that persist
 
@@ -137,16 +137,16 @@ function saveSettings() {
 
 In the service and panel:
 
-- `Ryoku.Config` — `Tokens` (spacing, padding, rounding, font sizes) and `Colours`
+- `Ryoku.Config` - `Tokens` (spacing, padding, rounding, font sizes) and `Colours`
   (`Colours.palette.m3*`, `Colours.tPalette.m3*`, `Colours.layer(...)`).
-- `qs.components` — `StyledRect`, `StyledText`, `MaterialIcon`, and friends.
-- `qs.components.controls` — `IconButton`, `IconTextButton`, `StyledTextField`, `Menu`, etc.
-- `qs.services` — shell services like `Wallpapers`, `Toaster`.
+- `qs.components` - `StyledRect`, `StyledText`, `MaterialIcon`, and friends.
+- `qs.components.controls` - `IconButton`, `IconTextButton`, `StyledTextField`, `Menu`, etc.
+- `qs.services` - shell services like `Wallpapers`, `Toaster`.
 
 In the settings page only, use the settings-gui toolkit instead:
 
-- `qs.settingsgui.Commons` — `Style`, `Color`, `I18n`.
-- `qs.settingsgui.Widgets` — `NText`, `NTextInput`, and the other `N*` widgets.
+- `qs.settingsgui.Commons` - `Style`, `Color`, `I18n`.
+- `qs.settingsgui.Widgets` - `NText`, `NTextInput`, and the other `N*` widgets.
 
 Match the existing usage in `plugins/wallhaven/`; do not invent parallel styling.
 

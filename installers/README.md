@@ -1,6 +1,6 @@
 # Installers
 
-Small, auditable scripts for tools that don't come from pacman/AUR — the curl-into-shell
+Small, auditable scripts for tools that don't come from pacman/AUR - the curl-into-shell
 pattern, pinned to an official upstream. A bundle references one with a `script` item and
 `ryoku-extras-install` runs it when the tool is missing.
 
@@ -20,7 +20,7 @@ pattern, pinned to an official upstream. A bundle references one with a `script`
    fi
    ```
 
-5. Install from the official upstream. Let failures surface — `set -e` plus a non-zero exit
+5. Install from the official upstream. Let failures surface - `set -e` plus a non-zero exit
    tells the installer the item failed.
 
 ## Referencing it from a bundle
