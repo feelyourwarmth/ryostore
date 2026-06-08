@@ -19,6 +19,7 @@ safe and only fills the gaps.
 | tty-clock                                         | Fullscreen terminal clock               | https://github.com/xorg62/tty-clock                  |
 | [wallhaven](../../plugins/wallhaven/README.md)    | Wallhaven frame popout plugin           | Ryoku plugin                                          |
 
-Packages are installed through `ryoku-pkg-add` (pacman + AUR). The wallhaven plugin is a
-Ryoku shell plugin: the installer points you at **Settings → Plugins** to add it, since the
-shell owns the plugin install path.
+Packages install from the official repos when available and the AUR otherwise (aether is an
+AUR package); `ryoku-extras-install` picks the right backend automatically. The wallhaven
+plugin is a Ryoku shell plugin: the installer points you at **Settings → Plugins** to add
+it, since the shell owns the plugin install path.

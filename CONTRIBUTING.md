@@ -26,8 +26,9 @@ A bundle installs a curated set of packages, scripts, and plugins together. Add:
 
 Each item declares a `type`:
 
-- `package` - installed with `ryoku-pkg-add` (pacman + AUR). `detect` is the command that
-  proves it is already present.
+- `package` - a pacman/AUR package. `ryoku-extras-install` routes it automatically (official
+  repos via `ryoku-pkg-add`, otherwise the AUR via `ryoku-pkg-aur-add`), so you only write
+  the package name. `detect` is the command that proves it is already present.
 - `script` - installed by running `installers/<name>.sh`. `detect` is the resulting command.
 - `plugin` - installed through the shell's plugin path; `name` is the plugin id.
 

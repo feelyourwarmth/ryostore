@@ -41,12 +41,31 @@ Each bundle lives in its own folder under `bundles/<id>/` with a `bundle.json`. 
 Each item has a `type`, a `name`, an optional one-line `summary`, and (for packages and
 scripts) a `detect` command used to tell whether it is already installed:
 
-- **`package`** - installed via `ryoku-pkg-add` (handles pacman + AUR). `detect` is the
-  command that proves it is present; it defaults to `name`. Already-installed packages are
-  skipped, and missing ones across the whole bundle are deduped into a single install call.
+- **`package`** - a pacman/AUR package. `ryoku-extras-install` routes it automatically:
+  packages in the official repos go through `ryoku-pkg-add`, the rest through
+  `ryoku-pkg-aur-add` (the AUR), so you only ever write the package name. `detect` is the
+  command that proves it is present and defaults to `name`. Repo packages are batched into
+  one install and AUR packages into another; anything already present is skipped.
 - **`script`** - installed by running `installers/<name>.sh` (the curl pattern; see
   `installers/README.md`). `detect` is the command the script produces.
-- **`plugin`** - installed through the shell's plugin install path, not by this command. The
-  installer prints a pointer to **Settings → Plugins** instead.
+- **`plugin`** - installed through the shell's plugin path (PluginService), not by this
+  command. `name` is the plugin id; the UI installs it exactly like the Plugins tab.
 
 `detect` and `summary` are optional; the installer tolerates their absence.
+
+## How installs run
+
+Installs are per item with real feedback, mirroring the Plugins tab:
+
+- The Extras tab runs `ryoku-extras-install` inside a **floating terminal** so the
+  `sudo`/`yay` prompt has a TTY - package installs cannot complete from a silent background
+  process. You watch progress there and type your password if asked.
+- Every item shows its own state in Settings: already present, a loader while installing, a
+  check on success, or a precise failure (reason on hover) - so you always see which tools
+  installed and which failed.
+- The command writes a per-item JSON report (`status`: `installed` | `present` | `removed` |
+  `absent` | `failed` | `deferred` | `skipped`) that the shell watches to drive that state.
+  `ryoku-extras-install status bundle <id>` reports presence without changing anything.
+- **Uninstall all** (or a single tool) removes the bundle's package items with
+  `ryoku-pkg-remove` (also in the terminal). Scripts are not auto-removed; plugins are
+  removed from **Settings → Plugins**.
