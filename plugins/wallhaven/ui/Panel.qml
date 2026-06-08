@@ -38,16 +38,15 @@ Item {
   implicitWidth: Math.min(Math.max(680, gridTargetWidth + Tokens.padding.large * 2 + Tokens.padding.small), Math.max(640, (screen ? screen.width : 1920) - 180))
   implicitHeight: (service && service.resultsExpanded) ? expandedHeight : compactHeight
 
-  Behavior on implicitHeight {
-    Anim {
-      type: Anim.DefaultSpatial
-    }
-  }
-
   // Reopening should always land on the compact search view, never a stale grid.
   onActiveChanged: {
-    if (active && service)
-      service.resultsExpanded = false;
+    if (active) {
+      if (service)
+        service.resultsExpanded = false;
+    } else {
+      // The menu reparents to the window, so it would outlive a hover-close; drop it.
+      imageMenu.expanded = false;
+    }
   }
 
   function submitSearch(): void {
@@ -63,6 +62,16 @@ Item {
 
   function menuOpensUp(cellY: real, contentY: real, viewportHeight: real, cellHeight: real): bool {
     return cellY - contentY >= viewportHeight - cellHeight - 0.5;
+  }
+
+  // Targets the single hoisted context menu (see below) at a specific tile on demand.
+  function openImageMenu(tile: Item, data: var, cellY: real): void {
+    if (!tile || !data)
+      return;
+    imageMenu.attachItem = tile;
+    imageMenu.targetData = data;
+    imageMenu.opensUp = menuOpensUp(cellY, grid.contentY, grid.height, grid.cellHeight);
+    imageMenu.expanded = true;
   }
 
   ColumnLayout {
@@ -346,7 +355,7 @@ Item {
               cursorShape: Qt.PointingHandCursor
               onPressed: event => {
                 if (event.button === Qt.RightButton) {
-                  imageMenu.expanded = true;
+                  root.openImageMenu(tile, cell.modelData, cell.y);
                   event.accepted = true;
                 }
               }
@@ -384,40 +393,8 @@ Item {
                 acceptedButtons: Qt.LeftButton | Qt.RightButton
                 hoverEnabled: true
                 cursorShape: Qt.PointingHandCursor
-                onClicked: imageMenu.expanded = true
+                onClicked: root.openImageMenu(tile, cell.modelData, cell.y)
               }
-            }
-
-            Menu {
-              id: imageMenu
-
-              readonly property bool opensUp: root.menuOpensUp(cell.y, grid.contentY, grid.height, grid.cellHeight)
-
-              attachTo: tile
-              attachSideX: Menu.Right
-              attachSideY: imageMenu.opensUp ? Menu.Top : Menu.Bottom
-              thisSideX: Menu.Right
-              thisSideY: imageMenu.opensUp ? Menu.Bottom : Menu.Top
-              marginY: imageMenu.opensUp ? -Tokens.spacing.small : Tokens.spacing.small
-
-              items: [
-                MenuItem {
-                  icon: "open_in_new"
-                  text: qsTr("Open in web")
-                  onClicked: root.service.openInWeb(cell.modelData)
-                },
-                MenuItem {
-                  icon: "download"
-                  text: qsTr("Download")
-                  onClicked: root.service.download(cell.modelData)
-                },
-                MenuItem {
-                  icon: "wallpaper"
-                  text: qsTr("Set as wallpaper")
-                  separatorBefore: true
-                  onClicked: root.service.setAsWallpaper(cell.modelData)
-                }
-              ]
             }
           }
         }
@@ -460,6 +437,43 @@ Item {
         }
       }
     }
+  }
+
+  // Single context menu shared by every tile. A Menu per GridView delegate was recreated
+  // and destroyed on each recycle, flooding the log with null-modelData warnings; one
+  // hoisted instance the delegates target on demand is the native pattern and stays quiet.
+  Menu {
+    id: imageMenu
+
+    property Item attachItem: null
+    property var targetData: null
+    property bool opensUp: false
+
+    attachTo: attachItem ?? root
+    attachSideX: Menu.Right
+    attachSideY: opensUp ? Menu.Top : Menu.Bottom
+    thisSideX: Menu.Right
+    thisSideY: opensUp ? Menu.Bottom : Menu.Top
+    marginY: opensUp ? -Tokens.spacing.small : Tokens.spacing.small
+
+    items: [
+      MenuItem {
+        icon: "open_in_new"
+        text: qsTr("Open in web")
+        onClicked: root.service?.openInWeb(imageMenu.targetData)
+      },
+      MenuItem {
+        icon: "download"
+        text: qsTr("Download")
+        onClicked: root.service?.download(imageMenu.targetData)
+      },
+      MenuItem {
+        icon: "wallpaper"
+        text: qsTr("Set as wallpaper")
+        separatorBefore: true
+        onClicked: root.service?.setAsWallpaper(imageMenu.targetData)
+      }
+    ]
   }
 
   component PagerButton: StyledRect {
@@ -556,6 +570,27 @@ Item {
 
     function onResultsChanged(): void {
       grid.positionViewAtBeginning();
+      imageMenu.expanded = false;
+    }
+
+    // Any collapse of the grid (compact view or a fresh search) must take the menu with it.
+    function onResultsExpandedChanged(): void {
+      if (!root.service.resultsExpanded)
+        imageMenu.expanded = false;
+    }
+
+    function onSearchingChanged(): void {
+      if (root.service.searching)
+        imageMenu.expanded = false;
+    }
+  }
+
+  // Scrolling recycles tile delegates, so drop the menu rather than let it dangle.
+  Connections {
+    target: grid
+
+    function onMovementStarted(): void {
+      imageMenu.expanded = false;
     }
   }
 }

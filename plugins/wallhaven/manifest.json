@@ -1,7 +1,7 @@
 {
   "id": "wallhaven",
   "name": "Wallhaven",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Browse wallhaven.cc and set wallpapers from the top-right frame corner.",
   "license": "MIT",

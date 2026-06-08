@@ -103,7 +103,10 @@ On your **`framePanel`** (`ui/Panel.qml`):
 On your **`main`** and **`settings`** files: just `pluginApi`.
 
 The panel must size itself with `implicitWidth` / `implicitHeight`; the host slides in
-whatever size you declare.
+whatever size you declare. The host already animates size changes and keeps the panel
+loaded, so do **not** put a `Behavior on implicitHeight` (or width) on the panel root or
+gate your content on a lazy `Loader`: a second animation fights the host's and the panel
+looks squashed while it opens. Just change `implicitHeight` and let the host tween it.
 
 ## Reading your service from the panel
 
