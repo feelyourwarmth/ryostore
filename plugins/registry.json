@@ -1,6 +1,7 @@
 {
   "version": 1,
-  "plugins": [
+  "plugins": [],
+  "archived": [
     {
       "id": "wallhaven",
       "name": "Wallhaven",

@@ -14,11 +14,10 @@ Hover the top-right corner of the screen frame and the popout slides in.
 
 ## Install
 
-- **Settings → Plugins → Available → Wallhaven → Install**, then enable it. Or
-- install the **The Ricer** extras bundle, which includes this plugin.
+This plugin is **archived**: it is no longer listed in Settings → Plugins → Available and
+The Ricer bundle no longer ships it. The folder stays in the repo for reference.
 
-An optional Wallhaven API key (Settings → Plugins → Wallhaven → ⚙) raises the request
-rate limit; it is sent only to wallhaven.cc.
+An optional Wallhaven API key raises the request rate limit; it is sent only to wallhaven.cc.
 
 ## How it plugs into the frame
 

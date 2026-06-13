@@ -22,23 +22,27 @@ plugins/
 
 ## How registry.json works
 
-`registry.json` is the catalogue the shell reads. Every installable plugin has one entry:
+`registry.json` is the catalogue the shell reads. It has two arrays: `plugins`, the
+installable list, and `archived`, retired plugins kept for reference. Entries share one
+shape:
 
 ```json
 {
-  "id": "wallhaven",
-  "name": "Wallhaven",
-  "path": "plugins/wallhaven",
+  "id": "my-plugin",
+  "name": "My Plugin",
+  "path": "plugins/my-plugin",
   "version": "1.0.0",
   "author": "Ryoku Team",
-  "description": "Browse wallhaven.cc and set wallpapers from the top-right frame corner.",
-  "tags": ["wallpaper", "frame"],
+  "description": "One sentence shown in the catalogue.",
+  "tags": ["frame"],
   "official": true,
   "lastUpdated": "2026-06-06"
 }
 ```
 
-A plugin folder is not offered in Settings until it is listed here.
+A plugin folder is offered in Settings only while its entry is in `plugins`. Moving an entry
+to `archived` retires it: the folder stays in the repo but the shell stops listing it.
+`wallhaven` lives there now.
 
 ## Contributing
 
