@@ -24,13 +24,18 @@ A bundle installs a curated set of packages, scripts, and plugins together. Add:
 2. `bundles/<id>/README.md` - what it installs and why.
 3. An entry in `bundles/registry.json`.
 
-Each item declares a `type`:
+Each item declares a `type`, and may carry a one-line `summary`, a `source`, and an
+`upstream` (shown on the card):
 
 - `package` - a pacman/AUR package. `ryoku-extras-install` routes it automatically (official
   repos via `ryoku-pkg-add`, otherwise the AUR via `ryoku-pkg-aur-add`), so you only write
-  the package name. `detect` is the command that proves it is already present.
+  the package name. Presence is decided by `pacman -Qq`; `detect` documents the command it
+  provides.
 - `script` - installed by running `installers/<name>.sh`. `detect` is the resulting command.
 - `plugin` - installed through the shell's plugin path; `name` is the plugin id.
+
+A bundle may also declare `"requires": ["multilib"]` to enable a repo before its packages
+are routed (Gaming needs it for Steam and the 32-bit libraries).
 
 See `bundles/the-ricer/` for the worked example.
 
