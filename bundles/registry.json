@@ -2,10 +2,74 @@
   "version": 1,
   "bundles": [
     {
+      "id": "gaming",
+      "name": "Gaming",
+      "description": "Launchers, the Wine and Proton compatibility stack, performance overlays, and a Wayland-friendly Discord, ready to play.",
+      "sources": "pacman / AUR",
+      "path": "bundles/gaming"
+    },
+    {
+      "id": "audiophile",
+      "name": "Audiophile",
+      "description": "EasyEffects, patchbays, mixers, and PipeWire inspection for people who care how the machine sounds.",
+      "sources": "pacman / AUR",
+      "path": "bundles/audiophile"
+    },
+    {
+      "id": "the-influencer",
+      "name": "The Influencer",
+      "description": "OBS with Wayland capture, video and image editors, mic cleanup, and thumbnail and publish helpers.",
+      "sources": "pacman / AUR / Go / npm",
+      "path": "bundles/the-influencer"
+    },
+    {
+      "id": "office-worker",
+      "name": "Office Worker",
+      "description": "FOSS office suites, PDF reading and editing, mail and calendar, Teams, and a Windows app fallback.",
+      "sources": "pacman / AUR",
+      "path": "bundles/office-worker"
+    },
+    {
+      "id": "secpulse-basic",
+      "name": "SecPulse Basic",
+      "description": "Nmap, Gobuster, OpenVPN, wordlists, and the HTB and TryHackMe starter kit, without pretending to be Kali.",
+      "sources": "pacman / AUR / Go / pipx",
+      "path": "bundles/secpulse-basic"
+    },
+    {
+      "id": "secpulse-advanced",
+      "name": "SecPulse Advanced",
+      "description": "Nikto, Shodan, the ProjectDiscovery recon suite, masscan, firewall helpers, and proxied ops tooling.",
+      "sources": "pacman / AUR / Go",
+      "path": "bundles/secpulse-advanced"
+    },
+    {
       "id": "the-ricer",
       "name": "The Ricer",
-      "description": "Eye-candy and theming tools that don't ship with Ryoku by default.",
+      "description": "Aether and the must-have apps for shaping the desktop, inspecting colors, and editing visuals.",
+      "sources": "pacman / AUR",
       "path": "bundles/the-ricer"
+    },
+    {
+      "id": "the-vibecoder",
+      "name": "The Vibecoder",
+      "description": "Claude Code, Codex, OpenCode, Gemini, aider, and the terminal helpers for building with AI.",
+      "sources": "pacman / AUR / npm / pipx / vendor",
+      "path": "bundles/the-vibecoder"
+    },
+    {
+      "id": "the-developer",
+      "name": "The Developer",
+      "description": "Zed, the Docker stack, git and database TUIs, and the per-project glue for actual development.",
+      "sources": "pacman / Go",
+      "path": "bundles/the-developer"
+    },
+    {
+      "id": "the-hacker",
+      "name": "The Hacker",
+      "description": "Disassemblers, debuggers, memory and disk forensics, hex and binary inspection, and packet work.",
+      "sources": "pacman / AUR / Go / pipx",
+      "path": "bundles/the-hacker"
     }
   ]
 }

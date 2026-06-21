@@ -1,0 +1,135 @@
+{
+  "id": "secpulse-advanced",
+  "name": "SecPulse Advanced",
+  "description": "Nikto, Shodan, the ProjectDiscovery recon suite, masscan, firewall helpers, and proxied ops tooling.",
+  "items": [
+    {
+      "type": "package",
+      "name": "nikto",
+      "detect": "nikto",
+      "summary": "Web server scanner for dangerous files, stale software, and misconfigurations.",
+      "source": "official",
+      "upstream": "https://github.com/sullo/nikto"
+    },
+    {
+      "type": "package",
+      "name": "whatweb",
+      "detect": "whatweb",
+      "summary": "Fingerprints sites: CMS, frameworks, servers, and technologies.",
+      "source": "aur",
+      "upstream": "https://github.com/urbanadventurer/WhatWeb"
+    },
+    {
+      "type": "package",
+      "name": "wafw00f",
+      "detect": "wafw00f",
+      "summary": "Detects and fingerprints web application firewalls.",
+      "source": "aur",
+      "upstream": "https://github.com/EnableSecurity/wafw00f"
+    },
+    {
+      "type": "package",
+      "name": "python-shodan",
+      "detect": "shodan",
+      "summary": "Official Shodan CLI and library for the internet scan database.",
+      "source": "official",
+      "upstream": "https://github.com/achillean/shodan-python"
+    },
+    {
+      "type": "package",
+      "name": "amass",
+      "detect": "amass",
+      "summary": "OWASP attack surface mapping and subdomain enumeration.",
+      "source": "aur",
+      "upstream": "https://github.com/owasp-amass/amass"
+    },
+    {
+      "type": "script",
+      "name": "subfinder",
+      "detect": "subfinder",
+      "summary": "Passive subdomain discovery from many public sources.",
+      "source": "go",
+      "upstream": "https://github.com/projectdiscovery/subfinder"
+    },
+    {
+      "type": "script",
+      "name": "httpx",
+      "detect": "httpx",
+      "summary": "Fast HTTP toolkit for probing hosts, titles, status codes, and tech.",
+      "source": "go",
+      "upstream": "https://github.com/projectdiscovery/httpx"
+    },
+    {
+      "type": "script",
+      "name": "nuclei",
+      "detect": "nuclei",
+      "summary": "Template-based vulnerability scanner with a community rule library.",
+      "source": "go",
+      "upstream": "https://github.com/projectdiscovery/nuclei"
+    },
+    {
+      "type": "script",
+      "name": "naabu",
+      "detect": "naabu",
+      "summary": "Fast Go SYN and CONNECT port scanner.",
+      "source": "go",
+      "upstream": "https://github.com/projectdiscovery/naabu"
+    },
+    {
+      "type": "package",
+      "name": "masscan",
+      "detect": "masscan",
+      "summary": "Asynchronous mass TCP port scanner for large ranges.",
+      "source": "official",
+      "upstream": "https://github.com/robertdavidgraham/masscan"
+    },
+    {
+      "type": "package",
+      "name": "feroxbuster",
+      "detect": "feroxbuster",
+      "summary": "Recursive web content and directory discovery, written in Rust.",
+      "source": "aur",
+      "upstream": "https://github.com/epi052/feroxbuster"
+    },
+    {
+      "type": "package",
+      "name": "ufw",
+      "detect": "ufw",
+      "summary": "Uncomplicated Firewall, a simple CLI front end for netfilter.",
+      "source": "official",
+      "upstream": "https://launchpad.net/ufw"
+    },
+    {
+      "type": "package",
+      "name": "gufw",
+      "detect": "gufw",
+      "summary": "Graphical front end for ufw.",
+      "source": "official",
+      "upstream": "https://github.com/costales/gufw"
+    },
+    {
+      "type": "package",
+      "name": "firewalld",
+      "detect": "firewall-cmd",
+      "summary": "Dynamic firewall daemon with zones; ships the firewall-config GUI.",
+      "source": "official",
+      "upstream": "https://firewalld.org"
+    },
+    {
+      "type": "package",
+      "name": "proxychains-ng",
+      "detect": "proxychains4",
+      "summary": "Routes TCP traffic of existing programs through proxy chains.",
+      "source": "official",
+      "upstream": "https://github.com/rofl0r/proxychains-ng"
+    },
+    {
+      "type": "package",
+      "name": "tor",
+      "detect": "tor",
+      "summary": "Anonymizing overlay network providing a local SOCKS proxy.",
+      "source": "official",
+      "upstream": "https://www.torproject.org"
+    }
+  ]
+}

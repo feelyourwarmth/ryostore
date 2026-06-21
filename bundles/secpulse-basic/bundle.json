@@ -1,0 +1,118 @@
+{
+  "id": "secpulse-basic",
+  "name": "SecPulse Basic",
+  "description": "Nmap, Gobuster, OpenVPN, wordlists, and the HTB and TryHackMe starter kit, without pretending to be Kali.",
+  "items": [
+    {
+      "type": "package",
+      "name": "nmap",
+      "detect": "nmap",
+      "summary": "Network and port scanner with service detection and NSE scripts.",
+      "source": "official",
+      "upstream": "https://nmap.org"
+    },
+    {
+      "type": "package",
+      "name": "gobuster",
+      "detect": "gobuster",
+      "summary": "Directory, DNS, and vhost brute forcer written in Go.",
+      "source": "official",
+      "upstream": "https://github.com/OJ/gobuster"
+    },
+    {
+      "type": "package",
+      "name": "openvpn",
+      "detect": "openvpn",
+      "summary": "VPN client for connecting to HTB and THM lab networks.",
+      "source": "official",
+      "upstream": "https://openvpn.net/community/"
+    },
+    {
+      "type": "package",
+      "name": "seclists",
+      "summary": "Wordlist collection for fuzzing and brute forcing, includes rockyou.",
+      "source": "aur",
+      "upstream": "https://github.com/danielmiessler/SecLists"
+    },
+    {
+      "type": "package",
+      "name": "openbsd-netcat",
+      "detect": "nc",
+      "summary": "OpenBSD netcat, the nc command for shells, banners, and port checks.",
+      "source": "official",
+      "upstream": "https://man.openbsd.org/nc.1"
+    },
+    {
+      "type": "script",
+      "name": "ffuf",
+      "detect": "ffuf",
+      "summary": "Fast web fuzzer for content, parameter, and vhost discovery.",
+      "source": "go",
+      "upstream": "https://github.com/ffuf/ffuf"
+    },
+    {
+      "type": "package",
+      "name": "sqlmap",
+      "detect": "sqlmap",
+      "summary": "Automatic SQL injection detection and database takeover.",
+      "source": "official",
+      "upstream": "https://sqlmap.org"
+    },
+    {
+      "type": "package",
+      "name": "hydra",
+      "detect": "hydra",
+      "summary": "Network login brute forcer for SSH, FTP, HTTP, and more.",
+      "source": "official",
+      "upstream": "https://github.com/vanhauser-thc/thc-hydra"
+    },
+    {
+      "type": "package",
+      "name": "john",
+      "detect": "john",
+      "summary": "John the Ripper jumbo password and hash cracker.",
+      "source": "official",
+      "upstream": "https://www.openwall.com/john/"
+    },
+    {
+      "type": "package",
+      "name": "whois",
+      "detect": "whois",
+      "summary": "WHOIS client for domain and IP registration lookups.",
+      "source": "official",
+      "upstream": "https://github.com/rfc1036/whois"
+    },
+    {
+      "type": "package",
+      "name": "bind",
+      "detect": "dig",
+      "summary": "DNS query tools dig, host, and nslookup.",
+      "source": "official",
+      "upstream": "https://www.isc.org/bind/"
+    },
+    {
+      "type": "package",
+      "name": "smbclient",
+      "detect": "smbclient",
+      "summary": "Samba SMB client for share access and enumeration.",
+      "source": "official",
+      "upstream": "https://www.samba.org"
+    },
+    {
+      "type": "script",
+      "name": "enum4linux-ng",
+      "detect": "enum4linux-ng",
+      "summary": "Maintained SMB and Windows enumeration tool with JSON output.",
+      "source": "pipx",
+      "upstream": "https://github.com/cddmp/enum4linux-ng"
+    },
+    {
+      "type": "package",
+      "name": "wireshark-qt",
+      "detect": "wireshark",
+      "summary": "GUI network protocol analyzer; also installs tshark.",
+      "source": "official",
+      "upstream": "https://www.wireshark.org"
+    }
+  ]
+}

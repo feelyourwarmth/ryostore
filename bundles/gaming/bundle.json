@@ -1,0 +1,127 @@
+{
+  "id": "gaming",
+  "name": "Gaming",
+  "description": "Launchers, the Wine and Proton compatibility stack, performance overlays, and a Wayland-friendly Discord, ready to play.",
+  "requires": [
+    "multilib"
+  ],
+  "items": [
+    {
+      "type": "package",
+      "name": "steam",
+      "detect": "steam",
+      "summary": "Valve game store and client with built-in Proton compatibility.",
+      "source": "official",
+      "upstream": "https://store.steampowered.com"
+    },
+    {
+      "type": "package",
+      "name": "lutris",
+      "detect": "lutris",
+      "summary": "Open game manager for Windows, native, and emulated games.",
+      "source": "official",
+      "upstream": "https://lutris.net"
+    },
+    {
+      "type": "package",
+      "name": "heroic-games-launcher-bin",
+      "detect": "heroic",
+      "summary": "Launcher for Epic Games, GOG, and Amazon Prime games.",
+      "source": "aur",
+      "upstream": "https://heroicgameslauncher.com"
+    },
+    {
+      "type": "package",
+      "name": "wine",
+      "detect": "wine",
+      "summary": "Compatibility layer for running Windows applications on Linux.",
+      "source": "official",
+      "upstream": "https://www.winehq.org"
+    },
+    {
+      "type": "package",
+      "name": "winetricks",
+      "detect": "winetricks",
+      "summary": "Installs runtime libraries and tweaks into Wine prefixes.",
+      "source": "official",
+      "upstream": "https://github.com/Winetricks/winetricks"
+    },
+    {
+      "type": "package",
+      "name": "protontricks",
+      "detect": "protontricks",
+      "summary": "Runs winetricks tasks inside Steam Proton game prefixes.",
+      "source": "official",
+      "upstream": "https://github.com/Matoking/protontricks"
+    },
+    {
+      "type": "package",
+      "name": "protonup-qt",
+      "detect": "protonup-qt",
+      "summary": "Installs GE-Proton and Wine-GE for Steam, Lutris, and Heroic.",
+      "source": "aur",
+      "upstream": "https://davidotek.github.io/protonup-qt"
+    },
+    {
+      "type": "package",
+      "name": "gamemode",
+      "detect": "gamemoded",
+      "summary": "Applies temporary performance optimizations while gaming.",
+      "source": "official",
+      "upstream": "https://github.com/FeralInteractive/gamemode"
+    },
+    {
+      "type": "package",
+      "name": "lib32-gamemode",
+      "summary": "32-bit GameMode libraries for 32-bit games.",
+      "source": "official",
+      "upstream": "https://github.com/FeralInteractive/gamemode"
+    },
+    {
+      "type": "package",
+      "name": "gamescope",
+      "detect": "gamescope",
+      "summary": "Micro-compositor for upscaling, frame limiting, and isolating games.",
+      "source": "official",
+      "upstream": "https://github.com/ValveSoftware/gamescope"
+    },
+    {
+      "type": "package",
+      "name": "mangohud",
+      "detect": "mangohud",
+      "summary": "Vulkan and OpenGL overlay for FPS, frametimes, and system metrics.",
+      "source": "official",
+      "upstream": "https://github.com/flightlessmango/MangoHud"
+    },
+    {
+      "type": "package",
+      "name": "lib32-mangohud",
+      "summary": "32-bit MangoHud libraries for 32-bit games.",
+      "source": "official",
+      "upstream": "https://github.com/flightlessmango/MangoHud"
+    },
+    {
+      "type": "package",
+      "name": "goverlay",
+      "detect": "goverlay",
+      "summary": "GUI to configure MangoHud and vkBasalt without editing config files.",
+      "source": "official",
+      "upstream": "https://github.com/benjamimgois/goverlay"
+    },
+    {
+      "type": "package",
+      "name": "vkbasalt",
+      "summary": "Vulkan post-processing layer for sharpening, FXAA, SMAA, and deband.",
+      "source": "aur",
+      "upstream": "https://github.com/DadSchoorse/vkBasalt"
+    },
+    {
+      "type": "package",
+      "name": "vesktop-bin",
+      "detect": "vesktop",
+      "summary": "Discord client with Vencord and working Wayland screen share.",
+      "source": "aur",
+      "upstream": "https://github.com/Vencord/Vesktop"
+    }
+  ]
+}

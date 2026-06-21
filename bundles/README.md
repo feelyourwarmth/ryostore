@@ -1,11 +1,12 @@
 # Bundles
 
-A bundle is a named set of tools you install together - packages, small installer scripts,
-and Ryoku plugins. The Extras tab in Settings lists every bundle here and installs it (or
-individual items) with one click, backed by `ryoku-extras-install`.
+A bundle is a named set of tools you install together: packages, small installer
+scripts, and (later) Ryoku plugins. The Hub's Extras section lists every bundle
+here and installs it, or individual items, with one click, backed by
+`ryoku-extras-install`.
 
-Each bundle lives in its own folder under `bundles/<id>/` with a `bundle.json`. The top-level
-`registry.json` is the index the shell reads to discover them.
+Each bundle lives in its own folder under `bundles/<id>/` with a `bundle.json`.
+The top-level `registry.json` is the index the Hub reads to discover them.
 
 ## `registry.json`
 
@@ -14,9 +15,10 @@ Each bundle lives in its own folder under `bundles/<id>/` with a `bundle.json`. 
   "version": 1,
   "bundles": [
     {
-      "id": "the-ricer",        // matches the folder name and bundle.json id
-      "name": "The Ricer",      // display name
-      "description": "...",     // one-line blurb for the card
+      "id": "the-ricer",                 // matches the folder name and bundle.json id
+      "name": "The Ricer",               // display name
+      "description": "...",              // one-line blurb for the card
+      "sources": "pacman / AUR",         // where its items come from, for the card label
       "path": "bundles/the-ricer"
     }
   ]
@@ -30,42 +32,50 @@ Each bundle lives in its own folder under `bundles/<id>/` with a `bundle.json`. 
   "id": "the-ricer",
   "name": "The Ricer",
   "description": "Eye-candy and theming tools that don't ship with Ryoku by default.",
+  "requires": ["multilib"],              // optional: repos to enable before installing
   "items": [
-    { "type": "package", "name": "cmatrix",   "detect": "cmatrix",   "summary": "Matrix rain screensaver." },
-    { "type": "script",  "name": "claude-code", "detect": "claude",  "summary": "Anthropic CLI." },
-    { "type": "plugin",  "name": "wallhaven",  "summary": "Wallhaven frame popout." }
+    { "type": "package", "name": "gpick", "detect": "gpick",
+      "summary": "GTK color picker.", "source": "official", "upstream": "https://..." },
+    { "type": "script", "name": "ffuf", "detect": "ffuf",
+      "summary": "Fast web fuzzer.", "source": "go", "upstream": "https://..." }
   ]
 }
 ```
 
-Each item has a `type`, a `name`, an optional one-line `summary`, and (for packages and
-scripts) a `detect` command used to tell whether it is already installed:
+Each item has a `type`, a `name`, an optional one-line `summary`, an optional
+`source` and `upstream` (shown on the card), and a `detect` command:
 
-- **`package`** - a pacman/AUR package. `ryoku-extras-install` routes it automatically:
-  packages in the official repos go through `ryoku-pkg-add`, the rest through
-  `ryoku-pkg-aur-add` (the AUR), so you only ever write the package name. `detect` is the
-  command that proves it is present and defaults to `name`. Repo packages are batched into
-  one install and AUR packages into another; anything already present is skipped.
-- **`script`** - installed by running `installers/<name>.sh` (the curl pattern; see
-  `installers/README.md`). `detect` is the command the script produces.
-- **`plugin`** - installed through the shell's plugin path (PluginService), not by this
-  command. `name` is the plugin id; the UI installs it exactly like the Plugins tab.
+- **`package`** a pacman/AUR package. `ryoku-extras-install` routes it
+  automatically: a package that resolves with `pacman -Si` installs from the
+  official repos via `ryoku-pkg-add`, the rest from the AUR via
+  `ryoku-pkg-aur-add`, so you only ever write the package name. Presence is
+  decided by `pacman -Qq <name>`; `detect` just documents the command the package
+  provides. Repo packages are batched into one install and AUR packages into
+  another; anything already present is skipped.
+- **`script`** installed by running `installers/<name>.sh` (see
+  `installers/README.md`). `detect` is the command the script produces, and the
+  item is present when that command is on `PATH`.
+- **`plugin`** installed through the shell's plugin path, not this command. The
+  actuator marks it deferred; install it from the Plugins tab.
 
-`detect` and `summary` are optional; the installer tolerates their absence.
+`requires` lists repositories the bundle needs before its packages can be routed.
+Today only `multilib` is supported (Gaming needs it for Steam and the 32-bit
+libraries); the actuator enables it idempotently before installing.
 
 ## How installs run
 
-Installs are per item with real feedback, mirroring the Plugins tab:
+Installs are per item with real feedback:
 
-- The Extras tab runs `ryoku-extras-install` inside a **floating terminal** so the
-  `sudo`/`yay` prompt has a TTY - package installs cannot complete from a silent background
-  process. You watch progress there and type your password if asked.
-- Every item shows its own state in Settings: already present, a loader while installing, a
-  check on success, or a precise failure (reason on hover) - so you always see which tools
-  installed and which failed.
-- The command writes a per-item JSON report (`status`: `installed` | `present` | `removed` |
-  `absent` | `failed` | `deferred` | `skipped`) that the shell watches to drive that state.
-  `ryoku-extras-install status bundle <id>` reports presence without changing anything.
+- The Extras section runs `ryoku-extras-install` inside a **floating terminal** so
+  the `sudo` and AUR prompts have a TTY; package installs cannot complete from a
+  silent background process. You watch progress there and type your password if
+  asked.
+- The command writes a per-bundle JSON report
+  (`$XDG_RUNTIME_DIR/ryoku-extras/<id>.json`) with each item's `status`
+  (`present` | `installing` | `installed` | `removing` | `removed` | `absent` |
+  `failed` | `deferred` | `skipped`) that the Hub watches to drive per-item state.
+  `ryoku-extras-install status bundle <id>` reports presence without changing
+  anything.
 - **Uninstall all** (or a single tool) removes the bundle's package items with
-  `ryoku-pkg-remove` (also in the terminal). Scripts are not auto-removed; plugins are
-  removed from **Settings → Plugins**.
+  `ryoku-pkg-remove`. Scripts are not auto-removed; plugins are removed from the
+  Plugins tab.

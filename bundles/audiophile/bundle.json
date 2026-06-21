@@ -1,0 +1,87 @@
+{
+  "id": "audiophile",
+  "name": "Audiophile",
+  "description": "EasyEffects, patchbays, mixers, and PipeWire inspection for people who care how the machine sounds.",
+  "items": [
+    {
+      "type": "package",
+      "name": "easyeffects",
+      "detect": "easyeffects",
+      "summary": "System-wide EQ and effects (parametric EQ, convolver, crossfeed, dynamics) for PipeWire.",
+      "source": "official",
+      "upstream": "https://github.com/wwmm/easyeffects"
+    },
+    {
+      "type": "package",
+      "name": "helvum",
+      "detect": "helvum",
+      "summary": "GTK patchbay that shows the PipeWire node graph and connects ports by dragging.",
+      "source": "official",
+      "upstream": "https://gitlab.freedesktop.org/pipewire/helvum"
+    },
+    {
+      "type": "package",
+      "name": "qpwgraph",
+      "detect": "qpwgraph",
+      "summary": "Qt PipeWire graph manager with a patchbay that saves and restores connections.",
+      "source": "official",
+      "upstream": "https://gitlab.freedesktop.org/rncbc/qpwgraph"
+    },
+    {
+      "type": "package",
+      "name": "pavucontrol",
+      "detect": "pavucontrol",
+      "summary": "GTK volume control for per-app streams, device selection, and card profiles.",
+      "source": "official",
+      "upstream": "https://freedesktop.org/software/pulseaudio/pavucontrol/"
+    },
+    {
+      "type": "package",
+      "name": "pamixer",
+      "detect": "pamixer",
+      "summary": "Command-line volume mixer for keybindings and scripts.",
+      "source": "official",
+      "upstream": "https://github.com/cdemoulins/pamixer"
+    },
+    {
+      "type": "package",
+      "name": "ncpamixer",
+      "detect": "ncpamixer",
+      "summary": "ncurses terminal mixer modeled on pavucontrol.",
+      "source": "aur",
+      "upstream": "https://github.com/fulhax/ncpamixer"
+    },
+    {
+      "type": "package",
+      "name": "coppwr",
+      "detect": "coppwr",
+      "summary": "Low-level PipeWire control: nodes, clock rate, quantum, metadata, and profiler stats.",
+      "source": "aur",
+      "upstream": "https://github.com/dimtpap/coppwr"
+    },
+    {
+      "type": "package",
+      "name": "alsa-utils",
+      "detect": "alsamixer",
+      "summary": "ALSA command-line utilities: alsamixer, speaker-test, aplay, and arecord.",
+      "source": "official",
+      "upstream": "https://www.alsa-project.org"
+    },
+    {
+      "type": "package",
+      "name": "bluez",
+      "detect": "bluetoothd",
+      "summary": "Linux Bluetooth protocol stack daemon for pairing wireless audio devices.",
+      "source": "official",
+      "upstream": "http://www.bluez.org/"
+    },
+    {
+      "type": "package",
+      "name": "bluez-utils",
+      "detect": "bluetoothctl",
+      "summary": "Bluetooth management utilities including the bluetoothctl client.",
+      "source": "official",
+      "upstream": "http://www.bluez.org/"
+    }
+  ]
+}

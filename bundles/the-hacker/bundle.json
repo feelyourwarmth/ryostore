@@ -1,0 +1,214 @@
+{
+  "id": "the-hacker",
+  "name": "The Hacker",
+  "description": "Disassemblers, debuggers, memory and disk forensics, hex and binary inspection, and packet work.",
+  "items": [
+    {
+      "type": "package",
+      "name": "ghidra",
+      "detect": "ghidra",
+      "summary": "NSA reverse engineering suite with a multi-architecture decompiler.",
+      "source": "official",
+      "upstream": "https://ghidra-sre.org/"
+    },
+    {
+      "type": "package",
+      "name": "radare2",
+      "detect": "radare2",
+      "summary": "CLI framework to disassemble, debug, and analyze binaries.",
+      "source": "official",
+      "upstream": "https://radare.org"
+    },
+    {
+      "type": "package",
+      "name": "rizin",
+      "detect": "rizin",
+      "summary": "Maintained radare2 fork for binary analysis and disassembly.",
+      "source": "official",
+      "upstream": "https://rizin.re"
+    },
+    {
+      "type": "package",
+      "name": "cutter-bin",
+      "detect": "cutter",
+      "summary": "Qt graphical reverse engineering interface powered by rizin.",
+      "source": "aur",
+      "upstream": "https://github.com/rizinorg/cutter/"
+    },
+    {
+      "type": "package",
+      "name": "gdb",
+      "detect": "gdb",
+      "summary": "GNU debugger for native code with scripting and remote debugging.",
+      "source": "official",
+      "upstream": "https://www.gnu.org/software/gdb/"
+    },
+    {
+      "type": "package",
+      "name": "pwndbg",
+      "detect": "pwndbg",
+      "summary": "GDB plugin for exploit development and heap inspection.",
+      "source": "official",
+      "upstream": "https://github.com/pwndbg/pwndbg"
+    },
+    {
+      "type": "package",
+      "name": "gef",
+      "summary": "GDB enhancement script for exploit development, loaded from gdbinit.",
+      "source": "official",
+      "upstream": "https://github.com/hugsy/gef"
+    },
+    {
+      "type": "package",
+      "name": "ltrace",
+      "detect": "ltrace",
+      "summary": "Traces library calls and signals of a running program.",
+      "source": "official",
+      "upstream": "https://www.ltrace.org/"
+    },
+    {
+      "type": "package",
+      "name": "strace",
+      "detect": "strace",
+      "summary": "Traces system calls and signals of a running program.",
+      "source": "official",
+      "upstream": "https://strace.io/"
+    },
+    {
+      "type": "package",
+      "name": "bindiff",
+      "detect": "bindiff",
+      "summary": "Diffs disassembled binaries to match and compare code.",
+      "source": "aur",
+      "upstream": "https://github.com/google/bindiff"
+    },
+    {
+      "type": "package",
+      "name": "binwalk",
+      "detect": "binwalk",
+      "summary": "Scans and extracts embedded files and firmware images.",
+      "source": "official",
+      "upstream": "https://github.com/ReFirmLabs/binwalk"
+    },
+    {
+      "type": "package",
+      "name": "tinyxxd",
+      "detect": "xxd",
+      "summary": "Standalone xxd hex dump and reverse utility.",
+      "source": "official",
+      "upstream": "https://github.com/xyproto/tinyxxd"
+    },
+    {
+      "type": "package",
+      "name": "hexedit",
+      "detect": "hexedit",
+      "summary": "Interactive terminal editor for viewing and modifying files in hex.",
+      "source": "official",
+      "upstream": "https://rigaux.org/hexedit.html"
+    },
+    {
+      "type": "package",
+      "name": "hexyl",
+      "detect": "hexyl",
+      "summary": "Colored command-line hex viewer with byte category highlighting.",
+      "source": "official",
+      "upstream": "https://github.com/sharkdp/hexyl"
+    },
+    {
+      "type": "script",
+      "name": "capa",
+      "detect": "capa",
+      "summary": "Identifies capabilities in executable files using a rule set.",
+      "source": "pipx",
+      "upstream": "https://github.com/mandiant/capa"
+    },
+    {
+      "type": "package",
+      "name": "sleuthkit",
+      "detect": "fls",
+      "summary": "Command-line toolkit to analyze disk images and file systems.",
+      "source": "official",
+      "upstream": "https://www.sleuthkit.org/sleuthkit"
+    },
+    {
+      "type": "package",
+      "name": "autopsy",
+      "detect": "autopsy",
+      "summary": "Graphical digital forensics platform built on The Sleuth Kit.",
+      "source": "aur",
+      "upstream": "https://www.sleuthkit.org/autopsy/"
+    },
+    {
+      "type": "package",
+      "name": "volatility3",
+      "detect": "vol",
+      "summary": "Memory forensics framework for analyzing RAM captures.",
+      "source": "official",
+      "upstream": "https://github.com/volatilityfoundation/volatility3"
+    },
+    {
+      "type": "package",
+      "name": "foremost",
+      "detect": "foremost",
+      "summary": "Recovers files from disk images by header and footer carving.",
+      "source": "official",
+      "upstream": "http://foremost.sourceforge.net/"
+    },
+    {
+      "type": "package",
+      "name": "testdisk",
+      "detect": "testdisk",
+      "summary": "Recovers lost partitions and undeletes files, includes PhotoRec.",
+      "source": "official",
+      "upstream": "https://www.cgsecurity.org/index.html?testdisk.html"
+    },
+    {
+      "type": "package",
+      "name": "ddrescue",
+      "detect": "ddrescue",
+      "summary": "Images failing drives while skipping bad sectors.",
+      "source": "official",
+      "upstream": "https://www.gnu.org/software/ddrescue/ddrescue.html"
+    },
+    {
+      "type": "package",
+      "name": "perl-image-exiftool",
+      "detect": "exiftool",
+      "summary": "Reads and writes metadata in images, documents, and media.",
+      "source": "official",
+      "upstream": "https://exiftool.org/"
+    },
+    {
+      "type": "package",
+      "name": "wireshark-qt",
+      "detect": "wireshark",
+      "summary": "Graphical network protocol analyzer for live and captured traffic.",
+      "source": "official",
+      "upstream": "https://www.wireshark.org/"
+    },
+    {
+      "type": "package",
+      "name": "wireshark-cli",
+      "detect": "tshark",
+      "summary": "Command-line packet analyzer (tshark) from the Wireshark project.",
+      "source": "official",
+      "upstream": "https://www.wireshark.org/"
+    },
+    {
+      "type": "package",
+      "name": "tcpdump",
+      "detect": "tcpdump",
+      "summary": "Command-line packet capture and inspection using libpcap.",
+      "source": "official",
+      "upstream": "https://www.tcpdump.org/"
+    },
+    {
+      "type": "script",
+      "name": "termshark",
+      "detect": "termshark",
+      "summary": "Terminal user interface for tshark.",
+      "source": "go",
+      "upstream": "https://github.com/gcla/termshark"
+    }
+  ]
+}

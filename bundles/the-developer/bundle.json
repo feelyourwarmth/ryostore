@@ -1,0 +1,118 @@
+{
+  "id": "the-developer",
+  "name": "The Developer",
+  "description": "Zed, the Docker stack, git and database TUIs, and the per-project glue for actual development.",
+  "items": [
+    {
+      "type": "package",
+      "name": "zed",
+      "detect": "zeditor",
+      "summary": "GPU-accelerated code editor with language servers and multiplayer.",
+      "source": "official",
+      "upstream": "https://zed.dev"
+    },
+    {
+      "type": "package",
+      "name": "docker",
+      "detect": "docker",
+      "summary": "Container engine for building, running, and shipping containers.",
+      "source": "official",
+      "upstream": "https://www.docker.com/"
+    },
+    {
+      "type": "package",
+      "name": "docker-compose",
+      "detect": "docker-compose",
+      "summary": "Docker plugin to run multi-container apps from a compose file.",
+      "source": "official",
+      "upstream": "https://github.com/docker/compose"
+    },
+    {
+      "type": "package",
+      "name": "docker-buildx",
+      "summary": "Docker plugin for BuildKit multi-platform image builds.",
+      "source": "official",
+      "upstream": "https://github.com/docker/buildx"
+    },
+    {
+      "type": "package",
+      "name": "lazydocker",
+      "detect": "lazydocker",
+      "summary": "Terminal UI for Docker containers, images, volumes, and logs.",
+      "source": "official",
+      "upstream": "https://github.com/jesseduffield/lazydocker"
+    },
+    {
+      "type": "package",
+      "name": "git-delta",
+      "detect": "delta",
+      "summary": "Syntax-highlighting pager for git, diff, and grep output.",
+      "source": "official",
+      "upstream": "https://github.com/dandavison/delta"
+    },
+    {
+      "type": "package",
+      "name": "gitui",
+      "detect": "gitui",
+      "summary": "Fast terminal UI for git, written in Rust.",
+      "source": "official",
+      "upstream": "https://github.com/extrawurst/gitui"
+    },
+    {
+      "type": "package",
+      "name": "direnv",
+      "detect": "direnv",
+      "summary": "Loads and unloads environment variables per directory.",
+      "source": "official",
+      "upstream": "https://direnv.net"
+    },
+    {
+      "type": "package",
+      "name": "just",
+      "detect": "just",
+      "summary": "Command runner for project tasks defined in a justfile.",
+      "source": "official",
+      "upstream": "https://github.com/casey/just"
+    },
+    {
+      "type": "package",
+      "name": "httpie",
+      "detect": "http",
+      "summary": "Human-friendly command-line HTTP and REST client.",
+      "source": "official",
+      "upstream": "https://github.com/httpie/cli"
+    },
+    {
+      "type": "package",
+      "name": "go-yq",
+      "detect": "yq",
+      "summary": "Command-line YAML, JSON, and XML processor with jq-style syntax.",
+      "source": "official",
+      "upstream": "https://github.com/mikefarah/yq"
+    },
+    {
+      "type": "script",
+      "name": "lazysql",
+      "detect": "lazysql",
+      "summary": "Terminal UI database client for Postgres, MySQL, SQLite, and more.",
+      "source": "go",
+      "upstream": "https://github.com/jorgerojas26/lazysql"
+    },
+    {
+      "type": "package",
+      "name": "ruff",
+      "detect": "ruff",
+      "summary": "Fast Python linter and code formatter.",
+      "source": "official",
+      "upstream": "https://github.com/astral-sh/ruff"
+    },
+    {
+      "type": "package",
+      "name": "shellcheck",
+      "detect": "shellcheck",
+      "summary": "Static analysis linter for shell scripts.",
+      "source": "official",
+      "upstream": "https://www.shellcheck.net"
+    }
+  ]
+}
