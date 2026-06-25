@@ -1,33 +1,29 @@
 {
   "id": "wallhaven",
   "name": "Wallhaven",
-  "version": "1.2.1",
+  "version": "2.0.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
-  "description": "Browse wallhaven.cc and set wallpapers from the top-right frame corner.",
+  "description": "Browse wallhaven.cc and set wallpapers, as a frame popout or desktop widget.",
   "license": "MIT",
-  "tags": ["wallpaper", "frame"],
+  "tags": ["wallpaper"],
   "official": true,
   "entryPoints": {
     "main": "service/Main.qml",
-    "framePanel": "ui/Panel.qml",
-    "settings": "ui/Settings.qml"
+    "content": "content/Widget.qml",
+    "settings": "settings/Page.qml"
   },
-  "frame": {
-    "edge": "top",
-    "align": "end",
-    "activationWidth": 320,
-    "activationHeight": 16,
+  "capabilities": {
+    "densities": ["glyph", "compact", "full"]
+  },
+  "hosts": ["framePopout", "desktopWidget"],
+  "defaults": {
+    "host": "framePopout",
+    "framePopout": { "edge": "top", "align": "end" },
     "key": "w",
-    "label": "Wallhaven",
-    "icon": "wallpaper"
+    "icon": "wallpaper",
+    "label": "Wallhaven"
   },
   "commands": ["bin/ryoku-wallhaven-search"],
-  "dependencies": {
-    "commands": ["curl", "jq"]
-  },
-  "metadata": {
-    "defaultSettings": {
-      "apiKey": ""
-    }
-  }
+  "dependencies": { "commands": ["curl", "jq"] },
+  "metadata": { "defaultSettings": { "apiKey": "" } }
 }

@@ -1,17 +1,22 @@
 {
   "version": 1,
-  "plugins": [],
-  "archived": [
+  "plugins": [
     {
       "id": "wallhaven",
       "name": "Wallhaven",
       "path": "plugins/wallhaven",
-      "version": "1.2.1",
+      "version": "2.0.0",
       "author": "Ryoku Team",
-      "description": "Browse wallhaven.cc and set wallpapers from the top-right frame corner.",
-      "tags": ["wallpaper", "frame"],
       "official": true,
-      "lastUpdated": "2026-06-08"
+      "tagline": "Browse wallhaven.cc and set your wallpaper, from any host.",
+      "description": "A full wallpaper browser for the Ryoku desktop. Search wallhaven.cc, filter by Latest / Top week / Top month, page through results, and set any wallpaper with a click. Renders as a frame popout that melts out of the screen edge, or as a draggable desktop widget alongside your clock and weather - the same view, native in either home.",
+      "icon": "wallpaper",
+      "tags": ["wallpaper", "frame", "desktop-widget"],
+      "hosts": ["framePopout", "desktopWidget"],
+      "preview": "assets/preview-popout.png",
+      "screenshots": ["assets/preview-popout.png", "assets/preview-widget.png"],
+      "lastUpdated": "2026-06-25"
     }
-  ]
+  ],
+  "archived": []
 }
