@@ -1,0 +1,37 @@
+{
+  "id": "photo-frame",
+  "name": "Photo Frame",
+  "version": "1.0.0",
+  "author": "Ryoku Team <hello@ryoku.sh>",
+  "description": "Pin a photo to your desktop in a chosen frame style, with shadow and filter controls.",
+  "license": "MIT",
+  "tags": ["photo", "desktop-widget"],
+  "official": true,
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml",
+    "settings": "settings/Page.qml"
+  },
+  "capabilities": {
+    "densities": ["glyph", "compact", "full"]
+  },
+  "hosts": ["desktopWidget"],
+  "defaults": {
+    "host": "desktopWidget",
+    "icon": "image",
+    "label": "Photo"
+  },
+  "metadata": {
+    "defaultSettings": {
+      "imagePath": "",
+      "style": "rounded",
+      "aspect": "4:3",
+      "filter": "none",
+      "caption": "",
+      "shadowEnabled": true,
+      "shadowBlur": 0.55,
+      "shadowOffset": 8,
+      "shadowOpacity": 0.45
+    }
+  }
+}

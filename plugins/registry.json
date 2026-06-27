@@ -16,6 +16,22 @@
       "preview": "assets/preview-popout.png",
       "screenshots": ["assets/preview-popout.png", "assets/preview-widget.png"],
       "lastUpdated": "2026-06-25"
+    },
+    {
+      "id": "photo-frame",
+      "name": "Photo Frame",
+      "path": "plugins/photo-frame",
+      "version": "1.0.0",
+      "author": "Ryoku Team",
+      "official": true,
+      "tagline": "Pin a photo to your desktop, framed the way you like it.",
+      "description": "A desktop-widget plugin that pins any photo to your wallpaper in a chosen frame style - rounded, square, polaroid, framed, or film - with a tunable drop shadow and live colour filters (mono, noir, sepia, warm, cool, vivid, fade). Drag, resize, and place it alongside your clock and weather; it ships with a sample photo so it looks right the moment you enable it.",
+      "icon": "image",
+      "tags": ["photo", "desktop-widget"],
+      "hosts": ["desktopWidget"],
+      "preview": "assets/preview-widget.png",
+      "screenshots": ["assets/preview-widget.png"],
+      "lastUpdated": "2026-06-27"
     }
   ],
   "archived": []
