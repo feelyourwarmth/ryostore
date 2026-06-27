@@ -1,7 +1,7 @@
 {
   "id": "wallhaven",
   "name": "Wallhaven",
-  "version": "2.1.0",
+  "version": "2.1.2",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Browse wallhaven.cc and set wallpapers, as a frame popout or desktop widget.",
   "license": "MIT",
@@ -11,6 +11,10 @@
     "main": "service/Main.qml",
     "content": "content/Widget.qml"
   },
+  "files": [
+    "assets/preview-popout.png",
+    "assets/preview-widget.png"
+  ],
   "capabilities": {
     "densities": ["glyph", "compact", "full"]
   },
