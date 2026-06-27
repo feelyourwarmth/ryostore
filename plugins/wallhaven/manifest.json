@@ -1,7 +1,7 @@
 {
   "id": "wallhaven",
   "name": "Wallhaven",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Browse wallhaven.cc and set wallpapers, as a frame popout or desktop widget.",
   "license": "MIT",
@@ -25,5 +25,9 @@
   },
   "commands": ["bin/ryoku-wallhaven-search"],
   "dependencies": { "commands": ["curl", "jq"] },
-  "metadata": { "defaultSettings": { "apiKey": "" } }
+  "metadata": {
+    "settings": [
+      { "key": "apiKey", "type": "text", "label": "API key", "group": "Wallhaven", "default": "", "placeholder": "Optional, from wallhaven.cc/settings/account" }
+    ]
+  }
 }

@@ -1,7 +1,7 @@
 {
   "id": "photo-frame",
   "name": "Photo Frame",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Pin a photo to your desktop in a chosen frame style, with shadow and filter controls.",
   "license": "MIT",
@@ -27,16 +27,37 @@
     "label": "Photo"
   },
   "metadata": {
-    "defaultSettings": {
-      "imagePath": "",
-      "style": "rounded",
-      "aspect": "4:3",
-      "filter": "none",
-      "caption": "",
-      "shadowEnabled": true,
-      "shadowBlur": 0.55,
-      "shadowOffset": 8,
-      "shadowOpacity": 0.45
-    }
+    "settings": [
+      { "key": "imagePath", "type": "image", "label": "Image", "group": "Photo", "default": "" },
+      { "key": "style", "type": "choice", "label": "Style", "group": "Photo", "default": "rounded", "options": [
+        { "value": "rounded", "label": "Rounded" },
+        { "value": "square", "label": "Square" },
+        { "value": "polaroid", "label": "Polaroid" },
+        { "value": "framed", "label": "Framed" },
+        { "value": "film", "label": "Film" }
+      ] },
+      { "key": "aspect", "type": "choice", "label": "Aspect", "group": "Photo", "default": "4:3", "options": [
+        { "value": "1:1", "label": "Square" },
+        { "value": "4:3", "label": "4:3" },
+        { "value": "3:2", "label": "3:2" },
+        { "value": "16:9", "label": "16:9" },
+        { "value": "3:4", "label": "Portrait" }
+      ] },
+      { "key": "caption", "type": "text", "label": "Caption", "group": "Photo", "default": "", "placeholder": "Shown on polaroid / framed" },
+      { "key": "filter", "type": "choice", "label": "Filter", "group": "Filter", "default": "none", "options": [
+        { "value": "none", "label": "None" },
+        { "value": "mono", "label": "Mono" },
+        { "value": "noir", "label": "Noir" },
+        { "value": "sepia", "label": "Sepia" },
+        { "value": "warm", "label": "Warm" },
+        { "value": "cool", "label": "Cool" },
+        { "value": "vivid", "label": "Vivid" },
+        { "value": "fade", "label": "Fade" }
+      ] },
+      { "key": "shadowEnabled", "type": "toggle", "label": "Drop shadow", "group": "Shadow", "default": true },
+      { "key": "shadowBlur", "type": "slider", "label": "Blur", "group": "Shadow", "default": 0.55, "min": 0, "max": 1, "step": 0.01, "decimals": 2 },
+      { "key": "shadowOffset", "type": "slider", "label": "Offset", "group": "Shadow", "default": 8, "min": 0, "max": 28, "step": 1, "decimals": 0 },
+      { "key": "shadowOpacity", "type": "slider", "label": "Opacity", "group": "Shadow", "default": 0.45, "min": 0, "max": 1, "step": 0.01, "decimals": 2 }
+    ]
   }
 }
