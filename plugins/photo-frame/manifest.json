@@ -12,6 +12,11 @@
     "content": "content/Widget.qml",
     "settings": "settings/Page.qml"
   },
+  "files": [
+    "content/PhotoFrame.qml",
+    "assets/example.jpg",
+    "assets/preview-widget.png"
+  ],
   "capabilities": {
     "densities": ["glyph", "compact", "full"]
   },
