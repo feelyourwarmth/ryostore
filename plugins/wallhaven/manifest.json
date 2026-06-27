@@ -9,8 +9,7 @@
   "official": true,
   "entryPoints": {
     "main": "service/Main.qml",
-    "content": "content/Widget.qml",
-    "settings": "settings/Page.qml"
+    "content": "content/Widget.qml"
   },
   "capabilities": {
     "densities": ["glyph", "compact", "full"]
