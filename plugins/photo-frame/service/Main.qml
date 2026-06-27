@@ -56,6 +56,6 @@ Item {
     readonly property real shadowBlur: _num("shadowBlur", 0.55)
     readonly property real shadowOffset: _num("shadowOffset", 8)
     readonly property real shadowOpacity: _num("shadowOpacity", 0.45)
-    readonly property real radiusScale: _num("radiusScale", 1)
-    readonly property real matScale: _num("matScale", 1)
+    readonly property real radius: _num("radius", 18)
+    readonly property real frame: _num("frame", 14)
 }

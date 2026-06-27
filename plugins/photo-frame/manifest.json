@@ -1,7 +1,7 @@
 {
   "id": "photo-frame",
   "name": "Photo Frame",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Pin a photo to your desktop in a chosen frame style, with shadow and filter controls.",
   "license": "MIT",
@@ -22,6 +22,7 @@
   "hosts": ["desktopWidget"],
   "defaults": {
     "host": "desktopWidget",
+    "desktopWidget": { "bg": "none" },
     "icon": "image",
     "label": "Photo"
   },
@@ -42,8 +43,8 @@
         { "value": "16:9", "label": "16:9" },
         { "value": "3:4", "label": "Portrait" }
       ] },
-      { "key": "radiusScale", "type": "slider", "label": "Roundness", "group": "Photo", "default": 1, "min": 0, "max": 2, "step": 0.05, "decimals": 2 },
-      { "key": "matScale", "type": "slider", "label": "Frame size", "group": "Photo", "default": 1, "min": 0, "max": 2, "step": 0.05, "decimals": 2 },
+      { "key": "radius", "type": "slider", "label": "Roundness", "group": "Photo", "default": 18, "min": 0, "max": 48, "step": 1, "decimals": 0 },
+      { "key": "frame", "type": "slider", "label": "Frame size", "group": "Photo", "default": 14, "min": 0, "max": 48, "step": 1, "decimals": 0 },
       { "key": "caption", "type": "text", "label": "Caption", "group": "Photo", "default": "", "placeholder": "Shown on polaroid / framed" },
       { "key": "filter", "type": "choice", "label": "Filter", "group": "Filter", "default": "none", "options": [
         { "value": "none", "label": "None" },

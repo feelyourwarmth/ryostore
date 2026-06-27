@@ -58,7 +58,7 @@ Item {
         shadowBlur: root.service ? root.service.shadowBlur : 0.55
         shadowOffset: root.service ? root.service.shadowOffset : 8
         shadowOpacity: root.service ? root.service.shadowOpacity : 0.45
-        radiusScale: root.service ? root.service.radiusScale : 1
-        matScale: root.service ? root.service.matScale : 1
+        radius: root.service ? root.service.radius : 18
+        frame: root.service ? root.service.frame : 14
     }
 }

@@ -6,20 +6,21 @@ import Quickshell.Widgets
 import Ryoku.PluginKit.Singletons
 
 /**
- * One framed photo. Given a source and a few semantic settings (style, filter,
- * aspect, caption, shadow), it renders a "print": an optional mat, the photo
- * clipped to rounded corners with a colour filter, an optional inner hairline,
- * an optional caption, and a soft drop shadow.
+ * One framed photo. A "print": an optional coloured mat (the frame), the photo
+ * clipped to rounded corners with a colour filter, an optional inner hairline, an
+ * optional caption, and a soft drop shadow.
  *
- * Rendering mirrors the shell's proven idioms so it composites correctly in
- * Quickshell: the photo is a ClippingRectangle whose layer.effect MultiEffect
- * applies the colour filter (as in pill/Wallpaper.qml), and the shadow is a
- * sibling MultiEffect that samples the opaque print behind it (as in
- * widgets/PluginDesktopSlot.qml) - so there is no fragile nested-layer stack.
+ * Geometry is direct: `radius` is the outer corner roundness in px and `frame` is
+ * the mat thickness in px - both are live user controls. `style` sets only the
+ * mat's colour and character: "transparent" (rounded / square) is a frameless
+ * print where the photo fills the tile; film / framed / polaroid give a dark /
+ * cream / white frame. The photo widget runs without the host card (bg "none"),
+ * so this mat is the only frame and the sliders own it.
  *
- * `baseW` is the print's outer width; the photo area is derived from it and the
- * aspect ratio, and the root reports its intrinsic size so the host can size the
- * tile around it.
+ * Rendering mirrors the shell's proven idioms: the photo is a ClippingRectangle
+ * whose layer.effect MultiEffect applies the colour filter (pill/Wallpaper.qml),
+ * and the shadow is a sibling MultiEffect sampling the opaque print behind it
+ * (widgets/PluginDesktopSlot.qml) - no fragile nested-layer stack.
  */
 Item {
     id: frame
@@ -32,26 +33,24 @@ Item {
     property real baseW: 320
     property real s: 1
 
+    // Direct frame geometry (px, pre-scale) - the live "Roundness" / "Frame size".
+    property real radius: 18
+    property real frame: 14
+
     property bool shadowEnabled: true
     property real shadowBlur: 0.55
     property real shadowOffset: 8
     property real shadowOpacity: 0.45
 
-    // Optional overrides on top of the chosen style: roundness and frame
-    // thickness, each a multiplier of the style's base (1.0 = the style as-is).
-    property real radiusScale: 1
-    property real matScale: 1
-
-    // A frame style: outer/inner corner radius, mat colour and margins, an
-    // optional inner hairline, and the caption ink for that mat. A "transparent"
-    // mat is a borderless print (the photo fills the whole tile).
+    // A style: the mat's colour + character only (geometry comes from radius/frame).
+    // "transparent" is a borderless print; `cap` allows a caption band.
     function _style(name) {
         switch (name) {
-        case "square":   return { outer: 2,  inner: 2,  mat: "transparent", mT: 0,  mS: 0,  mB: 0,  line: Qt.rgba(1, 1, 1, 0.14), lineW: 1, ink: "#e8ebfa" };
-        case "polaroid": return { outer: 10, inner: 2,  mat: "#f4f1ea",     mT: 15, mS: 15, mB: 52, line: "transparent",          lineW: 0, ink: "#33302b" };
-        case "framed":   return { outer: 6,  inner: 2,  mat: "#ece4d8",     mT: 22, mS: 22, mB: 22, line: Qt.rgba(0, 0, 0, 0.20),  lineW: 1, ink: "#33302b" };
-        case "film":     return { outer: 4,  inner: 1,  mat: "#141210",     mT: 13, mS: 13, mB: 13, line: Qt.rgba(1, 1, 1, 0.10),  lineW: 1, ink: "#e8ebfa" };
-        default:         return { outer: 16, inner: 16, mat: "transparent", mT: 0,  mS: 0,  mB: 0,  line: "transparent",          lineW: 0, ink: "#e8ebfa" }; // rounded
+        case "square":   return { mat: "transparent", line: Qt.rgba(1, 1, 1, 0.14), lineW: 1, ink: "#e8ebfa", cap: false };
+        case "polaroid": return { mat: "#f4f1ea",     line: "transparent",          lineW: 0, ink: "#33302b", cap: true };
+        case "framed":   return { mat: "#ece4d8",     line: Qt.rgba(0, 0, 0, 0.20),  lineW: 1, ink: "#33302b", cap: true };
+        case "film":     return { mat: "#141210",     line: Qt.rgba(1, 1, 1, 0.10),  lineW: 1, ink: "#e8ebfa", cap: false };
+        default:         return { mat: "transparent", line: "transparent",          lineW: 0, ink: "#e8ebfa", cap: false }; // rounded
         }
     }
 
@@ -72,12 +71,13 @@ Item {
     readonly property var sp: _style(style)
     readonly property var fp: _filter(filter)
 
-    // Style values with the roundness / frame-size overrides applied.
-    readonly property real rOuter: frame.sp.outer * frame.radiusScale
-    readonly property real rInner: frame.sp.inner * frame.radiusScale
-    readonly property real matT: frame.sp.mT * frame.matScale
-    readonly property real matS: frame.sp.mS * frame.matScale
-    readonly property real matB: frame.sp.mB * frame.matScale
+    // A frame only shows for a coloured mat; transparent styles ignore thickness.
+    readonly property bool hasMat: frame.sp.mat !== "transparent"
+    readonly property real matW: frame.hasMat ? Math.max(0, frame.frame) : 0
+    readonly property real capBand: 30
+    readonly property bool hasCaption: frame.caption.length > 0 && frame.sp.cap && frame.hasMat
+    readonly property real rOuter: Math.max(0, frame.radius)
+    readonly property real rInner: Math.max(0, frame.radius - frame.matW)
 
     // Aspect "W:H" -> photo height as a fraction of the photo width.
     readonly property real ratio: {
@@ -87,12 +87,11 @@ Item {
         return (w > 0 && h > 0) ? (h / w) : (3 / 4);
     }
 
-    readonly property real photoW: Math.max(1, baseW - 2 * matS * s)
+    readonly property real photoW: Math.max(1, baseW - 2 * matW * s)
     readonly property real photoH: Math.max(1, Math.round(photoW * ratio))
-    readonly property bool hasCaption: caption.length > 0 && matB >= 28
 
     implicitWidth: baseW
-    implicitHeight: photoH + (matT + matB) * s
+    implicitHeight: photoH + (matW * 2 + (hasCaption ? capBand : 0)) * s
 
     // Soft drop shadow: a sibling MultiEffect that samples the opaque print and
     // sits behind it, so only the offset blur shows past the print's edge.
@@ -118,8 +117,8 @@ Item {
         // Inner hairline around the photo (square / framed / film).
         Rectangle {
             visible: frame.sp.lineW > 0
-            x: frame.matS * frame.s - frame.sp.lineW
-            y: frame.matT * frame.s - frame.sp.lineW
+            x: frame.matW * frame.s - frame.sp.lineW
+            y: frame.matW * frame.s - frame.sp.lineW
             width: frame.photoW + frame.sp.lineW * 2
             height: frame.photoH + frame.sp.lineW * 2
             radius: frame.rInner * frame.s + frame.sp.lineW
@@ -131,8 +130,8 @@ Item {
         // The photo: rounded clip + colour filter.
         ClippingRectangle {
             id: pic
-            x: frame.matS * frame.s
-            y: frame.matT * frame.s
+            x: frame.matW * frame.s
+            y: frame.matW * frame.s
             width: frame.photoW
             height: frame.photoH
             radius: frame.rInner * frame.s
@@ -159,7 +158,7 @@ Item {
             }
         }
 
-        // Caption band (polaroid, or any mat with a deep bottom margin).
+        // Caption band (polaroid / framed, when a caption is set).
         Text {
             visible: frame.hasCaption
             anchors.top: pic.bottom
