@@ -37,6 +37,11 @@ Item {
     property real shadowOffset: 8
     property real shadowOpacity: 0.45
 
+    // Optional overrides on top of the chosen style: roundness and frame
+    // thickness, each a multiplier of the style's base (1.0 = the style as-is).
+    property real radiusScale: 1
+    property real matScale: 1
+
     // A frame style: outer/inner corner radius, mat colour and margins, an
     // optional inner hairline, and the caption ink for that mat. A "transparent"
     // mat is a borderless print (the photo fills the whole tile).
@@ -67,6 +72,13 @@ Item {
     readonly property var sp: _style(style)
     readonly property var fp: _filter(filter)
 
+    // Style values with the roundness / frame-size overrides applied.
+    readonly property real rOuter: frame.sp.outer * frame.radiusScale
+    readonly property real rInner: frame.sp.inner * frame.radiusScale
+    readonly property real matT: frame.sp.mT * frame.matScale
+    readonly property real matS: frame.sp.mS * frame.matScale
+    readonly property real matB: frame.sp.mB * frame.matScale
+
     // Aspect "W:H" -> photo height as a fraction of the photo width.
     readonly property real ratio: {
         var parts = String(aspect).split(":");
@@ -75,12 +87,12 @@ Item {
         return (w > 0 && h > 0) ? (h / w) : (3 / 4);
     }
 
-    readonly property real photoW: Math.max(1, baseW - 2 * sp.mS * s)
+    readonly property real photoW: Math.max(1, baseW - 2 * matS * s)
     readonly property real photoH: Math.max(1, Math.round(photoW * ratio))
-    readonly property bool hasCaption: caption.length > 0 && sp.mB >= 28
+    readonly property bool hasCaption: caption.length > 0 && matB >= 28
 
     implicitWidth: baseW
-    implicitHeight: photoH + (sp.mT + sp.mB) * s
+    implicitHeight: photoH + (matT + matB) * s
 
     // Soft drop shadow: a sibling MultiEffect that samples the opaque print and
     // sits behind it, so only the offset blur shows past the print's edge.
@@ -100,17 +112,17 @@ Item {
     Rectangle {
         id: printItem
         anchors.fill: parent
-        radius: frame.sp.outer * frame.s
+        radius: frame.rOuter * frame.s
         color: frame.sp.mat
 
         // Inner hairline around the photo (square / framed / film).
         Rectangle {
             visible: frame.sp.lineW > 0
-            x: frame.sp.mS * frame.s - frame.sp.lineW
-            y: frame.sp.mT * frame.s - frame.sp.lineW
+            x: frame.matS * frame.s - frame.sp.lineW
+            y: frame.matT * frame.s - frame.sp.lineW
             width: frame.photoW + frame.sp.lineW * 2
             height: frame.photoH + frame.sp.lineW * 2
-            radius: frame.sp.inner * frame.s + frame.sp.lineW
+            radius: frame.rInner * frame.s + frame.sp.lineW
             color: "transparent"
             border.width: frame.sp.lineW
             border.color: frame.sp.line
@@ -119,11 +131,11 @@ Item {
         // The photo: rounded clip + colour filter.
         ClippingRectangle {
             id: pic
-            x: frame.sp.mS * frame.s
-            y: frame.sp.mT * frame.s
+            x: frame.matS * frame.s
+            y: frame.matT * frame.s
             width: frame.photoW
             height: frame.photoH
-            radius: frame.sp.inner * frame.s
+            radius: frame.rInner * frame.s
             color: Qt.rgba(0, 0, 0, 0.18)
 
             Image {
