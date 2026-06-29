@@ -1,56 +1,60 @@
 # Template Plugin
 
-A minimal frame plugin to copy when starting your own. Hover the top-right corner of the
-screen frame and a small popout slides in.
+A minimal plugin to copy when starting your own. It renders as a small desktop
+tile that shows a greeting and a counter.
 
-![Template in action](assets/preview.gif)
+![Template on the desktop](assets/preview-widget.png)
 
 ## What it does
 
 - Shows a greeting (editable in the plugin's settings).
-- Has one button that increments a counter held in the service, so the count survives the
-  popout closing and reopening.
+- Has one button that bumps a counter held in the service, so the count
+  survives the tile being hidden and shown again.
 
-That is all it does on purpose - it is the smallest real plugin, meant to be gutted and
-rebuilt into something useful.
+That is all it does on purpose - it is the smallest real plugin, meant to be
+gutted and rebuilt into something useful.
 
 ## Install
 
-- **Settings → Plugins → Available → Template Plugin → Install**, then enable it.
+- **Ryoku Settings -> Plugins -> Discover -> Template Plugin -> Install**, then
+  enable it.
 
-## How it plugs into the frame
+## How it plugs in
 
-The shell owns the screen frame and the hover/slide/focus behaviour. This plugin only
-ships two pieces:
+The shell owns the host surface (a draggable desktop tile here) and the
+placement, drag, and resize behaviour. This plugin ships two pieces:
 
-- `service/Main.qml` - the persistent state (the click counter). It loads once and keeps
-  its value while the popout is closed. (`main` entry point.)
-- `ui/Panel.qml` - the popout UI. The shell shows it when you hover the corner and hides
-  it when you leave. It reads everything from the service via `pluginApi.mainInstance`.
-  (`framePanel` entry point.)
+- `service/Main.qml` - the persistent state (the click counter). It loads once
+  and keeps its value while the tile is hidden. (`main` entry point.)
+- `content/Widget.qml` - the view. The host mounts it, sets `density`, `s`,
+  `widthBudget` and `active`, then lays out at the size it reports. It reads
+  everything from the service via `pluginApi.mainInstance`. (`content` entry
+  point.)
 
-The `frame` block in `manifest.json` says where the corner is: `edge: top`, `align: end`
-→ the top-right corner. Change those to move it.
+`hosts` in `manifest.json` lists where it can render (`desktopWidget` here);
+`defaults.host` is where it lands when first enabled.
 
 ## Settings
 
-| Key        | Default                       | Meaning                          |
-| ---------- | ----------------------------- | -------------------------------- |
-| `greeting` | `Hello from a Ryoku plugin`   | Text shown at the top of the popout |
+| Key        | Default                     | Meaning                            |
+| ---------- | --------------------------- | ---------------------------------- |
+| `greeting` | `Hello from a Ryoku plugin` | Text shown at the top of the tile  |
+
+Settings are declared as the `metadata.settings` schema in `manifest.json`; the
+shell renders the form and persists changes to `pluginApi.pluginSettings`.
 
 ## Develop
 
 ```
 template/
-  manifest.json        # id, version, entry points, frame placement
-  service/Main.qml     # main: persistent state + logic
-  ui/Panel.qml         # framePanel: the popout
-  ui/Settings.qml      # settings page
-  assets/preview.gif   # the README GIF
+  manifest.json             # id, version, entry points, hosts, settings schema
+  service/Main.qml          # main: persistent state + logic
+  content/Widget.qml        # content: the adaptive view
+  assets/preview-widget.png # the README image
 ```
 
-Copy this folder to `plugins/<your-id>/`, edit `manifest.json`, and rebuild the three QML
-files. See `plugins/AUTHORING.md` for the full guide.
+Copy this folder to `plugins/<your-id>/`, edit `manifest.json`, and rebuild the
+two QML files. See `plugins/AUTHORING.md` for the full guide.
 
 ## Credits
 

@@ -3,24 +3,30 @@
   "name": "Template Plugin",
   "version": "0.1.0",
   "author": "Your Name <you@example.com>",
-  "description": "Minimal example frame plugin to copy when starting a new one.",
+  "description": "Minimal example plugin to copy when starting a new one.",
   "license": "MIT",
-  "tags": ["example", "frame"],
+  "tags": ["example", "desktop-widget"],
+  "official": false,
   "entryPoints": {
     "main": "service/Main.qml",
-    "framePanel": "ui/Panel.qml",
-    "settings": "ui/Settings.qml"
+    "content": "content/Widget.qml"
   },
-  "frame": {
-    "edge": "top",
-    "align": "end",
-    "activation": "corner",
-    "label": "Template",
-    "icon": "extension"
+  "files": [
+    "assets/preview-widget.png"
+  ],
+  "capabilities": {
+    "densities": ["compact"]
+  },
+  "hosts": ["desktopWidget"],
+  "defaults": {
+    "host": "desktopWidget",
+    "desktopWidget": { "bg": "card" },
+    "icon": "extension",
+    "label": "Template"
   },
   "metadata": {
-    "defaultSettings": {
-      "greeting": "Hello from a Ryoku plugin"
-    }
+    "settings": [
+      { "key": "greeting", "type": "text", "label": "Greeting", "group": "Template", "default": "Hello from a Ryoku plugin", "placeholder": "Shown at the top of the tile" }
+    ]
   }
 }

@@ -1,7 +1,8 @@
 import QtQuick
 
-// The plugin's `main` entry point: persistent, non-visual state. It loads once and
-// survives while the popout opens and closes. The framePanel reaches it through
+// The plugin's `main` entry point: persistent, non-visual state. It loads once
+// when the plugin is enabled and stays alive while the content mounts and
+// unmounts, so its state survives. The content reaches it through
 // pluginApi.mainInstance.
 Item {
   id: root
@@ -10,7 +11,5 @@ Item {
 
   property int clickCount
 
-  function increment(): void {
-    clickCount += 1;
-  }
+  function increment() { clickCount += 1; }
 }

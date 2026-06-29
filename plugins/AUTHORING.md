@@ -1,12 +1,13 @@
-# Writing a frame plugin
+# Writing a plugin
 
-A frame plugin adds a popout that slides in when you hover a corner of the screen frame.
-You write two things - a service and a panel - and tell the shell which corner to use. The
-shell does the hover detection, the slide animation, the focus and keyboard grab, and the
-input region. You never touch any of that.
+A Ryoku plugin ships content the shell mounts into a host: a draggable tile on
+the wallpaper, or a popout that melts out of the screen frame on hover. You
+write two things - a service and a content view - and declare which hosts you
+support. The shell owns the surface, the placement, the motion, the focus, and
+the input region. You never touch any of that.
 
-`plugins/wallhaven/` is the worked example throughout this guide. `plugins/template/` is
-the smallest possible version - copy it to start.
+`plugins/wallhaven/` and `plugins/photo-frame/` are the worked examples.
+`plugins/template/` is the smallest possible version - copy it to start.
 
 ## Quickstart
 
@@ -14,156 +15,198 @@ the smallest possible version - copy it to start.
 cp -r plugins/template plugins/my-plugin
 ```
 
-1. Edit `plugins/my-plugin/manifest.json`: set `id` to `my-plugin`, pick a `name`,
-   `author`, `description`, and the `frame` corner.
-2. Rewrite `service/Main.qml` and `ui/Panel.qml`.
-3. Replace `assets/preview.gif` and rewrite `README.md`.
+1. Edit `plugins/my-plugin/manifest.json`: set `id` to `my-plugin`, pick a
+   `name`, `author`, `description`, the `hosts` you support, and `defaults`.
+2. Rewrite `service/Main.qml` and `content/Widget.qml`.
+3. Replace `assets/preview-widget.png` and rewrite `README.md`.
 4. Add an entry to `plugins/registry.json` so it shows up in Settings.
 
 ## The manifest
 
-`manifest.json` describes the plugin. Required fields: `id`, `name`, `version` (x.y.z),
-`author`, `description`, `entryPoints`. The rest are optional.
+`manifest.json` describes the plugin.
 
-| Field                       | What it is                                                        |
-| --------------------------- | ---------------------------------------------------------------- |
-| `id`                        | Folder name and unique key. Lowercase, no spaces.                 |
-| `name`                      | Display name in Settings.                                         |
-| `version`                   | `x.y.z`. Bump it when you publish a change.                       |
-| `author`                    | `Name <email>`.                                                   |
-| `description`               | One sentence shown in the catalogue.                             |
-| `license`                   | SPDX id, e.g. `MIT`.                                              |
-| `tags`                      | Strings for filtering, e.g. `["wallpaper", "frame"]`.            |
-| `entryPoints`               | The QML files the shell loads (see below).                       |
-| `frame`                     | Where the popout lives (see below).                              |
-| `commands`                  | Executables the plugin ships, e.g. `["bin/ryoku-foo"]`.         |
-| `dependencies.commands`     | Commands that must be present on the system.                     |
-| `metadata.defaultSettings`  | The settings object and its starting values.                    |
+| Field | What it is |
+| --- | --- |
+| `id` | Folder name and unique key. Lowercase, no spaces. |
+| `name` | Display name in Settings. |
+| `version` | `x.y.z`. Bump it when you publish a change. |
+| `author` | `Name <email>`. |
+| `description` | One sentence shown in the catalogue. |
+| `license` | SPDX id, e.g. `MIT`. |
+| `tags` | Strings for filtering, e.g. `["wallpaper", "desktop-widget"]`. |
+| `entryPoints` | The QML files the shell loads (see below). |
+| `files` | Extra files the install must fetch (helpers, assets) beyond the entry points. |
+| `capabilities.densities` | Which densities your content draws (see Density). |
+| `hosts` | The hosts your content supports: `desktopWidget`, `framePopout`. |
+| `defaults` | Where it lands when first enabled (see Hosts). |
+| `commands` | Executables the plugin ships, e.g. `["bin/ryoku-foo"]`. |
+| `dependencies.commands` | Commands that must be present on the system. |
+| `metadata.settings` | The settings schema the shell renders (see Settings). |
 
-## The three entry points
+## The two entry points
 
 ```json
 "entryPoints": {
   "main": "service/Main.qml",
-  "framePanel": "ui/Panel.qml",
-  "settings": "ui/Settings.qml"
+  "content": "content/Widget.qml"
 }
 ```
 
-- **`main`** - persistent, non-visual logic. It loads once when the plugin is enabled and
-  stays alive while the popout opens and closes, so its state survives. Wallhaven keeps
-  the search results and current page here. This is your service.
-- **`framePanel`** - the popout UI. The shell mounts it in the frame and shows it on hover.
-  It reads everything from your service. This is the only visible piece.
-- **`settings`** - an optional options page shown in Settings → Plugins → your plugin → ⚙.
+- **`main`** - persistent, non-visual logic. It loads once when the plugin is
+  enabled and stays alive while the content mounts and unmounts, so its state
+  survives. Wallhaven keeps the search results and current page here. This is
+  your service.
+- **`content`** - the one adaptive view. The shell mounts it in the host and
+  lays out at the size it reports back. It reads everything from your service.
+  This is the only visible piece.
 
-## How your panel reaches the frame
+There is no separate panel or settings QML. The same `content` renders in every
+host; settings are a schema (below), not a hand-written page.
 
-You do not write hover, sliding, focus, or input-region code. You hand the shell a service
-and a panel, and you name a corner with the `frame` block:
+## Hosts and where it lands
+
+`hosts` lists the surfaces your content can render in:
+
+- **`desktopWidget`** - a draggable tile on the wallpaper, alongside the clock
+  and weather. The user drags to move, drags the corner bracket to scale, and
+  right-clicks for its menu. Rendered at `compact` density.
+- **`framePopout`** - a popout that slides out of a screen edge on hover (or a
+  plugins-menu key). Rendered at `full` density.
+
+`defaults` is where the plugin lands when first enabled, plus its menu identity:
 
 ```json
-"frame": {
-  "edge": "top",          // top | bottom - which edge it slides from
-  "align": "end",         // start | center | end - position along that edge
-  "activationWidth": 320, // optional px: how wide the hover zone is (default: a sane band)
-  "activationHeight": 16, // optional px: how tall the hover zone is (default: the frame border)
-  "key": "w",             // optional: your key in the Super+X plugins menu (toggles the popout)
-  "label": "Wallhaven",
-  "icon": "wallpaper"
+"defaults": {
+  "host": "desktopWidget",
+  "desktopWidget": { "bg": "card" },
+  "framePopout": { "edge": "top", "align": "end" },
+  "key": "w",
+  "icon": "wallpaper",
+  "label": "Wallhaven"
 }
 ```
 
-Wallhaven is `top` + `end`, so it lives in the top-right corner. That is the whole
-integration: ship a service, ship a panel, name your corner.
+- `host` - the host used on first enable; the user can move it later.
+- `desktopWidget.bg` - the tile backing: `card`, `glass`, or `none`.
+- `framePopout.edge` / `align` - which edge it slides from and where along it.
+- `key` - optional single key in Ryoku's plugins menu (leader, then your key)
+  that toggles a frame popout.
+- `icon` / `label` - the plugin's mark and name in menus and Settings.
 
-You own the **activation zone** and the **shortcut**:
+Declare only the hosts that make sense. Photo Frame is `desktopWidget` only.
 
-- `activationWidth` / `activationHeight` set the size (px) of the corner/edge region that
-  opens the popout on hover. Leave them out for the default band. The shell builds the
-  hover detection and the input region from these - you write none of it.
-- `key` is a single key (e.g. `"w"`, `"b"`) inside Ryoku's **plugins menu**: the user
-  presses the leader (`Super+X` by default), then your key, and your popout toggles. This
-  keeps plugin shortcuts out of the crowded `Super+<key>` space and never collides with
-  other plugins. The user can rebind your key (or clear it) in **Settings → Plugins →
-  Edit**, and their choice always wins over your default.
+## Density
+
+The host picks a density and sets it on your content. Today:
+
+- `desktopWidget` -> `compact`
+- `framePopout` -> `full`
+
+`glyph` is a reserved single-mark density for tight contexts. Branch on
+`density` for the ones you draw, and list them in `capabilities.densities`. A
+desktop-only plugin only needs `["compact"]`.
 
 ## The properties the shell sets
 
 The shell sets these for you - declare them and read them, do not assign them.
 
-On your **`framePanel`** (`ui/Panel.qml`):
+On your **`content`** (`content/Widget.qml`):
 
-| Property    | Type          | What it is                                              |
-| ----------- | ------------- | ------------------------------------------------------ |
-| `pluginApi` | `var`         | Your handle to the service, settings, and plugin dir.   |
-| `screen`    | `ShellScreen` | The screen this panel is on (import `Quickshell`).      |
-| `active`    | `bool`        | True while the popout is open.                          |
+| Property | Type | What it is |
+| --- | --- | --- |
+| `pluginApi` | `var` | Your handle to the service, settings, and plugin dir. |
+| `screen` | `var` | The screen the tile is on (set by the desktop-widget host). May be null elsewhere. |
+| `active` | `bool` | True while the content is visible / the popout is open. |
+| `density` | `string` | `glyph`, `compact`, or `full`. |
+| `s` | `real` | Scale multiplier; multiply your sizes and font sizes by it. |
+| `widthBudget` | `real` | The resolved content width. Lay out to this. |
 
-On your **`main`** and **`settings`** files: just `pluginApi`.
+On your **`main`**: just `pluginApi`.
 
-The panel must size itself with `implicitWidth` / `implicitHeight`; the host slides in
-whatever size you declare. The host already animates size changes and keeps the panel
-loaded, so do **not** put a `Behavior on implicitHeight` (or width) on the panel root or
-gate your content on a lazy `Loader`: a second animation fights the host's and the panel
-looks squashed while it opens. Just change `implicitHeight` and let the host tween it.
+Size your content with `implicitWidth` / `implicitHeight` off `widthBudget` (with
+a sane fallback), so the host can place and animate the tile. The host already
+animates size changes and keeps the content mounted, so do **not** add a
+`Behavior on implicitHeight` (or width) to the root or gate your body on a lazy
+`Loader`: a second animation fights the host's and the view looks squashed while
+it opens. Just change `implicitHeight` and let the host tween it.
 
-## Reading your service from the panel
+## Reading your service from the content
 
-`pluginApi.mainInstance` is the live `main` instance. Derive a convenience property and
-read state through it:
+`pluginApi.mainInstance` is the live `main` instance. Derive a convenience
+property and read state through it:
 
 ```qml
 readonly property var service: pluginApi ? pluginApi.mainInstance : null
 // ...
 text: qsTr("Clicked %1 times").arg(service?.clickCount ?? 0)
-onClicked: service.increment()
+onClicked: service?.increment()
 ```
 
 Use the `?.` and `?? default` guards - `service` is null until `main` has loaded.
 
-## Settings that persist
+## Settings
 
-`pluginApi.pluginSettings` is your settings object, seeded from
-`metadata.defaultSettings`. Read it anywhere. To persist a change, write the field and
-call `pluginApi.saveSettings()`. The host calls `saveSettings()` on your settings page
-when the user hits Apply, so put the writes there:
+Declare settings as a schema in `metadata.settings`; the shell renders the form
+in the plugin's menu and persists changes to `pluginApi.pluginSettings`. Your
+content reads them - it does not write them.
 
-```qml
-function saveSettings() {
-  pluginApi.pluginSettings.greeting = greetingField.text.trim();
-  pluginApi.saveSettings();
+```json
+"metadata": {
+  "settings": [
+    { "key": "apiKey", "type": "text", "label": "API key", "group": "Wallhaven",
+      "default": "", "placeholder": "Optional, from wallhaven.cc/settings/account" }
+  ]
 }
 ```
 
+Each entry has a `key`, a `type`, a `label`, a `group` (the section header), and
+a `default`. The types:
+
+- `text` - a line of text; optional `placeholder`.
+- `image` - an image path picker.
+- `toggle` - a boolean switch.
+- `choice` - a dropdown; give `options: [{ "value", "label" }, ...]`.
+- `slider` - a number; give `min`, `max`, `step`, and `decimals`.
+
+Read a value with `pluginApi.pluginSettings.<key>`, guarded:
+
+```qml
+readonly property string apiKey: (pluginApi?.pluginSettings?.apiKey ?? "") || ""
+```
+
+## Shipping a command
+
+If your plugin needs to shell out (Wallhaven calls the wallhaven.cc API through
+one), ship the script under `bin/`, list it in `commands`, and list any system
+tools it needs under `dependencies.commands`. Run it from the service with a
+`Process`, building the path from `pluginApi.pluginDir`.
+
 ## Imports you can use
 
-In the service and panel:
+In the service and content:
 
-- `Ryoku.Config` - `Tokens` (spacing, padding, rounding, font sizes) and `Colours`
-  (`Colours.palette.m3*`, `Colours.tPalette.m3*`, `Colours.layer(...)`).
-- `qs.components` - `StyledRect`, `StyledText`, `MaterialIcon`, and friends.
-- `qs.components.controls` - `IconButton`, `IconTextButton`, `StyledTextField`, `Menu`, etc.
-- `qs.services` - shell services like `Wallpapers`, `Toaster`.
+- `Ryoku.PluginKit` - `GlyphIcon`, `MicroLabel`, `SearchField`, `CornerTicks`,
+  `WaveMeter`, `Card`.
+- `Ryoku.PluginKit.Singletons` - `Theme` (colours, fonts), `Motion` (durations,
+  easings, radii), `Wallust` (the live wallpaper palette), `Config`.
 
-In the settings page only, use the settings-gui toolkit instead:
+`Theme` and `Wallust` follow the wallpaper, so do not hardcode a colour that
+should theme. Match the existing usage in `plugins/wallhaven/` and
+`plugins/photo-frame/`; do not invent parallel styling. That is what keeps a
+plugin from reading like a generic widget bolted onto the desktop.
 
-- `qs.settingsgui.Commons` - `Style`, `Color`, `I18n`.
-- `qs.settingsgui.Widgets` - `NText`, `NTextInput`, and the other `N*` widgets.
+## README and preview (required)
 
-Match the existing usage in `plugins/wallhaven/`; do not invent parallel styling.
-
-## README and GIF (required)
-
-Every plugin ships a `README.md` and an `assets/preview.gif` it embeds. Follow the section
-order in `plugins/wallhaven/README.md`: title, one-liner, the GIF, What it does, Install,
-How it plugs into the frame, Settings table, Develop tree, Credits. The GIF should show the
-popout actually doing its thing.
+Every plugin ships a `README.md` and a preview image it embeds - name it
+`assets/preview-widget.png` for a desktop tile, `assets/preview-popout.png` for
+a popout. Follow the section order in `plugins/wallhaven/README.md`: title,
+one-liner, the image, What it does, Install, How it plugs in, Settings table,
+Develop tree, Credits.
 
 ## List it in the registry
 
 Add an object to the `plugins` array in `plugins/registry.json` so it appears in
-Settings → Plugins → Available:
+Settings -> Plugins -> Discover:
 
 ```json
 {
@@ -172,12 +215,17 @@ Settings → Plugins → Available:
   "path": "plugins/my-plugin",
   "version": "0.1.0",
   "author": "Your Name",
-  "description": "One sentence.",
-  "tags": ["frame"],
   "official": false,
-  "lastUpdated": "2026-06-06"
+  "tagline": "One short line.",
+  "description": "One sentence.",
+  "icon": "extension",
+  "tags": ["desktop-widget"],
+  "hosts": ["desktopWidget"],
+  "preview": "assets/preview-widget.png",
+  "screenshots": ["assets/preview-widget.png"],
+  "lastUpdated": "2026-06-29"
 }
 ```
 
-`official: false` for community plugins. Keep `path` as `plugins/<id>` and `lastUpdated`
-in `YYYY-MM-DD`.
+`official: false` for community plugins. Keep `path` as `plugins/<id>`, `hosts`
+in sync with the manifest, and `lastUpdated` in `YYYY-MM-DD`.
