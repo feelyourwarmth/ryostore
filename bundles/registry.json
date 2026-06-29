@@ -80,6 +80,14 @@
       "tagline": "reversing · forensics",
       "sources": "pacman / AUR / Go / pipx",
       "path": "bundles/the-hacker"
+    },
+    {
+      "id": "cachyos-kernel",
+      "name": "CachyOS Kernel",
+      "description": "Swap in the performance-tuned CachyOS kernel. Pros: snappier desktop and gaming. Cons: adds the CachyOS repo, DKMS rebuilds, more bleeding-edge. Stock kernel stays as the fallback.",
+      "tagline": "faster kernel · keeps stock as fallback",
+      "sources": "CachyOS repo",
+      "path": "bundles/cachyos-kernel"
     }
   ]
 }
