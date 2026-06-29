@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Wallhaven CLI used by the plugin service. Two verbs:
-#   search --query <q> --page <n> [--top-range <1d|3d|1w|1M|...>] --json
+#   search --query <q> --page <n> [--top-range <1d|3d|1w|1M|...>] [--ratios <16x9|...>] --json
 #       -> one JSON object per result line (id, path, thumb, resolution, name,
 #          wallhaven_url)
 #   download <id> <fullResolutionUrl>
@@ -20,12 +20,13 @@ cmd="${1:-}"; shift || true
 
 case "$cmd" in
 search)
-	query=""; page=1; top_range=""; as_json=0
+	query=""; page=1; top_range=""; ratios=""; as_json=0
 	while [ $# -gt 0 ]; do
 		case "$1" in
 		--query) query="$2"; shift 2 ;;
 		--page) page="$2"; shift 2 ;;
 		--top-range) top_range="$2"; shift 2 ;;
+		--ratios) ratios="$2"; shift 2 ;;
 		--json) as_json=1; shift ;;
 		*) shift ;;
 		esac
@@ -37,6 +38,7 @@ search)
 		params+=(--data-urlencode "sorting=date_added")
 	fi
 	[ -n "$query" ] && params+=(--data-urlencode "q=$query")
+	[ -n "$ratios" ] && params+=(--data-urlencode "ratios=$ratios")
 	resp="$(curl -fsSL "${auth[@]}" "${params[@]}")"
 	if [ "$as_json" = 1 ]; then
 		jq -c '.data[] | {
@@ -60,7 +62,7 @@ download)
 	printf '%s\n' "$out"
 	;;
 *)
-	echo "usage: ryoku-wallhaven-search search --query <q> --page <n> [--top-range <r>] --json | download <id> <url>" >&2
+	echo "usage: ryoku-wallhaven-search search --query <q> --page <n> [--top-range <r>] [--ratios <r>] --json | download <id> <url>" >&2
 	exit 2
 	;;
 esac

@@ -8,9 +8,9 @@ import Quickshell.Io
  * and paging survive. The content view (content/Widget.qml) reads this through
  * pluginApi.mainInstance.
  *
- * Host-agnostic: it never imports pill internals. Setting a wallpaper goes
- * through the shell daemon (`ryoku-shell wallpaper set <path>`), so the plugin
- * works identically from a frame popout, a desktop tile, or a window.
+ * Host-agnostic: it never imports shell internals. Setting a wallpaper goes
+ * through the shell daemon (`ryoku-shell wallpaper set <path>`), so the search,
+ * filters, and page survive the desktop tile being moved, hidden, or shown.
  */
 Item {
     id: root
@@ -34,12 +34,14 @@ Item {
     property bool downloading
     property string query
     property string topRange
+    property string ratios
     property bool resultsExpanded
     property int page: 1
     property var results: []
     property string error
     property string status: ""
     property string lastDownloadedPath
+    property string downloadingId
 
     property string _searchStdout
     property string _searchStderr
@@ -75,6 +77,8 @@ Item {
         const command = keyPrefix.concat([cmdPath(), "search", "--query", trimmed, "--page", `${nextPage}`, "--json"]);
         if (topRange.length > 0)
             command.push("--top-range", topRange);
+        if (ratios.length > 0)
+            command.push("--ratios", ratios);
         searchProcess.command = command;
         searchProcess.running = true;
     }
@@ -83,6 +87,7 @@ Item {
     function searchTop(range) { search(query, 1, range); }
     function nextPage() { if (!searching) search(query, page + 1, topRange); }
     function previousPage() { if (page > 1 && !searching) search(query, page - 1, topRange); }
+    function setRatios(r) { ratios = r || ""; search(query, 1, topRange); }
     function openInWeb(item) { if (item && item.wallhaven_url) Qt.openUrlExternally(item.wallhaven_url); }
     function download(item) { _startDownload(item, false); }
     function setAsWallpaper(item) { _startDownload(item, true); }
@@ -95,6 +100,7 @@ Item {
             return;
         }
         downloading = true;
+        downloadingId = item.id;
         status = qsTr("Downloading");
         _downloadStdout = "";
         _downloadStderr = "";
@@ -136,6 +142,7 @@ Item {
 
     function _finishDownload(exitCode) {
         downloading = false;
+        downloadingId = "";
         const localPath = _downloadStdout.split("\n").filter(line => line.trim().length > 0).pop() || "";
         if (exitCode !== 0 || localPath.length === 0) {
             status = _downloadStderr.trim() || qsTr("Download failed");
@@ -171,4 +178,9 @@ Item {
     }
 
     Process { id: applyProcess }
+
+    // Status lines (set / downloaded / error) clear themselves so the tile
+    // doesn't carry a stale message forever.
+    onStatusChanged: if (status.length > 0) statusClear.restart()
+    Timer { id: statusClear; interval: 4000; onTriggered: root.status = "" }
 }

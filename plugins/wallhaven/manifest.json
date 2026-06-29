@@ -1,28 +1,26 @@
 {
   "id": "wallhaven",
   "name": "Wallhaven",
-  "version": "2.1.2",
+  "version": "3.0.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
-  "description": "Browse wallhaven.cc and set wallpapers, as a frame popout or desktop widget.",
+  "description": "Browse wallhaven.cc and set wallpapers from a desktop widget.",
   "license": "MIT",
-  "tags": ["wallpaper"],
+  "tags": ["wallpaper", "desktop-widget"],
   "official": true,
   "entryPoints": {
     "main": "service/Main.qml",
     "content": "content/Widget.qml"
   },
   "files": [
-    "assets/preview-popout.png",
     "assets/preview-widget.png"
   ],
   "capabilities": {
-    "densities": ["glyph", "compact", "full"]
+    "densities": ["compact"]
   },
-  "hosts": ["framePopout", "desktopWidget"],
+  "hosts": ["desktopWidget"],
   "defaults": {
-    "host": "framePopout",
-    "framePopout": { "edge": "top", "align": "end" },
-    "key": "w",
+    "host": "desktopWidget",
+    "desktopWidget": { "bg": "card" },
     "icon": "wallpaper",
     "label": "Wallhaven"
   },
