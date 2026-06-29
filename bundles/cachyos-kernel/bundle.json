@@ -1,13 +1,13 @@
 {
   "id": "cachyos-kernel",
   "name": "CachyOS Kernel",
-  "description": "Pros: a snappier, gaming-tuned kernel (EEVDF/BORE plus the sched-ext scheduler, LTO/PGO, ntsync for Proton). Cons: adds the CachyOS repo and signing key, rebuilds your DKMS modules (NVIDIA and the like) per kernel, and tracks a more bleeding-edge kernel. Your stock Arch kernel stays installed as the default, safe fallback: pick it at the boot menu to roll back anytime.",
+  "description": "Pros: an optimized, patched kernel (Clang ThinLTO and AutoFDO, x86-64-v3, the Cachy patchset), EEVDF with sched-ext ready for opt-in schedulers (scx-scheds). Cons: adds the CachyOS repo and signing key, rebuilds your DKMS modules (NVIDIA and the like) per kernel, and tracks a more bleeding-edge kernel. Your stock Arch kernel stays installed as the default, safe fallback: pick it at the boot menu to roll back anytime.",
   "requires": ["cachyos"],
   "items": [
     {
       "type": "package",
       "name": "linux-cachyos",
-      "summary": "The CachyOS kernel: EEVDF/BORE plus sched-ext, LTO/PGO, desktop and gaming tuned. Built for x86-64-v3.",
+      "summary": "The CachyOS kernel: EEVDF with sched-ext, Clang ThinLTO and AutoFDO, the Cachy patchset. Built for x86-64-v3.",
       "source": "cachyos",
       "upstream": "https://github.com/CachyOS/linux-cachyos"
     },
