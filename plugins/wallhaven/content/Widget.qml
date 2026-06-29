@@ -54,6 +54,19 @@ Item {
     onServiceChanged: _autoSearch()
     Component.onCompleted: Qt.callLater(_autoSearch)
 
+    // Let go of the keyboard if the search is focused but idle, so a tile that
+    // was clicked into and then left alone never holds the keyboard hostage.
+    Timer {
+        id: idleBlur
+        interval: 6000
+        running: search.input.activeFocus
+        onTriggered: search.input.focus = false
+    }
+    Connections {
+        target: search.input
+        function onTextChanged() { if (search.input.activeFocus) idleBlur.restart(); }
+    }
+
     Column {
         id: body
         width: root.contentW
@@ -154,7 +167,7 @@ Item {
         // result grid.
         WhGrid {
             width: root.contentW; s: root.s; service: root.service
-            onApply: (item) => root.service?.setAsWallpaper(item)
+            onApply: (item) => { search.input.focus = false; root.service?.setAsWallpaper(item); }
             onWeb: (item) => root.service?.openInWeb(item)
         }
 
