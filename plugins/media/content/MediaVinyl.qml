@@ -26,7 +26,10 @@ Item {
   readonly property url fallbackArt: pluginDir ? ("file://" + pluginDir + "/assets/cover.jpg") : ""
 
   implicitWidth: cw
-  implicitHeight: discDiameter + 78 * s
+  // Height tracks the actual stack: disc (at disc.y, discDiameter tall) + the
+  // meta column (title/artist/transport) below it + bottom breathing room, so
+  // the transport never spills past the card edge onto the wallpaper.
+  implicitHeight: disc.y + disc.height + 8 * s + meta.implicitHeight + 14 * s
 
   // ── own surface ─────────────────────────────────────────────────────────
   // Slot bg is `"none"`, so every face paints its own card with the
