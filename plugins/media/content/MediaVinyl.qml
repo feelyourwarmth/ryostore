@@ -276,7 +276,6 @@ Item {
       anchors.horizontalCenter: parent.horizontalCenter
       service: root.service
       s: root.s
-      accent: root.accent
     }
   }
 }

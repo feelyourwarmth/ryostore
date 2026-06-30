@@ -108,7 +108,6 @@ Item {
       anchors.verticalCenter: parent.verticalCenter
       service: root.service
       s: root.s
-      accent: root.accent
     }
 
     Column {

@@ -64,7 +64,7 @@ Item {
 
       for (let i = 0; i < n; i++) {
         const lv = Math.max(0, Math.min(1, arr[i] || 0));
-        if (lv <= 0)
+        if (lv < 0.06)
           continue;
         // Start at -90deg so index 0 sits at 12 o'clock.
         const a = -Math.PI / 2 + i * step;

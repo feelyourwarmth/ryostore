@@ -227,7 +227,6 @@ Item {
       anchors.bottomMargin: 38 * root.s
       service: root.service
       s: root.s
-      accent: root.accent
     }
 
     WaveSeek {

@@ -114,7 +114,6 @@ Item {
     anchors.bottomMargin: 14 * root.s
     service: root.service
     s: root.s
-    accent: root.accent
   }
 
   // ---- Cassette shell -------------------------------------------------------
