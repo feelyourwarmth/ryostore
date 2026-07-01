@@ -1,0 +1,61 @@
+{
+  "id": "market",
+  "name": "Market",
+  "version": "1.0.0",
+  "author": "Ryoku Team <hello@ryoku.sh>",
+  "description": "Track a stock, index, or crypto pair on your desktop, in four faces - dossier, line, area, and minimal.",
+  "license": "MIT",
+  "tags": ["stocks", "crypto", "desktop-widget"],
+  "official": true,
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml"
+  },
+  "files": [
+    "content/MarketDossier.qml",
+    "content/MarketLine.qml",
+    "content/MarketArea.qml",
+    "content/MarketMinimal.qml",
+    "content/Sparkline.qml",
+    "content/Ridgeline.qml",
+    "content/ChangeBadge.qml",
+    "content/PriceText.qml",
+    "assets/preview-widget.png"
+  ],
+  "capabilities": {
+    "densities": ["compact"]
+  },
+  "hosts": ["desktopWidget"],
+  "defaults": {
+    "host": "desktopWidget",
+    "desktopWidget": { "bg": "none" },
+    "icon": "trending_up",
+    "label": "Market"
+  },
+  "commands": ["bin/ryoku-market-fetch"],
+  "dependencies": { "commands": ["curl", "jq"] },
+  "metadata": {
+    "settings": [
+      { "key": "design", "type": "choice", "label": "Design", "group": "Market", "default": "dossier", "options": [
+        { "value": "dossier", "label": "Dossier" },
+        { "value": "line", "label": "Line" },
+        { "value": "area", "label": "Area" },
+        { "value": "minimal", "label": "Minimal" }
+      ] },
+      { "key": "symbol", "type": "text", "label": "Symbol", "group": "Market", "default": "BTC-USD", "placeholder": "e.g. BTC-USD, AAPL, ^GSPC" },
+      { "key": "window", "type": "choice", "label": "Window", "group": "Market", "default": "1D", "options": [
+        { "value": "1D", "label": "1 day" },
+        { "value": "1W", "label": "1 week" },
+        { "value": "1M", "label": "1 month" },
+        { "value": "1Y", "label": "1 year" }
+      ] },
+      { "key": "refreshSec", "type": "slider", "label": "Refresh (s)", "group": "Data", "default": 60, "min": 30, "max": 600, "step": 30, "decimals": 0 },
+      { "key": "accent", "type": "choice", "label": "Accent", "group": "Style", "default": "wallust", "options": [
+        { "value": "wallust", "label": "Wallust" },
+        { "value": "brand", "label": "Brand" },
+        { "value": "mono", "label": "Mono" }
+      ] },
+      { "key": "showGrid", "type": "toggle", "label": "Show grid", "group": "Style", "default": true }
+    ]
+  }
+}

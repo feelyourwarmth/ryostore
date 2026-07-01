@@ -2,6 +2,22 @@
   "version": 1,
   "plugins": [
     {
+      "id": "market",
+      "name": "Market",
+      "path": "plugins/market",
+      "version": "1.0.0",
+      "author": "Ryoku Team",
+      "official": true,
+      "tagline": "Track a stock, index, or crypto pair on your desktop.",
+      "description": "A desktop-widget plugin that tracks any Yahoo Finance symbol - a crypto pair (BTC-USD), a stock (AAPL), or an index (^GSPC) - and renders its live price, change, and history in one of four faces: a dossier hero with a layered 2.5D ridgeline chart, a gridded line, a gradient area, or a compact minimal sparkline. Drawn in the shell's own dark carbon style, drag it onto your wallpaper beside the clock and weather. Free data, no API key.",
+      "icon": "trending_up",
+      "tags": ["stocks", "crypto", "desktop-widget"],
+      "hosts": ["desktopWidget"],
+      "preview": "assets/preview-widget.png",
+      "screenshots": ["assets/preview-widget.png"],
+      "lastUpdated": "2026-07-01"
+    },
+    {
       "id": "photo-frame",
       "name": "Photo Frame",
       "path": "plugins/photo-frame",

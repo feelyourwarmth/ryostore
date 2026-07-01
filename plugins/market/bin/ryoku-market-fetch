@@ -1,0 +1,67 @@
+#!/usr/bin/env bash
+# Market quote+history fetch used by the plugin service. One verb:
+#   ryoku-market-fetch <symbol> [range] [interval] [maxPoints]
+#     -> one JSON object on stdout:
+#        { symbol, name, price, prevClose, changePct, changeAbs, currency,
+#          spark: [close, ...] }
+#     -> on any failure, still exit 0 with:
+#        { error: "message" }
+#
+# Source: Yahoo Finance v8 chart API (no key). It serves stocks, crypto pairs
+# (BTC-USD), and indices (^GSPC) through one endpoint. A browser User-Agent is
+# required. A bad symbol returns HTTP 404 with a { chart: { error } } body, so
+# we must NOT use `curl -f`: we fetch the body regardless and branch on
+# `.chart.result`. The service treats a line with `.error` as a soft failure
+# and keeps its last good values, so this script never needs a non-zero exit.
+set -uo pipefail
+
+sym="${1:-}"
+range="${2:-1d}"
+interval="${3:-5m}"
+maxpts="${4:-80}"
+
+emit_error() { jq -cn --arg e "$1" '{error: $e}'; exit 0; }
+
+[ -n "$sym" ] || emit_error "no symbol"
+command -v curl >/dev/null 2>&1 || emit_error "curl not found"
+command -v jq   >/dev/null 2>&1 || emit_error "jq not found"
+
+# URL-encode the symbol (^GSPC, BRK-B, pairs) so shell/HTTP stay happy.
+enc=$(jq -rn --arg s "$sym" '$s|@uri')
+url="https://query1.finance.yahoo.com/v8/finance/chart/${enc}?range=${range}&interval=${interval}"
+
+resp=$(curl -sS --max-time 15 \
+	-H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36" \
+	-H "Accept: application/json" \
+	"$url" 2>/dev/null) || emit_error "network error"
+
+[ -n "$resp" ] || emit_error "empty response"
+
+# Branch on the presence of a result. jq does the extraction, null-stripping,
+# change math, and even-stride downsampling to <= maxpts points in one pass so
+# the service just reads fields. A parse failure or a null result -> error line.
+printf '%s' "$resp" | jq -c --argjson max "$maxpts" '
+	if (.chart.result | type) != "array" or (.chart.result | length) == 0 then
+		{ error: (.chart.error.description // "no data for symbol") }
+	else
+		.chart.result[0] as $r
+		| ($r.meta // {}) as $m
+		| ( [ $r.indicators.quote[0].close // [] | .[] | select(. != null) ] ) as $closes
+		| ( $m.regularMarketPrice // ($closes | last) // 0 ) as $price
+		| ( $m.chartPreviousClose // $m.previousClose // ($closes | first) // $price ) as $prev
+		| ( if ($closes | length) > $max
+			then ( ($closes | length) / $max ) as $stride
+			     | [ range(0; ($closes|length); $stride) | $closes[floor] ]
+			else $closes end ) as $spark
+		| {
+			symbol:    ($m.symbol // "'"$sym"'"),
+			name:      ($m.shortName // $m.longName // $m.symbol // "'"$sym"'"),
+			currency:  ($m.currency // "USD"),
+			price:     $price,
+			prevClose: $prev,
+			changeAbs: ($price - $prev),
+			changePct: ( if $prev != 0 then (($price - $prev) / $prev * 100) else 0 end ),
+			spark:     $spark
+		  }
+	end
+' 2>/dev/null || emit_error "parse error"
