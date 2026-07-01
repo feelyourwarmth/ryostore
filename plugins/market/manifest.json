@@ -42,16 +42,7 @@
         { "value": "area", "label": "Area" },
         { "value": "minimal", "label": "Minimal" }
       ] },
-      { "key": "symbol", "type": "choice", "label": "Symbol", "group": "Market", "default": "BTC-USD", "options": [
-        { "value": "BTC-USD", "label": "Bitcoin" },
-        { "value": "ETH-USD", "label": "Ethereum" },
-        { "value": "SOL-USD", "label": "Solana" },
-        { "value": "AAPL", "label": "Apple" },
-        { "value": "NVDA", "label": "Nvidia" },
-        { "value": "TSLA", "label": "Tesla" },
-        { "value": "MSFT", "label": "Microsoft" },
-        { "value": "^GSPC", "label": "S&P 500" }
-      ] },
+      { "key": "symbol", "type": "text", "label": "Symbol", "group": "Market", "default": "BTC-USD", "placeholder": "Any Yahoo ticker: $SPY, $F, AAPL, BTC-USD, ^GSPC" },
       { "key": "window", "type": "choice", "label": "Window", "group": "Market", "default": "1D", "options": [
         { "value": "1D", "label": "1 day" },
         { "value": "1W", "label": "1 week" },

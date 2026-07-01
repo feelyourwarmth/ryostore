@@ -40,9 +40,22 @@ Item {
     return settings[k] === true || settings[k] === "true";
   }
 
+  // Normalise a user-typed ticker: drop a leading "$" ($SPY -> SPY, $f -> F),
+  // trim, uppercase. Yahoo tickers are uppercase and keep ^ (indices) and - / .
+  // (BTC-USD, BRK-B). Applied here so a value typed in the hub or hand-edited
+  // into plugins.json normalises too, not only the in-widget editor.
+  function normSymbol(s) {
+    var t = String(s || "").trim();
+    while (t.charAt(0) === "$") t = t.slice(1);
+    return t.toUpperCase();
+  }
+
   // ── settings ──────────────────────────────────────────────────────────────
   readonly property string design: _str("design", "dossier")
-  readonly property string symbol: _str("symbol", "BTC-USD")
+  readonly property string symbol: {
+    var n = normSymbol(_str("symbol", "BTC-USD"));
+    return n.length > 0 ? n : "BTC-USD";
+  }
   readonly property string winKey: _str("window", "1D")
   readonly property int refreshSec: Math.max(30, _num("refreshSec", 60))
   readonly property string accent: _str("accent", "wallust")
