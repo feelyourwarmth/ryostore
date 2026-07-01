@@ -10,14 +10,13 @@ plugins/
   registry.json        # the installable list (see below)
   AUTHORING.md         # how to build a frame plugin
   template/            # minimal example - copy it to start
-  wallhaven/           # the worked example
-    manifest.json      # id, version, entry points, frame placement
-    README.md          # required; embeds assets/preview.gif
-    assets/preview.gif
+  photo-frame/         # the worked example
+    manifest.json      # id, version, entry points, host placement
+    README.md          # required; embeds assets/preview-widget.png
+    assets/preview-widget.png
     service/Main.qml   # main entry point: persistent logic
-    ui/Panel.qml       # framePanel entry point: the popout
-    ui/Settings.qml    # settings entry point (optional)
-    bin/...            # any commands the plugin ships
+    content/Widget.qml # content entry point: the adaptive view
+    content/PhotoFrame.qml
 ```
 
 ## How registry.json works
@@ -42,7 +41,6 @@ shape:
 
 A plugin folder is offered in Settings only while its entry is in `plugins`. Moving an entry
 to `archived` retires it: the folder stays in the repo but the shell stops listing it.
-`wallhaven` lives there now.
 
 ## Contributing
 

@@ -6,7 +6,7 @@ write two things - a service and a content view - and declare which hosts you
 support. The shell owns the surface, the placement, the motion, the focus, and
 the input region. You never touch any of that.
 
-`plugins/wallhaven/` and `plugins/photo-frame/` are the worked examples.
+`plugins/photo-frame/` is the worked example.
 `plugins/template/` is the smallest possible version - copy it to start.
 
 ## Quickstart
@@ -33,7 +33,7 @@ cp -r plugins/template plugins/my-plugin
 | `author` | `Name <email>`. |
 | `description` | One sentence shown in the catalogue. |
 | `license` | SPDX id, e.g. `MIT`. |
-| `tags` | Strings for filtering, e.g. `["wallpaper", "desktop-widget"]`. |
+| `tags` | Strings for filtering, e.g. `["photo", "desktop-widget"]`. |
 | `entryPoints` | The QML files the shell loads (see below). |
 | `files` | Extra files the install must fetch (helpers, assets) beyond the entry points. |
 | `capabilities.densities` | Which densities your content draws (see Density). |
@@ -54,7 +54,7 @@ cp -r plugins/template plugins/my-plugin
 
 - **`main`** - persistent, non-visual logic. It loads once when the plugin is
   enabled and stays alive while the content mounts and unmounts, so its state
-  survives. Wallhaven keeps the search results and current page here. This is
+  survives. The template keeps its click counter here. This is
   your service.
 - **`content`** - the one adaptive view. The shell mounts it in the host and
   lays out at the size it reports back. It reads everything from your service.
@@ -80,9 +80,9 @@ host; settings are a schema (below), not a hand-written page.
   "host": "desktopWidget",
   "desktopWidget": { "bg": "card" },
   "framePopout": { "edge": "top", "align": "end" },
-  "key": "w",
-  "icon": "wallpaper",
-  "label": "Wallhaven"
+  "key": "m",
+  "icon": "extension",
+  "label": "My Plugin"
 }
 ```
 
@@ -153,8 +153,8 @@ content reads them - it does not write them.
 ```json
 "metadata": {
   "settings": [
-    { "key": "apiKey", "type": "text", "label": "API key", "group": "Wallhaven",
-      "default": "", "placeholder": "Optional, from wallhaven.cc/settings/account" }
+    { "key": "caption", "type": "text", "label": "Caption", "group": "Photo",
+      "default": "", "placeholder": "Shown on polaroid / framed" }
   ]
 }
 ```
@@ -171,15 +171,15 @@ a `default`. The types:
 Read a value with `pluginApi.pluginSettings.<key>`, guarded:
 
 ```qml
-readonly property string apiKey: (pluginApi?.pluginSettings?.apiKey ?? "") || ""
+readonly property string caption: (pluginApi?.pluginSettings?.caption ?? "") || ""
 ```
 
 ## Shipping a command
 
-If your plugin needs to shell out (Wallhaven calls the wallhaven.cc API through
-one), ship the script under `bin/`, list it in `commands`, and list any system
-tools it needs under `dependencies.commands`. Run it from the service with a
-`Process`, building the path from `pluginApi.pluginDir`.
+If your plugin needs to shell out to a system tool or a helper script, ship the
+script under `bin/`, list it in `commands`, and list any system tools it needs
+under `dependencies.commands`. Run it from the service with a `Process`, building
+the path from `pluginApi.pluginDir`.
 
 ## Imports you can use
 
@@ -191,15 +191,15 @@ In the service and content:
   easings, radii), `Wallust` (the live wallpaper palette), `Config`.
 
 `Theme` and `Wallust` follow the wallpaper, so do not hardcode a colour that
-should theme. Match the existing usage in `plugins/wallhaven/` and
-`plugins/photo-frame/`; do not invent parallel styling. That is what keeps a
+should theme. Match the existing usage in `plugins/photo-frame/`; do not invent
+parallel styling. That is what keeps a
 plugin from reading like a generic widget bolted onto the desktop.
 
 ## README and preview (required)
 
 Every plugin ships a `README.md` and a preview image it embeds - name it
 `assets/preview-widget.png` for a desktop tile, `assets/preview-popout.png` for
-a popout. Follow the section order in `plugins/wallhaven/README.md`: title,
+a popout. Follow the section order in `plugins/template/README.md`: title,
 one-liner, the image, What it does, Install, How it plugs in, Settings table,
 Develop tree, Credits.
 

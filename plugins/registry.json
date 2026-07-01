@@ -2,22 +2,6 @@
   "version": 1,
   "plugins": [
     {
-      "id": "wallhaven",
-      "name": "Wallhaven",
-      "path": "plugins/wallhaven",
-      "version": "3.0.0",
-      "author": "Ryoku Team",
-      "official": true,
-      "tagline": "Browse wallhaven.cc and set your wallpaper from the desktop.",
-      "description": "A wallpaper browser for the Ryoku desktop. Search wallhaven.cc, filter by latest or top, match your screen's aspect, page through results, and set any wallpaper with a click - all from a draggable tile that sits on your wallpaper alongside the clock and weather.",
-      "icon": "wallpaper",
-      "tags": ["wallpaper", "desktop-widget"],
-      "hosts": ["desktopWidget"],
-      "preview": "assets/preview-widget.png",
-      "screenshots": ["assets/preview-widget.png"],
-      "lastUpdated": "2026-06-29"
-    },
-    {
       "id": "photo-frame",
       "name": "Photo Frame",
       "path": "plugins/photo-frame",
@@ -32,22 +16,6 @@
       "preview": "assets/preview-widget.png",
       "screenshots": ["assets/preview-widget.png"],
       "lastUpdated": "2026-06-27"
-    },
-    {
-      "id": "media",
-      "name": "Media",
-      "path": "plugins/media",
-      "version": "1.0.0",
-      "author": "Ryoku Team",
-      "official": true,
-      "tagline": "Now-playing on your desktop, in seven faces.",
-      "description": "A now-playing widget for the Ryoku desktop. Reads your active player and renders it as one of seven selectable faces - dossier, minimal, poster, spinning vinyl, cassette, a looping-GIF backdrop, or a live CAVA spectrum - each customizable and drawn in the shell's own style. Drag it onto your wallpaper beside the clock and weather.",
-      "icon": "music",
-      "tags": ["media", "mpris", "desktop-widget"],
-      "hosts": ["desktopWidget"],
-      "preview": "assets/preview-widget.png",
-      "screenshots": ["assets/preview-widget.png"],
-      "lastUpdated": "2026-06-29"
     }
   ],
   "archived": []
