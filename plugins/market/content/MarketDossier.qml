@@ -45,34 +45,10 @@ Item {
       width: parent.width - root.pad * 2
       spacing: 8 * root.s
 
-      // eyebrow row: 力 MARKET name + trend sparkle seal.
-      Item {
-        width: parent.width
-        height: eyebrow.implicitHeight
-
-        MicroLabel {
-          id: eyebrow
-          anchors.left: parent.left
-          anchors.verticalCenter: parent.verticalCenter
-          label: root.service ? root.service.name : qsTr("Market")
-          s: root.s
-        }
-
-        Rectangle {
-          anchors.right: parent.right
-          anchors.verticalCenter: parent.verticalCenter
-          width: 26 * root.s
-          height: 26 * root.s
-          radius: 8 * root.s
-          color: Qt.alpha(root.service ? root.service.trendColor : Theme.brand, 0.16)
-          GlyphIcon {
-            anchors.centerIn: parent
-            width: 15 * root.s
-            height: 15 * root.s
-            name: "sparkle"
-            color: root.service ? root.service.trendColor : Theme.brand
-          }
-        }
+      // eyebrow: 力 MARKET name.
+      MicroLabel {
+        label: root.service ? root.service.name : qsTr("Market")
+        s: root.s
       }
 
       // price + change.
@@ -112,17 +88,15 @@ Item {
       }
     }
 
-    // the 2.5D ridgeline hero.
+    // the 3D ridgeline hero with numbered price/time axes.
     Ridgeline {
       id: ridge
       x: root.pad
       y: col.y + col.implicitHeight + root.pad
       width: parent.width - root.pad * 2
-      height: 176 * root.s
+      height: 200 * root.s
       visible: root.service ? root.service.hasData : false
-      values: root.service ? root.service.spark : []
-      min: root.service ? root.service.sparkMin : 0
-      max: root.service ? root.service.sparkMax : 1
+      service: root.service
       crest: root.service ? root.service.trendColor : Theme.brand
     }
   }

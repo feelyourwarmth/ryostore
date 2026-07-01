@@ -68,6 +68,7 @@ Item {
   property real changePct: 0
   property real changeAbs: 0
   property var spark: []
+  property var times: []
   property bool loading: false
   property string error: ""
   property double lastUpdated: 0
@@ -128,6 +129,7 @@ Item {
       changeAbs = Number(d.changeAbs) || 0;
       changePct = Number(d.changePct) || 0;
       spark = Array.isArray(d.spark) ? d.spark : [];
+      times = Array.isArray(d.times) ? d.times : [];
       error = "";
       lastUpdated = Date.now();
     } catch (e) {
@@ -176,6 +178,31 @@ Item {
   }
 
   function fmtPct(v) { return (Math.abs(Number(v) || 0)).toFixed(2) + "%"; }
+
+  // Compact price for axis ticks: 1.2M / 60.1k / 294 / 0.0421. No currency
+  // symbol (the axis is understood to be price), tuned to stay short.
+  function fmtCompact(v) {
+    var a = Math.abs(Number(v) || 0);
+    if (a >= 1e6) return (a / 1e6).toFixed(2) + "M";
+    if (a >= 1e3) return (a / 1e3).toFixed(1) + "k";
+    if (a >= 1) return a.toFixed(a >= 100 ? 0 : 1);
+    return a.toFixed(4);
+  }
+
+  // Time tick from a unix-seconds stamp, formatted for the active window:
+  // intraday -> HH:mm, week -> weekday, month -> D/M, year -> MMM.
+  function fmtTime(unixSec) {
+    var t = Number(unixSec) || 0;
+    if (t <= 0) return "";
+    var d = new Date(t * 1000);
+    var loc = Qt.locale();
+    switch (winKey) {
+    case "1W": return d.toLocaleDateString(loc, "ddd");
+    case "1M": return d.toLocaleDateString(loc, "d/M");
+    case "1Y": return d.toLocaleDateString(loc, "MMM");
+    default:   return d.toLocaleTimeString(loc, "hh:mm");
+    }
+  }
 
   // Faces call this for chrome tints (eyebrow dot, grid) so the wallust vs brand
   // vs mono choice lives in one place. Trend green/red stays semantic (above).

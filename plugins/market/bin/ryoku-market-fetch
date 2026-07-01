@@ -46,13 +46,18 @@ printf '%s' "$resp" | jq -c --argjson max "$maxpts" '
 	else
 		.chart.result[0] as $r
 		| ($r.meta // {}) as $m
-		| ( [ $r.indicators.quote[0].close // [] | .[] | select(. != null) ] ) as $closes
+		| ($r.timestamp // []) as $ts
+		| ($r.indicators.quote[0].close // []) as $cl
+		# pair each close with its timestamp, drop nulls together so spark[i]
+		# and times[i] stay aligned after downsampling.
+		| ( [ range(0; ($cl | length)) as $i | { t: ($ts[$i] // 0), c: $cl[$i] } | select(.c != null) ] ) as $pairs
+		| ( [ $pairs[].c ] ) as $closes
 		| ( $m.regularMarketPrice // ($closes | last) // 0 ) as $price
 		| ( $m.chartPreviousClose // $m.previousClose // ($closes | first) // $price ) as $prev
-		| ( if ($closes | length) > $max
-			then ( ($closes | length) / $max ) as $stride
-			     | [ range(0; ($closes|length); $stride) | $closes[floor] ]
-			else $closes end ) as $spark
+		| ( if ($pairs | length) > $max
+			then ( ($pairs | length) / $max ) as $stride
+			     | [ range(0; ($pairs|length); $stride) | $pairs[floor] ]
+			else $pairs end ) as $samp
 		| {
 			symbol:    ($m.symbol // "'"$sym"'"),
 			name:      ($m.shortName // $m.longName // $m.symbol // "'"$sym"'"),
@@ -61,7 +66,8 @@ printf '%s' "$resp" | jq -c --argjson max "$maxpts" '
 			prevClose: $prev,
 			changeAbs: ($price - $prev),
 			changePct: ( if $prev != 0 then (($price - $prev) / $prev * 100) else 0 end ),
-			spark:     $spark
+			spark:     [ $samp[].c ],
+			times:     [ $samp[].t ]
 		  }
 	end
 ' 2>/dev/null || emit_error "parse error"

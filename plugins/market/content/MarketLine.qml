@@ -19,6 +19,8 @@ Item {
   property real cw: 360
 
   readonly property real pad: 16 * s
+  readonly property real axisW: 30 * s
+  readonly property real xAxisH: 13 * s
   readonly property bool grid: root.service ? root.service.showGrid : true
   readonly property var vals: root.service ? root.service.spark : []
   readonly property int n: Array.isArray(vals) ? vals.length : 0
@@ -55,7 +57,7 @@ Item {
   Rectangle {
     id: surface
     width: root.cw
-    implicitHeight: header.y + header.height + 12 * root.s + plot.height + root.pad
+    implicitHeight: header.y + header.height + 12 * root.s + plot.height + root.xAxisH + root.pad
     radius: 18 * root.s
     border.width: 1
     border.color: Theme.border
@@ -86,9 +88,9 @@ Item {
     // plot
     Item {
       id: plot
-      x: root.pad
+      x: root.pad + root.axisW
       y: header.y + header.height + 12 * root.s
-      width: parent.width - root.pad * 2
+      width: parent.width - root.pad * 2 - root.axisW
       height: 116 * root.s
 
       // faint grid.
@@ -144,6 +146,41 @@ Item {
         y: root.ptY(root.vals[root.n - 1]) - height / 2
         opacity: root.progress >= 0.98 ? 1 : 0
         Behavior on opacity { NumberAnimation { duration: Motion.fast } }
+      }
+    }
+
+    // Y axis: price ticks aligned to the horizontal grid lines.
+    Repeater {
+      model: 4
+      Text {
+        required property int index
+        width: root.axisW - 5 * root.s
+        horizontalAlignment: Text.AlignRight
+        x: 0
+        y: plot.y + plot.height * (index / 3) - implicitHeight / 2
+        text: root.service ? root.service.fmtCompact(root.lo + root.span * (1 - index / 3)) : ""
+        color: Theme.faint
+        font.family: Theme.mono
+        font.pixelSize: 9 * root.s
+        font.weight: Font.Medium
+      }
+    }
+    // X axis: time ticks along the bottom.
+    Repeater {
+      model: 5
+      Text {
+        required property int index
+        readonly property real ft: index / 4
+        readonly property int di: Math.round(ft * (root.n - 1))
+        horizontalAlignment: Text.AlignHCenter
+        width: 40 * root.s
+        x: plot.x + ft * plot.width - width / 2
+        y: plot.y + plot.height + 3 * root.s
+        text: (root.service && root.n > 1 && di >= 0 && di < (root.service.times ? root.service.times.length : 0)) ? root.service.fmtTime(root.service.times[di]) : ""
+        color: Theme.faint
+        font.family: Theme.mono
+        font.pixelSize: 9 * root.s
+        font.weight: Font.Medium
       }
     }
   }
