@@ -36,7 +36,7 @@ Item {
         case "open":       return b.note && b.note.length ? b.note.replace(/\.md$/, "") : qsTr("open a note");
         case "appendText": return qsTr("note → %1").arg(targetLabel(b.note));
         case "appendTask": return qsTr("task → %1").arg(targetLabel(b.note));
-        case "screenshot": return qsTr("shot → %1").arg(targetLabel(b.note));
+        case "pasteImage": return qsTr("paste → %1").arg(targetLabel(b.note));
         case "audio":      return qsTr("voice → %1").arg(targetLabel(b.note));
         }
         return "";

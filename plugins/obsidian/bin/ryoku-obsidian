@@ -7,9 +7,12 @@
 #   ryoku-obsidian vault-info   <vaultPath>
 #   ryoku-obsidian list-notes   <vaultPath> [query] [limit]
 #   ryoku-obsidian daily        <vaultPath> <vaultName>
+#   ryoku-obsidian note         <vaultPath> <vaultName> <rel> [templateRel]
 #   ryoku-obsidian append       <vaultPath> <vaultName> <relOrEmpty> <text>
 #   ryoku-obsidian open         <vaultName> <rel>
-#   ryoku-obsidian screenshot   <vaultPath> <vaultName> <relOrEmpty>
+#   ryoku-obsidian templates    <vaultPath>
+#   ryoku-obsidian graph        <vaultPath> [limit]
+#   ryoku-obsidian paste-image  <vaultPath> <vaultName> <relOrEmpty>
 #   ryoku-obsidian record-audio <vaultPath> <outName>
 #
 # Everything is read from and written to the user's own vault on disk; the only
@@ -257,24 +260,32 @@ templates)
 		   templates: ($n | split("\n") | map(select(length > 0)) | map($folder + "/" + (. | rtrimstr(".md")))) }'
 	;;
 
-screenshot)
+paste-image)
 	vault="${1:?vault path}"; name="${2:?vault name}"; rel="${3:-}"
-	command -v grim >/dev/null 2>&1 || emit_error "grim not found"
-	command -v slurp >/dev/null 2>&1 || emit_error "slurp not found"
+	command -v wl-paste >/dev/null 2>&1 || emit_error "wl-paste not found"
 	[ -d "$vault" ] || emit_error "vault not found"
+	# pick the best image MIME sitting on the clipboard.
+	types="$(wl-paste --list-types 2>/dev/null || true)"
+	mime=""; ext="png"
+	for cand in image/png image/jpeg image/webp image/gif image/bmp image/tiff; do
+		printf '%s\n' "$types" | grep -qiF "$cand" && { mime="$cand"; break; }
+	done
+	[ -n "$mime" ] || emit_error "no image on the clipboard"
+	case "$mime" in
+		image/jpeg) ext=jpg ;; image/webp) ext=webp ;; image/gif) ext=gif ;;
+		image/bmp) ext=bmp ;; image/tiff) ext=tiff ;; *) ext=png ;;
+	esac
 	dir="$(attach_dir_for "$vault" "$rel")"; mkdir -p "$dir"
-	fname="Pasted image $(date +%Y%m%d%H%M%S).png"
-	region="$(slurp 2>/dev/null)" || emit_error "cancelled"
-	[ -n "$region" ] || emit_error "cancelled"
-	grim -g "$region" "$dir/$fname" >/dev/null 2>&1 || emit_error "capture failed"
-	[ -s "$dir/$fname" ] || emit_error "capture failed"
+	fname="Pasted image $(date +%Y%m%d%H%M%S).$ext"
+	wl-paste --type "$mime" >"$dir/$fname" 2>/dev/null || { rm -f "$dir/$fname"; emit_error "paste failed"; }
+	[ -s "$dir/$fname" ] || { rm -f "$dir/$fname"; emit_error "clipboard image empty"; }
 	tpl=""
 	[ -z "$rel" ] && { rel="$(daily_rel "$vault")"; tpl="$(daily_template "$vault")"; }
 	ensure_note "$vault" "$rel" "$tpl" >/dev/null
 	abs="$vault/$rel"
 	[ -s "$abs" ] && [ -n "$(tail -c1 "$abs")" ] && printf '\n' >>"$abs"
 	printf '![[%s]]\n' "$fname" >>"$abs"
-	# silent — the embed is waiting in the note the next time you open it.
+	# silent — the pasted image is waiting in the note next time you open it.
 	jq -cn --arg a "$fname" --arg p "$rel" '{ attachment: $a, path: $p }'
 	;;
 

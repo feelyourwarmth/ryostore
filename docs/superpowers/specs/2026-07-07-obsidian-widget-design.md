@@ -213,9 +213,13 @@ Three follow-up fixes from user feedback:
   force layout (computed on data/size change, not per frame), draws edges once on
   a `Canvas`, and shows each note as a tappable square sized by link degree.
 - **Capture clarity.** The ambiguous icon-only media buttons became labelled
-  **Screenshot** (region grab) and **Voice memo** keys, so their purpose is
-  explicit.
+  **Paste image** and **Voice memo** keys, so their purpose is explicit.
+- **Paste, not screenshot.** The region-screenshot capture was dropped (users
+  already have a screenshot keybind); the media key now pastes whatever image is
+  on the clipboard (`wl-paste`) into the vault's attachments and embeds it,
+  matching how you'd paste into Obsidian itself. The `screenshot` verb became
+  `paste-image`.
 - **Feedback.** A service `status` line (`flash()`, 2.6s) reports every action
-  ("drag a region…", "shot → today", "task → inbox", "recording…"), so a silent
+  ("pasting image…", "image → today", "task → inbox", "recording…"), so a silent
   disk capture never feels broken. Quick capture no longer steals focus to
   Obsidian; only the open/today actions do.

@@ -22,11 +22,11 @@ sits under the masthead.
   them.
 - **Board view.** A spine of workflow blocks you build yourself: Today
   (create/open the daily note, exactly as Obsidian would), open a note (from a
-  template), append text, a task (`- [ ] …`), or a link, grab a screenshot, or
+  template), append text, a task (`- [ ] …`), or a link, paste an image, or
   record a voice memo. Tap to run; the edit toggle reorders and removes them.
 - **Capture bar.** Type a note or a task into the chosen target (your inbox, or
-  today's daily note); the labelled **Screenshot** key region-grabs into your
-  attachments and embeds it; **Voice memo** records an Opus clip and embeds it.
+  today's daily note); the labelled **Paste image** key drops whatever image is on
+  your clipboard into your attachments and embeds it; **Voice memo** records an Opus clip and embeds it.
   Links and `[[wikilinks]]` append verbatim, and a status line confirms each one
   so a quick capture never feels like it did nothing.
 - **Graph view.** Your vault as a constellation — notes are nodes sized by how
@@ -43,8 +43,8 @@ turn on Desktop Widgets. Drag it where you like and scale it from the corner
 bracket, same as the clock. On first run it lists your vaults — tap one to
 adopt it. Everything else (workflows, capture target) is set on the tile.
 
-Needs `jq` and `xdg-open` (on the Ryoku base); the screenshot key needs `grim`
-and `slurp`, and the voice memo needs `ffmpeg` (all on the base too).
+Needs `jq` and `xdg-open` (on the Ryoku base); pasting an image needs `wl-paste`
+(`wl-clipboard`), and the voice memo needs `ffmpeg` (all on the base too).
 
 ## How it plugs in
 
@@ -58,7 +58,7 @@ supplies the detection, the vault reads, and the writes. It ships three parts:
   face) with morph-in overlays for the note picker and the block builder. It
   reads everything from the service. (`content` entry point.)
 - `bin/ryoku-obsidian` — the local bridge: `detect`, `vault-info`, `list-notes`,
-  `daily`, `note`, `append`, `open`, `templates`, `graph`, `screenshot`,
+  `daily`, `note`, `append`, `open`, `templates`, `graph`, `paste-image`,
   `record-audio`. It reads your `.obsidian` config and writes notes on disk.
 
 The vault, the capture target, and workflows are set on the tile and persisted to
@@ -86,7 +86,7 @@ shell renders the form and persists changes to `pluginApi.pluginSettings`.
 obsidian/
   manifest.json              id, version, entry points, desktopWidget host, deps, settings
   bin/ryoku-obsidian         local bridge: detect / vault-info / list-notes / daily /
-                             note / append / open / templates / screenshot / record-audio
+                             note / append / open / templates / graph / paste-image / record-audio
   service/Main.qml           main: detect + resolve settings + workflow model + dispatch
   content/Widget.qml         content: phase dispatcher + picker/editor overlays + editing
   content/Panel.qml          brutalist surface (flat + hairline + hard offset shadow)
@@ -96,7 +96,7 @@ obsidian/
   content/MainFace.qml       masthead + Board/Graph switch + spine + capture bar
   content/WorkflowBlock.qml  one action block: node on the spine
   content/BlockEditor.qml    the step-by-step block builder
-  content/QuickCapture.qml   the note/task + screenshot + voice capture bar
+  content/QuickCapture.qml   the note/task + paste image + voice capture bar
   content/NotePicker.qml     searchable note chooser
   content/GraphPanel.qml     the vault graph (force layout, tap a node to open)
   assets/preview-widget.png  the README images

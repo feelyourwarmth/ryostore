@@ -34,7 +34,7 @@ Panel {
     }
     function iconFor(a) {
         return a === "daily" ? "sun" : a === "open" ? "file" : a === "appendText" ? "text"
-            : a === "appendTask" ? "check" : a === "screenshot" ? "image" : "mic";
+            : a === "appendTask" ? "check" : a === "pasteImage" ? "clipboard" : "mic";
     }
     function autoLabel() {
         switch (draftAction) {
@@ -42,7 +42,7 @@ Panel {
         case "open":       return draftNote.length ? targetLabel() : qsTr("Open note");
         case "appendText": return qsTr("Note → %1").arg(targetLabel());
         case "appendTask": return qsTr("Task → %1").arg(targetLabel());
-        case "screenshot": return qsTr("Screenshot → %1").arg(targetLabel());
+        case "pasteImage": return qsTr("Paste image → %1").arg(targetLabel());
         case "audio":      return qsTr("Voice memo → %1").arg(targetLabel());
         }
         return qsTr("Workflow");
@@ -90,7 +90,7 @@ Panel {
                     { a: "open", icon: "file", t: qsTr("Open a note") },
                     { a: "appendText", icon: "text", t: qsTr("Add a note") },
                     { a: "appendTask", icon: "check", t: qsTr("Add a task") },
-                    { a: "screenshot", icon: "image", t: qsTr("Screenshot") },
+                    { a: "pasteImage", icon: "clipboard", t: qsTr("Paste image") },
                     { a: "audio", icon: "mic", t: qsTr("Voice memo") }
                 ]
                 delegate: Rectangle {

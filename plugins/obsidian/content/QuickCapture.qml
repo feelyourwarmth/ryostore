@@ -7,7 +7,7 @@ import Ryoku.PluginKit.Singletons
 // The quick-capture bar. Row 1: type a line (書 write / 了 task) and send it.
 // Row 2: the NOTE/TASK toggle and the target chip that governs where everything
 // lands (the inbox, or today's daily note). Row 3: two clearly-labelled media
-// captures — SCREENSHOT (region grab) and VOICE MEMO — so their purpose is never
+// captures — PASTE IMAGE (from the clipboard) and VOICE MEMO — so their purpose
 // a guess. Every action reports back through the service's status line.
 Item {
     id: root
@@ -225,7 +225,7 @@ Item {
                 }
                 MouseArea { id: mbMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: mb.tapped() }
             }
-            MediaBtn { glyph: "region"; label: qsTr("Screenshot"); onTapped: if (root.service) root.service.shot(root.target) }
+            MediaBtn { glyph: "clipboard"; label: qsTr("Paste image"); onTapped: if (root.service) root.service.pasteImage(root.target) }
             MediaBtn {
                 glyph: root.recording ? "stop" : "mic"
                 label: root.recording ? qsTr("Stop") : qsTr("Voice memo")

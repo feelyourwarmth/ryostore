@@ -66,7 +66,7 @@ Item {
 
     // ── workflow model ──────────────────────────────────────────────────────────
     // Each workflow block: { id, label, icon, action, note, template }.
-    //   action: daily | open | appendText | appendTask | screenshot | audio
+    //   action: daily | open | appendText | appendTask | pasteImage | audio
     //   note:   target relpath ("" = today's daily for capture actions)
     readonly property var workflowList: {
         try {
@@ -264,14 +264,14 @@ Item {
 
     // ── status feedback ──────────────────────────────────────────────────────────
     // a short-lived line the tile shows after an action, so a silent capture or
-    // a screenshot never feels like it did nothing.
+    // a paste or a memo never feels like it did nothing.
     property string status: ""
     function flash(msg) { status = msg; statusTimer.restart(); }
     Timer { id: statusTimer; interval: 2600; onTriggered: root.status = "" }
 
     // ── actions ──────────────────────────────────────────────────────────────────
     property string _runMsg: ""
-    property string _shotWhere: ""
+    property string _pasteWhere: ""
     function openDaily() {
         if (!ready) return;
         _runMsg = qsTr("opened today");
@@ -300,12 +300,12 @@ Item {
         runProc.command = [cmd(), "append", vault, vaultName, rel || "", body];
         runProc.running = true;
     }
-    function shot(rel) {
-        if (!ready || shotProc.running) return;
-        _shotWhere = (!rel || rel.length === 0) ? qsTr("today") : rel.replace(/\.md$/, "").split("/").pop();
-        flash(qsTr("drag a region…"));
-        shotProc.command = [cmd(), "screenshot", vault, vaultName, rel || ""];
-        shotProc.running = true;
+    function pasteImage(rel) {
+        if (!ready || pasteProc.running) return;
+        _pasteWhere = (!rel || rel.length === 0) ? qsTr("today") : rel.replace(/\.md$/, "").split("/").pop();
+        flash(qsTr("pasting image…"));
+        pasteProc.command = [cmd(), "paste-image", vault, vaultName, rel || ""];
+        pasteProc.running = true;
     }
     property string _runOut: ""
     Process {
@@ -318,15 +318,15 @@ Item {
             root._runOut = "";
         }
     }
-    property string _shotOut: ""
+    property string _pasteOut: ""
     Process {
-        id: shotProc
-        stdout: StdioCollector { onStreamFinished: root._shotOut = text }
+        id: pasteProc
+        stdout: StdioCollector { onStreamFinished: root._pasteOut = text }
         onExited: {
-            var msg = qsTr("shot → %1").arg(root._shotWhere);
-            try { var d = JSON.parse((root._shotOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}"); if (d.error) msg = d.error; } catch (x) {}
+            var msg = qsTr("image → %1").arg(root._pasteWhere);
+            try { var d = JSON.parse((root._pasteOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}"); if (d.error) msg = d.error; } catch (x) {}
             root.flash(msg);
-            root._shotOut = "";
+            root._pasteOut = "";
         }
     }
 
@@ -382,7 +382,7 @@ Item {
             if (b.note && b.note.length > 0) openNoteFromTemplate(b.note, b.template);
             else openDaily();
             break;
-        case "screenshot": shot(b.note); break;
+        case "pasteImage":  pasteImage(b.note); break;
         case "audio":      toggleRecord(b.note); break;
         }
     }

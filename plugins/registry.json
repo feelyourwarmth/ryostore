@@ -9,7 +9,7 @@
       "author": "Ryoku Team",
       "official": true,
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
-      "description": "A desktop-widget plugin that adopts your existing Obsidian vault and settings, then turns the everyday moves into two views: a Board of tappable workflow blocks and a Graph of your vault. Create or open today's daily note (with your folder, filename format, and template), open any note, and append text, tasks, links, screenshots, or voice memos to a chosen note. Build your own blocks step by step, type on the tile, record a memo or grab a region into your attachments, and browse the vault as a link constellation you can tap to open. Local-first and opt-in - nothing runs until you pick a vault, and notes are written straight to disk.",
+      "description": "A desktop-widget plugin that adopts your existing Obsidian vault and settings, then turns the everyday moves into two views: a Board of tappable workflow blocks and a Graph of your vault. Create or open today's daily note (with your folder, filename format, and template), open any note, and append text, tasks, links, pasted images, or voice memos to a chosen note. Build your own blocks step by step, type on the tile, paste an image from the clipboard or record a memo into your attachments, and browse the vault as a link constellation you can tap to open. Local-first and opt-in - nothing runs until you pick a vault, and notes are written straight to disk.",
       "icon": "file",
       "tags": ["obsidian", "notes", "graph", "productivity", "desktop-widget"],
       "hosts": ["desktopWidget"],
