@@ -1,0 +1,303 @@
+#!/usr/bin/env bash
+# Local-first Obsidian bridge for the ryoku obsidian desktop widget. One verb per
+# call; one JSON object on stdout. Any failure still exits 0 with {"error":"..."}
+# so the widget's service keeps its last good state and never blanks the tile.
+#
+#   ryoku-obsidian detect
+#   ryoku-obsidian vault-info   <vaultPath>
+#   ryoku-obsidian list-notes   <vaultPath> [query] [limit]
+#   ryoku-obsidian daily        <vaultPath> <vaultName>
+#   ryoku-obsidian append       <vaultPath> <vaultName> <relOrEmpty> <text>
+#   ryoku-obsidian open         <vaultName> <rel>
+#   ryoku-obsidian screenshot   <vaultPath> <vaultName> <relOrEmpty>
+#   ryoku-obsidian record-audio <vaultPath> <outName>
+#
+# Everything is read from and written to the user's own vault on disk; the only
+# thing that leaves the machine is the obsidian:// URI handed to xdg-open, which
+# Obsidian itself handles. No network, no accounts, no telemetry.
+#
+# The widget's service (not this script) spawns commands directly (no shell), so
+# argv elements may safely contain spaces, quotes, and newlines.
+set -uo pipefail
+
+emit_error() { jq -cn --arg e "$1" '{error: $e}'; exit 0; }
+
+command -v jq >/dev/null 2>&1 || { printf '{"error":"jq not found"}\n'; exit 0; }
+
+cfg_home="${XDG_CONFIG_HOME:-$HOME/.config}"
+
+# ── date/format helpers ──────────────────────────────────────────────────────
+# Resolve a Moment.js format string (as Obsidian stores it) to a string for
+# today's date. Tokens are mapped longest-first into control-char sentinels
+# before any value is substituted, so an inserted month/weekday name (which
+# itself contains token letters) can never be re-tokenised. Bracket-escaped
+# literals ([Week]) are not supported; the common date/time tokens are.
+moment_date() {
+	local fmt="$1"
+	local s1=$'\001' s2=$'\002' s3=$'\003' s4=$'\004' s5=$'\005' s6=$'\006'
+	local s7=$'\007' s8=$'\010' s9=$'\011' s10=$'\013' s11=$'\014' s12=$'\016'
+	local s13=$'\017' s14=$'\020' s15=$'\021' s16=$'\022' s17=$'\023' s18=$'\024'
+	local o="$fmt"
+	# tokenise, longest token per letter-family first.
+	o="${o//YYYY/$s1}"; o="${o//YY/$s2}"
+	o="${o//MMMM/$s3}"; o="${o//MMM/$s4}"; o="${o//MM/$s5}"; o="${o//M/$s6}"
+	o="${o//DD/$s7}";   o="${o//D/$s8}"
+	o="${o//dddd/$s9}"; o="${o//ddd/$s10}"; o="${o//dd/$s11}"
+	o="${o//HH/$s12}";  o="${o//H/$s13}"
+	o="${o//hh/$s14}";  o="${o//h/$s15}"
+	o="${o//mm/$s16}";  o="${o//ss/$s17}"
+	o="${o//A/$s18}"
+	# substitute values (sentinels are unique, so order is irrelevant now).
+	o="${o//$s1/$(date +%Y)}";  o="${o//$s2/$(date +%y)}"
+	o="${o//$s3/$(date +%B)}";  o="${o//$s4/$(date +%b)}"
+	o="${o//$s5/$(date +%m)}";  o="${o//$s6/$(date +%-m)}"
+	o="${o//$s7/$(date +%d)}";  o="${o//$s8/$(date +%-d)}"
+	o="${o//$s9/$(date +%A)}";  o="${o//$s10/$(date +%a)}"; o="${o//$s11/$(date +%a)}"
+	o="${o//$s12/$(date +%H)}"; o="${o//$s13/$(date +%-H)}"
+	o="${o//$s14/$(date +%I)}"; o="${o//$s15/$(date +%-I)}"
+	o="${o//$s16/$(date +%M)}"; o="${o//$s17/$(date +%S)}"
+	o="${o//$s18/$(date +%p)}"
+	printf '%s' "$o"
+}
+
+# Read a JSON string field from a file, print $2 (default) when absent/empty.
+json_get() {
+	local file="$1" filter="$2" def="${3:-}" v
+	[ -f "$file" ] || { printf '%s' "$def"; return; }
+	v="$(jq -r "$filter // empty" "$file" 2>/dev/null || true)"
+	[ -n "$v" ] && printf '%s' "$v" || printf '%s' "$def"
+}
+
+# ── vault config resolution ──────────────────────────────────────────────────
+# Daily-notes config: folder, Moment format, template (core "Daily notes"
+# plugin, stored at .obsidian/daily-notes.json).
+daily_folder()   { json_get "$1/.obsidian/daily-notes.json" '.folder' ""; }
+daily_format()   { json_get "$1/.obsidian/daily-notes.json" '.format' "YYYY-MM-DD"; }
+daily_template() { json_get "$1/.obsidian/daily-notes.json" '.template' ""; }
+# Templates plugin date/time formats (.obsidian/templates.json).
+tpl_datefmt()    { json_get "$1/.obsidian/templates.json" '.dateFormat' "YYYY-MM-DD"; }
+tpl_timefmt()    { json_get "$1/.obsidian/templates.json" '.timeFormat' "HH:mm"; }
+# Attachment folder (.obsidian/app.json; "" = vault root, "./x" = beside note).
+attach_setting() { json_get "$1/.obsidian/app.json" '.attachmentFolderPath' ""; }
+
+# Absolute attachment dir for a note (relPath may be empty = vault root note).
+attach_dir_for() {
+	local vault="$1" relNote="${2:-}" setting
+	setting="$(attach_setting "$vault")"
+	case "$setting" in
+		"")        printf '%s' "$vault" ;;                       # vault root
+		"./")      printf '%s' "$vault/$(dirname "$relNote")" ;; # note folder
+		"./"*)     printf '%s' "$vault/$(dirname "$relNote")/${setting#./}" ;;
+		/*)        printf '%s' "$setting" ;;                     # absolute
+		*)         printf '%s' "$vault/$setting" ;;              # vault-relative
+	esac
+}
+
+# Apply core template placeholders to a template file's content on stdin-less
+# read: {{title}}, {{date}}, {{time}}, {{date:FMT}}, {{time:FMT}}.
+apply_template() {
+	local vault="$1" tplRel="$2" title="$3" body tpl
+	[ -n "$tplRel" ] || return 1
+	# Obsidian stores the template path without the .md extension.
+	if [ -f "$vault/$tplRel" ]; then tpl="$vault/$tplRel"
+	elif [ -f "$vault/$tplRel.md" ]; then tpl="$vault/$tplRel.md"
+	else return 1; fi
+	body="$(cat "$tpl")"
+	local datefmt timefmt
+	datefmt="$(tpl_datefmt "$vault")"; timefmt="$(tpl_timefmt "$vault")"
+	# custom-format placeholders first ({{date:FMT}} / {{time:FMT}}).
+	local m fmt val
+	while IFS= read -r m; do
+		fmt="${m#\{\{date:}"; fmt="${fmt%\}\}}"
+		val="$(moment_date "$fmt")"
+		body="${body//"$m"/$val}"
+	done < <(grep -oE '\{\{date:[^}]*\}\}' <<<"$body" | sort -u || true)
+	while IFS= read -r m; do
+		fmt="${m#\{\{time:}"; fmt="${fmt%\}\}}"
+		val="$(moment_date "$fmt")"
+		body="${body//"$m"/$val}"
+	done < <(grep -oE '\{\{time:[^}]*\}\}' <<<"$body" | sort -u || true)
+	body="${body//\{\{title\}\}/$title}"
+	body="${body//\{\{date\}\}/$(moment_date "$datefmt")}"
+	body="${body//\{\{time\}\}/$(moment_date "$timefmt")}"
+	printf '%s' "$body"
+}
+
+# Compute today's daily-note path relative to the vault (folder + formatted name).
+daily_rel() {
+	local vault="$1" folder name
+	folder="$(daily_folder "$vault")"
+	name="$(moment_date "$(daily_format "$vault")")"
+	[ -n "$folder" ] && printf '%s/%s.md' "$folder" "$name" || printf '%s.md' "$name"
+}
+
+# Templates folder (.obsidian/templates.json; default "Templates").
+templates_folder() { json_get "$1/.obsidian/templates.json" '.folder' "Templates"; }
+
+# Ensure a note exists at relPath, seeding it from tplRel when creating (empty
+# tplRel = a blank note). Prints 1 when it created the file, 0 when it existed.
+ensure_note() {
+	local vault="$1" rel="$2" tplRel="${3:-}" abs="$1/$2" title
+	[ -f "$abs" ] && { printf '0'; return; }         # already there
+	mkdir -p "$(dirname "$abs")"
+	title="$(basename "$rel" .md)"
+	if [ -n "$tplRel" ]; then
+		apply_template "$vault" "$tplRel" "$title" >"$abs" 2>/dev/null || : >"$abs"
+	else
+		: >"$abs"
+	fi
+	printf '1'                                        # created
+}
+
+open_uri() {
+	local vault="$1" rel="${2:-}" q
+	q="vault=$(jq -rn --arg s "$vault" '$s|@uri')"
+	[ -n "$rel" ] && q="$q&file=$(jq -rn --arg s "${rel%.md}" '$s|@uri')"
+	(setsid xdg-open "obsidian://open?$q" >/dev/null 2>&1 &) || true
+}
+
+verb="${1:-}"; shift || true
+
+case "$verb" in
+detect)
+	launcher=""; installed=false
+	if command -v obsidian >/dev/null 2>&1; then
+		launcher="obsidian"; installed=true
+	elif command -v flatpak >/dev/null 2>&1 && flatpak info md.obsidian.Obsidian >/dev/null 2>&1; then
+		launcher="flatpak run md.obsidian.Obsidian"; installed=true
+	fi
+	vfile="$cfg_home/obsidian/obsidian.json"
+	vaults='[]'
+	if [ -f "$vfile" ]; then
+		vaults="$(jq -c '
+			(.vaults // {}) | to_entries
+			| map({ name: (.value.path | rtrimstr("/") | split("/") | last),
+			        path: .value.path,
+			        open: (.value.open // false) })
+			| sort_by(.open | not)' "$vfile" 2>/dev/null || echo '[]')"
+		# obsidian is clearly present if it has ever registered a vault.
+		[ "$vaults" = "[]" ] || installed=true
+	fi
+	jq -cn --argjson inst "$installed" --arg l "$launcher" --argjson v "$vaults" \
+		'{ installed: $inst, launcher: $l, vaults: $v }'
+	;;
+
+vault-info)
+	vault="${1:?vault path}"
+	[ -d "$vault" ] || emit_error "vault not found"
+	jq -cn \
+		--arg folder "$(daily_folder "$vault")" \
+		--arg format "$(daily_format "$vault")" \
+		--arg template "$(daily_template "$vault")" \
+		--arg attach "$(attach_setting "$vault")" \
+		--arg dailyRel "$(daily_rel "$vault")" \
+		'{ daily: { folder: $folder, format: $format, template: $template },
+		   attachments: $attach, dailyRel: $dailyRel }'
+	;;
+
+list-notes)
+	vault="${1:?vault path}"; query="${2:-}"; limit="${3:-60}"
+	[ -d "$vault" ] || emit_error "vault not found"
+	notes="$(find "$vault" -type f -name '*.md' \
+		-not -path '*/.obsidian/*' -not -path '*/.trash/*' \
+		-printf '%T@\t%P\n' 2>/dev/null | sort -rn | cut -f2-)"
+	[ -n "$query" ] && notes="$(grep -iF -- "$query" <<<"$notes" || true)"
+	notes="$(head -n "$limit" <<<"$notes")"
+	jq -cn --rawfile n <(printf '%s' "$notes") \
+		'{ notes: ($n | split("\n") | map(select(length > 0))) }'
+	;;
+
+daily)
+	vault="${1:?vault path}"; name="${2:?vault name}"
+	[ -d "$vault" ] || emit_error "vault not found"
+	rel="$(daily_rel "$vault")"
+	created="$(ensure_note "$vault" "$rel" "$(daily_template "$vault")")"
+	open_uri "$name" "$rel"
+	jq -cn --arg p "$rel" --argjson c "$([ "$created" = 1 ] && echo true || echo false)" \
+		'{ path: $p, created: $c }'
+	;;
+
+append)
+	vault="${1:?vault path}"; name="${2:?vault name}"; rel="${3:-}"; text="${4:-}"
+	[ -d "$vault" ] || emit_error "vault not found"
+	tpl=""
+	[ -z "$rel" ] && { rel="$(daily_rel "$vault")"; tpl="$(daily_template "$vault")"; }
+	ensure_note "$vault" "$rel" "$tpl" >/dev/null
+	abs="$vault/$rel"
+	# keep a blank line before the appended block when the note has content.
+	[ -s "$abs" ] && [ -n "$(tail -c1 "$abs")" ] && printf '\n' >>"$abs"
+	printf '%s\n' "$text" >>"$abs"
+	# capture is silent by design — a quick note never yanks focus to Obsidian.
+	jq -cn --arg p "$rel" '{ path: $p }'
+	;;
+
+open)
+	name="${1:?vault name}"; rel="${2:-}"
+	open_uri "$name" "$rel"
+	jq -cn --arg p "$rel" '{ path: $p }'
+	;;
+
+note)
+	vault="${1:?vault path}"; name="${2:?vault name}"; rel="${3:?note}"; tplRel="${4:-}"
+	[ -d "$vault" ] || emit_error "vault not found"
+	created="$(ensure_note "$vault" "$rel" "$tplRel")"
+	open_uri "$name" "$rel"
+	jq -cn --arg p "$rel" --argjson c "$([ "$created" = 1 ] && echo true || echo false)" \
+		'{ path: $p, created: $c }'
+	;;
+
+templates)
+	vault="${1:?vault path}"
+	[ -d "$vault" ] || emit_error "vault not found"
+	folder="$(templates_folder "$vault")"
+	tdir="$vault/$folder"; list=""
+	[ -d "$tdir" ] && list="$(find "$tdir" -type f -name '*.md' -printf '%P\n' 2>/dev/null | sort)"
+	jq -cn --arg folder "$folder" --rawfile n <(printf '%s' "$list") \
+		'{ folder: $folder,
+		   templates: ($n | split("\n") | map(select(length > 0)) | map($folder + "/" + (. | rtrimstr(".md")))) }'
+	;;
+
+screenshot)
+	vault="${1:?vault path}"; name="${2:?vault name}"; rel="${3:-}"
+	command -v grim >/dev/null 2>&1 || emit_error "grim not found"
+	command -v slurp >/dev/null 2>&1 || emit_error "slurp not found"
+	[ -d "$vault" ] || emit_error "vault not found"
+	dir="$(attach_dir_for "$vault" "$rel")"; mkdir -p "$dir"
+	fname="Pasted image $(date +%Y%m%d%H%M%S).png"
+	region="$(slurp 2>/dev/null)" || emit_error "cancelled"
+	[ -n "$region" ] || emit_error "cancelled"
+	grim -g "$region" "$dir/$fname" >/dev/null 2>&1 || emit_error "capture failed"
+	[ -s "$dir/$fname" ] || emit_error "capture failed"
+	tpl=""
+	[ -z "$rel" ] && { rel="$(daily_rel "$vault")"; tpl="$(daily_template "$vault")"; }
+	ensure_note "$vault" "$rel" "$tpl" >/dev/null
+	abs="$vault/$rel"
+	[ -s "$abs" ] && [ -n "$(tail -c1 "$abs")" ] && printf '\n' >>"$abs"
+	printf '![[%s]]\n' "$fname" >>"$abs"
+	# silent — the embed is waiting in the note the next time you open it.
+	jq -cn --arg a "$fname" --arg p "$rel" '{ attachment: $a, path: $p }'
+	;;
+
+record-audio)
+	vault="${1:?vault path}"; outName="${2:?out name}"
+	command -v ffmpeg >/dev/null 2>&1 || emit_error "ffmpeg not found"
+	[ -d "$vault" ] || emit_error "vault not found"
+	dir="$(attach_dir_for "$vault" "")"; mkdir -p "$dir"
+	out="$dir/$outName"
+	ffmpeg -hide_banner -loglevel error -y -f pulse -i default \
+		-ac 1 -c:a libopus -b:a 32k "$out" >/dev/null 2>&1 &
+	pid=$!
+	# stop = a TERM/INT from the service; hand ffmpeg a clean quit so the .ogg
+	# is finalised, then wait for it to actually exit before reporting.
+	trap 'kill -INT "$pid" 2>/dev/null || true' TERM INT
+	wait "$pid" 2>/dev/null || true
+	while kill -0 "$pid" 2>/dev/null; do wait "$pid" 2>/dev/null || true; done
+	trap - TERM INT
+	ok=false; [ -s "$out" ] && ok=true
+	jq -cn --arg a "$outName" --argjson ok "$ok" '{ attachment: $a, ok: $ok }'
+	;;
+
+*)
+	emit_error "unknown verb: $verb"
+	;;
+esac

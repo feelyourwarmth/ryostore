@@ -1,0 +1,49 @@
+{
+  "id": "obsidian",
+  "name": "Obsidian",
+  "version": "1.0.0",
+  "author": "Ryoku Team <hello@ryoku.sh>",
+  "description": "Capture into your Obsidian vault from the desktop - daily notes, quick notes and tasks, screenshots and voice memos - as a canvas of tappable workflow blocks.",
+  "license": "MIT",
+  "tags": ["obsidian", "notes", "productivity", "desktop-widget"],
+  "official": true,
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml"
+  },
+  "files": [
+    "content/Panel.qml",
+    "content/Eyebrow.qml",
+    "content/ObsidianMark.qml",
+    "content/SetupPanel.qml",
+    "content/MainFace.qml",
+    "content/WorkflowBlock.qml",
+    "content/BlockEditor.qml",
+    "content/QuickCapture.qml",
+    "content/NotePicker.qml",
+    "assets/preview-widget.png"
+  ],
+  "capabilities": {
+    "densities": ["compact"]
+  },
+  "hosts": ["desktopWidget"],
+  "defaults": {
+    "host": "desktopWidget",
+    "desktopWidget": { "bg": "none" },
+    "icon": "file",
+    "label": "Obsidian"
+  },
+  "commands": ["bin/ryoku-obsidian"],
+  "dependencies": { "commands": ["jq", "xdg-open", "grim", "slurp", "ffmpeg"] },
+  "metadata": {
+    "settings": [
+      { "key": "accent", "type": "choice", "label": "Accent", "group": "Style", "default": "brand", "options": [
+        { "value": "brand", "label": "Vermillion" },
+        { "value": "wallust", "label": "Wallust" },
+        { "value": "mono", "label": "Mono" }
+      ] },
+      { "key": "vault", "type": "text", "label": "Vault path", "group": "Vault", "default": "", "placeholder": "Chosen on the tile; or type an absolute vault path" },
+      { "key": "inbox", "type": "text", "label": "Capture note", "group": "Vault", "default": "", "placeholder": "e.g. Inbox.md (empty = today's daily note)" }
+    ]
+  }
+}

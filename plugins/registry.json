@@ -2,6 +2,22 @@
   "version": 1,
   "plugins": [
     {
+      "id": "obsidian",
+      "name": "Obsidian",
+      "path": "plugins/obsidian",
+      "version": "1.0.0",
+      "author": "Ryoku Team",
+      "official": true,
+      "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
+      "description": "A desktop-widget plugin that adopts your existing Obsidian vault and settings, then turns the everyday moves into a canvas of tappable workflow blocks: create or open today's daily note (with your folder, filename format, and template), open any note, and append text, tasks, links, screenshots, or voice memos to a chosen note. Build your own blocks step by step, type on the tile, and record a memo or grab a region into your attachments. Local-first and opt-in - nothing runs until you pick a vault, and notes are written straight to disk.",
+      "icon": "file",
+      "tags": ["obsidian", "notes", "productivity", "desktop-widget"],
+      "hosts": ["desktopWidget"],
+      "preview": "assets/preview-widget.png",
+      "screenshots": ["assets/preview-widget.png"],
+      "lastUpdated": "2026-07-07"
+    },
+    {
       "id": "market",
       "name": "Market",
       "path": "plugins/market",
