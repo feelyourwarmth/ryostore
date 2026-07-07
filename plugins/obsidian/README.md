@@ -4,11 +4,14 @@ Quick-capture into your Obsidian vault, right from the desktop.
 
 ![Obsidian on the desktop](assets/preview-widget.png)
 
+![The vault graph](assets/preview-graph.png)
+
 ## What it does
 
 Adopts your existing Obsidian vault and settings, then turns the everyday
-capture moves into a canvas of tappable **workflow blocks** on a vermillion
-spine, in the shell's dark carbon-dossier style.
+capture moves into a **Board** of tappable workflow blocks and a **Graph** of
+your vault, in the shell's dark carbon-dossier style. A `Board | Graph` switch
+sits under the masthead.
 
 - **Detects Obsidian and your vaults.** Finds the binary and reads the vaults
   Obsidian already knows (`~/.config/obsidian/obsidian.json`). Pick one on the
@@ -17,16 +20,17 @@ spine, in the shell's dark carbon-dossier style.
   `templates.json`, and `app.json`, so daily notes land in **your** folder, with
   **your** filename format and template, and attachments go where Obsidian puts
   them.
-- **Today, one tap.** Creates today's daily note (folder + Moment.js filename +
-  template, exactly as Obsidian would) if it is missing, then opens it.
-- **Workflow blocks.** Build your own actions step by step — open a note (from a
-  template), append text, a task (`- [ ] …`), or a link to a chosen note, grab a
-  **screenshot**, or record a **voice memo**. Tap to run; the edit toggle
-  reorders and removes them.
-- **Capture bar.** Type a note or a task and it appends to your inbox (or today's
-  daily note); the **mic** records an Opus memo into your attachments and embeds
-  it; the **camera** region-grabs a screenshot into your attachments and embeds
-  it. Links and `[[wikilinks]]` append verbatim.
+- **Board view.** A spine of workflow blocks you build yourself: Today
+  (create/open the daily note, exactly as Obsidian would), open a note (from a
+  template), append text, a task (`- [ ] …`), or a link, grab a screenshot, or
+  record a voice memo. Tap to run; the edit toggle reorders and removes them.
+- **Capture bar.** Type a note or a task into the chosen target (your inbox, or
+  today's daily note); the labelled **Screenshot** key region-grabs into your
+  attachments and embeds it; **Voice memo** records an Opus clip and embeds it.
+  Links and `[[wikilinks]]` append verbatim, and a status line confirms each one
+  so a quick capture never feels like it did nothing.
+- **Graph view.** Your vault as a constellation — notes are nodes sized by how
+  many links touch them, `[[wikilinks]]` are the edges. Tap a node to open it.
 - **Local-first and opt-in.** Everything is read from and written to your own
   vault on disk. The only thing that leaves the machine is the `obsidian://`
   link handed to your browser opener to focus Obsidian. No accounts, no network,
@@ -54,8 +58,8 @@ supplies the detection, the vault reads, and the writes. It ships three parts:
   face) with morph-in overlays for the note picker and the block builder. It
   reads everything from the service. (`content` entry point.)
 - `bin/ryoku-obsidian` — the local bridge: `detect`, `vault-info`, `list-notes`,
-  `daily`, `note`, `append`, `open`, `templates`, `screenshot`, `record-audio`.
-  It reads your `.obsidian` config and writes notes on disk.
+  `daily`, `note`, `append`, `open`, `templates`, `graph`, `screenshot`,
+  `record-audio`. It reads your `.obsidian` config and writes notes on disk.
 
 The vault, the capture target, and workflows are set on the tile and persisted to
 `plugins.json` via `ryoku-plugins-place`; the shell watches that file, so the
@@ -89,12 +93,14 @@ obsidian/
   content/Eyebrow.qml        editorial kicker (tick + 力 + mono label)
   content/ObsidianMark.qml   the 黒 hanko seal
   content/SetupPanel.qml     detect state + vault chooser
-  content/MainFace.qml       masthead + workflow spine + capture bar
+  content/MainFace.qml       masthead + Board/Graph switch + spine + capture bar
   content/WorkflowBlock.qml  one action block: node on the spine
   content/BlockEditor.qml    the step-by-step block builder
-  content/QuickCapture.qml   the note/task + mic + camera capture bar
+  content/QuickCapture.qml   the note/task + screenshot + voice capture bar
   content/NotePicker.qml     searchable note chooser
-  assets/preview-widget.png  the README image
+  content/GraphPanel.qml     the vault graph (force layout, tap a node to open)
+  assets/preview-widget.png  the README images
+  assets/preview-graph.png
 ```
 
 Copy `plugins/template/` and read `plugins/AUTHORING.md` for the full guide.

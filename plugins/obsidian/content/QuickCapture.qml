@@ -4,12 +4,11 @@ import QtQuick
 import Ryoku.PluginKit
 import Ryoku.PluginKit.Singletons
 
-// The quick-capture bar: type a line and append it as a note or a task, drop a
-// voice memo, or grab a screenshot — all into the chosen target (the inbox, or
-// today's daily note when empty). An editorial underline input led by 書
-// (write), a sharp NOTE/TASK toggle, and square capture keys. Typing raises the
-// wallpaper layer's keyboard grab via `editing`. Links and wikilinks append
-// verbatim.
+// The quick-capture bar. Row 1: type a line (書 write / 了 task) and send it.
+// Row 2: the NOTE/TASK toggle and the target chip that governs where everything
+// lands (the inbox, or today's daily note). Row 3: two clearly-labelled media
+// captures — SCREENSHOT (region grab) and VOICE MEMO — so their purpose is never
+// a guess. Every action reports back through the service's status line.
 Item {
     id: root
 
@@ -49,15 +48,13 @@ Item {
     Column {
         id: col
         width: root.w
-        spacing: 10 * root.s
+        spacing: 8 * root.s
 
-        // ── underline field ───────────────────────────────────────────────────────
+        // ── row 1: text field ─────────────────────────────────────────────────────
         Item {
             width: parent.width
             height: 32 * root.s
-
             MouseArea { anchors.fill: parent; onClicked: root.focusField() }
-
             SearchField {
                 id: field
                 anchors.left: parent.left
@@ -74,7 +71,6 @@ Item {
                     function onActiveFocusChanged() { root.fieldFocused = field.input.activeFocus; }
                 }
             }
-
             Rectangle {
                 id: sendBtn
                 anchors.right: parent.right
@@ -94,31 +90,20 @@ Item {
                     color: sendMa.containsMouse ? Theme.cardBot : (field.text.length > 0 ? root.accent : Theme.iconDim)
                     stroke: 1.8
                 }
-                MouseArea {
-                    id: sendMa
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: root.commit()
-                }
+                MouseArea { id: sendMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.commit() }
             }
-
-            // the editorial underline.
             Rectangle {
-                anchors.left: parent.left
-                anchors.right: parent.right
-                anchors.bottom: parent.bottom
+                anchors.left: parent.left; anchors.right: parent.right; anchors.bottom: parent.bottom
                 height: 1
                 color: root.fieldFocused ? root.accent : Theme.lineStrong
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
             }
         }
 
-        // ── toggle · target · mic · camera ────────────────────────────────────────
+        // ── row 2: note/task toggle + target ──────────────────────────────────────
         Row {
             width: parent.width
             spacing: 7 * root.s
-
             Rectangle {
                 id: toggle
                 width: 106 * root.s
@@ -128,7 +113,6 @@ Item {
                 color: "transparent"
                 border.width: 1
                 border.color: Theme.lineStrong
-
                 Rectangle {
                     width: toggle.width / 2
                     height: toggle.height
@@ -157,19 +141,14 @@ Item {
                                 font.letterSpacing: 1.4 * root.s
                                 font.capitalization: Font.AllUppercase
                             }
-                            MouseArea {
-                                anchors.fill: parent
-                                cursorShape: Qt.PointingHandCursor
-                                onClicked: root.taskMode = seg.modelData.task
-                            }
+                            MouseArea { anchors.fill: parent; cursorShape: Qt.PointingHandCursor; onClicked: root.taskMode = seg.modelData.task }
                         }
                     }
                 }
             }
-
             Rectangle {
                 id: targetChip
-                width: root.w - 106 * root.s - 26 * root.s * 2 - 7 * root.s * 3
+                width: root.w - 106 * root.s - 7 * root.s
                 height: 26 * root.s
                 radius: 0
                 antialiasing: false
@@ -178,25 +157,17 @@ Item {
                 border.color: tgtMa.containsMouse ? Qt.alpha(root.accent, 0.55) : Theme.hair
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
                 Row {
-                    anchors.left: parent.left
-                    anchors.leftMargin: 8 * root.s
-                    anchors.right: parent.right
-                    anchors.rightMargin: 8 * root.s
+                    anchors.left: parent.left; anchors.leftMargin: 8 * root.s
+                    anchors.right: parent.right; anchors.rightMargin: 8 * root.s
                     anchors.verticalCenter: parent.verticalCenter
-                    spacing: 5 * root.s
+                    spacing: 6 * root.s
+                    Text { anchors.verticalCenter: parent.verticalCenter; text: "→"; color: root.accent; font.family: Theme.mono; font.pixelSize: 12 * root.s; font.weight: Font.Bold }
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
-                        text: "→"
-                        color: root.accent
-                        font.family: Theme.mono; font.pixelSize: 12 * root.s; font.weight: Font.Bold
-                    }
-                    Text {
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: targetChip.width - 32 * root.s
+                        width: targetChip.width - 34 * root.s
                         elide: Text.ElideMiddle
-                        text: root.target.length === 0 ? qsTr("today") : root.target.replace(/\.md$/, "").split("/").pop()
-                        color: Theme.subtle
-                        font.family: Theme.mono; font.pixelSize: 10.5 * root.s
+                        text: root.target.length === 0 ? qsTr("today's note") : root.target.replace(/\.md$/, "").split("/").pop()
+                        color: Theme.subtle; font.family: Theme.mono; font.pixelSize: 10.5 * root.s
                     }
                 }
                 MouseArea {
@@ -207,50 +178,59 @@ Item {
                     onClicked: if (root.openPicker) root.openPicker(rel => { root.target = rel; if (root.service) root.service.setInbox(rel); });
                 }
             }
+        }
 
-            component IconBtn: Rectangle {
-                id: ib
+        // ── row 3: labelled media captures ────────────────────────────────────────
+        Row {
+            width: parent.width
+            spacing: 7 * root.s
+            component MediaBtn: Rectangle {
+                id: mb
                 property string glyph: ""
+                property string label: ""
                 property bool lit: false
                 signal tapped()
-                width: 26 * root.s
-                height: 26 * root.s
+                width: (root.w - 7 * root.s) / 2
+                height: 30 * root.s
                 radius: 0
                 antialiasing: false
-                color: ib.lit ? root.accent : (ibMa.containsMouse ? Qt.alpha(root.accent, 0.2) : "transparent")
+                color: mb.lit ? root.accent : (mbMa.containsMouse ? Qt.alpha(root.accent, 0.14) : Qt.rgba(1, 1, 1, 0.02))
                 border.width: 1
-                border.color: ib.lit ? root.accent : Theme.hair
+                border.color: mb.lit ? root.accent : Theme.hair
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
-                GlyphIcon {
+                Row {
                     anchors.centerIn: parent
-                    width: 15 * root.s; height: 15 * root.s
-                    name: ib.glyph
-                    color: ib.lit ? Theme.cardBot : (ibMa.containsMouse ? root.accent : Theme.iconDim)
-                    stroke: 1.7
+                    spacing: 8 * root.s
+                    GlyphIcon {
+                        anchors.verticalCenter: parent.verticalCenter
+                        width: 15 * root.s; height: 15 * root.s
+                        name: mb.glyph
+                        color: mb.lit ? Theme.cardBot : root.accent
+                        stroke: 1.7
+                    }
+                    Text {
+                        anchors.verticalCenter: parent.verticalCenter
+                        text: mb.label
+                        color: mb.lit ? Theme.cardBot : Theme.cream
+                        font.family: Theme.mono; font.pixelSize: 10 * root.s
+                        font.weight: Font.DemiBold; font.letterSpacing: 1.2 * root.s
+                        font.capitalization: Font.AllUppercase
+                    }
                 }
                 SequentialAnimation on opacity {
-                    running: ib.lit
+                    running: mb.lit
                     loops: Animation.Infinite
-                    NumberAnimation { from: 1; to: 0.45; duration: 620; easing.type: Easing.InOutSine }
-                    NumberAnimation { from: 0.45; to: 1; duration: 620; easing.type: Easing.InOutSine }
+                    NumberAnimation { from: 1; to: 0.5; duration: 620; easing.type: Easing.InOutSine }
+                    NumberAnimation { from: 0.5; to: 1; duration: 620; easing.type: Easing.InOutSine }
                 }
-                MouseArea {
-                    id: ibMa
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: ib.tapped()
-                }
+                MouseArea { id: mbMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: mb.tapped() }
             }
-
-            IconBtn {
+            MediaBtn { glyph: "region"; label: qsTr("Screenshot"); onTapped: if (root.service) root.service.shot(root.target) }
+            MediaBtn {
                 glyph: root.recording ? "stop" : "mic"
+                label: root.recording ? qsTr("Stop") : qsTr("Voice memo")
                 lit: root.recording
                 onTapped: if (root.service) root.service.toggleRecord(root.target)
-            }
-            IconBtn {
-                glyph: "image"
-                onTapped: if (root.service) root.service.shot(root.target)
             }
         }
     }

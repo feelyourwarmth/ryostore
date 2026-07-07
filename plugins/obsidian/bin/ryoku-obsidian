@@ -297,6 +297,35 @@ record-audio)
 	jq -cn --arg a "$outName" --argjson ok "$ok" '{ attachment: $a, ok: $ok }'
 	;;
 
+graph)
+	vault="${1:?vault path}"; limit="${2:-48}"
+	[ -d "$vault" ] || emit_error "vault not found"
+	tmpn="$(mktemp)"; tmpe="$(mktemp)"; trap 'rm -f "$tmpn" "$tmpe"' EXIT
+	while IFS= read -r f; do
+		rel="${f#"$vault"/}"; id="${rel%.md}"
+		printf '%s\n' "$id" >>"$tmpn"
+		# [[wikilinks]] -> target text, dropping a |alias or #heading and trimming.
+		grep -oE '\[\[[^]]+\]\]' "$f" 2>/dev/null \
+			| sed -E 's/^\[\[//; s/\]\]$//; s/[|#].*$//; s/^[[:space:]]+//; s/[[:space:]]+$//' \
+			| while IFS= read -r tgt; do
+				[ -n "$tgt" ] && printf '%s\t%s\n' "$id" "$tgt" >>"$tmpe"
+			done
+	done < <(find "$vault" -type f -name '*.md' -not -path '*/.obsidian/*' -not -path '*/.trash/*')
+	jq -cn --rawfile nraw "$tmpn" --rawfile eraw "$tmpe" --argjson limit "$limit" '
+		($nraw | split("\n") | map(select(length > 0)) | unique) as $ids
+		| ($ids | map({ (.): . }) | add // {}) as $byid
+		| ($ids | map({ (. | split("/") | last): . }) | add // {}) as $bybase
+		| ($eraw | split("\n") | map(select(length > 0)) | map(split("\t"))
+			| map({ s: .[0], t: ($byid[.[1]] // $bybase[.[1]]) })
+			| map(select(.t != null and .t != .s)) | unique) as $links
+		| ($links | reduce .[] as $l ({}; .[$l.s] += 1 | .[$l.t] += 1)) as $deg
+		| ($ids | map({ id: ., label: (. | split("/") | last), deg: ($deg[.] // 0) })
+			| sort_by(-.deg) | .[0:$limit]) as $nodes
+		| ($nodes | map(.id) | map({ (.): true }) | add // {}) as $keep
+		| { nodes: $nodes, links: ($links | map(select($keep[.s] and $keep[.t]))) }
+	'
+	;;
+
 *)
 	emit_error "unknown verb: $verb"
 	;;

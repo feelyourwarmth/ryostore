@@ -171,7 +171,7 @@ Item {
         infoProc.command = [cmd(), "vault-info", vault];
         infoProc.running = true;
     }
-    onVaultChanged: if (ready && vault.length > 0) { refreshVaultInfo(); refreshTemplates(); }
+    onVaultChanged: if (ready && vault.length > 0) { refreshVaultInfo(); refreshTemplates(); refreshGraph(); }
     property string _infoOut: ""
     Process {
         id: infoProc
@@ -236,14 +236,51 @@ Item {
         }
     }
 
+    // ── graph overview (nodes = notes, edges = [[wikilinks]]) ────────────────────
+    property var graphData: ({ nodes: [], links: [] })
+    property bool graphLoading: false
+    function refreshGraph() {
+        if (!ready || vault.length === 0)
+            return;
+        graphLoading = true;
+        graphProc.command = [cmd(), "graph", vault, "48"];
+        graphProc.running = true;
+    }
+    property string _graphOut: ""
+    Process {
+        id: graphProc
+        stdout: StdioCollector { onStreamFinished: root._graphOut = text }
+        onExited: {
+            try {
+                var d = JSON.parse((root._graphOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}");
+                root.graphData = d.nodes ? d : ({ nodes: [], links: [] });
+            } catch (e) {
+                root.graphData = ({ nodes: [], links: [] });
+            }
+            root.graphLoading = false;
+            root._graphOut = "";
+        }
+    }
+
+    // ── status feedback ──────────────────────────────────────────────────────────
+    // a short-lived line the tile shows after an action, so a silent capture or
+    // a screenshot never feels like it did nothing.
+    property string status: ""
+    function flash(msg) { status = msg; statusTimer.restart(); }
+    Timer { id: statusTimer; interval: 2600; onTriggered: root.status = "" }
+
     // ── actions ──────────────────────────────────────────────────────────────────
+    property string _runMsg: ""
+    property string _shotWhere: ""
     function openDaily() {
         if (!ready) return;
+        _runMsg = qsTr("opened today");
         runProc.command = [cmd(), "daily", vault, vaultName];
         runProc.running = true;
     }
     function openNote(rel) {
         if (!ready || !rel) return;
+        _runMsg = qsTr("opened %1").arg(rel.split("/").pop());
         runProc.command = [cmd(), "open", vaultName, rel];
         runProc.running = true;
     }
@@ -251,22 +288,47 @@ Item {
     // then open it. An existing note just opens; an empty template = a blank note.
     function openNoteFromTemplate(rel, tpl) {
         if (!ready || !rel) return;
+        _runMsg = qsTr("opened %1").arg(rel.split("/").pop());
         runProc.command = [cmd(), "note", vault, vaultName, rel, tpl || ""];
         runProc.running = true;
     }
     function appendNote(rel, text, asTask) {
         if (!ready || !text || text.length === 0) return;
         var body = asTask ? ("- [ ] " + text) : text;
+        var where = (!rel || rel.length === 0) ? qsTr("today") : rel.replace(/\.md$/, "").split("/").pop();
+        _runMsg = asTask ? qsTr("task → %1").arg(where) : qsTr("saved → %1").arg(where);
         runProc.command = [cmd(), "append", vault, vaultName, rel || "", body];
         runProc.running = true;
     }
     function shot(rel) {
         if (!ready || shotProc.running) return;
+        _shotWhere = (!rel || rel.length === 0) ? qsTr("today") : rel.replace(/\.md$/, "").split("/").pop();
+        flash(qsTr("drag a region…"));
         shotProc.command = [cmd(), "screenshot", vault, vaultName, rel || ""];
         shotProc.running = true;
     }
-    Process { id: runProc }
-    Process { id: shotProc }
+    property string _runOut: ""
+    Process {
+        id: runProc
+        stdout: StdioCollector { onStreamFinished: root._runOut = text }
+        onExited: {
+            var e = "";
+            try { var d = JSON.parse((root._runOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}"); e = d.error || ""; } catch (x) {}
+            root.flash(e.length > 0 ? e : root._runMsg);
+            root._runOut = "";
+        }
+    }
+    property string _shotOut: ""
+    Process {
+        id: shotProc
+        stdout: StdioCollector { onStreamFinished: root._shotOut = text }
+        onExited: {
+            var msg = qsTr("shot → %1").arg(root._shotWhere);
+            try { var d = JSON.parse((root._shotOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}"); if (d.error) msg = d.error; } catch (x) {}
+            root.flash(msg);
+            root._shotOut = "";
+        }
+    }
 
     // ── audio capture lifecycle ──────────────────────────────────────────────────
     property bool recording: false
@@ -285,6 +347,7 @@ Item {
         recordProc.command = [cmd(), "record-audio", vault, recordOut];
         recordProc.running = true;
         recording = true;
+        flash(qsTr("recording…"));
     }
     function stopRecord() {
         if (recording)

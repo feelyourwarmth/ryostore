@@ -21,7 +21,9 @@
     "content/BlockEditor.qml",
     "content/QuickCapture.qml",
     "content/NotePicker.qml",
-    "assets/preview-widget.png"
+    "content/GraphPanel.qml",
+    "assets/preview-widget.png",
+    "assets/preview-graph.png"
   ],
   "capabilities": {
     "densities": ["compact"]

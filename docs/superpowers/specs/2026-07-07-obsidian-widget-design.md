@@ -194,3 +194,28 @@ version 1.0.0, official true, tagline, description, icon `"file"`, tags
 `["obsidian","notes","desktop-widget"]`, hosts `["desktopWidget"]`, preview).
 Ship `README.md` in the template's section order + a preview image captured from
 the live tile.
+
+## Iteration — brutalist restyle, graph view, capture clarity
+
+After the first build read as a generic rounded-card panel, the visual language
+was rebuilt to the shell's Greek-noir/brutalist idiom (`docs/ui-ux.md`): sharp
+corners, flat surfaces with a hairline border and a **hard offset shadow** (no
+gradients), the **力 Eyebrow** kicker, a **黒 hanko seal** mark, `CornerTicks`
+/ `RegMark` chrome, Fraunces masthead, mono tabular metadata, and the **fixed
+vermillion** accent (`Theme.sun`) so a desktop widget reads on any wallpaper.
+New primitives: `content/Panel.qml`, `content/Eyebrow.qml`.
+
+Three follow-up fixes from user feedback:
+
+- **Graph view.** A `Board | Graph` switch in the masthead. Graph renders the
+  vault as a link constellation: a new `graph` CLI verb scans notes and their
+  `[[wikilinks]]` into `{nodes,links}`; `content/GraphPanel.qml` runs a one-shot
+  force layout (computed on data/size change, not per frame), draws edges once on
+  a `Canvas`, and shows each note as a tappable square sized by link degree.
+- **Capture clarity.** The ambiguous icon-only media buttons became labelled
+  **Screenshot** (region grab) and **Voice memo** keys, so their purpose is
+  explicit.
+- **Feedback.** A service `status` line (`flash()`, 2.6s) reports every action
+  ("drag a region…", "shot → today", "task → inbox", "recording…"), so a silent
+  disk capture never feels broken. Quick capture no longer steals focus to
+  Obsidian; only the open/today actions do.
