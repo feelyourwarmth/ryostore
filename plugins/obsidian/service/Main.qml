@@ -239,11 +239,12 @@ Item {
     // ── graph overview (nodes = notes, edges = [[wikilinks]]) ────────────────────
     property var graphData: ({ nodes: [], links: [] })
     property bool graphLoading: false
+    readonly property int graphTotal: (graphData && graphData.total) ? graphData.total : 0
     function refreshGraph() {
         if (!ready || vault.length === 0)
             return;
         graphLoading = true;
-        graphProc.command = [cmd(), "graph", vault, "48"];
+        graphProc.command = [cmd(), "graph", vault, "150"];
         graphProc.running = true;
     }
     property string _graphOut: ""

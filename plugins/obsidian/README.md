@@ -29,12 +29,15 @@ sits under the masthead.
   your clipboard into your attachments and embeds it; **Voice memo** records an Opus clip and embeds it.
   Links and `[[wikilinks]]` append verbatim, and a status line confirms each one
   so a quick capture never feels like it did nothing.
-- **Graph view.** Your vault as a constellation — notes are nodes sized by how
-  many links touch them, `[[wikilinks]]` are the edges. Tap a node to open it.
+- **Graph view.** Your vault as a constellation: notes are nodes sized by how
+  many links touch them, `[[wikilinks]]` are the edges. A large vault shows its
+  most-linked core (the count reads "N of your total"), nodes never overlap,
+  hovering one spotlights its neighbours, and a tap opens it in Obsidian.
 - **Local-first and opt-in.** Everything is read from and written to your own
-  vault on disk. The only thing that leaves the machine is the `obsidian://`
-  link handed to your browser opener to focus Obsidian. No accounts, no network,
-  no telemetry.
+  vault on disk. Opening a note hands an `obsidian://` link straight to the
+  Obsidian you have installed, never a browser, so it works out of the box with
+  no system setup and leaves nothing behind when you remove the widget. No
+  accounts, no network, no telemetry.
 
 ## Install
 
@@ -43,8 +46,9 @@ turn on Desktop Widgets. Drag it where you like and scale it from the corner
 bracket, same as the clock. On first run it lists your vaults — tap one to
 adopt it. Everything else (workflows, capture target) is set on the tile.
 
-Needs `jq` and `xdg-open` (on the Ryoku base); pasting an image needs `wl-paste`
-(`wl-clipboard`), and the voice memo needs `ffmpeg` (all on the base too).
+Needs `jq` (on the Ryoku base). Opening a note launches your installed Obsidian
+directly, falling back to `xdg-open` only if it cannot find the app; pasting an
+image needs `wl-paste` (`wl-clipboard`), and the voice memo needs `ffmpeg`.
 
 ## How it plugs in
 
@@ -98,7 +102,7 @@ obsidian/
   content/BlockEditor.qml    the step-by-step block builder
   content/QuickCapture.qml   the note/task + paste image + voice capture bar
   content/NotePicker.qml     searchable note chooser
-  content/GraphPanel.qml     the vault graph (force layout, tap a node to open)
+  content/GraphPanel.qml     the vault graph (force + collision layout, hover to highlight, tap to open)
   assets/preview-widget.png  the README images
   assets/preview-graph.png
 ```

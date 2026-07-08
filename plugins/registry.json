@@ -5,7 +5,7 @@
       "id": "obsidian",
       "name": "Obsidian",
       "path": "plugins/obsidian",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": "Ryoku Team",
       "official": true,
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
@@ -15,7 +15,7 @@
       "hosts": ["desktopWidget"],
       "preview": "assets/preview-widget.png",
       "screenshots": ["assets/preview-widget.png", "assets/preview-graph.png"],
-      "lastUpdated": "2026-07-07"
+      "lastUpdated": "2026-07-08"
     },
     {
       "id": "market",

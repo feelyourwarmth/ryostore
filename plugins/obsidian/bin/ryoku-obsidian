@@ -152,11 +152,39 @@ ensure_note() {
 	printf '1'                                        # created
 }
 
+# resolve_launcher: fill LAUNCH[] with the command that hands an obsidian:// URI
+# straight to the installed Obsidian. We launch the app directly rather than
+# `xdg-open <uri>`, because a machine with no obsidian:// scheme handler
+# registered sends the URI to the default web browser instead (the reported "it
+# opens my browser, not Obsidian"). Direct launch needs no system registration,
+# so the widget works out of the box and leaves nothing behind when removed.
+# Returns 1 when no Obsidian is found, so the caller can fall back to xdg-open.
+LAUNCH=()
+resolve_launcher() {
+	command -v obsidian >/dev/null 2>&1 && { LAUNCH=(obsidian); return 0; }
+	if command -v flatpak >/dev/null 2>&1 && flatpak info md.obsidian.Obsidian >/dev/null 2>&1; then
+		LAUNCH=(flatpak run md.obsidian.Obsidian); return 0
+	fi
+	[ -x /snap/bin/obsidian ] && { LAUNCH=(/snap/bin/obsidian); return 0; }
+	local c
+	for c in "$HOME/Applications"/Obsidian*.AppImage "$HOME/.local/bin/obsidian" \
+	         /opt/Obsidian/obsidian /opt/obsidian/obsidian /usr/local/bin/obsidian; do
+		[ -x "$c" ] && { LAUNCH=("$c"); return 0; }
+	done
+	return 1
+}
+
+# open_uri: open a vault (and optionally a note) in the installed Obsidian.
 open_uri() {
-	local vault="$1" rel="${2:-}" q
-	q="vault=$(jq -rn --arg s "$vault" '$s|@uri')"
+	local name="$1" rel="${2:-}" q uri
+	q="vault=$(jq -rn --arg s "$name" '$s|@uri')"
 	[ -n "$rel" ] && q="$q&file=$(jq -rn --arg s "${rel%.md}" '$s|@uri')"
-	(setsid xdg-open "obsidian://open?$q" >/dev/null 2>&1 &) || true
+	uri="obsidian://open?$q"
+	if resolve_launcher; then
+		(setsid "${LAUNCH[@]}" "$uri" >/dev/null 2>&1 &) || true
+	else
+		(setsid xdg-open "$uri" >/dev/null 2>&1 &) || true
+	fi
 }
 
 verb="${1:-}"; shift || true
@@ -164,10 +192,8 @@ verb="${1:-}"; shift || true
 case "$verb" in
 detect)
 	launcher=""; installed=false
-	if command -v obsidian >/dev/null 2>&1; then
-		launcher="obsidian"; installed=true
-	elif command -v flatpak >/dev/null 2>&1 && flatpak info md.obsidian.Obsidian >/dev/null 2>&1; then
-		launcher="flatpak run md.obsidian.Obsidian"; installed=true
+	if resolve_launcher; then
+		launcher="${LAUNCH[*]}"; installed=true
 	fi
 	vfile="$cfg_home/obsidian/obsidian.json"
 	vaults='[]'
@@ -309,19 +335,27 @@ record-audio)
 	;;
 
 graph)
-	vault="${1:?vault path}"; limit="${2:-48}"
+	vault="${1:?vault path}"; limit="${2:-150}"
 	[ -d "$vault" ] || emit_error "vault not found"
 	tmpn="$(mktemp)"; tmpe="$(mktemp)"; trap 'rm -f "$tmpn" "$tmpe"' EXIT
-	while IFS= read -r f; do
-		rel="${f#"$vault"/}"; id="${rel%.md}"
-		printf '%s\n' "$id" >>"$tmpn"
-		# [[wikilinks]] -> target text, dropping a |alias or #heading and trimming.
-		grep -oE '\[\[[^]]+\]\]' "$f" 2>/dev/null \
-			| sed -E 's/^\[\[//; s/\]\]$//; s/[|#].*$//; s/^[[:space:]]+//; s/[[:space:]]+$//' \
-			| while IFS= read -r tgt; do
-				[ -n "$tgt" ] && printf '%s\t%s\n' "$id" "$tgt" >>"$tmpe"
-			done
-	done < <(find "$vault" -type f -name '*.md' -not -path '*/.obsidian/*' -not -path '*/.trash/*')
+	# One pass over the vault instead of a grep per file, so a large vault (a few
+	# thousand notes) still builds the graph in well under a second. Node ids are
+	# each note's relpath without .md; edges come from a single grep for
+	# [[wikilinks]], mapped to "srcId<TAB>target" with any |alias or #heading cut.
+	cd "$vault" || emit_error "vault not found"
+	find . -type f -name '*.md' -not -path './.obsidian/*' -not -path './.trash/*' \
+		| sed 's|^\./||; s/\.md$//' >"$tmpn"
+	find . -type f -name '*.md' -not -path './.obsidian/*' -not -path './.trash/*' -print0 \
+		| xargs -0 grep -HoE '\[\[[^]]+\]\]' 2>/dev/null \
+		| sed 's|^\./||' \
+		| awk '{
+			i = index($0, ":[[")
+			if (i == 0) next
+			src = substr($0, 1, i - 1); sub(/\.md$/, "", src)
+			tgt = substr($0, i + 3); sub(/\]\].*$/, "", tgt); sub(/[|#].*$/, "", tgt)
+			gsub(/^[ \t]+|[ \t]+$/, "", tgt)
+			if (tgt != "") print src "\t" tgt
+		}' >"$tmpe"
 	jq -cn --rawfile nraw "$tmpn" --rawfile eraw "$tmpe" --argjson limit "$limit" '
 		($nraw | split("\n") | map(select(length > 0)) | unique) as $ids
 		| ($ids | map({ (.): . }) | add // {}) as $byid
@@ -333,7 +367,7 @@ graph)
 		| ($ids | map({ id: ., label: (. | split("/") | last), deg: ($deg[.] // 0) })
 			| sort_by(-.deg) | .[0:$limit]) as $nodes
 		| ($nodes | map(.id) | map({ (.): true }) | add // {}) as $keep
-		| { nodes: $nodes, links: ($links | map(select($keep[.s] and $keep[.t]))) }
+		| { total: ($ids | length), nodes: $nodes, links: ($links | map(select($keep[.s] and $keep[.t]))) }
 	'
 	;;
 
