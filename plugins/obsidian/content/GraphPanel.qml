@@ -8,9 +8,10 @@ import Ryoku.PluginKit.Singletons
 // them, the [[wikilinks]] between them are the edges. A one-shot force layout
 // (repulsion + link springs + collision, computed on data/size change, never per
 // frame) spreads the graph across a virtual canvas; the view then fits it into
-// the panel. Drag to pan, scroll to zoom, drag a node to move it, double-tap to
-// reset, tap a node to open it in Obsidian. Surface-less: the container supplies
-// the panel.
+// the panel. Drag to pan, +/- to zoom, drag a node to move it, tap a node to open
+// it in Obsidian. Input is MouseArea-based (not pointer handlers) so it works on
+// the desktop-widget layer surface, where wheel/handler events don't arrive.
+// Surface-less: the container supplies the panel.
 Item {
     id: root
 
@@ -104,8 +105,7 @@ Item {
             }
         }
 
-        // collision relax: hard-separate any overlap so no two notes stack (the
-        // reported overlap). No bounds clamp here; fitView() frames the result.
+        // collision relax: hard-separate any overlap so no two notes stack.
         var pad = 5 * root.s;
         for (var cp = 0; cp < 22; cp++) {
             var hit = false;
@@ -225,32 +225,28 @@ Item {
             border.color: Theme.hair
             clip: true
 
-            // scroll to zoom, around the cursor.
-            WheelHandler {
-                target: null
-                onWheel: function (ev) {
-                    root.zoomAround(ev.x, ev.y, ev.angleDelta.y > 0 ? 1.15 : 1 / 1.15);
+            // background pan (+ wheel zoom where the surface delivers it). Sits
+            // under the nodes; a press on empty space pans, a press on a node is
+            // taken by that node's own MouseArea. preventStealing keeps the drag
+            // from being grabbed by the tile-move handler behind the widget.
+            MouseArea {
+                id: bg
+                anchors.fill: parent
+                preventStealing: true
+                property real lx: 0
+                property real ly: 0
+                onPressed: mouse => {
+                    bg.lx = mouse.x;
+                    bg.ly = mouse.y;
                 }
-            }
-            // drag empty space to pan. A node's own DragHandler grabs first when a
-            // drag starts on it, so this only fires on the background.
-            DragHandler {
-                target: null
-                property real sx: 0
-                property real sy: 0
-                onActiveChanged: if (active) {
-                    sx = root.panX;
-                    sy = root.panY;
+                onPositionChanged: mouse => {
+                    root.panX += mouse.x - bg.lx;
+                    root.panY += mouse.y - bg.ly;
+                    bg.lx = mouse.x;
+                    bg.ly = mouse.y;
                 }
-                onTranslationChanged: {
-                    root.panX = sx + translation.x;
-                    root.panY = sy + translation.y;
-                }
-            }
-            // double-tap the background to reframe.
-            TapHandler {
-                gesturePolicy: TapHandler.ReleaseWithinBounds
-                onDoubleTapped: root.resetView()
+                onDoubleClicked: root.resetView()
+                onWheel: wheel => root.zoomAround(wheel.x, wheel.y, wheel.angleDelta.y > 0 ? 1.2 : 1 / 1.2)
             }
 
             Item {
@@ -308,7 +304,7 @@ Item {
                         readonly property bool near: root.hoveredId === "" || hovering
                             || (root.adj[root.hoveredId] && root.adj[root.hoveredId][modelData.id] ? true : false)
 
-                        width: Math.max(gn.r * 2, 20 * root.s)
+                        width: Math.max(gn.r * 2, 22 * root.s)
                         height: width
                         x: modelData.x - width / 2
                         y: modelData.y - height / 2
@@ -353,23 +349,66 @@ Item {
                             font.weight: gn.hovering ? Font.DemiBold : Font.Normal
                         }
 
-                        HoverHandler {
-                            id: hh
+                        // tap opens the note; a drag past the threshold moves the node
+                        // (and its edges follow). preventStealing so a node drag isn't
+                        // grabbed by the pan/tile-move behind it.
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            preventStealing: true
                             cursorShape: Qt.PointingHandCursor
-                            onHoveredChanged: {
-                                if (hovered)
-                                    root.hoveredId = gn.modelData.id;
-                                else if (root.hoveredId === gn.modelData.id)
-                                    root.hoveredId = "";
-                            }
+                            drag.target: gn
+                            drag.threshold: 6
+                            onEntered: root.hoveredId = gn.modelData.id
+                            onExited: if (root.hoveredId === gn.modelData.id)
+                                root.hoveredId = ""
+                            onClicked: if (root.service)
+                                root.service.openNote(gn.modelData.id)
                         }
-                        DragHandler {
-                            id: nodeDrag
-                            target: gn
+                    }
+                }
+            }
+
+            // zoom controls: guaranteed clicks, since a bottom-layer widget surface
+            // may never receive wheel events. +, -, and fit-to-view.
+            Column {
+                anchors.right: parent.right
+                anchors.bottom: parent.bottom
+                anchors.margins: 6 * root.s
+                spacing: 4 * root.s
+
+                Repeater {
+                    model: [
+                        { "t": "+", "f": 1.35 },
+                        { "t": "\u2212", "f": 1 / 1.35 },
+                        { "t": "\u25a2", "f": 0 }
+                    ]
+                    delegate: Rectangle {
+                        id: zb
+                        required property var modelData
+                        width: 22 * root.s
+                        height: 22 * root.s
+                        radius: 0
+                        antialiasing: false
+                        color: zbMa.containsMouse ? Qt.alpha(root.accent, 0.28) : Qt.rgba(0, 0, 0, 0.5)
+                        border.width: 1
+                        border.color: zbMa.containsMouse ? root.accent : Theme.hair
+                        Behavior on color { ColorAnimation { duration: Motion.fast } }
+                        Text {
+                            anchors.centerIn: parent
+                            text: zb.modelData.t
+                            color: zbMa.containsMouse ? Theme.bright : Theme.subtle
+                            font.family: Theme.mono
+                            font.pixelSize: 13 * root.s
+                            font.weight: Font.DemiBold
                         }
-                        TapHandler {
-                            gesturePolicy: TapHandler.ReleaseWithinBounds
-                            onTapped: if (root.service) root.service.openNote(gn.modelData.id)
+                        MouseArea {
+                            id: zbMa
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            preventStealing: true
+                            cursorShape: Qt.PointingHandCursor
+                            onClicked: zb.modelData.f === 0 ? root.resetView() : root.zoomAround(root.w / 2, root.areaH / 2, zb.modelData.f)
                         }
                     }
                 }
@@ -393,7 +432,7 @@ Item {
         Text {
             width: parent.width
             visible: root.laid.length > 0
-            text: qsTr("Drag to pan · scroll to zoom · drag a node to move · tap to open")
+            text: qsTr("Drag to pan · +/- to zoom · drag a node to move · tap to open")
             color: Theme.faint
             font.family: Theme.mono
             font.pixelSize: 9 * root.s
