@@ -115,6 +115,31 @@ Item {
 
     Process { id: persistProc }
 
+    // graphical vault folder picker, so choosing a vault never means typing a
+    // path. runs the CLI's pick-vault (zenity/kdialog); a chosen folder is
+    // adopted like any other vault pick.
+    function browseVault() {
+        if (!ready || pickProc.running)
+            return;
+        pickProc.command = [cmd(), "pick-vault"];
+        pickProc.running = true;
+    }
+    property string _pickOut: ""
+    Process {
+        id: pickProc
+        stdout: StdioCollector { onStreamFinished: root._pickOut = text }
+        onExited: {
+            try {
+                var d = JSON.parse((root._pickOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}");
+                if (d.path && d.path.length > 0)
+                    root.setVault(d.path);
+                else if (d.error)
+                    root.flash(d.error);
+            } catch (e) {}
+            root._pickOut = "";
+        }
+    }
+
     // ── detection ────────────────────────────────────────────────────────────────
     property bool detected: false
     property bool installed: false

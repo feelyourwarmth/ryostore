@@ -1,7 +1,7 @@
 {
   "id": "obsidian",
   "name": "Obsidian",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Capture into your Obsidian vault from the desktop - daily notes, quick notes and tasks, screenshots and voice memos - as a canvas of tappable workflow blocks.",
   "license": "MIT",
@@ -36,7 +36,7 @@
     "label": "Obsidian"
   },
   "commands": ["bin/ryoku-obsidian"],
-  "dependencies": { "commands": ["jq", "xdg-open", "wl-paste", "ffmpeg"] },
+  "dependencies": { "commands": ["jq", "xdg-open", "wl-paste", "ffmpeg"], "optional": ["zenity"] },
   "metadata": {
     "settings": [
       { "key": "accent", "type": "choice", "label": "Accent", "group": "Style", "default": "brand", "options": [
@@ -44,8 +44,8 @@
         { "value": "wallust", "label": "Wallust" },
         { "value": "mono", "label": "Mono" }
       ] },
-      { "key": "vault", "type": "text", "label": "Vault path", "group": "Vault", "default": "", "placeholder": "Chosen on the tile; or type an absolute vault path" },
-      { "key": "inbox", "type": "text", "label": "Capture note", "group": "Vault", "default": "", "placeholder": "e.g. Inbox.md (empty = today's daily note)" }
+      { "key": "vault", "type": "text", "label": "Vault path", "group": "Vault", "default": "", "placeholder": "Pick it on the widget, or type a full path" },
+      { "key": "inbox", "type": "text", "label": "Capture note", "group": "Vault", "default": "", "placeholder": "Inbox.md (blank = today's note)" }
     ]
   }
 }

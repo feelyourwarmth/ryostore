@@ -5,7 +5,7 @@
       "id": "obsidian",
       "name": "Obsidian",
       "path": "plugins/obsidian",
-      "version": "1.1.0",
+      "version": "1.2.0",
       "author": "Ryoku Team",
       "official": true,
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",

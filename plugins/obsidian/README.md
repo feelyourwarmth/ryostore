@@ -31,8 +31,10 @@ sits under the masthead.
   so a quick capture never feels like it did nothing.
 - **Graph view.** Your vault as a constellation: notes are nodes sized by how
   many links touch them, `[[wikilinks]]` are the edges. A large vault shows its
-  most-linked core (the count reads "N of your total"), nodes never overlap,
-  hovering one spotlights its neighbours, and a tap opens it in Obsidian.
+  most-linked core (the count reads "N of your total"), nodes never overlap, and
+  it is fully navigable: drag to pan, scroll to zoom, drag a node to move it,
+  double-tap to reframe. Hovering a node spotlights its neighbours; a tap opens
+  it in Obsidian.
 - **Local-first and opt-in.** Everything is read from and written to your own
   vault on disk. Opening a note hands an `obsidian://` link straight to the
   Obsidian you have installed, never a browser, so it works out of the box with
@@ -43,12 +45,14 @@ sits under the masthead.
 
 **Ryoku Settings → Plugins → Discover → Obsidian → Install**, then enable it and
 turn on Desktop Widgets. Drag it where you like and scale it from the corner
-bracket, same as the clock. On first run it lists your vaults — tap one to
-adopt it. Everything else (workflows, capture target) is set on the tile.
+bracket, same as the clock. On first run, pick a vault: tap one Obsidian already
+knows, or **Browse folder** to choose any folder graphically. Everything else
+(workflows, capture target) is set on the tile.
 
 Needs `jq` (on the Ryoku base). Opening a note launches your installed Obsidian
 directly, falling back to `xdg-open` only if it cannot find the app; pasting an
-image needs `wl-paste` (`wl-clipboard`), and the voice memo needs `ffmpeg`.
+image needs `wl-paste` (`wl-clipboard`), the voice memo needs `ffmpeg`, and the
+Browse-folder picker uses `zenity` (or `kdialog`).
 
 ## How it plugs in
 

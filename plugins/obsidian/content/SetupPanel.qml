@@ -208,13 +208,22 @@ Item {
             }
 
             FlatBtn {
-                visible: root.phase === "notInstalled"
+                visible: root.phase === "notInstalled" || root.phase === "noVault"
                 width: (parent.width - 8 * root.s) / 2
-                label: qsTr("Get it"); filled: true
-                onTapped: { dlProc.command = ["xdg-open", "https://obsidian.md/download"]; dlProc.running = true; }
+                label: root.phase === "notInstalled" ? qsTr("Get it") : qsTr("Browse folder")
+                glyph: root.phase === "notInstalled" ? "" : "folder"
+                filled: true
+                onTapped: {
+                    if (root.phase === "notInstalled") {
+                        dlProc.command = ["xdg-open", "https://obsidian.md/download"];
+                        dlProc.running = true;
+                    } else if (root.service) {
+                        root.service.browseVault();
+                    }
+                }
             }
             FlatBtn {
-                width: root.phase === "notInstalled" ? (parent.width - 8 * root.s) / 2 : parent.width
+                width: (root.phase === "notInstalled" || root.phase === "noVault") ? (parent.width - 8 * root.s) / 2 : parent.width
                 label: qsTr("Re-check"); glyph: "reboot"
                 onTapped: if (root.service) root.service.redetect()
             }

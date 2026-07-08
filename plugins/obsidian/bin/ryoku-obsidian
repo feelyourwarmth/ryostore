@@ -371,6 +371,23 @@ graph)
 	'
 	;;
 
+pick-vault)
+	# graphical folder chooser, so no one has to type an absolute path. tries the
+	# pickers a desktop is likely to have; a cancel or a missing picker just yields
+	# no path and the tile keeps its detected-vault list.
+	dir=""
+	if command -v zenity >/dev/null 2>&1; then
+		dir="$(zenity --file-selection --directory --title 'Choose your Obsidian vault' 2>/dev/null || true)"
+	elif command -v kdialog >/dev/null 2>&1; then
+		dir="$(kdialog --getexistingdirectory "$HOME" 2>/dev/null || true)"
+	else
+		emit_error "no folder picker found (install zenity)"
+	fi
+	[ -n "$dir" ] || { jq -cn '{ path: "" }'; exit 0; }
+	[ -d "$dir" ] || emit_error "not a folder"
+	jq -cn --arg p "$dir" '{ path: $p }'
+	;;
+
 *)
 	emit_error "unknown verb: $verb"
 	;;
