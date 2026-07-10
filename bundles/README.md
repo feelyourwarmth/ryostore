@@ -79,3 +79,26 @@ Installs are per item with real feedback:
 - **Uninstall all** (or a single tool) removes the bundle's package items with
   `ryoku-pkg-remove`. Scripts are not auto-removed; plugins are removed from the
   Plugins tab.
+
+## Tiers, interactive items, code guests, and imagery
+
+Each item may set `"tier": "core"` (default) or `"tier": "optional"`. **Install
+all** installs only core items; optional items install one at a time from the
+card. A `script` item may set `"interactive": true` when it needs the user to
+act (for example a manual download that cannot be automated); an aborted
+interactive install reports as *deferred*, not *failed*.
+
+A bundle can also ship its own code as guests, all living in this repo:
+
+- `{ "type": "plugin", "name": "<id>" }` a shell plugin from `plugins/<id>/`
+  (see [`plugins/AUTHORING.md`](../plugins/AUTHORING.md)). A plugin whose host
+  is `sidebarLeft` is auto-enabled on install and appears as a tab in the left
+  sidebar next to Stash.
+- `{ "type": "nautilus-pack", "name": "<id>" }` a right-click file-manager
+  script pack from `nautilus/<id>/` (see
+  [`nautilus/AUTHORING.md`](../nautilus/AUTHORING.md)).
+
+Store imagery: a bundle carries `"icon"` (a Material glyph name), `"accent"` (a
+hex colour), `"preview"` (a hero image), and `"screenshots": [...]`, all
+relative to `bundles/<id>/assets/`. The Hub resolves them to absolute URLs when
+it builds the catalogue.

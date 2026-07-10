@@ -20,9 +20,13 @@
     {
       "id": "the-influencer",
       "name": "The Influencer",
-      "description": "OBS with Wayland capture, video and image editors, mic cleanup, and thumbnail and publish helpers.",
-      "tagline": "stream · record · edit",
-      "sources": "pacman / AUR / Go / npm",
+      "description": "A complete stream, record, edit, reformat, caption, and publish kit, plus a Creator sidebar and right-click video tools.",
+      "tagline": "stream · record · edit · publish",
+      "sources": "pacman / AUR / Go / npm / ryoku",
+      "icon": "movie",
+      "accent": "#e2342a",
+      "preview": "assets/hero.png",
+      "screenshots": ["assets/hero.png"],
       "path": "bundles/the-influencer"
     },
     {

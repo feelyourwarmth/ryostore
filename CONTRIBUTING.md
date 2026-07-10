@@ -45,3 +45,11 @@ For tools that install via a curl/script rather than a package, add
 `installers/<name>.sh`. Keep it small and auditable, pin the upstream URL, and use the
 Ryoku helpers (`ryoku-cmd-present`, `ryoku-pkg-add`) rather than raw shell. A `script`
 bundle item points at it by name. See `installers/README.md`.
+
+## A Nautilus script pack
+
+Right-click file-manager actions live in `nautilus/<id>/`. Copy the layout in
+[`nautilus/AUTHORING.md`](nautilus/AUTHORING.md), list the pack in
+`nautilus/registry.json`, and a bundle references it with an item
+`{ "type": "nautilus-pack", "name": "<id>" }`. The scripts install to
+`~/.local/share/nautilus/scripts/<subdir>/` and are removed cleanly on uninstall.
