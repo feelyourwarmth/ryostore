@@ -11,10 +11,21 @@
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
       "description": "A desktop-widget plugin that adopts your existing Obsidian vault and settings, then turns the everyday moves into two views: a Board of tappable workflow blocks and a Graph of your vault. Create or open today's daily note (with your folder, filename format, and template), open any note, and append text, tasks, links, pasted images, or voice memos to a chosen note. Build your own blocks step by step, type on the tile, paste an image from the clipboard or record a memo into your attachments, and browse the vault as a link constellation you can tap to open. Local-first and opt-in - nothing runs until you pick a vault, and notes are written straight to disk.",
       "icon": "file",
-      "tags": ["obsidian", "notes", "graph", "productivity", "desktop-widget"],
-      "hosts": ["desktopWidget"],
+      "tags": [
+        "obsidian",
+        "notes",
+        "graph",
+        "productivity",
+        "desktop-widget"
+      ],
+      "hosts": [
+        "desktopWidget"
+      ],
       "preview": "assets/preview-widget.png",
-      "screenshots": ["assets/preview-widget.png", "assets/preview-graph.png"],
+      "screenshots": [
+        "assets/preview-widget.png",
+        "assets/preview-graph.png"
+      ],
       "lastUpdated": "2026-07-08"
     },
     {
@@ -27,10 +38,18 @@
       "tagline": "Track a stock, index, or crypto pair on your desktop.",
       "description": "A desktop-widget plugin that tracks any Yahoo Finance symbol - a crypto pair (BTC-USD), a stock (AAPL), or an index (^GSPC) - and renders its live price, change, and history in one of four faces: a dossier hero with a layered 2.5D ridgeline chart, a gridded line, a gradient area, or a compact minimal sparkline. Drawn in the shell's own dark carbon style, drag it onto your wallpaper beside the clock and weather. Free data, no API key.",
       "icon": "trending_up",
-      "tags": ["stocks", "crypto", "desktop-widget"],
-      "hosts": ["desktopWidget"],
+      "tags": [
+        "stocks",
+        "crypto",
+        "desktop-widget"
+      ],
+      "hosts": [
+        "desktopWidget"
+      ],
       "preview": "assets/preview-widget.png",
-      "screenshots": ["assets/preview-widget.png"],
+      "screenshots": [
+        "assets/preview-widget.png"
+      ],
       "lastUpdated": "2026-07-01"
     },
     {
@@ -43,27 +62,18 @@
       "tagline": "Pin a photo to your desktop, framed the way you like it.",
       "description": "A desktop-widget plugin that pins any photo to your wallpaper in a chosen frame style - rounded, square, polaroid, framed, or film - with a tunable drop shadow and live colour filters (mono, noir, sepia, warm, cool, vivid, fade). Drag, resize, and place it alongside your clock and weather; it ships with a sample photo so it looks right the moment you enable it.",
       "icon": "image",
-      "tags": ["photo", "desktop-widget"],
-      "hosts": ["desktopWidget"],
+      "tags": [
+        "photo",
+        "desktop-widget"
+      ],
+      "hosts": [
+        "desktopWidget"
+      ],
       "preview": "assets/preview-widget.png",
-      "screenshots": ["assets/preview-widget.png"],
+      "screenshots": [
+        "assets/preview-widget.png"
+      ],
       "lastUpdated": "2026-06-27"
-    },
-    {
-      "id": "creator-deck",
-      "name": "Creator Deck",
-      "path": "plugins/creator-deck",
-      "version": "0.1.0",
-      "author": "Ryoku Team",
-      "official": true,
-      "tagline": "A creator cockpit in the left sidebar - go live, reformat, caption, jump to clips.",
-      "description": "A left-sidebar guest pane for streamers and video makers. Launch OBS or your editor, set the aspect target that drives the right-click reformat scripts, reformat or caption the last recording in one tap, mute the mic or toggle EasyEffects, watch disk headroom for recordings, and reveal recent clips in the file manager. Installs with the Influencer bundle and mounts as a tab beside Stash; removing the bundle removes the tab.",
-      "icon": "movie",
-      "tags": ["creator", "video", "streaming", "sidebar"],
-      "hosts": ["sidebarLeft"],
-      "preview": "assets/preview-popout.png",
-      "screenshots": ["assets/preview-popout.png"],
-      "lastUpdated": "2026-07-10"
     }
   ],
   "archived": []

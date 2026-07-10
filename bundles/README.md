@@ -91,9 +91,8 @@ interactive install reports as *deferred*, not *failed*.
 A bundle can also ship its own code as guests, all living in this repo:
 
 - `{ "type": "plugin", "name": "<id>" }` a shell plugin from `plugins/<id>/`
-  (see [`plugins/AUTHORING.md`](../plugins/AUTHORING.md)). A plugin whose host
-  is `sidebarLeft` is auto-enabled on install and appears as a tab in the left
-  sidebar next to Stash.
+  (see [`plugins/AUTHORING.md`](../plugins/AUTHORING.md)): a desktop widget or a
+  frame popout, enabled and placed from Settings.
 - `{ "type": "nautilus-pack", "name": "<id>" }` a right-click file-manager
   script pack from `nautilus/<id>/` (see
   [`nautilus/AUTHORING.md`](../nautilus/AUTHORING.md)).

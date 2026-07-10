@@ -229,24 +229,3 @@ Settings -> Plugins -> Discover:
 
 `official: false` for community plugins. Keep `path` as `plugins/<id>`, `hosts`
 in sync with the manifest, and `lastUpdated` in `YYYY-MM-DD`.
-
-## The `sidebarLeft` host
-
-Beyond `desktopWidget` and `framePopout`, a plugin may declare
-`"hosts": ["sidebarLeft"]` to render as a pane in the **left sidebar**, beside
-Stash. Its `content/Widget.qml` draws at `full` density to the sidebar width;
-the shell owns the reveal, the tab rail, and the frame. Set the tab's identity
-and order in `defaults`:
-
-```json
-"defaults": {
-  "host": "sidebarLeft",
-  "sidebarLeft": { "order": 50 },
-  "icon": "movie",
-  "label": "Creator"
-}
-```
-
-A bundle that ships a `sidebarLeft` plugin auto-enables it on install, so the
-tab appears the moment the bundle lands, with no trip to Settings; removing the
-bundle takes the tab with it.

@@ -20,7 +20,7 @@
     {
       "id": "the-influencer",
       "name": "The Influencer",
-      "description": "A complete stream, record, edit, reformat, caption, and publish kit, plus a Creator sidebar and right-click video tools.",
+      "description": "A complete stream, record, edit, reformat, caption, and publish kit: recorders, editors, audio and thumbnail tools, plus a right-click video toolkit in the file manager.",
       "tagline": "stream · record · edit · publish",
       "sources": "pacman / AUR / Go / npm / ryoku",
       "icon": "movie",
