@@ -9,7 +9,7 @@
       "author": "Ryoku <releases@ryoku.dev>",
       "official": true,
       "subdir": "Ryoku Creator",
-      "description": "Right-click video reformat, transcode, compress, caption-prep, and thumbnail tools built on ffmpeg."
+      "description": "Right-click video reformat, transcode, compress, caption, and thumbnail tools built on ffmpeg and whisper.cpp."
     }
   ]
 }

@@ -2,7 +2,7 @@
 
 Right-click video tools for creators, installed into the Nautilus file manager as
 a **Scripts -> Ryoku Creator** submenu. Select one or more videos, right-click,
-and pick an action. Everything runs on `ffmpeg` (guaranteed by the Ryoku base);
+and pick an action. Everything runs on `ffmpeg` (and `whisper.cpp` for captions);
 output lands next to the source with a suffix, and progress shows as a
 notification.
 
@@ -20,6 +20,7 @@ cleanly with it (or on its own from the Extras tab).
 | Transcode to H.264 | `_h264.mp4` | Universal H.264/AAC (plays everywhere, Discord inline). |
 | Transcode to H.265 | `_h265.mp4` | HEVC, ~40% smaller, `hvc1`-tagged. |
 | Extract audio (MP3) | `.mp3` | ~190 kbps VBR audio pull. |
+| Generate captions (SRT) | `.srt` | Local, offline speech-to-text (whisper.cpp); fetches a small model once. |
 | Make GIF | `.gif` | Clean looping GIF (palette, 480px, 15fps). Keep clips short. |
 | Compress to 8 MiB | `_8MiB.mp4` | Two-pass H.264 that fits under 8 MiB (Discord-safe). |
 | Strip metadata | `_clean.*` | Drop GPS/device/EXIF from videos and images, no re-encode for video. |

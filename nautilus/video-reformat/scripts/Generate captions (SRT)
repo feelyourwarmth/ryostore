@@ -1,0 +1,38 @@
+#!/usr/bin/env bash
+# Write an .srt subtitle file next to each clip with local, offline speech-to-text
+# (whisper.cpp). Downloads a small English model once, on first use, so there is
+# no setup. Runs silently and reports through notifications, like the rest of the
+# pack; a long clip takes a while.
+set -uo pipefail
+notify() { command -v notify-send >/dev/null && notify-send -a "Ryoku Creator" "$1" "${2:-}"; }
+
+wc="$(command -v whisper-cli || command -v whisper-cpp || command -v main || true)"
+[ -n "$wc" ] || { notify "whisper.cpp not found" "install The Influencer bundle first"; exit 1; }
+
+model_dir="${XDG_DATA_HOME:-$HOME/.local/share}/ryoku/whisper"
+model="$model_dir/ggml-base.en.bin"
+model_url="https://huggingface.co/ggerganov/whisper.cpp/resolve/main/ggml-base.en.bin"
+if [ ! -f "$model" ]; then
+  notify "Fetching caption model" "one time, about 150 MB"
+  mkdir -p "$model_dir"
+  if ! curl -fL --retry 2 -o "$model.part" "$model_url"; then
+    rm -f "$model.part"; notify "Model download failed" "check your connection"; exit 1
+  fi
+  mv "$model.part" "$model"
+fi
+
+n=0
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  case "${f,,}" in *.mp4 | *.mov | *.mkv | *.webm | *.avi | *.m4v | *.mp3 | *.m4a | *.wav | *.flac) ;; *) continue ;; esac
+  wav="$(mktemp --suffix=.wav)"
+  if ffmpeg -nostdin -y -i "$f" -ar 16000 -ac 1 -c:a pcm_s16le "$wav" 2>/dev/null \
+    && "$wc" -m "$model" -f "$wav" -osrt -of "${f%.*}" >/dev/null 2>&1; then
+    n=$((n + 1))
+    notify "Captions ready" "$(basename "${f%.*}").srt"
+  else
+    notify "Caption failed" "$(basename "$f")"
+  fi
+  rm -f "$wav"
+done <<<"$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+[ "$n" -gt 0 ] && notify "Done" "$n caption file(s)"

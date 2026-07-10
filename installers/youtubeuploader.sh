@@ -10,4 +10,4 @@ if ryoku-cmd-present youtubeuploader; then
   exit 0
 fi
 
-GOBIN="$HOME/.local/bin" go install github.com/porjo/youtubeuploader@latest
+GOBIN="$HOME/.local/bin" go install github.com/porjo/youtubeuploader/cmd/youtubeuploader@latest
