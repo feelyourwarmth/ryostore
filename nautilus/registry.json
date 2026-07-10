@@ -1,0 +1,15 @@
+{
+  "version": 1,
+  "packs": [
+    {
+      "id": "video-reformat",
+      "name": "Video Reformat",
+      "path": "nautilus/video-reformat",
+      "version": "0.1.0",
+      "author": "Ryoku <releases@ryoku.dev>",
+      "official": true,
+      "subdir": "Ryoku Creator",
+      "description": "Right-click video reformat, transcode, compress, caption-prep, and thumbnail tools built on ffmpeg."
+    }
+  ]
+}

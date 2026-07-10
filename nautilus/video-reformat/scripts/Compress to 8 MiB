@@ -1,0 +1,33 @@
+#!/usr/bin/env bash
+# Two-pass H.264 to fit under 8 MiB (Discord-safe). Bitrate is computed from
+# duration so the output lands just under the ceiling; bails if a clip is too
+# long to fit at usable quality.
+set -uo pipefail
+notify() { command -v notify-send >/dev/null && notify-send -a "Ryoku Creator" "$1" "${2:-}"; }
+target_mib=8
+audio_kbps=128
+tmpdir="$(mktemp -d)"
+trap 'rm -rf "$tmpdir"' EXIT
+n=0
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  case "${f,,}" in *.mp4 | *.mov | *.mkv | *.webm | *.avi | *.m4v) ;; *) continue ;; esac
+  dur="$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f" 2>/dev/null)"
+  [ -n "$dur" ] || { notify "No duration" "$(basename "$f")"; continue; }
+  total_kbps="$(awk -v s="$target_mib" -v d="$dur" 'BEGIN{printf "%d", s*8192/d*0.97}')"
+  video_kbps="$((total_kbps - audio_kbps))"
+  if [ "$video_kbps" -lt 100 ]; then
+    notify "Too long for ${target_mib} MiB" "$(basename "$f")"
+    continue
+  fi
+  out="${f%.*}_${target_mib}MiB.mp4"
+  log="$tmpdir/pass"
+  if ffmpeg -nostdin -y -i "$f" -c:v libx264 -b:v "${video_kbps}k" -preset medium -pass 1 -passlogfile "$log" -an -f null /dev/null 2>/dev/null &&
+    ffmpeg -nostdin -y -i "$f" -c:v libx264 -b:v "${video_kbps}k" -preset medium -pass 2 -passlogfile "$log" -c:a aac -b:a "${audio_kbps}k" "$out" 2>/dev/null; then
+    n=$((n + 1))
+    notify "Compressed to <${target_mib} MiB" "$(basename "$out")"
+  else
+    notify "Compress failed" "$(basename "$f")"
+  fi
+done <<<"$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+[ "$n" -gt 0 ] && notify "Done" "$n video(s) compressed"

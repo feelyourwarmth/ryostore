@@ -48,6 +48,22 @@
       "preview": "assets/preview-widget.png",
       "screenshots": ["assets/preview-widget.png"],
       "lastUpdated": "2026-06-27"
+    },
+    {
+      "id": "creator-deck",
+      "name": "Creator Deck",
+      "path": "plugins/creator-deck",
+      "version": "0.1.0",
+      "author": "Ryoku Team",
+      "official": true,
+      "tagline": "A creator cockpit in the left sidebar - go live, reformat, caption, jump to clips.",
+      "description": "A left-sidebar guest pane for streamers and video makers. Launch OBS or your editor, set the aspect target that drives the right-click reformat scripts, reformat or caption the last recording in one tap, mute the mic or toggle EasyEffects, watch disk headroom for recordings, and reveal recent clips in the file manager. Installs with the Influencer bundle and mounts as a tab beside Stash; removing the bundle removes the tab.",
+      "icon": "movie",
+      "tags": ["creator", "video", "streaming", "sidebar"],
+      "hosts": ["sidebarLeft"],
+      "preview": "assets/preview-popout.png",
+      "screenshots": ["assets/preview-popout.png"],
+      "lastUpdated": "2026-07-10"
     }
   ],
   "archived": []

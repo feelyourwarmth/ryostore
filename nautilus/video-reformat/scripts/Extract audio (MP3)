@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Pull the audio track out to a ~190 kbps VBR MP3 (voiceover / podcast).
+set -uo pipefail
+notify() { command -v notify-send >/dev/null && notify-send -a "Ryoku Creator" "$1" "${2:-}"; }
+n=0
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  case "${f,,}" in *.mp4 | *.mov | *.mkv | *.webm | *.avi | *.m4v | *.wav | *.flac) ;; *) continue ;; esac
+  out="${f%.*}.mp3"
+  if ffmpeg -nostdin -y -i "$f" -vn -c:a libmp3lame -q:a 2 "$out" 2>/dev/null; then
+    n=$((n + 1))
+    notify "Extracted audio" "$(basename "$out")"
+  else
+    notify "Extract failed" "$(basename "$f")"
+  fi
+done <<<"$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+[ "$n" -gt 0 ] && notify "Done" "$n audio track(s)"

@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Reformat selected videos to 1:1 (1080x1080), center-cropped to fill. Feed posts.
+set -uo pipefail
+notify() { command -v notify-send >/dev/null && notify-send -a "Ryoku Creator" "$1" "${2:-}"; }
+n=0
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  case "${f,,}" in *.mp4 | *.mov | *.mkv | *.webm | *.avi | *.m4v) ;; *) continue ;; esac
+  out="${f%.*}_1x1.mp4"
+  if ffmpeg -nostdin -y -i "$f" \
+    -vf "scale=1080:1080:force_original_aspect_ratio=increase,crop=1080:1080,setsar=1" \
+    -c:a copy "$out" 2>/dev/null; then
+    n=$((n + 1))
+    notify "Reformatted to 1:1" "$(basename "$out")"
+  else
+    notify "Reformat failed" "$(basename "$f")"
+  fi
+done <<<"$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+[ "$n" -gt 0 ] && notify "Done" "$n video(s) to 1:1"

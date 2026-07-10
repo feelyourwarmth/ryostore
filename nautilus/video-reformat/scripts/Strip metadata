@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Remove all metadata + chapters (GPS, device, creation time) without re-encoding.
+# Publish-safe copies. Videos via ffmpeg -c copy; images via magick -strip.
+set -uo pipefail
+notify() { command -v notify-send >/dev/null && notify-send -a "Ryoku Creator" "$1" "${2:-}"; }
+n=0
+while IFS= read -r f; do
+  [ -n "$f" ] || continue
+  case "${f,,}" in
+  *.mp4 | *.mov | *.mkv | *.webm | *.avi | *.m4v)
+    out="${f%.*}_clean.${f##*.}"
+    if ffmpeg -nostdin -y -i "$f" -map_metadata -1 -map_chapters -1 -c copy "$out" 2>/dev/null; then
+      n=$((n + 1)); notify "Stripped metadata" "$(basename "$out")"
+    else notify "Strip failed" "$(basename "$f")"; fi
+    ;;
+  *.jpg | *.jpeg | *.png | *.webp | *.tiff)
+    out="${f%.*}_clean.${f##*.}"
+    if command -v magick >/dev/null && magick "$f" -strip "$out" 2>/dev/null; then
+      n=$((n + 1)); notify "Stripped EXIF" "$(basename "$out")"
+    else notify "Strip failed" "$(basename "$f")"; fi
+    ;;
+  *) continue ;;
+  esac
+done <<<"$NAUTILUS_SCRIPT_SELECTED_FILE_PATHS"
+[ "$n" -gt 0 ] && notify "Done" "$n file(s) cleaned"

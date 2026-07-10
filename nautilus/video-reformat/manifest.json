@@ -1,0 +1,22 @@
+{
+  "id": "video-reformat",
+  "name": "Video Reformat",
+  "version": "0.1.0",
+  "author": "Ryoku <releases@ryoku.dev>",
+  "description": "Right-click video reformat, transcode, compress, caption-prep, and thumbnail tools built on ffmpeg.",
+  "subdir": "Ryoku Creator",
+  "scripts": [
+    "Reformat 9x16 (crop)",
+    "Reformat 9x16 (pad)",
+    "Reformat 1x1 (crop)",
+    "Reformat 16x9 (pad)",
+    "Transcode to H.264",
+    "Transcode to H.265",
+    "Extract audio (MP3)",
+    "Make GIF",
+    "Compress to 8 MiB",
+    "Strip metadata",
+    "Transcode for DaVinci (DNxHR)",
+    "Grab thumbnail"
+  ]
+}
