@@ -19,7 +19,8 @@ Item {
 
   Text {
     id: label
-    text: root.service ? root.service.fmtPrice(root.value) : "--"
+    // an em-dash until the first quote lands - never a fake $0.00.
+    text: root.service && root.service.priceReady ? root.service.fmtPrice(root.value) : "\u2014"
     font.family: Theme.mono
     font.pixelSize: root.pixelSize
     font.weight: Font.Bold

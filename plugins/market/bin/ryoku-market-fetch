@@ -1,73 +1,103 @@
 #!/usr/bin/env bash
 # Market quote+history fetch used by the plugin service. One verb:
-#   ryoku-market-fetch <symbol> [range] [interval] [maxPoints]
+#   ryoku-market-fetch <symbols> [range] [interval] [maxPoints] [miniPoints]
+#     <symbols> is comma-separated; the FIRST is the active instrument and gets
+#     the full history (<= maxPoints, default 80), the rest get a compact
+#     sparkline (<= miniPoints, default 24) for watchlist rows.
 #     -> one JSON object on stdout:
-#        { symbol, name, price, prevClose, changePct, changeAbs, currency,
-#          spark: [close, ...] }
-#     -> on any failure, still exit 0 with:
-#        { error: "message" }
+#        { quotes: [ { symbol, name, price, prevClose, changePct, changeAbs,
+#                      currency, market, kind, spark: [close, ...],
+#                      times: [unixSec, ...] }, ... ] }
+#     -> a symbol that fails keeps its slot: { symbol, error: "message" }
+#     -> on a whole-run failure, still exit 0 with: { error: "message" }
 #
 # Source: Yahoo Finance v8 chart API (no key). It serves stocks, crypto pairs
 # (BTC-USD), and indices (^GSPC) through one endpoint. A browser User-Agent is
 # required. A bad symbol returns HTTP 404 with a { chart: { error } } body, so
 # we must NOT use `curl -f`: we fetch the body regardless and branch on
-# `.chart.result`. The service treats a line with `.error` as a soft failure
-# and keeps its last good values, so this script never needs a non-zero exit.
+# `.chart.result`. The service treats `.error` as a soft failure and keeps its
+# last good values, so this script never needs a non-zero exit.
 set -uo pipefail
 
-sym="${1:-}"
+syms="${1:-}"
 range="${2:-1d}"
 interval="${3:-5m}"
 maxpts="${4:-80}"
+minipts="${5:-24}"
 
 emit_error() { jq -cn --arg e "$1" '{error: $e}'; exit 0; }
 
-[ -n "$sym" ] || emit_error "no symbol"
+[ -n "$syms" ] || emit_error "no symbol"
 command -v curl >/dev/null 2>&1 || emit_error "curl not found"
 command -v jq   >/dev/null 2>&1 || emit_error "jq not found"
 
-# URL-encode the symbol (^GSPC, BRK-B, pairs) so shell/HTTP stay happy.
-enc=$(jq -rn --arg s "$sym" '$s|@uri')
-url="https://query1.finance.yahoo.com/v8/finance/chart/${enc}?range=${range}&interval=${interval}"
+# Fetch + shape one symbol into one JSON line. jq does the extraction,
+# null-stripping, change math, and even-stride downsampling to <= $2 points in
+# one pass so the service just reads fields. Any failure -> { symbol, error }.
+fetch_one() {
+	local sym="$1" pts="$2" enc url resp
+	enc=$(jq -rn --arg s "$sym" '$s|@uri')
+	url="https://query1.finance.yahoo.com/v8/finance/chart/${enc}?range=${range}&interval=${interval}"
+	resp=$(curl -sS --max-time 10 \
+		-H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36" \
+		-H "Accept: application/json" \
+		"$url" 2>/dev/null) || { jq -cn --arg s "$sym" '{symbol: $s, error: "network error"}'; return; }
+	[ -n "$resp" ] || { jq -cn --arg s "$sym" '{symbol: $s, error: "empty response"}'; return; }
+	printf '%s' "$resp" | jq -c --argjson max "$pts" --arg sym "$sym" '
+		if (.chart.result | type) != "array" or (.chart.result | length) == 0 then
+			{ symbol: $sym, error: (.chart.error.description // "no data for symbol") }
+		else
+			.chart.result[0] as $r
+			| ($r.meta // {}) as $m
+			| ($r.timestamp // []) as $ts
+			| ($r.indicators.quote[0].close // []) as $cl
+			# pair each close with its timestamp, drop nulls together so spark[i]
+			# and times[i] stay aligned after downsampling.
+			| ( [ range(0; ($cl | length)) as $i | { t: ($ts[$i] // 0), c: $cl[$i] } | select(.c != null) ] ) as $pairs
+			| ( [ $pairs[].c ] ) as $closes
+			| ( $m.regularMarketPrice // ($closes | last) // 0 ) as $price
+			| ( $m.chartPreviousClose // $m.previousClose // ($closes | first) // $price ) as $prev
+			# session state derived from the trading-period windows (the chart
+			# meta has no marketState field). Crypto trades 24/7 -> "".
+			| ( ($m.instrumentType // "") ) as $kind
+			| ( ($m.currentTradingPeriod // {}) ) as $ctp
+			| ( now ) as $now
+			| ( if $kind == "CRYPTOCURRENCY" or ($ctp.regular.start // null) == null then ""
+				elif $now >= $ctp.regular.start and $now < $ctp.regular.end then "OPEN"
+				elif ($ctp.pre.start // null) != null and $now >= $ctp.pre.start and $now < $ctp.pre.end then "PRE"
+				elif ($ctp.post.start // null) != null and $now >= $ctp.post.start and $now < $ctp.post.end then "POST"
+				else "CLOSED" end ) as $market
+			| ( if ($pairs | length) > $max
+				then ( ($pairs | length) / $max ) as $stride
+				     | [ range(0; ($pairs|length); $stride) | $pairs[floor] ]
+				else $pairs end ) as $samp
+			| {
+				symbol:    ($m.symbol // $sym),
+				name:      ($m.shortName // $m.longName // $m.symbol // $sym),
+				currency:  ($m.currency // "USD"),
+				market:    $market,
+				kind:      $kind,
+				price:     $price,
+				prevClose: $prev,
+				changeAbs: ($price - $prev),
+				changePct: ( if $prev != 0 then (($price - $prev) / $prev * 100) else 0 end ),
+				spark:     [ $samp[].c ],
+				times:     [ $samp[].t ]
+			  }
+		end
+	' 2>/dev/null || jq -cn --arg s "$sym" '{symbol: $s, error: "parse error"}'
+}
 
-resp=$(curl -sS --max-time 15 \
-	-H "User-Agent: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36" \
-	-H "Accept: application/json" \
-	"$url" 2>/dev/null) || emit_error "network error"
+# One line per symbol, first at full resolution, then wrap into { quotes }.
+lines=""
+first=1
+IFS=',' read -ra list <<< "$syms"
+for raw in "${list[@]}"; do
+	sym="${raw//[[:space:]]/}"
+	[ -n "$sym" ] || continue
+	if [ "$first" = 1 ]; then pts="$maxpts"; first=0; else pts="$minipts"; fi
+	lines+="$(fetch_one "$sym" "$pts")"$'\n'
+done
+[ -n "$lines" ] || emit_error "no symbol"
 
-[ -n "$resp" ] || emit_error "empty response"
-
-# Branch on the presence of a result. jq does the extraction, null-stripping,
-# change math, and even-stride downsampling to <= maxpts points in one pass so
-# the service just reads fields. A parse failure or a null result -> error line.
-printf '%s' "$resp" | jq -c --argjson max "$maxpts" '
-	if (.chart.result | type) != "array" or (.chart.result | length) == 0 then
-		{ error: (.chart.error.description // "no data for symbol") }
-	else
-		.chart.result[0] as $r
-		| ($r.meta // {}) as $m
-		| ($r.timestamp // []) as $ts
-		| ($r.indicators.quote[0].close // []) as $cl
-		# pair each close with its timestamp, drop nulls together so spark[i]
-		# and times[i] stay aligned after downsampling.
-		| ( [ range(0; ($cl | length)) as $i | { t: ($ts[$i] // 0), c: $cl[$i] } | select(.c != null) ] ) as $pairs
-		| ( [ $pairs[].c ] ) as $closes
-		| ( $m.regularMarketPrice // ($closes | last) // 0 ) as $price
-		| ( $m.chartPreviousClose // $m.previousClose // ($closes | first) // $price ) as $prev
-		| ( if ($pairs | length) > $max
-			then ( ($pairs | length) / $max ) as $stride
-			     | [ range(0; ($pairs|length); $stride) | $pairs[floor] ]
-			else $pairs end ) as $samp
-		| {
-			symbol:    ($m.symbol // "'"$sym"'"),
-			name:      ($m.shortName // $m.longName // $m.symbol // "'"$sym"'"),
-			currency:  ($m.currency // "USD"),
-			price:     $price,
-			prevClose: $prev,
-			changeAbs: ($price - $prev),
-			changePct: ( if $prev != 0 then (($price - $prev) / $prev * 100) else 0 end ),
-			spark:     [ $samp[].c ],
-			times:     [ $samp[].t ]
-		  }
-	end
-' 2>/dev/null || emit_error "parse error"
+printf '%s' "$lines" | jq -cs '{quotes: .}' 2>/dev/null || emit_error "parse error"

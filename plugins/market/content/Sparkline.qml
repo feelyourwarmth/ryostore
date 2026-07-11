@@ -18,7 +18,10 @@ Item {
   property real lineWidth: 2
   property bool animateDraw: true
 
-  readonly property int n: Array.isArray(values) ? values.length : 0
+  // length-based, not Array.isArray: values that cross a Repeater model
+  // boundary arrive as a QVariantList sequence, which is array-like but fails
+  // the strict check.
+  readonly property int n: values && values.length !== undefined ? values.length : 0
   readonly property real span: (max - min) > 0 ? (max - min) : 1
   readonly property real pad: lineWidth
 

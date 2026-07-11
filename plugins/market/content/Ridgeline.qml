@@ -243,7 +243,7 @@ Item {
       horizontalAlignment: Text.AlignRight
       x: 0
       y: root.pyAt(0, 0, fy) - implicitHeight / 2
-      text: root.service ? root.service.fmtCompact(root.lo + root.span * fy) : ""
+      text: root.service ? root.service.fmtCompact(root.lo + root.span * fy, root.span) : ""
       color: Theme.faint
       font.family: Theme.mono
       font.pixelSize: 9 * root.s

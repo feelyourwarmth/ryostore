@@ -1,24 +1,24 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import Quickshell.Io
 import Ryoku.PluginKit
 import Ryoku.PluginKit.Singletons
 
 // The `content` entry point for the `market` plugin: a thin selector that
 // resolves the configured `design` into one of four face components, plus an
-// in-widget ticker editor. The host sets `pluginApi`, `density`, `s`,
-// `widthBudget`, `active`; the service (pluginApi.mainInstance) holds all state.
-// Faces never touch the host; they only read root.service. Each face reports its
-// own implicitHeight, which this view forwards so the host can size the tile.
+// in-widget watchlist editor. The host sets `pluginApi`, `density`, `s`,
+// `widthBudget`, `active`; the service (pluginApi.mainInstance) holds all
+// state. Faces never touch the host; they only read root.service. Each face
+// reports its own implicitHeight, which this view forwards so the host can
+// size the tile.
 //
-// Ticker editing: the right-click menu can't type (wallpaper layer is mouse-
-// only - the shell routes text fields to the hub), so free-text symbol entry
-// lives here. A hover-reveal button opens a typed field; Enter persists the
-// symbol into plugins.json via `ryoku-plugins-place` (the host's saveSettings()
-// is a stub, and the runtime watches that file, so the service re-fetches live).
-// While the field holds focus, `editing` is true and the host raises its
-// keyboard grab - the same mechanism the search fields use.
+// Watchlist editing: the right-click menu can't type (wallpaper layer is
+// mouse-only - the shell routes text fields to the hub), so free-text symbol
+// entry lives here. A hover-reveal button opens a typed field; Enter hands the
+// comma-separated list to the service, which persists it into plugins.json
+// (the runtime watches that file, so the poll re-fetches live). While the
+// field holds focus, `editing` is true and the host raises its keyboard grab -
+// the same mechanism the search fields use.
 Item {
   id: root
 
@@ -38,27 +38,13 @@ Item {
   implicitWidth: contentW
   implicitHeight: faceLoader.item ? faceLoader.item.implicitHeight : 0
 
-  // plugin id = the plugin dir's basename (discover keys the data dir by id).
-  function pluginId() {
-    var d = (root.pluginApi && root.pluginApi.pluginDir) ? String(root.pluginApi.pluginDir) : "";
-    var parts = d.split("/").filter(p => p.length > 0);
-    return parts.length > 0 ? parts[parts.length - 1] : "market";
-  }
-  // strip a leading "$" ($SPY -> SPY), trim, uppercase (matches the service).
-  function normSymbol(s) {
-    var t = String(s || "").trim();
-    while (t.charAt(0) === "$") t = t.slice(1);
-    return t.toUpperCase();
-  }
-  function applyTicker(raw) {
-    var t = root.normSymbol(raw);
-    if (t.length === 0) { root.closeEditor(); return; }
-    persistProc.command = ["ryoku-plugins-place", root.pluginId(), "settings", JSON.stringify({ symbol: t })];
-    persistProc.running = true;
+  function applyWatchlist(raw) {
+    if (root.service && String(raw).trim().length > 0)
+      root.service.setSymbols(raw);
     root.closeEditor();
   }
   function openEditor() {
-    editField.text = root.service ? root.service.symbol : "";
+    editField.text = root.service ? root.service.watchlist.join(", ") : "";
     root.editorOpen = true;
     Qt.callLater(() => editField.input.forceActiveFocus());
   }
@@ -66,8 +52,6 @@ Item {
     root.editorOpen = false;
     editField.input.focus = false;
   }
-
-  Process { id: persistProc }
 
   Loader {
     id: faceLoader
@@ -93,7 +77,8 @@ Item {
   Component { id: areaComp;    MarketArea    { service: root.service; s: root.s; cw: root.contentW } }
   Component { id: minimalComp; MarketMinimal { service: root.service; s: root.s; cw: root.contentW } }
 
-  // hover-reveal "change ticker" button, top-right corner.
+  // hover-reveal "edit watchlist" button, top-right corner. The faces keep
+  // that corner clear (their chips/meta rows stop short of it).
   HoverHandler { id: tileHover }
   Rectangle {
     id: editBtn
@@ -127,7 +112,7 @@ Item {
     }
   }
 
-  // editor overlay: scrim + a small card carrying the typed ticker field.
+  // editor overlay: scrim + a small card carrying the typed watchlist field.
   Item {
     id: overlay
     z: 10
@@ -143,7 +128,7 @@ Item {
 
     Rectangle {
       anchors.centerIn: parent
-      width: Math.min(root.contentW - 40 * root.s, 280 * root.s)
+      width: Math.min(root.contentW - 40 * root.s, 300 * root.s)
       implicitHeight: card.implicitHeight + 26 * root.s
       radius: 14 * root.s
       color: Theme.cardTop
@@ -159,21 +144,21 @@ Item {
         width: parent.width - 28 * root.s
         spacing: 10 * root.s
 
-        MicroLabel { label: qsTr("Set ticker"); s: root.s }
+        MicroLabel { label: qsTr("Set watchlist"); s: root.s }
 
         SearchField {
           id: editField
           width: parent.width
           s: root.s
           kanji: "$"
-          placeholder: qsTr("e.g. SPY, F, AAPL, BTC-USD")
-          onAccepted: root.applyTicker(editField.text)
+          placeholder: qsTr("e.g. BTC-USD, AAPL, ^GSPC")
+          onAccepted: root.applyWatchlist(editField.text)
           onDismissed: root.closeEditor()
         }
 
         Text {
           width: parent.width
-          text: qsTr("Any Yahoo Finance symbol. Enter to set, Esc to cancel.")
+          text: qsTr("Comma-separated Yahoo symbols, up to six. The first (or the row you tap) owns the chart. Enter to set, Esc to cancel.")
           color: Theme.faint
           font.family: Theme.font
           font.pixelSize: 10 * root.s

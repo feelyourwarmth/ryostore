@@ -1,9 +1,9 @@
 {
   "id": "market",
   "name": "Market",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
-  "description": "Track a stock, index, or crypto pair on your desktop, in four faces - dossier, line, area, and minimal.",
+  "description": "Track a watchlist of stocks, indices, and crypto pairs on your desktop, in four faces - dossier, line, area, and minimal.",
   "license": "MIT",
   "tags": ["stocks", "crypto", "desktop-widget"],
   "official": true,
@@ -20,6 +20,11 @@
     "content/Ridgeline.qml",
     "content/ChangeBadge.qml",
     "content/PriceText.qml",
+    "content/WindowChips.qml",
+    "content/WatchRows.qml",
+    "content/MetaLine.qml",
+    "content/FacePlaceholder.qml",
+    "content/Crosshair.qml",
     "assets/preview-widget.png"
   ],
   "capabilities": {
@@ -42,7 +47,7 @@
         { "value": "area", "label": "Area" },
         { "value": "minimal", "label": "Minimal" }
       ] },
-      { "key": "symbol", "type": "text", "label": "Symbol", "group": "Market", "default": "BTC-USD", "placeholder": "Any Yahoo ticker: $SPY, $F, AAPL, BTC-USD, ^GSPC" },
+      { "key": "symbols", "type": "text", "label": "Watchlist", "group": "Market", "default": "BTC-USD", "placeholder": "Up to six Yahoo tickers: BTC-USD, AAPL, ^GSPC" },
       { "key": "window", "type": "choice", "label": "Window", "group": "Market", "default": "1D", "options": [
         { "value": "1D", "label": "1 day" },
         { "value": "1W", "label": "1 week" },
@@ -55,7 +60,7 @@
         { "value": "brand", "label": "Brand" },
         { "value": "mono", "label": "Mono" }
       ] },
-      { "key": "showGrid", "type": "toggle", "label": "Show grid", "group": "Style", "default": true }
+      { "key": "showGrid", "type": "toggle", "label": "Chart grid", "group": "Style", "default": true }
     ]
   }
 }

@@ -12,8 +12,9 @@ Item {
 
   property var service: null
   property real s: 1
+  readonly property bool ready: root.service ? root.service.priceReady : false
   readonly property bool up: root.service ? root.service.up : true
-  readonly property color tint: root.service ? root.service.trendColor : Theme.cream
+  readonly property color tint: ready && root.service ? root.service.trendColor : Theme.faint
 
   implicitWidth: rowFlow.implicitWidth
   implicitHeight: rowFlow.implicitHeight
@@ -29,6 +30,7 @@ Item {
 
     // up/down arrowhead, filled with the trend tint.
     Shape {
+      visible: root.ready
       width: 9 * root.s
       height: 9 * root.s
       anchors.verticalCenter: parent.verticalCenter
@@ -43,7 +45,7 @@ Item {
 
     Text {
       anchors.verticalCenter: parent.verticalCenter
-      text: root.service ? root.service.fmtPct(root.service.changePct) : "0.00%"
+      text: root.service && root.ready ? root.service.fmtPct(root.service.changePct) : "\u2013"
       color: root.tint
       font.family: Theme.mono
       font.pixelSize: 15 * root.s
@@ -54,7 +56,7 @@ Item {
     Text {
       anchors.verticalCenter: parent.verticalCenter
       visible: opacity > 0.01
-      opacity: hov.hovered ? 1 : 0
+      opacity: hov.hovered && root.ready ? 1 : 0
       Behavior on opacity { NumberAnimation { duration: Motion.fast } }
       text: {
         if (!root.service) return "";

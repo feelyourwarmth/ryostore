@@ -21,6 +21,7 @@ Item {
   readonly property real pad: 16 * s
   readonly property real axisW: 30 * s
   readonly property real xAxisH: 13 * s
+  readonly property bool grid: root.service ? root.service.showGrid : true
   readonly property var vals: root.service ? root.service.spark : []
   readonly property int n: Array.isArray(vals) ? vals.length : 0
   readonly property real lo: root.service ? root.service.sparkMin : 0
@@ -63,7 +64,7 @@ Item {
   Rectangle {
     id: surface
     width: root.cw
-    implicitHeight: header.y + header.height + 12 * root.s + plot.height + root.xAxisH + root.pad
+    implicitHeight: meta.y + meta.height + root.pad
     radius: 18 * root.s
     border.width: 1
     border.color: Theme.border
@@ -81,7 +82,26 @@ Item {
       width: parent.width - root.pad * 2
       spacing: 5 * root.s
 
-      MicroLabel { label: root.service ? root.service.name : qsTr("Market"); s: root.s }
+      // eyebrow: instrument name left, timeframe chips right.
+      Item {
+        width: parent.width
+        height: Math.max(eyebrow.implicitHeight, chips.implicitHeight)
+        MicroLabel {
+          id: eyebrow
+          anchors.left: parent.left
+          anchors.verticalCenter: parent.verticalCenter
+          label: root.service && root.service.name.length > 0 ? root.service.name : qsTr("Market")
+          s: root.s
+        }
+        WindowChips {
+          id: chips
+          anchors.right: parent.right
+          anchors.rightMargin: 30 * root.s
+          anchors.verticalCenter: parent.verticalCenter
+          service: root.service
+          s: root.s
+        }
+      }
 
       Row {
         spacing: 9 * root.s
@@ -96,6 +116,27 @@ Item {
       y: header.y + header.height + 12 * root.s
       width: parent.width - root.pad * 2 - root.axisW
       height: 118 * root.s
+
+      // faint grid (service.showGrid), same lattice the Line face draws.
+      Repeater {
+        model: root.grid ? 4 : 0
+        Rectangle {
+          required property int index
+          width: plot.width; height: 1
+          y: plot.height * (index / 3)
+          color: Theme.hair
+        }
+      }
+      Repeater {
+        model: root.grid ? 5 : 0
+        Rectangle {
+          required property int index
+          width: 1; height: plot.height
+          x: plot.width * (index / 4)
+          color: Theme.hair
+          opacity: 0.6
+        }
+      }
 
       Item {
         width: plot.width * root.progress
@@ -142,6 +183,26 @@ Item {
         opacity: root.progress >= 0.98 ? 1 : 0
         Behavior on opacity { NumberAnimation { duration: Motion.fast } }
       }
+
+      // hover readout: nearest sample's price + time (hover-only, drag-safe).
+      Crosshair {
+        anchors.fill: parent
+        visible: root.n > 1
+        service: root.service
+        s: root.s
+        values: root.vals
+        times: root.service ? root.service.times : []
+        lo: root.lo
+        hi: root.hi
+      }
+
+      // first-fetch / failed-with-no-data: the empty grid becomes a skeleton.
+      FacePlaceholder {
+        anchors.fill: parent
+        visible: root.n < 2
+        service: root.service
+        s: root.s
+      }
     }
 
     // Y axis: price ticks.
@@ -150,10 +211,11 @@ Item {
       Text {
         required property int index
         width: root.axisW - 5 * root.s
+        visible: root.n > 1
         horizontalAlignment: Text.AlignRight
         x: 0
         y: plot.y + plot.height * (index / 3) - implicitHeight / 2
-        text: root.service ? root.service.fmtCompact(root.lo + root.span * (1 - index / 3)) : ""
+        text: root.service ? root.service.fmtCompact(root.lo + root.span * (1 - index / 3), root.span) : ""
         color: Theme.faint
         font.family: Theme.mono
         font.pixelSize: 9 * root.s
@@ -177,6 +239,15 @@ Item {
         font.pixelSize: 9 * root.s
         font.weight: Font.Medium
       }
+    }
+
+    // provenance footer: session state, as-of stamp, stale flag.
+    MetaLine {
+      id: meta
+      x: root.pad
+      y: plot.y + plot.height + root.xAxisH + 6 * root.s
+      service: root.service
+      s: root.s
     }
   }
 }
