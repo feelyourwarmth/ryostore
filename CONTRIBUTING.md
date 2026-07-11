@@ -53,3 +53,16 @@ Right-click file-manager actions live in `nautilus/<id>/`. Copy the layout in
 `nautilus/registry.json`, and a bundle references it with an item
 `{ "type": "nautilus-pack", "name": "<id>" }`. The scripts install to
 `~/.local/share/nautilus/scripts/<subdir>/` and are removed cleanly on uninstall.
+
+## Before you open a PR
+
+Run the catalogue check:
+
+```
+tests/validate-catalogue.sh
+```
+
+It confirms every bundle item resolves to a real registry entry, manifest, and
+installer, that each Nautilus manifest matches the scripts on disk, and that all
+JSON parses, so a dangling reference never reaches a user as a failed install. CI
+runs the same check on every push and pull request.

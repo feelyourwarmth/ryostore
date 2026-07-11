@@ -1,0 +1,21 @@
+name: catalogue
+
+# The Hub fetches this repo's `main` at runtime and installs straight from it,
+# so a broken catalogue reaches users. Gate every push and PR on integrity.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install jq and shellcheck
+        run: sudo apt-get update && sudo apt-get install -y jq shellcheck
+      - name: Shellcheck the validator and installers
+        run: shellcheck tests/validate-catalogue.sh installers/*.sh
+      - name: Validate catalogue integrity
+        run: bash tests/validate-catalogue.sh
