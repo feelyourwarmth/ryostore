@@ -5,11 +5,11 @@
       "id": "obsidian",
       "name": "Obsidian",
       "path": "plugins/obsidian",
-      "version": "1.2.0",
+      "version": "1.3.0",
       "author": "Ryoku Team",
       "official": true,
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
-      "description": "A desktop-widget plugin that adopts your existing Obsidian vault and settings, then turns the everyday moves into two views: a Board of tappable workflow blocks and a Graph of your vault. Create or open today's daily note (with your folder, filename format, and template), open any note, and append text, tasks, links, pasted images, or voice memos to a chosen note. Build your own blocks step by step, type on the tile, paste an image from the clipboard or record a memo into your attachments, and browse the vault as a link constellation you can tap to open. Local-first and opt-in - nothing runs until you pick a vault, and notes are written straight to disk.",
+      "description": "A desktop-widget plugin that adopts your existing Obsidian vault and settings, then turns the everyday moves into two views: a Board of tappable workflow blocks and a Graph of your vault. Create or open today's daily note (with your folder, filename format, and template), open any note, and append text, tasks, links, pasted images, or voice memos - with a live elapsed timer, a discard, and attachments filed next to the target note. Capture retargets are one-off (the default inbox stays a setting), delete asks with a second tap, Enter drives the pickers, and the Graph runs its layout only when the vault changes - tap a node to spotlight it, tap again to open. Local-first and opt-in - nothing runs until you pick a vault, and notes are written straight to disk.",
       "icon": "file",
       "tags": [
         "obsidian",
@@ -26,17 +26,17 @@
         "assets/preview-widget.png",
         "assets/preview-graph.png"
       ],
-      "lastUpdated": "2026-07-08"
+      "lastUpdated": "2026-07-11"
     },
     {
       "id": "market",
       "name": "Market",
       "path": "plugins/market",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": "Ryoku Team",
       "official": true,
-      "tagline": "Track a stock, index, or crypto pair on your desktop.",
-      "description": "A desktop-widget plugin that tracks any Yahoo Finance symbol - a crypto pair (BTC-USD), a stock (AAPL), or an index (^GSPC) - and renders its live price, change, and history in one of four faces: a dossier hero with a layered 2.5D ridgeline chart, a gridded line, a gradient area, or a compact minimal sparkline. Drawn in the shell's own dark carbon style, drag it onto your wallpaper beside the clock and weather. Free data, no API key.",
+      "tagline": "Track a watchlist of stocks, indices, and crypto on your desktop.",
+      "description": "A desktop-widget plugin that tracks a watchlist of up to six Yahoo Finance symbols - crypto pairs (BTC-USD), stocks (AAPL), indices (^GSPC) - and renders the active one's live price, change, and history in one of four faces: a dossier hero with a layered 2.5D ridgeline chart and the watchlist rows, a gridded line, a gradient area, or a compact ticker board. Timeframe chips (1D/1W/1M/1Y) live on the tile, the change always matches the window under the chart, hovering a chart reads out the exact sample, and the tile tells the truth about its data: fetching, error, session state, as-of stamp, and a stale flag. Rising is green, falling is vermilion, on any wallpaper. Free data, no API key.",
       "icon": "trending_up",
       "tags": [
         "stocks",
@@ -50,7 +50,7 @@
       "screenshots": [
         "assets/preview-widget.png"
       ],
-      "lastUpdated": "2026-07-01"
+      "lastUpdated": "2026-07-11"
     },
     {
       "id": "photo-frame",
