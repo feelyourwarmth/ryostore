@@ -66,10 +66,10 @@ Panel {
         Eyebrow { anchors.left: parent.left; anchors.verticalCenter: parent.verticalCenter; text: root.existing ? qsTr("Edit workflow") : qsTr("New workflow"); mark: true; s: root.s; tick: root.accent }
         Rectangle {
             anchors.right: parent.right; anchors.verticalCenter: parent.verticalCenter
-            width: 20 * root.s; height: 20 * root.s
+            width: 24 * root.s; height: 24 * root.s
             radius: 0; antialiasing: false
             color: closeMa.containsMouse ? root.accent : "transparent"
-            GlyphIcon { anchors.centerIn: parent; width: 11 * root.s; height: 11 * root.s; name: "close"; color: closeMa.containsMouse ? Theme.cardBot : Theme.iconDim; stroke: 2 }
+            GlyphIcon { anchors.centerIn: parent; width: 12 * root.s; height: 12 * root.s; name: "close"; color: closeMa.containsMouse ? Theme.cardBot : Theme.iconDim; stroke: 2 }
             MouseArea { id: closeMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.dismissed() }
         }
     }
@@ -243,6 +243,7 @@ Panel {
                 kanji: "\u540d"
                 placeholder: root.autoLabel()
                 onDismissed: labelField.input.focus = false
+                onAccepted: root.save()
             }
             Rectangle {
                 anchors.left: parent.left; anchors.right: parent.right; anchors.bottom: parent.bottom

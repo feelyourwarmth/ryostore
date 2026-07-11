@@ -7,8 +7,9 @@ import Ryoku.PluginKit.Singletons
 // One workflow as a node on the canvas spine, drawn as a sharp ledger row: an
 // accent square chip carrying the action glyph sits on a vermillion rule, with
 // the label and a mono subtitle beside it. The whole row runs the workflow; the
-// hover/edit controls take their own clicks. A recording block blinks the chip
-// and reads "REC · TAP TO STOP". Sharp corners, hairline borders, no gradient.
+// hover/edit controls take their own clicks. A recording block blinks the chip,
+// reads "REC m:ss · tap to stop" and offers a discard; the trash needs a second
+// tap to confirm. Sharp corners, hairline borders, no gradient.
 Item {
     id: root
 
@@ -32,6 +33,15 @@ Item {
     signal removeRequested()
     signal moveUp()
     signal moveDown()
+    signal discardRequested()
+
+    property int recSecs: 0
+    property bool armed: false          // trash confirm: first tap arms, second deletes
+    property bool disabled: false        // a missing optional tool (wl-paste / ffmpeg)
+    property string disabledSub: ""
+    onEditModeChanged: if (!editMode) { root.armed = false; disarm.stop(); }
+    Timer { id: disarm; interval: 2000; onTriggered: root.armed = false }
+    function fmtSecs(n) { var m = Math.floor(n / 60), sec = n % 60; return m + ":" + (sec < 10 ? "0" : "") + sec; }
 
     readonly property real nodeX: 20 * s
     implicitWidth: w
@@ -52,6 +62,7 @@ Item {
         anchors.fill: parent
         radius: 0
         antialiasing: false
+        opacity: root.disabled ? 0.55 : 1
         color: hover.hovered ? Qt.alpha(root.accent, 0.1) : Qt.rgba(1, 1, 1, 0.02)
         border.width: 1
         border.color: hover.hovered ? Qt.alpha(root.accent, 0.55) : Theme.hair
@@ -109,8 +120,10 @@ Item {
                 width: parent.width
                 elide: Text.ElideRight
                 visible: text.length > 0
-                text: root.running ? qsTr("REC · tap to stop") : root.sub
-                color: root.running ? root.accent : Theme.faint
+                text: root.running ? qsTr("REC %1 · tap to stop").arg(root.fmtSecs(root.recSecs))
+                    : (root.armed ? qsTr("tap trash again to delete")
+                    : (root.disabled ? root.disabledSub : root.sub))
+                color: (root.running || root.armed) ? root.accent : Theme.faint
                 font.family: Theme.mono
                 font.pixelSize: 9.5 * root.s
                 font.letterSpacing: 0.5 * root.s
@@ -130,30 +143,43 @@ Item {
             anchors.rightMargin: 8 * root.s
             anchors.verticalCenter: parent.verticalCenter
             spacing: 3 * root.s
-            opacity: (hover.hovered || root.editMode) && root.removable && !root.running ? 1 : 0
+            opacity: (root.running || ((hover.hovered || root.editMode) && root.removable)) ? 1 : 0
             visible: opacity > 0.01
             Behavior on opacity { NumberAnimation { duration: Motion.fast } }
 
             component Ctl: Rectangle {
                 id: ctl
                 property string glyph: ""
+                property bool edit: false      // draw the plugin-local pencil instead of a kit glyph
+                property bool flip: false      // rotate the glyph 180deg (the kit has no chevron-up)
+                property bool filled: false    // solid accent (the armed / confirm state)
                 property bool on: true
                 signal tapped()
-                width: 23 * root.s
-                height: 23 * root.s
+                width: 28 * root.s
+                height: 28 * root.s
                 radius: 0
                 antialiasing: false
-                color: cma.containsMouse ? root.accent : Qt.rgba(0, 0, 0, 0.3)
+                color: (ctl.filled || cma.containsMouse) ? root.accent : Qt.rgba(0, 0, 0, 0.3)
                 opacity: ctl.on ? 1 : 0.3
                 border.width: 1
-                border.color: cma.containsMouse ? root.accent : Theme.hair
+                border.color: (ctl.filled || cma.containsMouse) ? root.accent : Theme.hair
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
                 GlyphIcon {
                     anchors.centerIn: parent
+                    visible: !ctl.edit
                     width: 13 * root.s
                     height: 13 * root.s
+                    rotation: ctl.flip ? 180 : 0
                     name: ctl.glyph
-                    color: cma.containsMouse ? Theme.cardBot : Theme.iconDim
+                    color: (ctl.filled || cma.containsMouse) ? Theme.cardBot : Theme.iconDim
+                    stroke: 1.8
+                }
+                EditGlyph {
+                    anchors.centerIn: parent
+                    visible: ctl.edit
+                    width: 13 * root.s
+                    height: 13 * root.s
+                    color: (ctl.filled || cma.containsMouse) ? Theme.cardBot : Theme.iconDim
                     stroke: 1.8
                 }
                 MouseArea {
@@ -166,10 +192,20 @@ Item {
                 }
             }
 
-            Ctl { glyph: "chevron-up"; visible: root.editMode; on: root.canUp; onTapped: root.moveUp() }
-            Ctl { glyph: "chevron-down"; visible: root.editMode; on: root.canDown; onTapped: root.moveDown() }
-            Ctl { glyph: "list"; visible: !root.editMode; onTapped: root.editRequested() }
-            Ctl { glyph: "trash"; visible: root.editMode; onTapped: root.removeRequested() }
+            Ctl { glyph: "chevron-down"; flip: true; visible: root.editMode && !root.running; on: root.canUp; onTapped: root.moveUp() }
+            Ctl { glyph: "chevron-down"; visible: root.editMode && !root.running; on: root.canDown; onTapped: root.moveDown() }
+            Ctl { edit: true; visible: !root.editMode && !root.running; onTapped: root.editRequested() }
+            Ctl {
+                glyph: root.armed ? "check" : "trash"
+                filled: root.armed
+                visible: root.editMode && !root.running
+                onTapped: {
+                    if (root.armed) { root.armed = false; disarm.stop(); root.removeRequested(); }
+                    else { root.armed = true; disarm.restart(); }
+                }
+            }
+            // discard a running recording: stop ffmpeg + delete the file, embed nothing.
+            Ctl { glyph: "close"; visible: root.running; onTapped: root.discardRequested() }
         }
     }
 

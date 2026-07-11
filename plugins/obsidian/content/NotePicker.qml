@@ -48,13 +48,13 @@ Item {
             Rectangle {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
-                width: 20 * root.s; height: 20 * root.s
+                width: 24 * root.s; height: 24 * root.s
                 radius: 0
                 antialiasing: false
                 color: closeMa.containsMouse ? root.accent : "transparent"
                 GlyphIcon {
                     anchors.centerIn: parent
-                    width: 11 * root.s; height: 11 * root.s
+                    width: 12 * root.s; height: 12 * root.s
                     name: "close"; color: closeMa.containsMouse ? Theme.cardBot : Theme.iconDim; stroke: 2
                 }
                 MouseArea { id: closeMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.dismissed() }
@@ -74,6 +74,13 @@ Item {
                 placeholder: qsTr("Search notes…")
                 onTextChanged: debounce.restart()
                 onDismissed: root.dismissed()
+                // Enter commits the top result, or the pinned daily row when empty.
+                onAccepted: {
+                    if (root.service && root.service.notes.length > 0)
+                        root.picked(root.service.notes[0]);
+                    else if (root.allowDaily)
+                        root.picked("");
+                }
             }
             Rectangle {
                 anchors.left: parent.left; anchors.right: parent.right; anchors.bottom: parent.bottom
@@ -121,7 +128,7 @@ Item {
                 required property int index
                 required property var modelData
                 width: ListView.view.width
-                height: 28 * root.s
+                height: 32 * root.s
                 radius: 0
                 antialiasing: false
                 color: nma.containsMouse ? Qt.alpha(root.accent, 0.12) : "transparent"
@@ -145,7 +152,10 @@ Item {
             Text {
                 anchors.centerIn: parent
                 visible: list.count === 0
-                text: root.service && root.service.notesLoading ? qsTr("Searching…") : qsTr("No notes found")
+                text: root.service && root.service.notesLoading ? qsTr("Searching…")
+                    : (root.service && root.service.notesError.length > 0
+                        ? qsTr("Couldn't read vault: %1").arg(root.service.notesError)
+                        : qsTr("No notes found"))
                 color: Theme.faint; font.family: Theme.mono; font.pixelSize: 10.5 * root.s; font.letterSpacing: 1 * root.s
             }
         }

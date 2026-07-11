@@ -23,6 +23,10 @@ Item {
     readonly property bool editing: fieldFocused
     readonly property bool recording: service ? service.recording : false
     property string target: ""
+    readonly property string defaultTarget: service ? service.inbox : ""
+    // a one-off retarget (from a workflow block or the picker) differs from the
+    // configured default; show a reset affordance and snap back after each send.
+    readonly property bool retargeted: target !== defaultTarget
 
     implicitWidth: w
     implicitHeight: col.implicitHeight
@@ -37,11 +41,25 @@ Item {
             return;
         root.service.appendNote(root.target, t, root.taskMode);
         field.text = "";
+        // the retarget was for this send only; snap back to the default inbox.
+        root.target = root.defaultTarget;
     }
+    // a short attention flash on the capture bar, so presetting it from a
+    // workflow block reads as "type here" instead of a silent focus jump.
+    property real pulseT: 0
+    SequentialAnimation {
+        id: pulseAnim
+        NumberAnimation { target: root; property: "pulseT"; from: 0; to: 1; duration: Motion.fast; easing.type: Motion.easeStandard }
+        NumberAnimation { target: root; property: "pulseT"; from: 1; to: 0; duration: Motion.fast; easing.type: Motion.easeStandard }
+        NumberAnimation { target: root; property: "pulseT"; from: 0; to: 1; duration: Motion.fast; easing.type: Motion.easeStandard }
+        NumberAnimation { target: root; property: "pulseT"; from: 1; to: 0; duration: Motion.fast; easing.type: Motion.easeStandard }
+    }
+    function pulse() { pulseAnim.restart(); }
     function captureTo(note, asTask) {
         root.target = note;
         root.taskMode = asTask;
         root.focusField();
+        root.pulse();
     }
     Component.onCompleted: if (root.service) root.target = root.service.inbox;
 
@@ -63,7 +81,10 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 s: root.s
                 kanji: root.taskMode ? "\u4e86" : "\u66f8"
-                placeholder: root.taskMode ? qsTr("New task…") : qsTr("Quick note, link, thought…")
+                placeholder: {
+                    var where = root.target.length === 0 ? qsTr("today") : root.target.replace(/\.md$/, "").split("/").pop();
+                    return root.taskMode ? qsTr("New task → %1").arg(where) : qsTr("Quick note → %1").arg(where);
+                }
                 onAccepted: root.commit()
                 onDismissed: field.input.focus = false
                 Connections {
@@ -76,7 +97,7 @@ Item {
                 anchors.right: parent.right
                 anchors.verticalCenter: parent.verticalCenter
                 width: 30 * root.s
-                height: 26 * root.s
+                height: 30 * root.s
                 radius: 0
                 antialiasing: false
                 color: sendMa.containsMouse ? root.accent : "transparent"
@@ -97,6 +118,13 @@ Item {
                 height: 1
                 color: root.fieldFocused ? root.accent : Theme.lineStrong
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
+            }
+            // pulse: a brief accent flash of the field's tick, driven by pulse().
+            Rectangle {
+                anchors.left: parent.left; anchors.right: parent.right; anchors.bottom: parent.bottom
+                height: 2 * root.s
+                color: root.accent
+                opacity: root.pulseT
             }
         }
 
@@ -156,6 +184,14 @@ Item {
                 border.width: 1
                 border.color: tgtMa.containsMouse ? Qt.alpha(root.accent, 0.55) : Theme.hair
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
+                // full-chip picker; declared first so the reset-x sits on top of it.
+                MouseArea {
+                    id: tgtMa
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    cursorShape: Qt.PointingHandCursor
+                    onClicked: if (root.openPicker) root.openPicker(rel => { root.target = rel; });
+                }
                 Row {
                     anchors.left: parent.left; anchors.leftMargin: 8 * root.s
                     anchors.right: parent.right; anchors.rightMargin: 8 * root.s
@@ -164,18 +200,23 @@ Item {
                     Text { anchors.verticalCenter: parent.verticalCenter; text: "→"; color: root.accent; font.family: Theme.mono; font.pixelSize: 12 * root.s; font.weight: Font.Bold }
                     Text {
                         anchors.verticalCenter: parent.verticalCenter
-                        width: targetChip.width - 34 * root.s
+                        width: targetChip.width - 34 * root.s - (root.retargeted ? 20 * root.s : 0)
                         elide: Text.ElideMiddle
                         text: root.target.length === 0 ? qsTr("today's note") : root.target.replace(/\.md$/, "").split("/").pop()
                         color: Theme.subtle; font.family: Theme.mono; font.pixelSize: 10.5 * root.s
                     }
                 }
-                MouseArea {
-                    id: tgtMa
-                    anchors.fill: parent
-                    hoverEnabled: true
-                    cursorShape: Qt.PointingHandCursor
-                    onClicked: if (root.openPicker) root.openPicker(rel => { root.target = rel; if (root.service) root.service.setInbox(rel); });
+                // reset a one-off retarget back to the default inbox, without sending.
+                Rectangle {
+                    id: resetX
+                    anchors.right: parent.right; anchors.rightMargin: 4 * root.s
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 18 * root.s; height: 18 * root.s
+                    radius: 0; antialiasing: false
+                    visible: root.retargeted
+                    color: rxMa.containsMouse ? Qt.alpha(root.accent, 0.28) : "transparent"
+                    GlyphIcon { anchors.centerIn: parent; width: 9 * root.s; height: 9 * root.s; name: "close"; color: rxMa.containsMouse ? root.accent : Theme.iconDim; stroke: 2 }
+                    MouseArea { id: rxMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: root.target = root.defaultTarget }
                 }
             }
         }
@@ -189,48 +230,83 @@ Item {
                 property string glyph: ""
                 property string label: ""
                 property bool lit: false
+                property bool missing: false
+                property string need: ""
+                property real blink: 1
                 signal tapped()
                 width: (root.w - 7 * root.s) / 2
-                height: 30 * root.s
+                // grow both keys uniformly when either tool is missing, so the row
+                // stays aligned and the missing one has room for its reason.
+                height: (root.service && (!root.service.hasWlPaste || !root.service.hasFfmpeg) ? 40 : 30) * root.s
                 radius: 0
                 antialiasing: false
-                color: mb.lit ? root.accent : (mbMa.containsMouse ? Qt.alpha(root.accent, 0.14) : Qt.rgba(1, 1, 1, 0.02))
+                opacity: mb.missing ? 0.5 : (mb.lit ? mb.blink : 1)
+                color: mb.lit ? root.accent : (mbMa.containsMouse && !mb.missing ? Qt.alpha(root.accent, 0.14) : Qt.rgba(1, 1, 1, 0.02))
                 border.width: 1
                 border.color: mb.lit ? root.accent : Theme.hair
                 Behavior on color { ColorAnimation { duration: Motion.fast } }
-                Row {
+                Column {
                     anchors.centerIn: parent
-                    spacing: 8 * root.s
-                    GlyphIcon {
-                        anchors.verticalCenter: parent.verticalCenter
-                        width: 15 * root.s; height: 15 * root.s
-                        name: mb.glyph
-                        color: mb.lit ? Theme.cardBot : root.accent
-                        stroke: 1.7
+                    spacing: 2 * root.s
+                    Row {
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: 8 * root.s
+                        GlyphIcon {
+                            anchors.verticalCenter: parent.verticalCenter
+                            width: 15 * root.s; height: 15 * root.s
+                            name: mb.glyph
+                            color: mb.lit ? Theme.cardBot : root.accent
+                            stroke: 1.7
+                        }
+                        Text {
+                            anchors.verticalCenter: parent.verticalCenter
+                            text: mb.label
+                            color: mb.lit ? Theme.cardBot : Theme.cream
+                            font.family: Theme.mono; font.pixelSize: 10 * root.s
+                            font.weight: Font.DemiBold; font.letterSpacing: 1.2 * root.s
+                            font.capitalization: Font.AllUppercase
+                        }
                     }
                     Text {
-                        anchors.verticalCenter: parent.verticalCenter
-                        text: mb.label
-                        color: mb.lit ? Theme.cardBot : Theme.cream
-                        font.family: Theme.mono; font.pixelSize: 10 * root.s
-                        font.weight: Font.DemiBold; font.letterSpacing: 1.2 * root.s
+                        visible: mb.missing
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        text: mb.need
+                        color: Theme.faint
+                        font.family: Theme.mono; font.pixelSize: 8 * root.s; font.letterSpacing: 0.5 * root.s
                         font.capitalization: Font.AllUppercase
                     }
                 }
-                SequentialAnimation on opacity {
+                // blink the "lit" (recording) key via a bound property, so the dim /
+                // hover opacity binding above is never clobbered by the animation.
+                SequentialAnimation {
                     running: mb.lit
                     loops: Animation.Infinite
-                    NumberAnimation { from: 1; to: 0.5; duration: 620; easing.type: Easing.InOutSine }
-                    NumberAnimation { from: 0.5; to: 1; duration: 620; easing.type: Easing.InOutSine }
+                    NumberAnimation { target: mb; property: "blink"; from: 1; to: 0.5; duration: 620; easing.type: Easing.InOutSine }
+                    NumberAnimation { target: mb; property: "blink"; from: 0.5; to: 1; duration: 620; easing.type: Easing.InOutSine }
                 }
                 MouseArea { id: mbMa; anchors.fill: parent; hoverEnabled: true; cursorShape: Qt.PointingHandCursor; onClicked: mb.tapped() }
             }
-            MediaBtn { glyph: "clipboard"; label: qsTr("Paste image"); onTapped: if (root.service) root.service.pasteImage(root.target) }
+            MediaBtn {
+                glyph: "clipboard"; label: qsTr("Paste image")
+                missing: !!(root.service && !root.service.hasWlPaste)
+                need: qsTr("needs wl-clipboard")
+                onTapped: {
+                    if (!root.service) return;
+                    if (root.service.hasWlPaste) root.service.pasteImage(root.target);
+                    else root.service.flash(qsTr("Paste image needs wl-clipboard"));
+                }
+            }
             MediaBtn {
                 glyph: root.recording ? "stop" : "mic"
                 label: root.recording ? qsTr("Stop") : qsTr("Voice memo")
                 lit: root.recording
-                onTapped: if (root.service) root.service.toggleRecord(root.target)
+                missing: !!(root.service && !root.service.hasFfmpeg && !root.recording)
+                need: qsTr("needs ffmpeg")
+                onTapped: {
+                    if (!root.service) return;
+                    if (root.service.hasFfmpeg) root.service.toggleRecord(root.target);
+                    else root.service.flash(qsTr("Voice memo needs ffmpeg"));
+                }
             }
         }
     }

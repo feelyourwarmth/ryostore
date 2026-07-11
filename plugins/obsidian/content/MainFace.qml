@@ -43,6 +43,15 @@ Item {
     }
     function activate(b) {
         if (!root.service) return;
+        // fail proactively, not at tap time, when the backing tool is absent.
+        if (b.action === "pasteImage" && !root.service.hasWlPaste) {
+            root.service.flash(qsTr("Paste image needs wl-clipboard"));
+            return;
+        }
+        if (b.action === "audio" && !root.service.hasFfmpeg && !root.service.recording) {
+            root.service.flash(qsTr("Voice memo needs ffmpeg"));
+            return;
+        }
         if (b.action === "appendText" || b.action === "appendTask")
             capture.captureTo(b.note || "", b.action === "appendTask");
         else
@@ -51,6 +60,10 @@ Item {
     function setView(v) {
         root.view = v;
         if (v === "graph" && root.service) root.service.refreshGraph();
+    }
+    function fmtSecs(n) {
+        var m = Math.floor(n / 60), sec = n % 60;
+        return m + ":" + (sec < 10 ? "0" : "") + sec;
     }
 
     Panel {
@@ -79,7 +92,9 @@ Item {
                 anchors.verticalCenter: parent.verticalCenter
                 spacing: 3 * root.s
                 Eyebrow {
-                    text: root.service && root.service.recording ? qsTr("Recording") : qsTr("Obsidian")
+                    text: root.service && root.service.recording
+                        ? qsTr("Recording %1").arg(root.fmtSecs(root.service.recordSecs))
+                        : qsTr("Obsidian")
                     mark: true; s: root.s; tick: root.accent
                 }
                 Text {
@@ -195,11 +210,17 @@ Item {
                             && (modelData.note || "") === (root.service.recordNote || "")
                         connectUp: true
                         connectDown: index < root.workflows.length - 1
+                        disabled: !!(root.service
+                            && ((modelData.action === "pasteImage" && !root.service.hasWlPaste)
+                                || (modelData.action === "audio" && !root.service.hasFfmpeg)))
+                        disabledSub: modelData.action === "pasteImage" ? qsTr("needs wl-clipboard") : qsTr("needs ffmpeg")
                         onActivated: root.activate(wb.modelData)
                         onEditRequested: if (root.openEditor) root.openEditor(wb.modelData)
                         onRemoveRequested: if (root.service) root.service.removeWorkflow(wb.modelData.id)
                         onMoveUp: if (root.service) root.service.moveWorkflow(wb.modelData.id, -1)
                         onMoveDown: if (root.service) root.service.moveWorkflow(wb.modelData.id, 1)
+                        recSecs: root.service ? root.service.recordSecs : 0
+                        onDiscardRequested: if (root.service) root.service.discardRecord()
                     }
                 }
             }
@@ -253,18 +274,34 @@ Item {
         }
 
         // ── status line ─────────────────────────────────────────────────────────────
-        Row {
+        Item {
+            id: statusBar
             width: parent.width
-            spacing: 8 * root.s
-            visible: root.service && root.service.status.length > 0
-            Rectangle { anchors.verticalCenter: parent.verticalCenter; width: 5 * root.s; height: 5 * root.s; color: root.accent }
-            Text {
-                anchors.verticalCenter: parent.verticalCenter
-                width: parent.width - 13 * root.s
-                elide: Text.ElideRight
-                text: root.service ? root.service.status : ""
-                color: root.accent
-                font.family: Theme.mono; font.pixelSize: 10 * root.s; font.letterSpacing: 1 * root.s
+            height: 14 * root.s
+            visible: statusRow.opacity > 0.01
+            // slide + fade the confirmation in, led by a glyph, so a capture reads
+            // as a distinct "landed" event rather than static text at the bottom.
+            Row {
+                id: statusRow
+                spacing: 8 * root.s
+                readonly property bool shown: !!(root.service && root.service.status.length > 0)
+                opacity: shown ? 1 : 0
+                x: shown ? 0 : -6 * root.s
+                Behavior on opacity { NumberAnimation { duration: Motion.fast; easing.type: Motion.easeStandard } }
+                Behavior on x { NumberAnimation { duration: Motion.fast; easing.type: Motion.easeStandard } }
+                GlyphIcon {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: 12 * root.s; height: 12 * root.s
+                    name: "check"; color: root.accent; stroke: 2
+                }
+                Text {
+                    anchors.verticalCenter: parent.verticalCenter
+                    width: statusBar.width - 20 * root.s
+                    elide: Text.ElideRight
+                    text: root.service ? root.service.status : ""
+                    color: root.accent
+                    font.family: Theme.mono; font.pixelSize: 10 * root.s; font.letterSpacing: 1 * root.s
+                }
             }
         }
     }

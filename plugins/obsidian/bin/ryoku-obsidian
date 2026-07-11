@@ -4,6 +4,7 @@
 # so the widget's service keeps its last good state and never blanks the tile.
 #
 #   ryoku-obsidian detect
+#   ryoku-obsidian deps
 #   ryoku-obsidian vault-info   <vaultPath>
 #   ryoku-obsidian list-notes   <vaultPath> [query] [limit]
 #   ryoku-obsidian daily        <vaultPath> <vaultName>
@@ -13,7 +14,8 @@
 #   ryoku-obsidian templates    <vaultPath>
 #   ryoku-obsidian graph        <vaultPath> [limit]
 #   ryoku-obsidian paste-image  <vaultPath> <vaultName> <relOrEmpty>
-#   ryoku-obsidian record-audio <vaultPath> <outName>
+#   ryoku-obsidian record-audio <vaultPath> <outName> [relOrEmpty]
+#   ryoku-obsidian pick-vault
 #
 # Everything is read from and written to the user's own vault on disk; the only
 # thing that leaves the machine is the obsidian:// URI handed to xdg-open, which
@@ -211,6 +213,16 @@ detect)
 		'{ installed: $inst, launcher: $l, vaults: $v }'
 	;;
 
+deps)
+	# probe the optional capture backends once, so the widget can dim the paste /
+	# voice affordances with a reason instead of failing at tap time.
+	wlp=false; ff=false
+	command -v wl-paste >/dev/null 2>&1 && wlp=true
+	command -v ffmpeg   >/dev/null 2>&1 && ff=true
+	jq -cn --argjson wlPaste "$wlp" --argjson ffmpeg "$ff" \
+		'{ wlPaste: $wlPaste, ffmpeg: $ffmpeg }'
+	;;
+
 vault-info)
 	vault="${1:?vault path}"
 	[ -d "$vault" ] || emit_error "vault not found"
@@ -316,10 +328,11 @@ paste-image)
 	;;
 
 record-audio)
-	vault="${1:?vault path}"; outName="${2:?out name}"
+	vault="${1:?vault path}"; outName="${2:?out name}"; rel="${3:-}"
 	command -v ffmpeg >/dev/null 2>&1 || emit_error "ffmpeg not found"
 	[ -d "$vault" ] || emit_error "vault not found"
-	dir="$(attach_dir_for "$vault" "")"; mkdir -p "$dir"
+	# route the memo into the TARGET note's attachment dir (empty rel = vault root).
+	dir="$(attach_dir_for "$vault" "$rel")"; mkdir -p "$dir"
 	out="$dir/$outName"
 	ffmpeg -hide_banner -loglevel error -y -f pulse -i default \
 		-ac 1 -c:a libopus -b:a 32k "$out" >/dev/null 2>&1 &
@@ -331,7 +344,8 @@ record-audio)
 	while kill -0 "$pid" 2>/dev/null; do wait "$pid" 2>/dev/null || true; done
 	trap - TERM INT
 	ok=false; [ -s "$out" ] && ok=true
-	jq -cn --arg a "$outName" --argjson ok "$ok" '{ attachment: $a, ok: $ok }'
+	jq -cn --arg a "$outName" --arg f "$out" --argjson ok "$ok" \
+		'{ attachment: $a, file: $f, ok: $ok }'
 	;;
 
 graph)

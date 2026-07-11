@@ -177,7 +177,7 @@ Item {
         }
     }
 
-    onReadyChanged: if (ready) { redetect(); refreshVaultInfo(); refreshTemplates(); }
+    onReadyChanged: if (ready) { redetect(); refreshDeps(); refreshVaultInfo(); refreshTemplates(); }
     // keep looking while unconfigured (cheap: a file read + command -v); stop
     // once a vault is chosen.
     Timer {
@@ -185,6 +185,32 @@ Item {
         running: root.ready && root.phase !== "ready"
         repeat: true
         onTriggered: root.redetect()
+    }
+
+    // ── optional-tool probe ──────────────────────────────────────────────────────
+    // which capture backends are actually installed, so the paste / voice
+    // affordances can explain a missing tool up front instead of failing at tap.
+    // Default true until the probe answers, so nothing flashes dimmed on load.
+    property bool hasWlPaste: true
+    property bool hasFfmpeg: true
+    function refreshDeps() {
+        if (!ready || depsProc.running)
+            return;
+        depsProc.command = [cmd(), "deps"];
+        depsProc.running = true;
+    }
+    property string _depsOut: ""
+    Process {
+        id: depsProc
+        stdout: StdioCollector { onStreamFinished: root._depsOut = text }
+        onExited: {
+            try {
+                var d = JSON.parse((root._depsOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}");
+                root.hasWlPaste = d.wlPaste !== false;
+                root.hasFfmpeg = d.ffmpeg !== false;
+            } catch (e) {}
+            root._depsOut = "";
+        }
     }
 
     // ── vault info (daily folder/format/template + attachments) ──────────────────
@@ -215,6 +241,9 @@ Item {
     // ── note list (for the picker) ───────────────────────────────────────────────
     property var notes: []
     property bool notesLoading: false
+    // a per-domain error string, surfaced in the note picker's empty state, so a
+    // vault that turns unreadable explains itself instead of just showing empty.
+    property string notesError: ""
     function refreshNotes(query) {
         if (!ready || vault.length === 0)
             return;
@@ -229,8 +258,10 @@ Item {
         onExited: {
             try {
                 var d = JSON.parse((root._notesOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}");
+                root.notesError = d.error || "";
                 root.notes = Array.isArray(d.notes) ? d.notes : [];
             } catch (e) {
+                root.notesError = "";
                 root.notes = [];
             }
             root.notesLoading = false;
@@ -264,6 +295,8 @@ Item {
     // ── graph overview (nodes = notes, edges = [[wikilinks]]) ────────────────────
     property var graphData: ({ nodes: [], links: [] })
     property bool graphLoading: false
+    // surfaced in the graph's empty state on a read failure (see notesError).
+    property string graphError: ""
     readonly property int graphTotal: (graphData && graphData.total) ? graphData.total : 0
     function refreshGraph() {
         if (!ready || vault.length === 0)
@@ -279,8 +312,10 @@ Item {
         onExited: {
             try {
                 var d = JSON.parse((root._graphOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}");
+                root.graphError = d.error || "";
                 root.graphData = d.nodes ? d : ({ nodes: [], links: [] });
             } catch (e) {
+                root.graphError = "";
                 root.graphData = ({ nodes: [], links: [] });
             }
             root.graphLoading = false;
@@ -293,7 +328,7 @@ Item {
     // a paste or a memo never feels like it did nothing.
     property string status: ""
     function flash(msg) { status = msg; statusTimer.restart(); }
-    Timer { id: statusTimer; interval: 2600; onTriggered: root.status = "" }
+    Timer { id: statusTimer; interval: 3500; onTriggered: root.status = "" }
 
     // ── actions ──────────────────────────────────────────────────────────────────
     property string _runMsg: ""
@@ -360,6 +395,18 @@ Item {
     property bool recording: false
     property string recordNote: ""
     property string recordOut: ""
+    property string recordFile: ""     // absolute path of the memo, emitted by the CLI
+    property int recordSecs: 0
+    property bool _discardNext: false
+    // a 1 Hz elapsed counter while recording, so the block and the masthead can
+    // read mm:ss instead of a static "recording".
+    Timer {
+        id: recordTick
+        interval: 1000
+        repeat: true
+        running: root.recording
+        onTriggered: root.recordSecs += 1
+    }
     function stamp() {
         var d = new Date();
         function p(n) { return (n < 10 ? "0" : "") + n; }
@@ -369,8 +416,11 @@ Item {
     function startRecord(rel) {
         if (!ready || recording) return;
         recordNote = rel || "";
+        recordFile = "";
+        recordSecs = 0;
+        _discardNext = false;
         recordOut = qsTr("Recording %1.ogg").arg(stamp());
-        recordProc.command = [cmd(), "record-audio", vault, recordOut];
+        recordProc.command = [cmd(), "record-audio", vault, recordOut, recordNote];
         recordProc.running = true;
         recording = true;
         flash(qsTr("recording…"));
@@ -380,22 +430,39 @@ Item {
             recordProc.running = false;   // SIGTERM -> wrapper finalises the .ogg
     }
     function toggleRecord(rel) { recording ? stopRecord() : startRecord(rel); }
+    // discard: finalise ffmpeg (so the file handle closes cleanly), then delete
+    // the file in the exit handler and embed nothing.
+    function discardRecord() {
+        if (!recording) return;
+        _discardNext = true;
+        recordProc.running = false;
+    }
     property string _recOut: ""
     Process {
         id: recordProc
         stdout: StdioCollector { onStreamFinished: root._recOut = text }
         onExited: {
             root.recording = false;
-            var ok = false;
+            var ok = false, file = "";
             try {
                 var d = JSON.parse((root._recOut.split("\n").filter(l => l.trim().length > 0).pop()) || "{}");
                 ok = d.ok === true;
+                file = d.file || "";
             } catch (e) {}
-            if (ok)
+            root.recordFile = file;
+            if (root._discardNext) {
+                if (file.length > 0) { rmProc.command = ["rm", "-f", file]; rmProc.running = true; }
+                root.flash(qsTr("memo discarded"));
+            } else if (ok) {
                 root.appendNote(root.recordNote, "![[" + root.recordOut + "]]", false);
+            }
+            root._discardNext = false;
             root._recOut = "";
         }
     }
+
+    // deletes a discarded memo by the absolute path the CLI emitted.
+    Process { id: rmProc }
 
     // Run a workflow block. Capture-with-text blocks (appendText/appendTask) need
     // a typed value, so the content opens its capture bar for those; everything

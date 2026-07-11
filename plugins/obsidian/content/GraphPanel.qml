@@ -5,10 +5,11 @@ import Ryoku.PluginKit
 import Ryoku.PluginKit.Singletons
 
 // The vault as a constellation: notes are nodes sized by how many links touch
-// them, the [[wikilinks]] between them are the edges. A one-shot force layout
-// (repulsion + link springs + collision, computed on data/size change, never per
-// frame) spreads the graph across a virtual canvas; the view then fits it into
-// the panel. Drag to pan, +/- to zoom, drag a node to move it, tap a node to open
+// them, the [[wikilinks]] between them are the edges. A force layout (repulsion
+// + link springs + collision) runs once on data change / first open, spreading
+// the graph across a virtual canvas; a width change only re-fits the view (a
+// cheap rescale that preserves manual drags). Drag to pan, +/- to zoom, drag a
+// node to move it, tap a node to focus it (spotlight + label), tap again to open
 // it in Obsidian. Input is MouseArea-based (not pointer handlers) so it works on
 // the desktop-widget layer surface, where wheel/handler events don't arrive.
 // Surface-less: the container supplies the panel.
@@ -24,6 +25,11 @@ Item {
     property var laid: []
     property real maxDeg: 1
     property string hoveredId: ""
+    // tap-to-focus: hover may not reach the widget surface, so a tap selects a
+    // node (same spotlight as hover). The active node is whichever is hovered,
+    // else the tap-selected one; tapping the selected node again opens it.
+    property string selectedId: ""
+    readonly property string activeId: hoveredId !== "" ? hoveredId : selectedId
     property var adj: ({})
 
     // laid-out world extent (0-based), and the pan/zoom view onto it.
@@ -41,6 +47,9 @@ Item {
     readonly property int total: (service && service.graphTotal > root.nodeCount) ? service.graphTotal : root.nodeCount
 
     function layout() {
+        // a re-layout invalidates any prior selection (node ids may have changed).
+        root.selectedId = "";
+        root.hoveredId = "";
         var g = root.service ? root.service.graphData : null;
         var nodes = (g && g.nodes) ? g.nodes : [];
         var links = (g && g.links) ? g.links : [];
@@ -182,7 +191,14 @@ Item {
     }
 
     Component.onCompleted: layout()
-    onWChanged: layout()
+    // full sim runs only on data change / first open. A width change just re-fits
+    // the existing world into the new extents (debounced), preserving manual drags.
+    onWChanged: refitTimer.restart()
+    Timer {
+        id: refitTimer
+        interval: 120
+        onTriggered: root.fitView()
+    }
     Connections {
         target: root.service
         function onGraphDataChanged() { root.layout(); }
@@ -235,15 +251,22 @@ Item {
                 preventStealing: true
                 property real lx: 0
                 property real ly: 0
+                property real ox: 0
+                property real oy: 0
                 onPressed: mouse => {
-                    bg.lx = mouse.x;
-                    bg.ly = mouse.y;
+                    bg.lx = mouse.x; bg.ly = mouse.y;
+                    bg.ox = mouse.x; bg.oy = mouse.y;
                 }
                 onPositionChanged: mouse => {
                     root.panX += mouse.x - bg.lx;
                     root.panY += mouse.y - bg.ly;
                     bg.lx = mouse.x;
                     bg.ly = mouse.y;
+                }
+                // a tap on empty canvas (no meaningful pan) clears the selection.
+                onReleased: mouse => {
+                    if (Math.abs(mouse.x - bg.ox) + Math.abs(mouse.y - bg.oy) < 4)
+                        root.selectedId = "";
                 }
                 onDoubleClicked: root.resetView()
                 onWheel: wheel => root.zoomAround(wheel.x, wheel.y, wheel.angleDelta.y > 0 ? 1.2 : 1 / 1.2)
@@ -269,7 +292,7 @@ Item {
                         var map = {};
                         for (var i = 0; i < root.laid.length; i++)
                             map[root.laid[i].id] = root.laid[i];
-                        var hv = root.hoveredId;
+                        var hv = root.activeId;
                         var g = root.service ? root.service.graphData : null;
                         var links = (g && g.links) ? g.links : [];
                         ctx.lineWidth = 1;
@@ -289,7 +312,7 @@ Item {
                 }
                 Connections {
                     target: root
-                    function onHoveredIdChanged() { edges.requestPaint(); }
+                    function onActiveIdChanged() { edges.requestPaint(); }
                 }
 
                 Repeater {
@@ -300,15 +323,15 @@ Item {
                         required property int index
                         readonly property real r: modelData.r
                         readonly property bool hub: modelData.deg >= Math.max(2, root.maxDeg * 0.5)
-                        readonly property bool hovering: root.hoveredId === modelData.id
-                        readonly property bool near: root.hoveredId === "" || hovering
-                            || (root.adj[root.hoveredId] && root.adj[root.hoveredId][modelData.id] ? true : false)
+                        readonly property bool active: root.activeId === modelData.id
+                        readonly property bool near: root.activeId === "" || active
+                            || (root.adj[root.activeId] && root.adj[root.activeId][modelData.id] ? true : false)
 
                         width: Math.max(gn.r * 2, 22 * root.s)
                         height: width
                         x: modelData.x - width / 2
                         y: modelData.y - height / 2
-                        z: hovering ? 10 : (hub ? 2 : 1)
+                        z: active ? 10 : (hub ? 2 : 1)
                         opacity: near ? 1 : 0.22
                         Behavior on opacity { NumberAnimation { duration: Motion.fast } }
 
@@ -328,25 +351,25 @@ Item {
                             height: gn.r * 2
                             radius: 0
                             antialiasing: false
-                            color: gn.hovering ? Theme.bright : (gn.modelData.deg > 0 ? root.accent : Qt.alpha(root.accent, 0.22))
+                            color: gn.active ? Theme.bright : (gn.modelData.deg > 0 ? root.accent : Qt.alpha(root.accent, 0.22))
                             border.width: 1
                             border.color: root.accent
                             Behavior on color { ColorAnimation { duration: Motion.fast } }
                         }
                         Text {
-                            visible: gn.hub || gn.hovering
+                            visible: gn.hub || gn.active
                             anchors.horizontalCenter: parent.horizontalCenter
                             anchors.top: parent.verticalCenter
                             anchors.topMargin: gn.r + 3 * root.s
-                            width: (gn.hovering ? 150 : 96) * root.s
+                            width: (gn.active ? 150 : 96) * root.s
                             horizontalAlignment: Text.AlignHCenter
                             elide: Text.ElideRight
                             maximumLineCount: 1
                             text: gn.modelData.label
-                            color: gn.hovering ? Theme.bright : Theme.subtle
+                            color: gn.active ? Theme.bright : Theme.subtle
                             font.family: Theme.mono
                             font.pixelSize: 9 * root.s
-                            font.weight: gn.hovering ? Font.DemiBold : Font.Normal
+                            font.weight: gn.active ? Font.DemiBold : Font.Normal
                         }
 
                         // tap opens the note; a drag past the threshold moves the node
@@ -362,8 +385,13 @@ Item {
                             onEntered: root.hoveredId = gn.modelData.id
                             onExited: if (root.hoveredId === gn.modelData.id)
                                 root.hoveredId = ""
-                            onClicked: if (root.service)
-                                root.service.openNote(gn.modelData.id)
+                            onClicked: {
+                                if (root.selectedId === gn.modelData.id) {
+                                    if (root.service) root.service.openNote(gn.modelData.id);
+                                } else {
+                                    root.selectedId = gn.modelData.id;
+                                }
+                            }
                         }
                     }
                 }
@@ -386,8 +414,8 @@ Item {
                     delegate: Rectangle {
                         id: zb
                         required property var modelData
-                        width: 22 * root.s
-                        height: 22 * root.s
+                        width: 26 * root.s
+                        height: 26 * root.s
                         radius: 0
                         antialiasing: false
                         color: zbMa.containsMouse ? Qt.alpha(root.accent, 0.28) : Qt.rgba(0, 0, 0, 0.5)
@@ -420,7 +448,11 @@ Item {
                 horizontalAlignment: Text.AlignHCenter
                 wrapMode: Text.WordWrap
                 visible: root.laid.length === 0
-                text: root.service && root.service.graphLoading ? qsTr("Reading vault…") : qsTr("No notes yet. Capture something, then link notes with [[wikilinks]] to grow the graph.")
+                text: root.service && root.service.graphLoading
+                    ? qsTr("Reading vault…")
+                    : (root.service && root.service.graphError.length > 0
+                        ? qsTr("Couldn't read vault: %1").arg(root.service.graphError)
+                        : qsTr("No notes yet. Capture something, then link notes with [[wikilinks]] to grow the graph."))
                 color: Theme.faint
                 font.family: Theme.mono
                 font.pixelSize: 10 * root.s
@@ -432,7 +464,7 @@ Item {
         Text {
             width: parent.width
             visible: root.laid.length > 0
-            text: qsTr("Drag to pan · +/- to zoom · drag a node to move · tap to open")
+            text: qsTr("Drag to pan · +/- to zoom · drag a node to move · tap to focus, tap again to open")
             color: Theme.faint
             font.family: Theme.mono
             font.pixelSize: 9 * root.s

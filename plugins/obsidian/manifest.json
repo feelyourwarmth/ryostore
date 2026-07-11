@@ -1,7 +1,7 @@
 {
   "id": "obsidian",
   "name": "Obsidian",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Capture into your Obsidian vault from the desktop - daily notes, quick notes and tasks, screenshots and voice memos - as a canvas of tappable workflow blocks.",
   "license": "MIT",
@@ -22,6 +22,7 @@
     "content/QuickCapture.qml",
     "content/NotePicker.qml",
     "content/GraphPanel.qml",
+    "content/EditGlyph.qml",
     "assets/preview-widget.png",
     "assets/preview-graph.png"
   ],
