@@ -1,0 +1,27 @@
+{
+  "version": 1,
+  "rices": [
+    {
+      "id": "lofi",
+      "name": "Lofi",
+      "author": "Ryoku Team",
+      "blurb": "After-hours pixel art. Warm, muted, crisp: low rounding, no glass, a structured bar, and a warm amber palette.",
+      "tags": ["lofi", "pixel", "retro", "warm"],
+      "createdWith": "0.6.8",
+      "color": "fixed",
+      "manifest": "rices/lofi/rice.json",
+      "palette": "rices/lofi/palette.json"
+    },
+    {
+      "id": "pastel",
+      "name": "Pastel",
+      "author": "Ryoku Team",
+      "blurb": "Soft, bright, and round. High rounding, glassy blur, a gentle glow, and a cotton-candy palette.",
+      "tags": ["pastel", "rounded", "bright", "glass"],
+      "createdWith": "0.6.8",
+      "color": "fixed",
+      "manifest": "rices/pastel/rice.json",
+      "palette": "rices/pastel/palette.json"
+    }
+  ]
+}

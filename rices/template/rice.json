@@ -1,0 +1,16 @@
+{
+  "schema": 1,
+  "slug": "my-rice",
+  "name": "My Rice",
+  "author": "You",
+  "blurb": "One line describing the look.",
+  "tags": ["tag"],
+  "createdWith": "0.6.8",
+  "color": { "mode": "wallpaper" },
+  "assets": { "cursor": "Bibata-Modern-Ice" },
+  "look": {
+    "hypr": { "appearance": {} },
+    "shell": {},
+    "launcher": {}
+  }
+}
