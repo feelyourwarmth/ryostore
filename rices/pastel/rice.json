@@ -3,7 +3,7 @@
   "slug": "pastel",
   "name": "Pastel",
   "author": "Ryoku Team",
-  "blurb": "Soft, bright, and round. High rounding, glassy blur, a gentle glow, and a cotton-candy palette.",
+  "blurb": "Soft, bright, and round to the edge: high rounding across windows, the frame edge, the bar and the chrome, glassy blur, a gentle glow, and a cotton-candy palette.",
   "tags": ["pastel", "rounded", "bright", "glass"],
   "createdWith": "0.6.8",
   "color": { "mode": "fixed", "palette": "palette.json" },
@@ -46,6 +46,11 @@
     "shell": {
       "barStyle": "caelestia",
       "roundness": 20,
+      "frameRadius": 20,
+      "frameSmoothing": 12,
+      "islandRadius": 24,
+      "islandSmoothing": 30,
+      "osdRadius": 20,
       "surfaceColor": "#221b2b"
     },
     "launcher": {}

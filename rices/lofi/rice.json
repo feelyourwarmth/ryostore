@@ -3,8 +3,8 @@
   "slug": "lofi",
   "name": "Lofi",
   "author": "Ryoku Team",
-  "blurb": "After-hours pixel art. Warm, muted, crisp: low rounding, no glass, a structured bar, and a warm amber palette.",
-  "tags": ["lofi", "pixel", "retro", "warm"],
+  "blurb": "After-hours pixel art. Warm, muted, and square: zero rounding across windows, the frame edge, the bar and the chrome, no glass, a structured bar, and a warm amber palette.",
+  "tags": ["lofi", "pixel", "retro", "square"],
   "createdWith": "0.6.8",
   "color": { "mode": "fixed", "palette": "palette.json" },
   "assets": { "cursor": "Bibata-Modern-Ice" },
@@ -14,7 +14,7 @@
         "gapsIn": 8,
         "gapsOut": 12,
         "borderSize": 2,
-        "rounding": 3,
+        "rounding": 0,
         "roundingPower": 2,
         "activeOpacity": 1,
         "inactiveOpacity": 1,
@@ -35,7 +35,12 @@
     },
     "shell": {
       "barStyle": "stele",
-      "roundness": 3,
+      "roundness": 0,
+      "frameRadius": 0,
+      "frameSmoothing": 0,
+      "islandRadius": 0,
+      "islandSmoothing": 0,
+      "osdRadius": 0,
       "surfaceColor": "#1a1626"
     },
     "launcher": {}
