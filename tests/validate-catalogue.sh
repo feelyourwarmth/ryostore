@@ -45,7 +45,7 @@ if [ -f bundles/registry.json ]; then
 		while IFS= read -r req; do
 			[ -n "$req" ] || continue
 			case "$req" in
-			multilib | cachyos) ;;
+			multilib | cachyos | gpu-lib32) ;;
 			*) err "$bf: unknown requires '$req' (the shell cannot enable it)" ;;
 			esac
 		done < <(jq -r '.requires[]? // empty' "$bf")

@@ -4,9 +4,13 @@
     {
       "id": "gaming",
       "name": "Gaming",
-      "description": "Launchers, the Wine and Proton compatibility stack, performance overlays, and a Wayland-friendly Discord, ready to play.",
-      "tagline": "drivers · launchers · chat",
+      "description": "The native Linux gaming stack: launchers, Wine and Proton, performance overlays, controller support, and a full lineup of console emulators. Ryoku installs the matching 32-bit GPU drivers for full hardware capacity.",
+      "tagline": "proton · overlays · emulators",
       "sources": "pacman / AUR",
+      "icon": "sports_esports",
+      "accent": "#3fb950",
+      "preview": "assets/hero.png",
+      "screenshots": ["assets/hero.png"],
       "path": "bundles/gaming"
     },
     {

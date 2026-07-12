@@ -58,9 +58,17 @@ Each item has a `type`, a `name`, an optional one-line `summary`, an optional
 - **`plugin`** installed through the shell's plugin path, not this command. The
   actuator marks it deferred; install it from the Plugins tab.
 
-`requires` lists repositories the bundle needs before its packages can be routed.
-Today only `multilib` is supported (Gaming needs it for Steam and the 32-bit
-libraries); the actuator enables it idempotently before installing.
+`requires` lists prerequisites the actuator satisfies before a bundle's packages
+are routed, each idempotent and safe to repeat:
+
+- `multilib` enables the `[multilib]` repo (Steam and every `lib32-` package
+  live there).
+- `cachyos` adds the `[cachyos-v3]` repo (the CachyOS Kernel bundle).
+- `gpu-lib32` runs `ryoku-gpu-lib32` to install the 32-bit GPU drivers matching
+  the machine (Gaming lists it after `multilib`, so the repo is on first).
+
+An unrecognised requirement aborts with a "run ryoku update" message rather than
+mis-routing the bundle's packages.
 
 ## How installs run
 
