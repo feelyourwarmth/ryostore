@@ -10,7 +10,10 @@
       "createdWith": "0.6.8",
       "color": "fixed",
       "manifest": "rices/lofi/rice.json",
-      "palette": "rices/lofi/palette.json"
+      "palette": "rices/lofi/palette.json",
+      "accent": "#e0a458",
+      "surface": "#1a1626",
+      "rounding": 3
     },
     {
       "id": "pastel",
@@ -21,7 +24,10 @@
       "createdWith": "0.6.8",
       "color": "fixed",
       "manifest": "rices/pastel/rice.json",
-      "palette": "rices/pastel/palette.json"
+      "palette": "rices/pastel/palette.json",
+      "accent": "#b8a6f4",
+      "surface": "#221b2b",
+      "rounding": 22
     }
   ]
 }
