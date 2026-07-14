@@ -4,7 +4,7 @@ import QtQuick
 
 /**
  * The `content` entry point: a thin selector that resolves the configured
- * `design` into one of three Stargate faces. The host sets `pluginApi`,
+ * `design` into one of four Stargate faces. The host sets `pluginApi`,
  * `density`, `s`, `widthBudget`, `active`; the service (pluginApi.mainInstance)
  * owns all state - the clock, the address it encodes, and the dial choreography -
  * so the faces only read and render, never drive. Each face reports its own
@@ -38,6 +38,7 @@ Item {
         switch (dsn) {
             case "hologram": return holoComp;
             case "dossier":  return dossierComp;
+            case "inscription": return inscriptionComp;
             default:         return naquadahComp;
         }
     }
@@ -45,4 +46,5 @@ Item {
     Component { id: naquadahComp; FaceNaquadah { service: root.service; s: root.s; cw: root.contentW; active: root.active } }
     Component { id: holoComp;     FaceHologram { service: root.service; s: root.s; cw: root.contentW; active: root.active } }
     Component { id: dossierComp;  FaceDossier  { service: root.service; s: root.s; cw: root.contentW; active: root.active } }
+    Component { id: inscriptionComp; FaceInscription { service: root.service; s: root.s; cw: root.contentW; active: root.active } }
 }

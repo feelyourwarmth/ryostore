@@ -79,11 +79,11 @@
       "id": "stargate",
       "name": "Stargate",
       "path": "plugins/stargate",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "author": "Ryoku Team",
       "official": true,
       "tagline": "A living Stargate that dials the time on your desktop.",
-      "description": "A desktop-widget plugin that turns the clock into a dialing Stargate: it encodes the time as a seven-glyph gate address and dials it live - the ring turns, the chevrons lock in sequence, the event horizon opens, and it re-dials each minute. Three faces share the gate: Naquadah, a cinematic Milky Way ring with engraved glyphs, red chevrons and a liquid event horizon; Hologram, an Ancient cyan projection with a scan beam and amber-energised locks; and Dossier, a declassified SGC dialing log with a rotated ink stamp and a printed address block. Built-in procedural glyphs need no font; add a cap_resources Stargate font for the authentic symbols.",
+      "description": "A desktop-widget plugin that turns the clock into a dialing Stargate: it encodes the time as a seven-glyph gate address and dials it live - the ring turns, the chevrons lock in sequence, the event horizon opens, and it re-dials each minute. Four faces: Naquadah, a cinematic Milky Way ring with engraved glyphs, red chevrons and a liquid event horizon; Hologram, an Ancient cyan projection with a scan beam and amber-energised locks; Dossier, a declassified SGC dialing log with a rotated ink stamp and a printed address block; and Inscription, which drops the clock and carves any sentence you type into gate glyphs on a stone tablet. Built-in procedural glyphs need no font; add a cap_resources Stargate font for the authentic symbols.",
       "icon": "hotspot",
       "tags": ["clock", "stargate", "sci-fi", "desktop-widget"],
       "hosts": ["desktopWidget"],
@@ -92,7 +92,8 @@
         "assets/preview-widget.png",
         "assets/preview-naquadah.png",
         "assets/preview-hologram.png",
-        "assets/preview-dossier.png"
+        "assets/preview-dossier.png",
+        "assets/preview-inscription.png"
       ],
       "lastUpdated": "2026-07-14"
     }

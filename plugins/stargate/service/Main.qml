@@ -35,6 +35,9 @@ Item {
     readonly property bool showTime: _bool("showTime", true)
     readonly property bool showDesignation: _bool("showDesignation", true)
     readonly property bool wallustGlow: _bool("wallustGlow", false)
+    // Inscription face: free text the user types, transliterated to gate glyphs.
+    readonly property string text: _str("text", "chevron seven locked")
+    readonly property bool showTranslation: _bool("showTranslation", true)
 
     // ── glyph font ───────────────────────────────────────────────────────────
     // glyphSet picks a look; an installed cap_resources font is used by its known
@@ -96,6 +99,7 @@ Item {
     }
 
     function _beginDial() {
+        if (root.design === "inscription") { root.locked = root.total; root.phase = "open"; return; }
         if (!animate) { root.locked = root.total; root.phase = "open"; return; }
         root.locked = 0;
         root.phase = "dialing";

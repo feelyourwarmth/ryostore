@@ -151,3 +151,20 @@ function glyphShape(index) {
 
     return { lines: lines, nodes: nodes };
 }
+
+// Split free text into words of glyph indices for the Inscription face: each
+// word becomes an array of ALPHABET indices (A-Z, 0-9), punctuation dropped, so
+// a typed sentence transliterates to gate glyphs word by word.
+function words(text) {
+    var raw = String(text || "").toUpperCase().split(/\s+/);
+    var out = [];
+    for (var w = 0; w < raw.length; w++) {
+        var idxs = [];
+        for (var i = 0; i < raw[w].length; i++) {
+            var p = ALPHABET.indexOf(raw[w].charAt(i));
+            if (p >= 0) idxs.push(p);
+        }
+        if (idxs.length > 0) out.push(idxs);
+    }
+    return out;
+}

@@ -2,7 +2,7 @@
 
 A living Stargate on your desktop that tells the time by dialing an address.
 
-![Stargate, in three faces](assets/preview-widget.png)
+![Stargate, in four faces](assets/preview-widget.png)
 
 A desktop-widget plugin for the Ryoku shell. It reads the clock, encodes the
 time into a seven-glyph gate address, and dials it: the ring turns, the chevrons
@@ -10,10 +10,10 @@ lock one by one, and the event horizon opens. On the minute it re-dials. Drag it
 onto the wallpaper beside your clock and weather; it works the moment you enable
 it, no font or setup required.
 
-## Three faces
+## Four faces
 
-Pick one in the settings - they share the same gate, drawn three very different
-ways:
+Pick one in the settings. The first three share the same gate, drawn very
+differently; the fourth holds whatever you type:
 
 - **Naquadah** - the cinematic Milky Way gate. A machined metal ring of engraved
   glyphs in segmented cells, nine chevrons that burn red as they lock, and a
@@ -25,6 +25,11 @@ ways:
 - **Dossier** - the gate as a declassified SGC dialing log. A printed file with
   a rotated ink stamp (DIALING -> ESTABLISHED), a seven-cell address block with
   printed lock marks, a stencilled designation, and a galactic reference.
+- **Inscription** - not a gate, a message. It carves any sentence you type into
+  gate glyphs across a warm stone tablet, word by word, with the plain text
+  beneath. Set **Message** in the settings; it uses the same glyphs (and font)
+  as the gate, so a loaded cap_resources font transliterates your words into
+  authentic gate symbols.
 
 ## Glyphs and fonts
 
@@ -70,9 +75,11 @@ placement; the plugin only draws the gate.
 
 | Setting | What it does | Default |
 |---|---|---|
-| `design` | naquadah / hologram / dossier | `naquadah` |
+| `design` | naquadah / hologram / dossier / inscription | `naquadah` |
 | `mode` | clock (re-dials each minute) / date (each day) | `clock` |
 | `animate` | play the dial sequence, or just show the locked address | `true` |
+| `text` | the sentence the Inscription face carves into glyphs | `""` |
+| `showTranslation` | show the plain text under the inscription | `true` |
 | `showTime` | show the digital clock | `true` |
 | `showDesignation` | show the P#X-### designation and status | `true` |
 | `glyphSet` | procedural / sg1 / concept / universe / atlantis / anquietas / quiver | `procedural` |
@@ -85,7 +92,7 @@ placement; the plugin only draws the gate.
 stargate/
   manifest.json            id, version, entry points, desktopWidget host, settings
   service/Main.qml         the clock, the time -> address encoding, the dial state machine
-  content/Widget.qml       content: selects one of the three faces
+  content/Widget.qml       content: selects one of the four faces
   content/gate.js          address encoding, designation, the procedural glyph grammar
   content/GateGlyph.qml    one glyph: font, procedural rune, or the point of origin
   content/GateChevron.qml  the chevron: metal housing + light, or a holo outline
@@ -93,6 +100,7 @@ stargate/
   content/FaceNaquadah.qml the cinematic gate
   content/FaceHologram.qml the projected gate
   content/FaceDossier.qml  the declassified dialing log
+  content/FaceInscription.qml a message you type, carved into gate glyphs
   assets/                  the README images
 ```
 
