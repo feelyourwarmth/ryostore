@@ -1,0 +1,64 @@
+{
+  "id": "stargate",
+  "name": "Stargate",
+  "version": "1.0.0",
+  "author": "Ryoku Team <hello@ryoku.sh>",
+  "description": "A living Stargate on your desktop that tells the time by dialing an address, in three faces - a cinematic gate, a hologram, and an SGC terminal.",
+  "license": "MIT",
+  "tags": ["clock", "stargate", "sci-fi", "desktop-widget"],
+  "official": true,
+  "entryPoints": {
+    "main": "service/Main.qml",
+    "content": "content/Widget.qml"
+  },
+  "files": [
+    "content/gate.js",
+    "content/GateGlyph.qml",
+    "content/GateChevron.qml",
+    "content/EventHorizon.qml",
+    "content/FaceNaquadah.qml",
+    "content/FaceHologram.qml",
+    "content/FaceDossier.qml",
+    "assets/preview-widget.png",
+    "assets/preview-naquadah.png",
+    "assets/preview-hologram.png",
+    "assets/preview-dossier.png"
+  ],
+  "capabilities": {
+    "densities": ["compact"]
+  },
+  "hosts": ["desktopWidget"],
+  "defaults": {
+    "host": "desktopWidget",
+    "desktopWidget": { "bg": "none" },
+    "icon": "hotspot",
+    "label": "Stargate"
+  },
+  "metadata": {
+    "settings": [
+      { "key": "design", "type": "choice", "label": "Design", "group": "Gate", "default": "naquadah", "options": [
+        { "value": "naquadah", "label": "Naquadah (cinematic)" },
+        { "value": "hologram", "label": "Hologram (HUD)" },
+        { "value": "dossier", "label": "Dossier (SGC terminal)" }
+      ] },
+      { "key": "mode", "type": "choice", "label": "Address", "group": "Gate", "default": "clock", "options": [
+        { "value": "clock", "label": "Clock (re-dials each minute)" },
+        { "value": "date", "label": "Stardate (re-dials each day)" }
+      ] },
+      { "key": "animate", "type": "toggle", "label": "Dial animation", "group": "Gate", "default": true },
+      { "key": "showTime", "type": "toggle", "label": "Show clock", "group": "Readout", "default": true },
+      { "key": "showDesignation", "type": "toggle", "label": "Show designation", "group": "Readout", "default": true },
+      { "key": "glyphSet", "type": "choice", "label": "Glyph set", "group": "Glyphs", "default": "procedural", "options": [
+        { "value": "procedural", "label": "Constellations (built-in)" },
+        { "value": "sg1", "label": "SG-1 / Milky Way (font)" },
+        { "value": "concept", "label": "Concept / Earth origin (font)" },
+        { "value": "universe", "label": "Universe / Destiny (font)" },
+        { "value": "atlantis", "label": "Atlantis / Pegasus (font)" },
+        { "value": "anquietas", "label": "Anquietas / Ancient (font)" },
+        { "value": "quiver", "label": "Quiver (font)" }
+      ] },
+      { "key": "glyphFontPath", "type": "text", "label": "Glyph font file", "group": "Glyphs", "default": "", "placeholder": "~/.local/share/fonts/stargate_sg1.ttf or a family name" },
+      { "key": "wallustGlow", "type": "toggle", "label": "Match wallpaper", "group": "Style", "default": false }
+    ]
+  }
+}
