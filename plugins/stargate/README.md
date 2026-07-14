@@ -30,6 +30,8 @@ differently; the fourth holds whatever you type:
   beneath. Set **Message** in the settings; it uses the same glyphs (and font)
   as the gate, so a loaded cap_resources font transliterates your words into
   authentic gate symbols.
+  Toggle **Show the plain text**, or flip **Glyphs only** for a transparent
+  inscription - no tablet, no labels, just the glyphs on the wallpaper.
 
 ## Glyphs and fonts
 
@@ -80,6 +82,7 @@ placement; the plugin only draws the gate.
 | `animate` | play the dial sequence, or just show the locked address | `true` |
 | `text` | the sentence the Inscription face carves into glyphs | `""` |
 | `showTranslation` | show the plain text under the inscription | `true` |
+| `bare` | glyphs only: transparent, no tablet, labels, or plain text | `false` |
 | `showTime` | show the digital clock | `true` |
 | `showDesignation` | show the P#X-### designation and status | `true` |
 | `glyphSet` | procedural / sg1 / concept / universe / atlantis / anquietas / quiver | `procedural` |

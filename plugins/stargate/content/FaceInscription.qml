@@ -12,8 +12,13 @@ import "gate.js" as Gate
  * sentence beneath it. Uses the same glyph renderer as the gate, so it honours a
  * loaded cap_resources font and falls back to the built-in runes otherwise.
  *
+ * Two toggles shape it:
+ *  - `showTranslation` shows or hides the plain alphabet text.
+ *  - `bare` drops the tablet, the eyebrow and the glyph count for a transparent,
+ *    glyphs-only inscription that floats on the wallpaper; the glyphs gain a soft
+ *    drop shadow (a dark offset copy) so they stay legible over any background.
+ *
  * It ignores the clock and the dial machine; it is a message, not a gate.
- * Not square: the tablet's height follows the sentence.
  */
 Item {
     id: root
@@ -29,8 +34,9 @@ Item {
     readonly property string text: service ? service.text : ""
     readonly property string family: service ? service.glyphFamily : ""
     readonly property bool showText: service ? service.showTranslation : true
+    readonly property bool bare: service ? service.bare : false
     readonly property var wordList: Gate.words(root.text)
-    readonly property real pad: 18 * s
+    readonly property real pad: bare ? 8 * s : 18 * s
     readonly property real cell: Math.max(15 * s, Math.min(26 * s, (cw - pad * 2) / 13))
 
     // warm "Ancient" amber, optionally pulled toward the wallpaper accent.
@@ -42,48 +48,87 @@ Item {
         var n = 0; for (var i = 0; i < wordList.length; i++) n += wordList[i].length; return n;
     }
 
-    Rectangle {
+    // One wrapped run of the inscription in a single ink colour. Rendered twice in
+    // bare mode (a dark offset copy behind the amber one) to keep the glyphs
+    // readable on any wallpaper without any backing plate.
+    component GlyphRun: Flow {
+        id: run
+        property color ink: root.glow
+        spacing: 11 * root.s
+        Repeater {
+            model: root.wordList
+            delegate: Row {
+                id: word
+                required property var modelData
+                spacing: 3 * root.s
+                Repeater {
+                    model: word.modelData
+                    delegate: GateGlyph {
+                        required property var modelData
+                        width: root.cell; height: root.cell
+                        index: modelData
+                        family: root.family
+                        glyphColor: run.ink
+                        lit: 1
+                    }
+                }
+            }
+        }
+    }
+
+    Item {
         id: surface
         width: root.cw
         implicitHeight: col.implicitHeight + root.pad * 2
-        radius: 8 * root.s
-        gradient: Gradient {
-            GradientStop { position: 0.0; color: "#1c170f" }
-            GradientStop { position: 1.0; color: "#100c07" }
-        }
-        border.width: 1
-        border.color: Qt.rgba(root.glow.r, root.glow.g, root.glow.b, 0.22)
-        clip: true
+        clip: !root.bare
 
-        CornerTicks { anchors.fill: parent; anchors.margins: 8 * root.s; s: root.s; tint: Qt.rgba(root.glow.r, root.glow.g, root.glow.b, 0.3) }
-
-        // slow backlight sweep, so the inscription reads as powered.
+        // stone tablet - hidden in bare mode so only the glyphs remain.
         Rectangle {
-            width: parent.width * 0.5; height: parent.height
-            opacity: 0.06
+            anchors.fill: parent
+            visible: !root.bare
+            radius: 8 * root.s
             gradient: Gradient {
-                orientation: Gradient.Horizontal
-                GradientStop { position: 0.0; color: "transparent" }
-                GradientStop { position: 0.5; color: root.glow }
-                GradientStop { position: 1.0; color: "transparent" }
+                GradientStop { position: 0.0; color: "#1c170f" }
+                GradientStop { position: 1.0; color: "#100c07" }
             }
-            x: -width
-            NumberAnimation on x {
-                from: -parent.width * 0.5; to: parent.width
-                duration: 5200; loops: Animation.Infinite; running: root.active
+            border.width: 1
+            border.color: Qt.rgba(root.glow.r, root.glow.g, root.glow.b, 0.22)
+
+            // slow backlight sweep, so the inscription reads as powered.
+            Rectangle {
+                width: parent.width * 0.5; height: parent.height
+                opacity: 0.06
+                gradient: Gradient {
+                    orientation: Gradient.Horizontal
+                    GradientStop { position: 0.0; color: "transparent" }
+                    GradientStop { position: 0.5; color: root.glow }
+                    GradientStop { position: 1.0; color: "transparent" }
+                }
+                x: -width
+                NumberAnimation on x {
+                    from: -parent.width * 0.5; to: parent.width
+                    duration: 5200; loops: Animation.Infinite; running: root.active && !root.bare
+                }
             }
+        }
+
+        CornerTicks {
+            anchors.fill: parent; anchors.margins: 8 * root.s
+            visible: !root.bare
+            s: root.s; tint: Qt.rgba(root.glow.r, root.glow.g, root.glow.b, 0.3)
         }
 
         Column {
             id: col
             x: root.pad; y: root.pad
             width: parent.width - root.pad * 2
-            spacing: 12 * root.s
+            spacing: (root.bare ? 8 : 12) * root.s
 
-            // eyebrow
+            // eyebrow + glyph count (tablet mode only).
             Item {
                 width: parent.width
                 height: eyebrow.implicitHeight
+                visible: !root.bare
                 Row {
                     id: eyebrow
                     anchors.left: parent.left
@@ -112,61 +157,55 @@ Item {
                 }
             }
 
-            // the carved inscription: words of glyphs, wrapping.
-            Flow {
-                id: inscription
+            // the carved inscription: glyphs, wrapping. In bare mode a dark offset
+            // copy behind gives a soft drop shadow for legibility.
+            Item {
                 width: parent.width
-                spacing: 11 * root.s
+                implicitHeight: mainRun.implicitHeight
                 visible: root.glyphCount > 0
-
-                Repeater {
-                    model: root.wordList
-                    delegate: Row {
-                        id: word
-                        required property var modelData
-                        spacing: 3 * root.s
-                        Repeater {
-                            model: word.modelData
-                            delegate: GateGlyph {
-                                required property var modelData
-                                width: root.cell; height: root.cell
-                                index: modelData
-                                family: root.family
-                                glyphColor: root.glow
-                                lit: 1
-                            }
-                        }
-                    }
+                GlyphRun {
+                    width: parent.width
+                    visible: root.bare
+                    ink: Qt.rgba(0, 0, 0, 0.55)
+                    x: 1.6 * root.s; y: 1.6 * root.s
+                }
+                GlyphRun {
+                    id: mainRun
+                    width: parent.width
+                    ink: root.glow
                 }
             }
 
-            // empty-state hint.
+            // empty-state hint (tablet mode only).
             Text {
                 width: parent.width
-                visible: root.glyphCount === 0
+                visible: root.glyphCount === 0 && !root.bare
                 text: qsTr("Type a sentence in the widget settings to carve it here.")
                 color: Qt.rgba(root.glow.r, root.glow.g, root.glow.b, 0.6)
                 font.family: Theme.mono; font.pixelSize: 11 * root.s
                 wrapMode: Text.WordWrap
             }
 
+            // divider (tablet mode only, when the plain text follows).
             Rectangle {
                 width: parent.width; height: 1
-                visible: root.showText && root.glyphCount > 0
+                visible: root.showText && root.glyphCount > 0 && !root.bare
                 color: Qt.rgba(root.glow.r, root.glow.g, root.glow.b, 0.16)
             }
 
-            // the plain sentence.
+            // the plain sentence - shown when showTranslation is on, in either mode.
             Text {
                 width: parent.width
                 visible: root.showText && root.text.length > 0
                 text: root.text
-                color: "#d3c8b0"
+                color: "#e7ddc6"
                 font.family: Theme.font
                 font.pixelSize: 13 * root.s
                 font.italic: true
                 wrapMode: Text.WordWrap
                 lineHeight: 1.25
+                style: Text.Raised
+                styleColor: Qt.rgba(0, 0, 0, 0.55)
             }
         }
     }

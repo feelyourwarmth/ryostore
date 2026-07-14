@@ -38,6 +38,7 @@ Item {
     // Inscription face: free text the user types, transliterated to gate glyphs.
     readonly property string text: _str("text", "chevron seven locked")
     readonly property bool showTranslation: _bool("showTranslation", true)
+    readonly property bool bare: _bool("bare", false)
 
     // ── glyph font ───────────────────────────────────────────────────────────
     // glyphSet picks a look; an installed cap_resources font is used by its known

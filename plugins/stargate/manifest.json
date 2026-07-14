@@ -1,7 +1,7 @@
 {
   "id": "stargate",
   "name": "Stargate",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "A living Stargate on your desktop: it dials the time as a gate address in three rendered faces - a cinematic gate, a hologram, and an SGC terminal - plus an Inscription face that carves any sentence you type into gate glyphs.",
   "license": "MIT",
@@ -51,6 +51,7 @@
       { "key": "animate", "type": "toggle", "label": "Dial animation", "group": "Gate", "default": true },
       { "key": "text", "type": "text", "label": "Message", "group": "Inscription", "default": "", "placeholder": "Type a sentence - it becomes gate glyphs" },
       { "key": "showTranslation", "type": "toggle", "label": "Show the plain text", "group": "Inscription", "default": true },
+      { "key": "bare", "type": "toggle", "label": "Glyphs only (transparent)", "group": "Inscription", "default": false },
       { "key": "showTime", "type": "toggle", "label": "Show clock", "group": "Readout", "default": true },
       { "key": "showDesignation", "type": "toggle", "label": "Show designation", "group": "Readout", "default": true },
       { "key": "glyphSet", "type": "choice", "label": "Glyph set", "group": "Glyphs", "default": "procedural", "options": [
