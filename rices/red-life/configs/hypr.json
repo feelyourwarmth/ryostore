@@ -1,0 +1,116 @@
+{
+  "anim": {
+    "curves": [
+      {
+        "name": "custom",
+        "x0": 0.25,
+        "x1": 0.25,
+        "y0": 0.1,
+        "y1": 1
+      },
+      {
+        "name": "ryokuWobble",
+        "x0": 0.2314831912878788,
+        "x1": 0.7009167850378788,
+        "y0": 1.696446593237705,
+        "y1": 0.48624807889344224
+      }
+    ],
+    "items": [
+      {
+        "bezier": "ryokuBloom",
+        "enabled": true,
+        "leaf": "borderangle",
+        "speed": 1,
+        "style": ""
+      },
+      {
+        "bezier": "ryokuBloom",
+        "enabled": true,
+        "leaf": "border",
+        "speed": 3.5,
+        "style": ""
+      }
+    ]
+  },
+  "appearance": {
+    "activeBorder": "#811426",
+    "activeOpacity": 1,
+    "animatedBorder": true,
+    "animations": true,
+    "blurEnabled": true,
+    "blurNoise": 0.095,
+    "blurPasses": 1,
+    "blurSize": 4,
+    "blurVibrancy": 0.5,
+    "blurXray": true,
+    "borderAngleSpeed": 6,
+    "borderSize": 12,
+    "dimInactive": true,
+    "dimStrength": 0.5,
+    "gapsIn": 15,
+    "gapsOut": 60,
+    "glowColor": "#ee33cc",
+    "glowEnabled": false,
+    "glowRange": 6,
+    "inactiveBorder": "#b75a57",
+    "inactiveOpacity": 0.94,
+    "layout": "dwindle",
+    "resizeOnBorder": true,
+    "rounding": 30,
+    "roundingPower": 4.5,
+    "shadowEnabled": true,
+    "shadowPower": 1,
+    "shadowRange": 60,
+    "snapEnabled": true,
+    "windowStyle": "slide",
+    "wobblyWindows": true
+  },
+  "cursor": {
+    "hideOnKeyPress": true,
+    "inactiveTimeout": 1,
+    "size": 12,
+    "theme": "Vimix-cursors"
+  },
+  "plugins": {
+    "dynamicCursors": {
+      "enabled": true,
+      "magnify": 4,
+      "mode": "tilt",
+      "shake": true
+    },
+    "hyprbars": {
+      "blur": true,
+      "buttons": true,
+      "enabled": false,
+      "height": 26,
+      "textSize": 11
+    },
+    "hyprfocus": {
+      "bounce": 0.95,
+      "enabled": false,
+      "mode": "flash",
+      "opacity": 0.8,
+      "slide": 20
+    },
+    "hyprglass": {
+      "blurStrength": 2,
+      "enabled": false,
+      "opacity": 1,
+      "preset": "clear",
+      "tint": "8899aa22"
+    },
+    "hyprscrolling": {
+      "columnWidth": 0.5,
+      "followFocus": true
+    },
+    "imgborders": {
+      "enabled": false,
+      "image": "",
+      "insets": "0,0,0,0",
+      "scale": 1,
+      "sizes": "8,8,8,8",
+      "smooth": true
+    }
+  }
+}
