@@ -42,7 +42,9 @@ echo "    1. A browser is opening the Blackmagic download page."
 echo "    2. Download the FREE 'DaVinci Resolve for Linux' (version ${pkgver:-latest})."
 echo "    3. Save the .zip to ~/Downloads (expected name: ${zip_name})."
 echo ""
-command -v xdg-open >/dev/null && xdg-open "https://www.blackmagicdesign.com/products/davinciresolve" >/dev/null 2>&1 || true
+if command -v xdg-open >/dev/null; then
+  xdg-open "https://www.blackmagicdesign.com/products/davinciresolve" >/dev/null 2>&1 || true
+fi
 
 found=""
 for _ in $(seq 1 60); do
@@ -65,6 +67,8 @@ fi
 echo "==> Found $found"
 cp -f "$found" "$PWD/$(basename "$found")"
 # the local .zip is user-provided; regenerate the checksum so makepkg accepts it.
-command -v updpkgsums >/dev/null && updpkgsums || true
+if command -v updpkgsums >/dev/null; then
+  updpkgsums || true
+fi
 echo "==> Building and installing (this takes a while; enter your password if asked)..."
 makepkg -si --noconfirm
