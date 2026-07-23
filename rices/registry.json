@@ -28,6 +28,20 @@
       "accent": "#b8a6f4",
       "surface": "#221b2b",
       "rounding": 22
+    },
+    {
+      "id": "red-life",
+      "name": "Red Life",
+      "author": "one",
+      "blurb": "Deep red and earthy tones with wobbly windows, animated borders, and a cozy sidebar. Features Vimix cursor, dynamic cursors, and glass blur.",
+      "tags": ["red", "wobbly", "animated", "sidebar", "glass"],
+      "createdWith": "0.12.8",
+      "color": "fixed",
+      "manifest": "rices/red-life/rice.json",
+      "palette": "rices/red-life/palette.json",
+      "accent": "#c0442b",
+      "surface": "#1c140f",
+      "rounding": 30
     }
   ]
 }
