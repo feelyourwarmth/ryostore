@@ -19,7 +19,7 @@
       "preview": "assets/preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "6ad6f431dc1c356cc284e48d1410b76e941dc2f4ced7f887ac1e9fd4db72348a"
+      "manifestSha256": "27444377575ae85bdfbbe7043de76850f6d19573a155c151775c4e1108a532c9"
     },
     {
       "id": "obi",
@@ -39,7 +39,7 @@
       "preview": "assets/preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "42c7483a4871217d3270ce4b765894020ead895c056421c2659c0fcd5c7e9bfd"
+      "manifestSha256": "f8d94ba68d90ecdcb2cb9674f3511d7ed18817321018c6c102875fde3b62885e"
     }
   ]
 }

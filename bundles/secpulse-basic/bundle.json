@@ -132,8 +132,8 @@
       "source": "assets/preview.webp",
       "destination": "assets/preview.webp",
       "mode": "0644",
-      "size": 13718,
-      "sha256": "3ec471a4580c20dad74bbe6c3a5d3bcf39cf04bdf485bc44b0062ff3db09cc3c",
+      "size": 278130,
+      "sha256": "89691fc6b7d4c11efe97db1f828544b72947f3c5078336616ab8150a635a6858",
       "install": false
     },
     {
