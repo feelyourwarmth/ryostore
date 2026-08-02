@@ -381,6 +381,18 @@ class MigratedCatalogueTest(unittest.TestCase):
                     [],
                 )
 
+    def test_lockscreens_satisfy_store_contract_without_core_fallback(self) -> None:
+        root = MODULE_PATH.parent.parent
+        self.assertEqual(validate_store.validate_tree(root, ("lockscreens",)), [])
+        registry = json.loads(
+            (root / "lockscreens" / "registry.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            [entry["id"] for entry in registry["lockscreens"]],
+            ["clockwork-tape"],
+        )
+        self.assertNotIn("clockwork-orbital", json.dumps(registry))
+
     def test_bundle_components_are_complete_and_inline(self) -> None:
         root = MODULE_PATH.parent.parent
         registry = json.loads((root / "bundles" / "registry.json").read_text(encoding="utf-8"))

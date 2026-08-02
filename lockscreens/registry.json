@@ -1,0 +1,21 @@
+{
+  "schema": 1,
+  "lockscreens": [
+    {
+      "id": "clockwork-tape",
+      "name": "Tape",
+      "version": "1.0.0",
+      "path": "lockscreens/clockwork-tape",
+      "author": "Darkkal44",
+      "summary": "Clockwork mechanics drift across warm magnetic tape.",
+      "description": "A complete qylock scene with a tactile clock face, deep shadow, and an amber tape-era palette.",
+      "tags": ["clockwork", "retro", "warm"],
+      "accent": "#d7a45f",
+      "surface": "#101010",
+      "preview": "assets/preview.gif",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "7e0ed97af376bd7907e76ecea4ba79d9da166343bd534bda96b56beb13a5d20d"
+    }
+  ]
+}
