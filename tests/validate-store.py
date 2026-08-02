@@ -449,6 +449,9 @@ def validate_tree(
         if not isinstance(registry, dict):
             errors.append(f"{category}/registry.json: root must be an object")
             continue
+        if set(registry) != {"schema", category}:
+            errors.append(f"{category}/registry.json: invalid registry envelope")
+            continue
         if type(registry.get("schema")) is not int or registry["schema"] != 1:
             errors.append(f"{category}/registry.json: unsupported schema")
             continue

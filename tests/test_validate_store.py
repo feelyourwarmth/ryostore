@@ -138,6 +138,17 @@ class ValidateStoreTest(unittest.TestCase):
             self.errors(),
         )
 
+    def test_registry_extra_key_is_rejected(self) -> None:
+        _, entry = self.products["lockscreens"]
+        write_json(
+            self.root / "lockscreens" / "registry.json",
+            {"schema": 1, "lockscreens": [entry], "archived": []},
+        )
+        self.assertIn(
+            "lockscreens/registry.json: invalid registry envelope",
+            self.errors(),
+        )
+
     def test_bundle_components_match_manifest_items(self) -> None:
         product, entry = self.products["bundles"]
         manifest_path = product / "manifest.json"
