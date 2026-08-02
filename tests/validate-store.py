@@ -29,6 +29,8 @@ MAX_FILE_SIZE = 256 * 1024 * 1024
 MAX_PRODUCT_SIZE = 512 * 1024 * 1024
 MAX_FILES = 2048
 DOC_NAMES = ("readme", "license", "copying", "notice", "authors")
+DOC_EXTENSIONS = {"", ".md", ".txt", ".rst", ".adoc"}
+FILE_FIELDS = {"source", "destination", "mode", "size", "sha256", "install"}
 VECTOR_MEDIA = {".svg"}
 RASTER_MEDIA = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}
 
@@ -45,7 +47,11 @@ def safe_relative(value: object) -> bool:
     if not isinstance(value, str) or not value or "\\" in value or "\x00" in value:
         return False
     path = PurePosixPath(value)
-    return not path.is_absolute() and all(part not in ("", ".", "..") for part in path.parts)
+    return (
+        not path.is_absolute()
+        and path.as_posix() == value
+        and all(part not in ("", ".", "..") for part in path.parts)
+    )
 
 
 def load_json(path: Path, errors: list[str], label: str) -> object | None:
@@ -58,23 +64,35 @@ def load_json(path: Path, errors: list[str], label: str) -> object | None:
     return None
 
 
+def contains_symlink(root: Path, value: str) -> bool:
+    current = root
+    for part in PurePosixPath(value).parts:
+        current /= part
+        if current.is_symlink():
+            return True
+    return False
+
+
 def product_file(product: Path, value: object) -> Path | None:
     if not safe_relative(value):
         return None
-    candidate = product.joinpath(*PurePosixPath(str(value)).parts)
+    relative = str(value)
+    candidate = product.joinpath(*PurePosixPath(relative).parts)
+    if contains_symlink(product, relative):
+        return None
     try:
-        candidate.relative_to(product)
-    except ValueError:
+        candidate.resolve().relative_to(product.resolve())
+    except (OSError, ValueError):
         return None
     return candidate
 
 
 def is_documentation(relative: str) -> bool:
     path = PurePosixPath(relative)
-    if path.parts and path.parts[0].lower() in ("docs", "documentation"):
-        return True
     name = path.name.lower()
-    return any(name == prefix or name.startswith(prefix + ".") for prefix in DOC_NAMES)
+    named_document = any(name == prefix or name.startswith(prefix + ".") for prefix in DOC_NAMES)
+    in_documentation = bool(path.parts and path.parts[0].lower() in ("docs", "documentation"))
+    return (named_document or in_documentation) and path.suffix.lower() in DOC_EXTENSIONS
 
 
 def media_error(path: Path, label: str) -> str | None:
@@ -147,6 +165,9 @@ def validate_manifest(
         if not isinstance(row, dict):
             errors.append(f"{row_label} must be an object")
             continue
+        unknown_fields = sorted(set(row) - FILE_FIELDS)
+        for field in unknown_fields:
+            errors.append(f"{row_label} has unknown field {field}")
         source = row.get("source")
         destination_value = row.get("destination")
         if not safe_relative(source):
@@ -154,11 +175,14 @@ def validate_manifest(
             continue
         if not safe_relative(destination_value):
             errors.append(f"{label}: destination must be relative: {destination_value}")
-        if source in declared:
-            errors.append(f"{label}: duplicate source: {source}")
-        if destination_value in destinations:
-            errors.append(f"{label}: duplicate destination: {destination_value}")
-        destinations.add(str(destination_value))
+            continue
+        source_key = str(source)
+        destination_key = str(destination_value)
+        if source_key in declared:
+            errors.append(f"{label}: duplicate source: {source_key}")
+        if destination_key in destinations:
+            errors.append(f"{label}: duplicate destination: {destination_key}")
+        destinations.add(destination_key)
 
         mode = row.get("mode")
         if mode not in ("0644", "0755"):
@@ -175,9 +199,9 @@ def validate_manifest(
         if not isinstance(install, bool):
             errors.append(f"{label}: install must be boolean for {source}")
             install = False
-        declared[str(source)] = install
+        declared[source_key] = install
 
-        path = product_file(product, source)
+        path = product_file(product, source_key)
         if path is None:
             continue
         if path.is_symlink():
@@ -213,7 +237,8 @@ def validate_manifest(
         elif path.is_file() and relative != manifest_name and not is_documentation(relative) and relative not in declared:
             errors.append(f"{label}: undeclared payload {relative}")
 
-    media = [entry.get("preview")] + list(entry.get("screenshots") or [])
+    screenshots = entry.get("screenshots")
+    media = [entry.get("preview")] + (screenshots if isinstance(screenshots, list) else [])
     for index, value in enumerate(media):
         kind = "preview" if index == 0 else "screenshot"
         if not safe_relative(value):
@@ -260,9 +285,15 @@ def validate_entry(category: str, entry: object, root: Path, errors: list[str], 
     if not safe_relative(path_value):
         errors.append(f"{label}: product path must be relative: {path_value}")
         return
-    product = root.joinpath(*PurePosixPath(path_value).parts)
-    if product.is_symlink():
-        errors.append(f"{label}: product path is a symlink: {path_value}")
+    product_relative = str(path_value)
+    if contains_symlink(root, product_relative):
+        errors.append(f"{label}: product path contains a symlink: {path_value}")
+        return
+    product = root.joinpath(*PurePosixPath(product_relative).parts)
+    try:
+        product.resolve().relative_to(root)
+    except (OSError, ValueError):
+        errors.append(f"{label}: product path escapes catalogue root: {path_value}")
         return
     if not product.is_dir():
         errors.append(f"{label}: product path missing: {path_value}")
@@ -279,7 +310,8 @@ def validate_entry(category: str, entry: object, root: Path, errors: list[str], 
     expected_hash = entry.get("manifestSha256")
     if not isinstance(expected_hash, str) or not HEX_PATTERN.fullmatch(expected_hash):
         errors.append(f"{label}: manifestSha256 must be lowercase SHA-256")
-    elif sha256(manifest_path) != expected_hash:
+        return
+    if sha256(manifest_path) != expected_hash:
         errors.append(f"{label}: manifest hash mismatch")
         return
     manifest = load_json(manifest_path, errors, f"{label}: manifest")
@@ -302,6 +334,9 @@ def validate_tree(
         if category not in CATEGORIES:
             continue
         registry_path = root / category / "registry.json"
+        if contains_symlink(root, f"{category}/registry.json"):
+            errors.append(f"{category}/registry.json: symlink forbidden")
+            continue
         registry = load_json(registry_path, errors, f"{category}/registry.json")
         if registry is None:
             continue

@@ -145,6 +145,60 @@ class ValidateStoreTest(unittest.TestCase):
         os.symlink(product / "content" / "Widget.qml", product / "content" / "Alias.qml")
         self.assertIn("rices/demo: symlink forbidden: content/Alias.qml", self.errors())
 
+    def test_product_ancestor_symlink_is_rejected(self) -> None:
+        product, entry = self.products["rices"]
+        shared = self.root / "shared"
+        shared.mkdir()
+        product.rename(shared / "demo")
+        os.symlink(shared, self.root / "rices" / "linked")
+        entry["path"] = "rices/linked/demo"
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: product path contains a symlink: rices/linked/demo", self.errors())
+
+    def test_registry_symlink_is_rejected(self) -> None:
+        registry = self.root / "rices" / "registry.json"
+        target = self.root / "rices-registry.json"
+        registry.rename(target)
+        os.symlink(target, registry)
+        self.assertIn("rices/registry.json: symlink forbidden", self.errors())
+
+    def test_invalid_manifest_hash_stops_before_parsing(self) -> None:
+        product, entry = self.products["rices"]
+        (product / "manifest.json").write_text("{", encoding="utf-8")
+        entry["manifestSha256"] = "invalid"
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        errors = self.errors()
+        self.assertIn("rices/demo: manifestSha256 must be lowercase SHA-256", errors)
+        self.assertFalse(any("invalid JSON" in error for error in errors))
+
+    def test_invalid_collection_and_path_types_report_errors(self) -> None:
+        _, entry = self.products["rices"]
+        entry["screenshots"] = 42
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: screenshots must be non-empty strings", self.errors())
+
+        self.products = build_tree(self.root)
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(destination=[]))
+        self.assertIn("rices/demo: destination must be relative: []", self.errors())
+
+    def test_extra_manifest_file_key_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(extra=True))
+        self.assertIn("rices/demo: files[0] has unknown field extra", self.errors())
+
+    def test_documentation_directory_does_not_exempt_payload(self) -> None:
+        product, _ = self.products["plugins"]
+        docs = product / "docs"
+        docs.mkdir()
+        (docs / "Widget.qml").write_text("import QtQuick\nItem {}\n", encoding="utf-8")
+        self.assertIn("plugins/demo: undeclared payload docs/Widget.qml", self.errors())
+
+    def test_noncanonical_source_path_is_rejected(self) -> None:
+        self.rewrite_manifest(
+            "rices",
+            lambda manifest: manifest["files"][0].update(source="content//Widget.qml"),
+        )
+        self.assertIn("rices/demo: source escapes product root: content//Widget.qml", self.errors())
+
     def test_undeclared_payload_is_rejected(self) -> None:
         product, _ = self.products["plugins"]
         (product / "content" / "Extra.qml").write_text("import QtQuick\nItem {}\n", encoding="utf-8")
