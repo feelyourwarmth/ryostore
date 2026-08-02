@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import tempfile
 import unittest
+from unittest import mock
 
 
 MODULE_PATH = Path(__file__).with_name("validate-store.py")
@@ -131,6 +132,18 @@ class ValidateStoreTest(unittest.TestCase):
         entry["manifestSha256"] = "0" * 64
         write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
         self.assertIn("rices/demo: manifest hash mismatch", self.errors())
+    def test_null_registry_is_rejected(self) -> None:
+        (self.root / "rices" / "registry.json").write_text("null\n", encoding="utf-8")
+        self.assertIn("rices/registry.json: root must be an object", self.errors())
+
+    def test_null_manifest_is_rejected(self) -> None:
+        product, entry = self.products["rices"]
+        manifest = product / "manifest.json"
+        manifest.write_text("null\n", encoding="utf-8")
+        entry["manifestSha256"] = digest(manifest)
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: manifest must be an object", self.errors())
+
 
     def test_parent_source_path_is_rejected(self) -> None:
         self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(source="../Widget.qml"))
@@ -200,6 +213,14 @@ class ValidateStoreTest(unittest.TestCase):
         script.write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
         script.chmod(0o755)
         self.assertIn("plugins/demo: undeclared payload docs/install", self.errors())
+    def test_executable_named_document_is_not_exempt(self) -> None:
+        product, _ = self.products["plugins"]
+        script = product / "docs" / "README"
+        script.parent.mkdir()
+        script.write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
+        script.chmod(0o755)
+        self.assertIn("plugins/demo: undeclared payload docs/README", self.errors())
+
 
     def test_destination_ancestor_collision_is_rejected(self) -> None:
         self.rewrite_manifest(
@@ -259,6 +280,34 @@ class ValidateStoreTest(unittest.TestCase):
         product, _ = self.products["fastfetch"]
         (product / "assets" / "preview.png").unlink()
         self.assertIn("fastfetch/demo: preview missing: assets/preview.png", self.errors())
+    def test_svg_media_is_decoded(self) -> None:
+        media = self.root / "preview.svg"
+        media.write_text(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720"/>',
+            encoding="utf-8",
+        )
+        responses = [
+            mock.Mock(stdout="1280 720"),
+            mock.Mock(stdout="0.25"),
+        ]
+        with mock.patch.object(validate_store.subprocess, "run", side_effect=responses) as run:
+            self.assertIsNone(validate_store.media_error(media, "fixture"))
+        self.assertEqual(run.call_count, 2)
+
+    def test_media_blankness_composites_alpha(self) -> None:
+        media = self.root / "preview.png"
+        media.write_bytes(b"fixture")
+        responses = [
+            mock.Mock(stdout="1280 720"),
+            mock.Mock(stdout="0.25"),
+        ]
+        with mock.patch.object(validate_store.subprocess, "run", side_effect=responses) as run:
+            self.assertIsNone(validate_store.media_error(media, "fixture"))
+        deviation_command = run.call_args_list[1].args[0]
+        self.assertIn("-background", deviation_command)
+        self.assertIn("-alpha", deviation_command)
+        self.assertIn("remove", deviation_command)
+
 
 
 if __name__ == "__main__":

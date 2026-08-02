@@ -33,6 +33,7 @@ DOC_EXTENSIONS = {"", ".md", ".txt", ".rst", ".adoc"}
 FILE_FIELDS = {"source", "destination", "mode", "size", "sha256", "install"}
 VECTOR_MEDIA = {".svg"}
 RASTER_MEDIA = {".png", ".jpg", ".jpeg", ".webp", ".gif", ".avif"}
+LOAD_FAILED = object()
 
 
 def sha256(path: Path) -> str:
@@ -55,14 +56,14 @@ def safe_relative(value: object) -> bool:
     )
 
 
-def load_json(path: Path, errors: list[str], label: str) -> object | None:
+def load_json(path: Path, errors: list[str], label: str) -> object:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
     except FileNotFoundError:
         errors.append(f"{label}: missing")
     except (OSError, UnicodeError, json.JSONDecodeError) as error:
         errors.append(f"{label}: invalid JSON: {error}")
-    return None
+    return LOAD_FAILED
 
 
 def contains_symlink(root: Path, value: str) -> bool:
@@ -96,12 +97,17 @@ def is_documentation(relative: str) -> bool:
     if path.suffix == "":
         return named_document
     return (named_document or in_documentation) and path.suffix.lower() in DOC_EXTENSIONS
+def is_executable_code(path: Path) -> bool:
+    try:
+        return bool(path.stat().st_mode & 0o111) or path.open("rb").read(2) == b"#!"
+    except OSError:
+        return False
+
+
 
 
 def media_error(path: Path, label: str) -> str | None:
-    if path.suffix.lower() in VECTOR_MEDIA:
-        return None
-    if path.suffix.lower() not in RASTER_MEDIA:
+    if path.suffix.lower() not in VECTOR_MEDIA | RASTER_MEDIA:
         return f"{label}: unsupported media format: {path.name}"
     try:
         dimensions = subprocess.run(
@@ -114,7 +120,7 @@ def media_error(path: Path, label: str) -> str | None:
         if width < 1280 or height < 720:
             return f"{label}: preview is smaller than 1280x720: {width}x{height}"
         deviation = subprocess.run(
-            ["magick", str(path), "-alpha", "off", "-colorspace", "gray", "-format", "%[fx:standard_deviation]", "info:"],
+            ["magick", str(path), "-background", "#808080", "-alpha", "remove", "-alpha", "off", "-colorspace", "gray", "-format", "%[fx:standard_deviation]", "info:"],
             check=True,
             capture_output=True,
             text=True,
@@ -255,7 +261,12 @@ def validate_manifest(
         relative = path.relative_to(product).as_posix()
         if path.is_symlink():
             errors.append(f"{label}: symlink forbidden: {relative}")
-        elif path.is_file() and relative != manifest_name and not is_documentation(relative) and relative not in declared:
+        elif (
+            path.is_file()
+            and relative != manifest_name
+            and relative not in declared
+            and (not is_documentation(relative) or is_executable_code(path))
+        ):
             errors.append(f"{label}: undeclared payload {relative}")
 
     screenshots = entry.get("screenshots")
@@ -336,7 +347,7 @@ def validate_entry(category: str, entry: object, root: Path, errors: list[str], 
         errors.append(f"{label}: manifest hash mismatch")
         return
     manifest = load_json(manifest_path, errors, f"{label}: manifest")
-    if manifest is not None:
+    if manifest is not LOAD_FAILED:
         validate_manifest(category, entry, product, manifest, errors, require_media)
 
 
@@ -359,7 +370,7 @@ def validate_tree(
             errors.append(f"{category}/registry.json: symlink forbidden")
             continue
         registry = load_json(registry_path, errors, f"{category}/registry.json")
-        if registry is None:
+        if registry is LOAD_FAILED:
             continue
         if not isinstance(registry, dict):
             errors.append(f"{category}/registry.json: root must be an object")
