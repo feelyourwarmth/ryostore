@@ -127,7 +127,7 @@ while IFS= read -r f; do
 done < <(find installers bundles -type f \( -path 'installers/*.sh' -o -path '*/installers/*.sh' \))
 
 # 6. Migrated categories activate the common Store contract independently.
-for category in rices lockscreens plugins bundles barstyles; do
+for category in rices lockscreens plugins bundles barstyles fastfetch; do
 	[ -f "$category/registry.json" ] || continue
 	python3 tests/validate-store.py --root . --categories "$category" ||
 		err "$category Store product validation failed"

@@ -397,7 +397,7 @@ class ValidateStoreTest(unittest.TestCase):
 class MigratedCatalogueTest(unittest.TestCase):
     def test_migrated_categories_satisfy_store_contract(self) -> None:
         root = MODULE_PATH.parent.parent
-        for category in ("rices", "plugins", "bundles", "barstyles"):
+        for category in ("rices", "plugins", "bundles", "barstyles", "fastfetch"):
             with self.subTest(category=category):
                 self.assertEqual(
                     validate_store.validate_tree(root, (category,)),
@@ -414,6 +414,16 @@ class MigratedCatalogueTest(unittest.TestCase):
             ["nacre", "obi"],
         )
         self.assertNotIn("sumi", json.dumps(registry))
+
+    def test_fastfetch_catalogue_has_both_external_styles(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads(
+            (root / "fastfetch" / "registry.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            [entry["id"] for entry in registry["fastfetch"]],
+            ["ryoku-dossier", "minimal-grid"],
+        )
 
     def test_lockscreens_satisfy_store_contract_without_core_fallback(self) -> None:
         root = MODULE_PATH.parent.parent
