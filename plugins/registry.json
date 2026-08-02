@@ -1,6 +1,5 @@
 {
-  "version": 1,
-  "archived": [],
+  "schema": 1,
   "plugins": [
     {
       "id": "obsidian",

@@ -126,6 +126,18 @@ class ValidateStoreTest(unittest.TestCase):
 
     def test_valid_tree(self) -> None:
         self.assertEqual(self.errors(), [])
+
+    def test_unsupported_registry_schema_is_rejected(self) -> None:
+        _, entry = self.products["lockscreens"]
+        write_json(
+            self.root / "lockscreens" / "registry.json",
+            {"schema": 2, "lockscreens": [entry]},
+        )
+        self.assertIn(
+            "lockscreens/registry.json: unsupported schema",
+            self.errors(),
+        )
+
     def test_bundle_components_match_manifest_items(self) -> None:
         product, entry = self.products["bundles"]
         manifest_path = product / "manifest.json"
