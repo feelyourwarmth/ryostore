@@ -395,14 +395,25 @@ class ValidateStoreTest(unittest.TestCase):
             self.assertIsNone(validate_store.media_error(media, "fixture"))
 
 class MigratedCatalogueTest(unittest.TestCase):
-    def test_rices_plugins_and_bundles_satisfy_store_contract(self) -> None:
+    def test_migrated_categories_satisfy_store_contract(self) -> None:
         root = MODULE_PATH.parent.parent
-        for category in ("rices", "plugins", "bundles"):
+        for category in ("rices", "plugins", "bundles", "barstyles"):
             with self.subTest(category=category):
                 self.assertEqual(
                     validate_store.validate_tree(root, (category,)),
                     [],
                 )
+
+    def test_barstyles_exclude_builtin_sumi(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads(
+            (root / "barstyles" / "registry.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            [entry["id"] for entry in registry["barstyles"]],
+            ["nacre", "obi"],
+        )
+        self.assertNotIn("sumi", json.dumps(registry))
 
     def test_lockscreens_satisfy_store_contract_without_core_fallback(self) -> None:
         root = MODULE_PATH.parent.parent
