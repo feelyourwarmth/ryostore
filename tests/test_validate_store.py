@@ -192,6 +192,38 @@ class ValidateStoreTest(unittest.TestCase):
         (docs / "Widget.qml").write_text("import QtQuick\nItem {}\n", encoding="utf-8")
         self.assertIn("plugins/demo: undeclared payload docs/Widget.qml", self.errors())
 
+    def test_executable_documentation_path_is_not_exempt(self) -> None:
+        product, _ = self.products["plugins"]
+        docs = product / "docs"
+        docs.mkdir()
+        script = docs / "install"
+        script.write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
+        script.chmod(0o755)
+        self.assertIn("plugins/demo: undeclared payload docs/install", self.errors())
+
+    def test_destination_ancestor_collision_is_rejected(self) -> None:
+        self.rewrite_manifest(
+            "rices",
+            lambda manifest: manifest["files"][1].update(
+                destination="content/Widget.qml/preview.png"
+            ),
+        )
+        self.assertIn(
+            "rices/demo: destination path collision: content/Widget.qml/preview.png",
+            self.errors(),
+        )
+
+    def test_bare_dot_path_is_rejected(self) -> None:
+        self.rewrite_manifest(
+            "rices",
+            lambda manifest: manifest["files"][0].update(destination="."),
+        )
+        self.assertIn("rices/demo: destination must be relative: .", self.errors())
+
+    def test_boolean_manifest_schema_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest.update(schema=True))
+        self.assertIn("rices/demo: manifest schema does not match registry", self.errors())
+
     def test_noncanonical_source_path_is_rejected(self) -> None:
         self.rewrite_manifest(
             "rices",

@@ -49,6 +49,7 @@ def safe_relative(value: object) -> bool:
     path = PurePosixPath(value)
     return (
         not path.is_absolute()
+        and bool(path.parts)
         and path.as_posix() == value
         and all(part not in ("", ".", "..") for part in path.parts)
     )
@@ -92,6 +93,8 @@ def is_documentation(relative: str) -> bool:
     name = path.name.lower()
     named_document = any(name == prefix or name.startswith(prefix + ".") for prefix in DOC_NAMES)
     in_documentation = bool(path.parts and path.parts[0].lower() in ("docs", "documentation"))
+    if path.suffix == "":
+        return named_document
     return (named_document or in_documentation) and path.suffix.lower() in DOC_EXTENSIONS
 
 
@@ -144,7 +147,13 @@ def validate_manifest(
         "version": entry.get("version"),
     }
     for field, value in expected.items():
-        if manifest.get(field) != value:
+        actual = manifest.get(field)
+        matches = (
+            type(actual) is int and actual == value
+            if field == "schema"
+            else actual == value
+        )
+        if not matches:
             errors.append(f"{label}: manifest {field} does not match registry")
     destination = manifest.get("destination")
     if not safe_relative(destination):
@@ -182,6 +191,18 @@ def validate_manifest(
             errors.append(f"{label}: duplicate source: {source_key}")
         if destination_key in destinations:
             errors.append(f"{label}: duplicate destination: {destination_key}")
+        destination_parts = PurePosixPath(destination_key).parts
+        for existing in destinations:
+            existing_parts = PurePosixPath(existing).parts
+            if (
+                existing != destination_key
+                and (
+                    existing_parts == destination_parts[:len(existing_parts)]
+                    or destination_parts == existing_parts[:len(destination_parts)]
+                )
+            ):
+                errors.append(f"{label}: destination path collision: {destination_key}")
+                break
         destinations.add(destination_key)
 
         mode = row.get("mode")
