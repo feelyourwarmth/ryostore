@@ -31,7 +31,7 @@ Each item declares a `type`, and may carry a one-line `summary`, a `source`, and
   repos via `ryoku-pkg-add`, otherwise the AUR via `ryoku-pkg-aur-add`), so you only write
   the package name. Presence is decided by `pacman -Qq`; `detect` documents the command it
   provides.
-- `script` - installed by running `installers/<name>.sh`. `detect` is the resulting command.
+- `script` - installed by running `bundles/<id>/installers/<name>.sh`. `detect` is the resulting command.
 - `plugin` - installed through the shell's plugin path; `name` is the plugin id.
 
 A bundle may also declare `"requires": ["multilib"]` to enable a repo before its packages
@@ -42,9 +42,10 @@ See `bundles/the-ricer/` for the worked example.
 ## An installer script
 
 For tools that install via a curl/script rather than a package, add
-`installers/<name>.sh`. Keep it small and auditable, pin the upstream URL, and use the
-Ryoku helpers (`ryoku-cmd-present`, `ryoku-pkg-add`) rather than raw shell. A `script`
-bundle item points at it by name. See `installers/README.md`.
+`bundles/<id>/installers/<name>.sh` inside the bundle that owns it. Keep it small
+and auditable, pin the upstream URL, and use the Ryoku helpers
+(`ryoku-cmd-present`, `ryoku-pkg-add`) rather than raw shell. A `script` bundle
+item points at it by name. See `installers/README.md`.
 
 ## A Nautilus script pack
 

@@ -62,6 +62,15 @@ def build_product(root: Path, category: str, product_id: str = "demo") -> tuple[
             },
         ],
     }
+    if category == "bundles":
+        manifest["items"] = [
+            {
+                "type": "script",
+                "name": "demo-tool",
+                "detect": "demo",
+                "summary": "Fixture tool.",
+            }
+        ]
     manifest_path = product / "manifest.json"
     write_json(manifest_path, manifest)
     entry = {
@@ -80,6 +89,8 @@ def build_product(root: Path, category: str, product_id: str = "demo") -> tuple[
         "manifest": "manifest.json",
         "manifestSha256": digest(manifest_path),
     }
+    if category == "bundles":
+        entry["components"] = validate_store.normalized_bundle_components(manifest)
     return product, entry
 
 
@@ -115,6 +126,37 @@ class ValidateStoreTest(unittest.TestCase):
 
     def test_valid_tree(self) -> None:
         self.assertEqual(self.errors(), [])
+    def test_bundle_components_match_manifest_items(self) -> None:
+        product, entry = self.products["bundles"]
+        manifest_path = product / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["items"] = [
+            {
+                "type": "script",
+                "name": "demo-tool",
+                "detect": "demo",
+                "tier": "optional",
+                "interactive": True,
+                "summary": "Fixture tool.",
+            }
+        ]
+        write_json(manifest_path, manifest)
+        entry["manifestSha256"] = digest(manifest_path)
+        entry["components"] = [
+            {
+                "type": "script",
+                "name": "demo-tool",
+                "detect": "wrong",
+                "tier": "optional",
+                "interactive": True,
+                "summary": "Fixture tool.",
+            }
+        ]
+        write_json(self.root / "bundles" / "registry.json", {"schema": 1, "bundles": [entry]})
+        self.assertIn(
+            "bundles/demo: components do not match manifest items",
+            self.errors(),
+        )
 
     def test_duplicate_ids(self) -> None:
         _, entry = self.products["rices"]
@@ -342,21 +384,15 @@ class MigratedCatalogueTest(unittest.TestCase):
     def test_bundle_components_are_complete_and_inline(self) -> None:
         root = MODULE_PATH.parent.parent
         registry = json.loads((root / "bundles" / "registry.json").read_text(encoding="utf-8"))
-        required = {"type", "name", "detect", "tier", "interactive", "summary"}
         for entry in registry["bundles"]:
             with self.subTest(bundle=entry["id"]):
                 manifest = json.loads(
                     (root / entry["path"] / entry["manifest"]).read_text(encoding="utf-8")
                 )
-                components = entry.get("components")
-                self.assertIsInstance(components, list)
                 self.assertEqual(
-                    [component["name"] for component in components],
-                    [item["name"] for item in manifest["items"]],
+                    entry.get("components"),
+                    validate_store.normalized_bundle_components(manifest),
                 )
-                for component in components:
-                    self.assertTrue(required.issubset(component))
-                    self.assertIsInstance(component["interactive"], bool)
 
 
 

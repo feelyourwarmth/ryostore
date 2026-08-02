@@ -329,6 +329,39 @@ def validate_manifest(
                 errors.append(issue.replace("preview", kind, 1))
 
 
+def normalized_bundle_components(manifest: object) -> list[dict] | None:
+    if not isinstance(manifest, dict) or not isinstance(manifest.get("items"), list):
+        return None
+    components = []
+    for item in manifest["items"]:
+        if not isinstance(item, dict):
+            return None
+        name = item.get("name")
+        component = {
+            "type": item.get("type"),
+            "name": name,
+            "detect": item.get("detect") or name,
+            "tier": item.get("tier") or "core",
+            "interactive": item.get("interactive", False),
+            "summary": item.get("summary") or "",
+        }
+        if (
+            not all(isinstance(component[field], str) and component[field]
+                    for field in ("type", "name", "detect", "tier"))
+            or type(component["interactive"]) is not bool
+            or not isinstance(component["summary"], str)
+        ):
+            return None
+        components.append(component)
+    return components
+
+
+def validate_bundle_components(entry: dict, manifest: object, errors: list[str]) -> None:
+    expected = normalized_bundle_components(manifest)
+    if expected is None or entry.get("components") != expected:
+        errors.append(f"bundles/{entry.get('id', '?')}: components do not match manifest items")
+
+
 def validate_entry(category: str, entry: object, root: Path, errors: list[str], require_media: bool) -> None:
     if not isinstance(entry, dict):
         errors.append(f"{category}/?: registry entry must be an object")
@@ -388,6 +421,8 @@ def validate_entry(category: str, entry: object, root: Path, errors: list[str], 
     manifest = load_json(manifest_path, errors, f"{label}: manifest")
     if manifest is not LOAD_FAILED:
         validate_manifest(category, entry, product, manifest, errors, require_media)
+        if category == "bundles":
+            validate_bundle_components(entry, manifest, errors)
 
 
 def validate_tree(

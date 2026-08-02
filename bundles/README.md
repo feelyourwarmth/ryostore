@@ -52,8 +52,8 @@ Each item has a `type`, a `name`, an optional one-line `summary`, an optional
   decided by `pacman -Qq <name>`; `detect` just documents the command the package
   provides. Repo packages are batched into one install and AUR packages into
   another; anything already present is skipped.
-- **`script`** installed by running `installers/<name>.sh` (see
-  `installers/README.md`). `detect` is the command the script produces, and the
+- **`script`** installed by running `bundles/<id>/installers/<name>.sh` (see
+  [`installers/README.md`](../installers/README.md)). `detect` is the command the script produces, and the
   item is present when that command is on `PATH`.
 - **`plugin`** installed through the shell's plugin path, not this command. The
   actuator marks it deferred; install it from the Plugins tab.
