@@ -22,11 +22,11 @@
       "install": true
     },
     {
-      "source": "assets/preview.gif",
-      "destination": "preview.gif",
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
       "mode": "0644",
-      "size": 142771,
-      "sha256": "93237dfb00b51b9fcd0bc153e076a03a7315b490052f16756d9fd020057b1a02",
+      "size": 1040236,
+      "sha256": "641834f2816f87dbf5b982e697f77c9d3544926720f1633cec68bb93c316a08c",
       "install": false
     },
     {

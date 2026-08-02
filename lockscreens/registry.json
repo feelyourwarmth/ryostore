@@ -9,13 +9,17 @@
       "author": "Darkkal44",
       "summary": "Clockwork mechanics drift across warm magnetic tape.",
       "description": "A complete qylock scene with a tactile clock face, deep shadow, and an amber tape-era palette.",
-      "tags": ["clockwork", "retro", "warm"],
+      "tags": [
+        "clockwork",
+        "retro",
+        "warm"
+      ],
       "accent": "#d7a45f",
       "surface": "#101010",
-      "preview": "assets/preview.gif",
+      "preview": "assets/preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "7e0ed97af376bd7907e76ecea4ba79d9da166343bd534bda96b56beb13a5d20d"
+      "manifestSha256": "98939c7ed9146e914d464964122ed3e84a7b881c493a56145248de654ef5dca6"
     }
   ]
 }
