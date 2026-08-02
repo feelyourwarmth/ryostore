@@ -56,12 +56,19 @@ def safe_relative(value: object) -> bool:
     )
 
 
+def reject_json_constant(value: str) -> None:
+    raise ValueError(f"invalid numeric constant {value}")
+
+
 def load_json(path: Path, errors: list[str], label: str) -> object:
     try:
-        return json.loads(path.read_text(encoding="utf-8"))
+        return json.loads(
+            path.read_text(encoding="utf-8"),
+            parse_constant=reject_json_constant,
+        )
     except FileNotFoundError:
         errors.append(f"{label}: missing")
-    except (OSError, UnicodeError, json.JSONDecodeError) as error:
+    except (OSError, UnicodeError, ValueError) as error:
         errors.append(f"{label}: invalid JSON: {error}")
     return LOAD_FAILED
 
@@ -97,6 +104,8 @@ def is_documentation(relative: str) -> bool:
     if path.suffix == "":
         return named_document
     return (named_document or in_documentation) and path.suffix.lower() in DOC_EXTENSIONS
+
+
 def is_executable_code(path: Path) -> bool:
     try:
         return bool(path.stat().st_mode & 0o111) or path.open("rb").read(2) == b"#!"
@@ -104,28 +113,53 @@ def is_executable_code(path: Path) -> bool:
         return False
 
 
-
-
 def media_error(path: Path, label: str) -> str | None:
     if path.suffix.lower() not in VECTOR_MEDIA | RASTER_MEDIA:
         return f"{label}: unsupported media format: {path.name}"
     try:
-        dimensions = subprocess.run(
-            ["magick", "identify", "-format", "%w %h", str(path)],
+        dimension_output = subprocess.run(
+            ["magick", "identify", "-format", "%w %h\n", str(path)],
             check=True,
             capture_output=True,
             text=True,
-        ).stdout.strip().split()
-        width, height = (int(dimensions[0]), int(dimensions[1]))
-        if width < 1280 or height < 720:
-            return f"{label}: preview is smaller than 1280x720: {width}x{height}"
-        deviation = subprocess.run(
-            ["magick", str(path), "-background", "#808080", "-alpha", "remove", "-alpha", "off", "-colorspace", "gray", "-format", "%[fx:standard_deviation]", "info:"],
+        ).stdout
+        dimensions = []
+        for record in dimension_output.splitlines():
+            values = record.split()
+            if len(values) != 2:
+                raise ValueError(f"invalid dimensions {record!r}")
+            dimensions.append((int(values[0]), int(values[1])))
+        if not dimensions:
+            raise ValueError("missing dimensions")
+        for width, height in dimensions:
+            if width < 1280 or height < 720:
+                return f"{label}: preview is smaller than 1280x720: {width}x{height}"
+        deviation_output = subprocess.run(
+            [
+                "magick",
+                str(path),
+                "-background",
+                "#808080",
+                "-alpha",
+                "remove",
+                "-alpha",
+                "off",
+                "-colorspace",
+                "gray",
+                "-format",
+                "%[fx:standard_deviation]\n",
+                "info:",
+            ],
             check=True,
             capture_output=True,
             text=True,
-        ).stdout.strip()
-        if float(deviation or "0") <= 0.001:
+        ).stdout
+        deviations = [
+            float(record)
+            for record in deviation_output.splitlines()
+            if record.strip()
+        ]
+        if not deviations or max(deviations) <= 0.001:
             return f"{label}: preview is blank"
     except FileNotFoundError:
         return f"{label}: ImageMagick 'magick' is unavailable"
