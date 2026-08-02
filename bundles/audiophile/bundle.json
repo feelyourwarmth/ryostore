@@ -1,5 +1,9 @@
 {
+  "schema": 1,
   "id": "audiophile",
+  "category": "bundles",
+  "version": "1.0.0",
+  "destination": "ryoku/bundles/audiophile",
   "name": "Audiophile",
   "description": "EasyEffects, patchbays, mixers, and PipeWire inspection for people who care how the machine sounds.",
   "items": [
@@ -82,6 +86,24 @@
       "summary": "Bluetooth management utilities including the bluetoothctl client.",
       "source": "official",
       "upstream": "http://www.bluez.org/"
+    }
+  ],
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "mode": "0644",
+      "size": 2151,
+      "sha256": "4e5d9376cb680114280a28c6a077c65446e026d26786ace18d72374eae5b86ed",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 12510,
+      "sha256": "ae7a6032aa21af2b33fe95736e5f38cb58236240863a6662c80dff820b4ae2b6",
+      "install": false
     }
   ]
 }

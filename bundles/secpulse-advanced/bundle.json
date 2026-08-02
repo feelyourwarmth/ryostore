@@ -1,5 +1,9 @@
 {
+  "schema": 1,
   "id": "secpulse-advanced",
+  "category": "bundles",
+  "version": "1.0.0",
+  "destination": "ryoku/bundles/secpulse-advanced",
   "name": "SecPulse Advanced",
   "description": "Nikto, Shodan, the ProjectDiscovery recon suite, masscan, firewall helpers, and proxied ops tooling.",
   "items": [
@@ -130,6 +134,56 @@
       "summary": "Anonymizing overlay network providing a local SOCKS proxy.",
       "source": "official",
       "upstream": "https://www.torproject.org"
+    }
+  ],
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "mode": "0644",
+      "size": 2951,
+      "sha256": "1c5ce18a73b4f0a674c45beec95c08e78f1b69ce80514bb809180b440ea08a3a",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 13850,
+      "sha256": "90b9f785ced10bb83c1d80f7a6f77ec4d685c877f9e2b52edd5417be8b8fa7e1",
+      "install": false
+    },
+    {
+      "source": "installers/httpx.sh",
+      "destination": "installers/httpx.sh",
+      "mode": "0755",
+      "size": 290,
+      "sha256": "1568ef570812bee340bbc13ce84ccfcb1a3193aa441f6e9f89836f0fb7c70da5",
+      "install": true
+    },
+    {
+      "source": "installers/naabu.sh",
+      "destination": "installers/naabu.sh",
+      "mode": "0755",
+      "size": 288,
+      "sha256": "5be45df4a5397a1fdbd953a726cf17a183e8f9d989e0573ee51d99a4d2519f68",
+      "install": true
+    },
+    {
+      "source": "installers/nuclei.sh",
+      "destination": "installers/nuclei.sh",
+      "mode": "0755",
+      "size": 310,
+      "sha256": "9bede5d4e4db90b92e5cb198729d4adb64949a38af2dc4f6405b7e9596078cd1",
+      "install": true
+    },
+    {
+      "source": "installers/subfinder.sh",
+      "destination": "installers/subfinder.sh",
+      "mode": "0755",
+      "size": 319,
+      "sha256": "43b271af23dfdada1875e0540b553234d1b47a811357548edaafab3146b8da5c",
+      "install": true
     }
   ]
 }

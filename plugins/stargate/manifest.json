@@ -1,70 +1,301 @@
 {
+  "schema": 1,
   "id": "stargate",
-  "name": "Stargate",
+  "category": "plugins",
   "version": "1.1.1",
+  "destination": "ryoku/plugins/stargate",
+  "name": "Stargate",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "A living Stargate on your desktop: it dials the time as a gate address in three rendered faces - a cinematic gate, a hologram, and an SGC terminal - plus an Inscription face that carves any sentence you type into gate glyphs.",
   "license": "MIT",
-  "tags": ["clock", "stargate", "sci-fi", "desktop-widget"],
+  "tags": [
+    "clock",
+    "stargate",
+    "sci-fi",
+    "desktop-widget"
+  ],
   "official": true,
   "entryPoints": {
     "main": "service/Main.qml",
     "content": "content/Widget.qml"
   },
-  "files": [
-    "content/gate.js",
-    "content/GateGlyph.qml",
-    "content/GateChevron.qml",
-    "content/EventHorizon.qml",
-    "content/FaceNaquadah.qml",
-    "content/FaceHologram.qml",
-    "content/FaceDossier.qml",
-    "content/FaceInscription.qml",
-    "assets/preview-widget.png",
-    "assets/preview-naquadah.png",
-    "assets/preview-hologram.png",
-    "assets/preview-dossier.png",
-    "assets/preview-inscription.png"
-  ],
   "capabilities": {
-    "densities": ["compact"]
+    "densities": [
+      "compact"
+    ]
   },
-  "hosts": ["desktopWidget"],
+  "hosts": [
+    "desktopWidget"
+  ],
   "defaults": {
     "host": "desktopWidget",
-    "desktopWidget": { "bg": "none" },
+    "desktopWidget": {
+      "bg": "none"
+    },
     "icon": "hotspot",
     "label": "Stargate"
   },
   "metadata": {
     "settings": [
-      { "key": "design", "type": "choice", "label": "Design", "group": "Gate", "default": "naquadah", "options": [
-        { "value": "naquadah", "label": "Naquadah (cinematic)" },
-        { "value": "hologram", "label": "Hologram (HUD)" },
-        { "value": "dossier", "label": "Dossier (SGC terminal)" },
-        { "value": "inscription", "label": "Inscription (your text)" }
-      ] },
-      { "key": "mode", "type": "choice", "label": "Address", "group": "Gate", "default": "clock", "options": [
-        { "value": "clock", "label": "Clock (re-dials each minute)" },
-        { "value": "date", "label": "Stardate (re-dials each day)" }
-      ] },
-      { "key": "animate", "type": "toggle", "label": "Dial animation", "group": "Gate", "default": true },
-      { "key": "text", "type": "text", "label": "Message", "group": "Inscription", "default": "", "placeholder": "Type a sentence - it becomes gate glyphs" },
-      { "key": "showTranslation", "type": "toggle", "label": "Show the plain text", "group": "Inscription", "default": true },
-      { "key": "bare", "type": "toggle", "label": "Glyphs only (transparent)", "group": "Inscription", "default": false },
-      { "key": "showTime", "type": "toggle", "label": "Show clock", "group": "Readout", "default": true },
-      { "key": "showDesignation", "type": "toggle", "label": "Show designation", "group": "Readout", "default": true },
-      { "key": "glyphSet", "type": "choice", "label": "Glyph set", "group": "Glyphs", "default": "procedural", "options": [
-        { "value": "procedural", "label": "Constellations (built-in)" },
-        { "value": "sg1", "label": "SG-1 / Milky Way (font)" },
-        { "value": "concept", "label": "Concept / Earth origin (font)" },
-        { "value": "universe", "label": "Universe / Destiny (font)" },
-        { "value": "atlantis", "label": "Atlantis / Pegasus (font)" },
-        { "value": "anquietas", "label": "Anquietas / Ancient (font)" },
-        { "value": "quiver", "label": "Quiver (font)" }
-      ] },
-      { "key": "glyphFontPath", "type": "text", "label": "Glyph font file", "group": "Glyphs", "default": "", "placeholder": "~/.local/share/fonts/stargate_sg1.ttf or a family name" },
-      { "key": "wallustGlow", "type": "toggle", "label": "Match wallpaper", "group": "Style", "default": false }
+      {
+        "key": "design",
+        "type": "choice",
+        "label": "Design",
+        "group": "Gate",
+        "default": "naquadah",
+        "options": [
+          {
+            "value": "naquadah",
+            "label": "Naquadah (cinematic)"
+          },
+          {
+            "value": "hologram",
+            "label": "Hologram (HUD)"
+          },
+          {
+            "value": "dossier",
+            "label": "Dossier (SGC terminal)"
+          },
+          {
+            "value": "inscription",
+            "label": "Inscription (your text)"
+          }
+        ]
+      },
+      {
+        "key": "mode",
+        "type": "choice",
+        "label": "Address",
+        "group": "Gate",
+        "default": "clock",
+        "options": [
+          {
+            "value": "clock",
+            "label": "Clock (re-dials each minute)"
+          },
+          {
+            "value": "date",
+            "label": "Stardate (re-dials each day)"
+          }
+        ]
+      },
+      {
+        "key": "animate",
+        "type": "toggle",
+        "label": "Dial animation",
+        "group": "Gate",
+        "default": true
+      },
+      {
+        "key": "text",
+        "type": "text",
+        "label": "Message",
+        "group": "Inscription",
+        "default": "",
+        "placeholder": "Type a sentence - it becomes gate glyphs"
+      },
+      {
+        "key": "showTranslation",
+        "type": "toggle",
+        "label": "Show the plain text",
+        "group": "Inscription",
+        "default": true
+      },
+      {
+        "key": "bare",
+        "type": "toggle",
+        "label": "Glyphs only (transparent)",
+        "group": "Inscription",
+        "default": false
+      },
+      {
+        "key": "showTime",
+        "type": "toggle",
+        "label": "Show clock",
+        "group": "Readout",
+        "default": true
+      },
+      {
+        "key": "showDesignation",
+        "type": "toggle",
+        "label": "Show designation",
+        "group": "Readout",
+        "default": true
+      },
+      {
+        "key": "glyphSet",
+        "type": "choice",
+        "label": "Glyph set",
+        "group": "Glyphs",
+        "default": "procedural",
+        "options": [
+          {
+            "value": "procedural",
+            "label": "Constellations (built-in)"
+          },
+          {
+            "value": "sg1",
+            "label": "SG-1 / Milky Way (font)"
+          },
+          {
+            "value": "concept",
+            "label": "Concept / Earth origin (font)"
+          },
+          {
+            "value": "universe",
+            "label": "Universe / Destiny (font)"
+          },
+          {
+            "value": "atlantis",
+            "label": "Atlantis / Pegasus (font)"
+          },
+          {
+            "value": "anquietas",
+            "label": "Anquietas / Ancient (font)"
+          },
+          {
+            "value": "quiver",
+            "label": "Quiver (font)"
+          }
+        ]
+      },
+      {
+        "key": "glyphFontPath",
+        "type": "text",
+        "label": "Glyph font file",
+        "group": "Glyphs",
+        "default": "",
+        "placeholder": "~/.local/share/fonts/stargate_sg1.ttf or a family name"
+      },
+      {
+        "key": "wallustGlow",
+        "type": "toggle",
+        "label": "Match wallpaper",
+        "group": "Style",
+        "default": false
+      }
     ]
-  }
+  },
+  "files": [
+    {
+      "source": "assets/preview-dossier.png",
+      "destination": "assets/preview-dossier.png",
+      "mode": "0644",
+      "size": 174884,
+      "sha256": "c1606437ecec6c2605cda886ff14908c6816e6a2ebaad6f22cbb9f291b973c2f",
+      "install": false
+    },
+    {
+      "source": "assets/preview-hologram.png",
+      "destination": "assets/preview-hologram.png",
+      "mode": "0644",
+      "size": 562177,
+      "sha256": "8a2e2c93056d99daf37151224412ee9515a93687fe6fa6aab64b9a17504f6b15",
+      "install": false
+    },
+    {
+      "source": "assets/preview-inscription.png",
+      "destination": "assets/preview-inscription.png",
+      "mode": "0644",
+      "size": 20688,
+      "sha256": "57396ed44f57659c22d2bbdf34b4ca2b7bef63aa13d8d0bf99a2ef536a5f968c",
+      "install": false
+    },
+    {
+      "source": "assets/preview-naquadah.png",
+      "destination": "assets/preview-naquadah.png",
+      "mode": "0644",
+      "size": 541163,
+      "sha256": "c1e49679fb750ad3d6cbf79f4b2d1426af7e1cab36fff2682da4a337489e06bc",
+      "install": false
+    },
+    {
+      "source": "assets/preview-widget.png",
+      "destination": "assets/preview-widget.png",
+      "mode": "0644",
+      "size": 457024,
+      "sha256": "9ca111c100b9d6e770c2a03ad78def4fe8f184cc6d019ac81645c9b8048c5cd2",
+      "install": false
+    },
+    {
+      "source": "content/EventHorizon.qml",
+      "destination": "content/EventHorizon.qml",
+      "mode": "0644",
+      "size": 6765,
+      "sha256": "e9dd55918481b780cfb7cc4606d6075d3aee65e3b491be0a8b1bc864054259df",
+      "install": true
+    },
+    {
+      "source": "content/FaceDossier.qml",
+      "destination": "content/FaceDossier.qml",
+      "mode": "0644",
+      "size": 13689,
+      "sha256": "cda87e6f8771e4c74e623a724822e48896249d6a3a683626e654a2e2752a9570",
+      "install": true
+    },
+    {
+      "source": "content/FaceHologram.qml",
+      "destination": "content/FaceHologram.qml",
+      "mode": "0644",
+      "size": 8971,
+      "sha256": "745d13ab86d4fafb28d42fdd6dcb1a5894ad1f10175db58ed25b90b16279a9c8",
+      "install": true
+    },
+    {
+      "source": "content/FaceInscription.qml",
+      "destination": "content/FaceInscription.qml",
+      "mode": "0644",
+      "size": 8321,
+      "sha256": "ebcd8b6f0202224926ac4f59fc5c282d5448f386d977fb865729f6544961e75f",
+      "install": true
+    },
+    {
+      "source": "content/FaceNaquadah.qml",
+      "destination": "content/FaceNaquadah.qml",
+      "mode": "0644",
+      "size": 11163,
+      "sha256": "88b6eebceec119ade22e1e346dbeeb24f64eb6b2050303d0dc5c6ba98c1ccdf2",
+      "install": true
+    },
+    {
+      "source": "content/GateChevron.qml",
+      "destination": "content/GateChevron.qml",
+      "mode": "0644",
+      "size": 4186,
+      "sha256": "02ad024bc51ed77c53836393e6667bed5f1e4539d82dcb31ff2e23617d34072a",
+      "install": true
+    },
+    {
+      "source": "content/GateGlyph.qml",
+      "destination": "content/GateGlyph.qml",
+      "mode": "0644",
+      "size": 5291,
+      "sha256": "f2ec82a3493a9b864e95b693c89c4b2b2c71a047ae0203fd79346682befc37a3",
+      "install": true
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "mode": "0644",
+      "size": 2057,
+      "sha256": "08a3ec57df126c3274ce5fb211b15ef82df11f0515f4e2272330189ea3504097",
+      "install": true
+    },
+    {
+      "source": "content/gate.js",
+      "destination": "content/gate.js",
+      "mode": "0644",
+      "size": 7292,
+      "sha256": "50af88dd3a726d500128c14cf14d2667672d86cddbf8373d1936e1759c8a28a8",
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "mode": "0644",
+      "size": 6124,
+      "sha256": "b1d6e5c6cb983ed9da41832f24ba731e83b1517c277e5c8eebc280bc2e22057c",
+      "install": true
+    }
+  ]
 }

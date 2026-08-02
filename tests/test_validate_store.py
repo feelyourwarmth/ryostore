@@ -329,6 +329,36 @@ class ValidateStoreTest(unittest.TestCase):
         with mock.patch.object(validate_store.subprocess, "run", side_effect=responses):
             self.assertIsNone(validate_store.media_error(media, "fixture"))
 
+class MigratedCatalogueTest(unittest.TestCase):
+    def test_rices_plugins_and_bundles_satisfy_store_contract(self) -> None:
+        root = MODULE_PATH.parent.parent
+        for category in ("rices", "plugins", "bundles"):
+            with self.subTest(category=category):
+                self.assertEqual(
+                    validate_store.validate_tree(root, (category,)),
+                    [],
+                )
+
+    def test_bundle_components_are_complete_and_inline(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads((root / "bundles" / "registry.json").read_text(encoding="utf-8"))
+        required = {"type", "name", "detect", "tier", "interactive", "summary"}
+        for entry in registry["bundles"]:
+            with self.subTest(bundle=entry["id"]):
+                manifest = json.loads(
+                    (root / entry["path"] / entry["manifest"]).read_text(encoding="utf-8")
+                )
+                components = entry.get("components")
+                self.assertIsInstance(components, list)
+                self.assertEqual(
+                    [component["name"] for component in components],
+                    [item["name"] for item in manifest["items"]],
+                )
+                for component in components:
+                    self.assertTrue(required.issubset(component))
+                    self.assertIsInstance(component["interactive"], bool)
+
+
 
 if __name__ == "__main__":
     unittest.main()

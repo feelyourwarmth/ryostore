@@ -1,5 +1,9 @@
 {
   "schema": 1,
+  "id": "red-life",
+  "category": "rices",
+  "version": "1.0.0",
+  "destination": "ryoku/rices/red-life",
   "slug": "red-life",
   "name": "Red Life",
   "author": "one",
@@ -214,5 +218,55 @@
       "touchScrollFactor": 1,
       "workspaceSwipe": false
     }
-  }
+  },
+  "files": [
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 10064,
+      "sha256": "f6c1cd02fe7ad63e8dcb581483e62f50117be7df03daffe5186461f570db1a6d",
+      "install": false
+    },
+    {
+      "source": "configs/hypr.json",
+      "destination": "configs/hypr.json",
+      "mode": "0644",
+      "size": 2346,
+      "sha256": "a250b2e15116ab5815d009bfb8a5d69619a2d4f6e1a18e70ea2239583e40689d",
+      "install": true
+    },
+    {
+      "source": "configs/launcher.json",
+      "destination": "configs/launcher.json",
+      "mode": "0644",
+      "size": 146,
+      "sha256": "a3a5111af2ac3409afed84dec6a349d5804ba40280925b826b530c48f78f217e",
+      "install": true
+    },
+    {
+      "source": "configs/shell.json",
+      "destination": "configs/shell.json",
+      "mode": "0644",
+      "size": 973,
+      "sha256": "39dde904ae3410d558e1a0c0d4d4c75dca5812009570774371f232cb0719dcac",
+      "install": true
+    },
+    {
+      "source": "palette.json",
+      "destination": "palette.json",
+      "mode": "0644",
+      "size": 430,
+      "sha256": "7e30a9bcbee096326639c3c39096403f931e40ecfeacce85a3357300ec2e4100",
+      "install": true
+    },
+    {
+      "source": "wall.jpg",
+      "destination": "wall.jpg",
+      "mode": "0644",
+      "size": 482441,
+      "sha256": "f2f77a7d9ddfad1f6e0443daf6e1b02f5fc8e6faf89ba2a3a1c34e31975a45b2",
+      "install": true
+    }
+  ]
 }

@@ -4,98 +4,1787 @@
     {
       "id": "gaming",
       "name": "Gaming",
+      "version": "1.0.0",
+      "path": "bundles/gaming",
+      "author": "Ryoku Team",
+      "summary": "proton · overlays · emulators",
       "description": "The native Linux gaming stack: launchers, Wine and Proton, performance overlays, controller support, and a full lineup of console emulators. Ryoku installs the matching 32-bit GPU drivers for full hardware capacity.",
+      "tags": [
+        "proton",
+        "overlays",
+        "emulators"
+      ],
+      "accent": "#3fb950",
+      "surface": "#101010",
+      "preview": "assets/hero.png",
+      "screenshots": [
+        "assets/hero.png"
+      ],
+      "manifest": "bundle.json",
+      "manifestSha256": "4cbff415232ddeebd8121b0b0780fe0d09acce3e487287569eec23597006a030",
+      "components": [
+        {
+          "type": "package",
+          "name": "steam",
+          "detect": "steam",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Valve game store and client, with built-in Proton compatibility."
+        },
+        {
+          "type": "package",
+          "name": "lutris",
+          "detect": "lutris",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Open game manager for Windows, native, and emulated games."
+        },
+        {
+          "type": "package",
+          "name": "heroic-games-launcher-bin",
+          "detect": "heroic",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Launcher for Epic Games, GOG, and Amazon Prime games."
+        },
+        {
+          "type": "package",
+          "name": "umu-launcher",
+          "detect": "umu-run",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Valve's unified Proton runtime for non-Steam games (Lutris and Heroic use it)."
+        },
+        {
+          "type": "package",
+          "name": "wine",
+          "detect": "wine",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Compatibility layer for running Windows applications on Linux."
+        },
+        {
+          "type": "package",
+          "name": "winetricks",
+          "detect": "winetricks",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Installs runtime libraries and tweaks into Wine prefixes."
+        },
+        {
+          "type": "package",
+          "name": "protontricks",
+          "detect": "protontricks",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Runs winetricks tasks inside Steam Proton game prefixes."
+        },
+        {
+          "type": "package",
+          "name": "protonup-qt",
+          "detect": "protonup-qt",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Installs GE-Proton and Wine-GE for Steam, Lutris, and Heroic."
+        },
+        {
+          "type": "package",
+          "name": "vkd3d",
+          "detect": "vkd3d",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Direct3D 12 to Vulkan translation for Wine and Lutris games."
+        },
+        {
+          "type": "package",
+          "name": "lib32-vkd3d",
+          "detect": "lib32-vkd3d",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit Direct3D 12 to Vulkan translation for 32-bit Wine games."
+        },
+        {
+          "type": "package",
+          "name": "gamemode",
+          "detect": "gamemoded",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Applies temporary performance optimizations while gaming."
+        },
+        {
+          "type": "package",
+          "name": "lib32-gamemode",
+          "detect": "lib32-gamemode",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit GameMode libraries for 32-bit games."
+        },
+        {
+          "type": "package",
+          "name": "gamescope",
+          "detect": "gamescope",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Micro-compositor for upscaling, frame limiting, and isolating games."
+        },
+        {
+          "type": "package",
+          "name": "mangohud",
+          "detect": "mangohud",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vulkan and OpenGL overlay for FPS, frametimes, and system metrics."
+        },
+        {
+          "type": "package",
+          "name": "lib32-mangohud",
+          "detect": "lib32-mangohud",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit MangoHud libraries for 32-bit games."
+        },
+        {
+          "type": "package",
+          "name": "goverlay",
+          "detect": "goverlay",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GUI to configure MangoHud and vkBasalt without editing config files."
+        },
+        {
+          "type": "package",
+          "name": "vkbasalt",
+          "detect": "vkbasalt",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vulkan post-processing layer for sharpening, FXAA, SMAA, and deband."
+        },
+        {
+          "type": "package",
+          "name": "lib32-vkbasalt",
+          "detect": "lib32-vkbasalt",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit vkBasalt post-processing for 32-bit games."
+        },
+        {
+          "type": "package",
+          "name": "game-devices-udev",
+          "detect": "game-devices-udev",
+          "tier": "core",
+          "interactive": false,
+          "summary": "udev rules for Xbox, PlayStation, Nintendo, Steam, and 8BitDo controllers."
+        },
+        {
+          "type": "package",
+          "name": "vesktop-bin",
+          "detect": "vesktop",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Discord client with Vencord and working Wayland screen share."
+        },
+        {
+          "type": "package",
+          "name": "retroarch",
+          "detect": "retroarch",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "All-in-one frontend for libretro emulator cores (add the cores below or in-app)."
+        },
+        {
+          "type": "package",
+          "name": "libretro-core-info",
+          "detect": "libretro-core-info",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Core metadata RetroArch needs to list and load libretro cores."
+        },
+        {
+          "type": "package",
+          "name": "libretro-snes9x",
+          "detect": "libretro-snes9x",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "SNES / Super Famicom core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-mesen",
+          "detect": "libretro-mesen",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "NES / Famicom core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-genesis-plus-gx",
+          "detect": "libretro-genesis-plus-gx",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Sega Master System, Game Gear, Genesis, and Mega Drive core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-beetle-psx-hw",
+          "detect": "libretro-beetle-psx-hw",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Hardware-rendered PlayStation 1 core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-mupen64plus-next",
+          "detect": "libretro-mupen64plus-next",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Nintendo 64 core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "dolphin-emu",
+          "detect": "dolphin-emu",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "GameCube and Wii emulator."
+        },
+        {
+          "type": "package",
+          "name": "pcsx2",
+          "detect": "pcsx2-qt",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "PlayStation 2 emulator."
+        },
+        {
+          "type": "package",
+          "name": "rpcs3-bin",
+          "detect": "rpcs3",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "PlayStation 3 emulator."
+        },
+        {
+          "type": "package",
+          "name": "ppsspp",
+          "detect": "ppsspp",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "PlayStation Portable (PSP) emulator."
+        },
+        {
+          "type": "package",
+          "name": "mgba-qt",
+          "detect": "mgba-qt",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Game Boy, Game Boy Color, and Game Boy Advance emulator."
+        },
+        {
+          "type": "package",
+          "name": "melonds",
+          "detect": "melonDS",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Nintendo DS emulator."
+        },
+        {
+          "type": "package",
+          "name": "flycast",
+          "detect": "flycast",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Sega Dreamcast, Naomi, and Atomiswave emulator."
+        },
+        {
+          "type": "package",
+          "name": "cemu",
+          "detect": "cemu",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Wii U emulator."
+        },
+        {
+          "type": "package",
+          "name": "xemu",
+          "detect": "xemu",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Original Xbox emulator."
+        },
+        {
+          "type": "package",
+          "name": "mame",
+          "detect": "mame",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Multi-Arcade Machine Emulator for classic arcade boards."
+        },
+        {
+          "type": "package",
+          "name": "scummvm",
+          "detect": "scummvm",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Runtime for classic point-and-click adventure games."
+        },
+        {
+          "type": "package",
+          "name": "dosbox",
+          "detect": "dosbox",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "DOS emulator for running classic MS-DOS games."
+        },
+        {
+          "type": "package",
+          "name": "corectrl",
+          "detect": "corectrl",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Per-profile GPU and CPU tuning and fan curves (AMD-focused)."
+        },
+        {
+          "type": "package",
+          "name": "antimicrox",
+          "detect": "antimicrox",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Map a gamepad to keyboard and mouse for games without native pad support."
+        },
+        {
+          "type": "package",
+          "name": "sc-controller",
+          "detect": "sc-controller",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Configure Steam Controller, DualShock, and other gamepads with custom profiles."
+        }
+      ],
       "tagline": "proton · overlays · emulators",
       "sources": "pacman / AUR",
-      "icon": "sports_esports",
-      "accent": "#3fb950",
-      "preview": "assets/hero.png",
-      "screenshots": ["assets/hero.png"],
-      "path": "bundles/gaming"
+      "icon": "sports_esports"
     },
     {
       "id": "audiophile",
       "name": "Audiophile",
+      "version": "1.0.0",
+      "path": "bundles/audiophile",
+      "author": "Ryoku Team",
+      "summary": "pipewire · tools · control",
       "description": "EasyEffects, patchbays, mixers, and PipeWire inspection for people who care how the machine sounds.",
+      "tags": [
+        "pipewire",
+        "tools",
+        "control"
+      ],
+      "accent": "#4cc9f0",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "ecb5ebedc37d5d44bd14b9ba9b362e643711f727c030941a3f5a78b6083f5408",
+      "components": [
+        {
+          "type": "package",
+          "name": "easyeffects",
+          "detect": "easyeffects",
+          "tier": "core",
+          "interactive": false,
+          "summary": "System-wide EQ and effects (parametric EQ, convolver, crossfeed, dynamics) for PipeWire."
+        },
+        {
+          "type": "package",
+          "name": "helvum",
+          "detect": "helvum",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GTK patchbay that shows the PipeWire node graph and connects ports by dragging."
+        },
+        {
+          "type": "package",
+          "name": "qpwgraph",
+          "detect": "qpwgraph",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Qt PipeWire graph manager with a patchbay that saves and restores connections."
+        },
+        {
+          "type": "package",
+          "name": "pavucontrol",
+          "detect": "pavucontrol",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GTK volume control for per-app streams, device selection, and card profiles."
+        },
+        {
+          "type": "package",
+          "name": "pamixer",
+          "detect": "pamixer",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Command-line volume mixer for keybindings and scripts."
+        },
+        {
+          "type": "package",
+          "name": "ncpamixer",
+          "detect": "ncpamixer",
+          "tier": "core",
+          "interactive": false,
+          "summary": "ncurses terminal mixer modeled on pavucontrol."
+        },
+        {
+          "type": "package",
+          "name": "coppwr",
+          "detect": "coppwr",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Low-level PipeWire control: nodes, clock rate, quantum, metadata, and profiler stats."
+        },
+        {
+          "type": "package",
+          "name": "alsa-utils",
+          "detect": "alsamixer",
+          "tier": "core",
+          "interactive": false,
+          "summary": "ALSA command-line utilities: alsamixer, speaker-test, aplay, and arecord."
+        },
+        {
+          "type": "package",
+          "name": "bluez",
+          "detect": "bluetoothd",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Linux Bluetooth protocol stack daemon for pairing wireless audio devices."
+        },
+        {
+          "type": "package",
+          "name": "bluez-utils",
+          "detect": "bluetoothctl",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Bluetooth management utilities including the bluetoothctl client."
+        }
+      ],
       "tagline": "pipewire · tools · control",
-      "sources": "pacman / AUR",
-      "path": "bundles/audiophile"
+      "sources": "pacman / AUR"
     },
     {
       "id": "the-influencer",
       "name": "The Influencer",
+      "version": "1.0.0",
+      "path": "bundles/the-influencer",
+      "author": "Ryoku Team",
+      "summary": "stream · record · edit · publish",
       "description": "A complete stream, record, edit, reformat, caption, and publish kit: recorders, editors, audio and thumbnail tools, plus a right-click video toolkit in the file manager.",
+      "tags": [
+        "stream",
+        "record",
+        "edit",
+        "publish"
+      ],
+      "accent": "#e2342a",
+      "surface": "#101010",
+      "preview": "assets/hero.png",
+      "screenshots": [
+        "assets/hero.png"
+      ],
+      "manifest": "bundle.json",
+      "manifestSha256": "d1052812380f38ee448f5c8ed2791c37f58c11760875dd48bec9948e208e4abb",
+      "components": [
+        {
+          "type": "nautilus-pack",
+          "name": "video-reformat",
+          "detect": "video-reformat",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Right-click video reformat, transcode, compress, caption-prep, and thumbnail tools."
+        },
+        {
+          "type": "package",
+          "name": "obs-studio",
+          "detect": "obs",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Streaming and recording studio with native PipeWire screen and app audio capture."
+        },
+        {
+          "type": "package",
+          "name": "obs-vkcapture",
+          "detect": "obs-gamecapture",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vulkan and OpenGL game capture for OBS on Wayland."
+        },
+        {
+          "type": "package",
+          "name": "obs-backgroundremoval",
+          "detect": "obs-backgroundremoval",
+          "tier": "core",
+          "interactive": false,
+          "summary": "AI webcam background removal for OBS, no green screen needed."
+        },
+        {
+          "type": "package",
+          "name": "obs-pipewire-audio-capture",
+          "detect": "obs-pipewire-audio-capture",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Per-application audio capture for OBS (capture one app's sound)."
+        },
+        {
+          "type": "package",
+          "name": "v4l2loopback-dkms",
+          "detect": "v4l2loopback-dkms",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Virtual camera kernel module that powers the OBS Virtual Camera."
+        },
+        {
+          "type": "package",
+          "name": "linux-headers",
+          "detect": "linux-headers",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Kernel headers so DKMS can build v4l2loopback (use linux-cachyos-headers on the CachyOS kernel)."
+        },
+        {
+          "type": "package",
+          "name": "gpu-screen-recorder",
+          "detect": "gpu-screen-recorder",
+          "tier": "core",
+          "interactive": false,
+          "summary": "ShadowPlay-style GPU-encoded recorder and replay buffer for instant clips."
+        },
+        {
+          "type": "package",
+          "name": "wf-recorder",
+          "detect": "wf-recorder",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Lightweight wlroots-native screen recorder."
+        },
+        {
+          "type": "package",
+          "name": "kdenlive",
+          "detect": "kdenlive",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Multitrack non-linear video editor with effects, transitions, and keyframes."
+        },
+        {
+          "type": "package",
+          "name": "losslesscut-bin",
+          "detect": "losslesscut",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fast lossless trimming, cutting, and merging of video and audio."
+        },
+        {
+          "type": "package",
+          "name": "easyeffects",
+          "detect": "easyeffects",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Real-time PipeWire microphone and audio effects chain, system-wide."
+        },
+        {
+          "type": "package",
+          "name": "noise-suppression-for-voice",
+          "detect": "noise-suppression-for-voice",
+          "tier": "core",
+          "interactive": false,
+          "summary": "RNNoise neural noise suppression (LADSPA/LV2) for EasyEffects, OBS, and Ardour."
+        },
+        {
+          "type": "package",
+          "name": "audacity",
+          "detect": "audacity",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Multitrack audio recorder and editor for voiceovers and podcasts."
+        },
+        {
+          "type": "package",
+          "name": "gimp",
+          "detect": "gimp",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Raster image editor for thumbnails, compositing, and retouching."
+        },
+        {
+          "type": "package",
+          "name": "inkscape",
+          "detect": "inkscape",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vector editor for crisp thumbnail text, logos, and overlay assets."
+        },
+        {
+          "type": "package",
+          "name": "krita",
+          "detect": "krita",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Digital painting for illustrated thumbnails and channel art."
+        },
+        {
+          "type": "package",
+          "name": "yt-dlp",
+          "detect": "yt-dlp",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Download reference footage and your own back-catalogue; extract audio."
+        },
+        {
+          "type": "package",
+          "name": "handbrake",
+          "detect": "ghb",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GUI and CLI batch transcoder with presets for each platform."
+        },
+        {
+          "type": "package",
+          "name": "whisper.cpp",
+          "detect": "whisper-cli",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Local speech-to-text engine behind the right-click Generate captions (SRT) action."
+        },
+        {
+          "type": "script",
+          "name": "capture-website-cli",
+          "detect": "capture-website",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Renders a URL or HTML file to an image for scripted thumbnails."
+        },
+        {
+          "type": "script",
+          "name": "youtubeuploader",
+          "detect": "youtubeuploader",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Scripted YouTube uploads from the command line with metadata."
+        },
+        {
+          "type": "script",
+          "name": "davinci-resolve",
+          "detect": "davinci-resolve",
+          "tier": "optional",
+          "interactive": true,
+          "summary": "Pro NLE and color grading. Proprietary: you download the installer from Blackmagic, then this builds it. Free build on Linux cannot import H.264/H.265; use the DaVinci reformat action."
+        },
+        {
+          "type": "package",
+          "name": "reaper",
+          "detect": "reaper",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Pro DAW with a native Linux build (paid after a 60-day evaluation)."
+        },
+        {
+          "type": "package",
+          "name": "wl-screenrec",
+          "detect": "wl-screenrec",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "High-performance hardware-encoded wlroots screen recorder."
+        },
+        {
+          "type": "package",
+          "name": "distroav",
+          "detect": "distroav",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "NDI in and out for OBS (multi-PC and multi-app video over the LAN)."
+        },
+        {
+          "type": "package",
+          "name": "owncast-bin",
+          "detect": "owncast",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Self-hosted live streaming server (your own Twitch alternative)."
+        },
+        {
+          "type": "package",
+          "name": "shotcut",
+          "detect": "shotcut",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Simple cross-platform MLT video editor, approachable for newcomers."
+        },
+        {
+          "type": "package",
+          "name": "blender",
+          "detect": "blender",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "3D suite with a Video Sequence Editor and compositor for intros and motion graphics."
+        },
+        {
+          "type": "package",
+          "name": "darktable",
+          "detect": "darktable",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "RAW photo developer for high-quality still and thumbnail source shots."
+        },
+        {
+          "type": "package",
+          "name": "upscayl-bin",
+          "detect": "upscayl",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "AI image upscaler (Real-ESRGAN) to rescue low-res thumbnail assets."
+        },
+        {
+          "type": "package",
+          "name": "qprompt",
+          "detect": "qprompt",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Modern teleprompter for scripted delivery."
+        },
+        {
+          "type": "package",
+          "name": "subtitleedit",
+          "detect": "subtitleedit",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "GUI subtitle editor with built-in whisper.cpp transcription and styling."
+        }
+      ],
       "tagline": "stream · record · edit · publish",
       "sources": "pacman / AUR / Go / npm / ryoku",
-      "icon": "movie",
-      "accent": "#e2342a",
-      "preview": "assets/hero.png",
-      "screenshots": ["assets/hero.png"],
-      "path": "bundles/the-influencer"
+      "icon": "movie"
     },
     {
       "id": "office-worker",
       "name": "Office Worker",
+      "version": "1.0.0",
+      "path": "bundles/office-worker",
+      "author": "Ryoku Team",
+      "summary": "docs · mail · meetings",
       "description": "FOSS office suites, PDF reading and editing, mail and calendar, Teams, and a Windows app fallback.",
+      "tags": [
+        "docs",
+        "mail",
+        "meetings"
+      ],
+      "accent": "#60a5fa",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "0010abc65f8a90d3dee45c473c215c218a339e749e7363a7e0e6322b8e86fe58",
+      "components": [
+        {
+          "type": "package",
+          "name": "libreoffice-fresh",
+          "detect": "libreoffice",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Full office suite: Writer, Calc, Impress, Draw, Base, and Math."
+        },
+        {
+          "type": "package",
+          "name": "onlyoffice-bin",
+          "detect": "onlyoffice-desktopeditors",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Office suite with high-fidelity Microsoft Word, Excel, and PowerPoint layout."
+        },
+        {
+          "type": "package",
+          "name": "okular",
+          "detect": "okular",
+          "tier": "core",
+          "interactive": false,
+          "summary": "PDF and document viewer with annotations, forms, and digital signatures."
+        },
+        {
+          "type": "package",
+          "name": "xournalpp",
+          "detect": "xournalpp",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Handwriting and PDF annotation for filling and signing forms."
+        },
+        {
+          "type": "package",
+          "name": "pdfarranger",
+          "detect": "pdfarranger",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Merge, split, rotate, and reorder PDF pages."
+        },
+        {
+          "type": "package",
+          "name": "thunderbird",
+          "detect": "thunderbird",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Email client with integrated calendar and contacts."
+        },
+        {
+          "type": "package",
+          "name": "evolution",
+          "detect": "evolution",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Groupware client combining mail, calendar, contacts, and tasks."
+        },
+        {
+          "type": "package",
+          "name": "evolution-ews",
+          "detect": "evolution-ews",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Connector adding native Microsoft Exchange and Microsoft 365 to Evolution."
+        },
+        {
+          "type": "package",
+          "name": "teams-for-linux",
+          "detect": "teams-for-linux",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Desktop client for Microsoft Teams meetings and chat."
+        },
+        {
+          "type": "package",
+          "name": "bottles",
+          "detect": "bottles",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Wine prefix manager with a GUI for running Windows applications."
+        }
+      ],
       "tagline": "docs · mail · meetings",
-      "sources": "pacman / AUR",
-      "path": "bundles/office-worker"
+      "sources": "pacman / AUR"
     },
     {
       "id": "secpulse-basic",
       "name": "SecPulse Basic",
+      "version": "1.0.0",
+      "path": "bundles/secpulse-basic",
+      "author": "Ryoku Team",
+      "summary": "starter cyber lab",
       "description": "Nmap, Gobuster, OpenVPN, wordlists, and the HTB and TryHackMe starter kit, without pretending to be Kali.",
+      "tags": [
+        "starter cyber lab"
+      ],
+      "accent": "#22c55e",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "792365254541d765db4c8ed5fb1044a486118e5c6e51a2a87a12f5e468281e5c",
+      "components": [
+        {
+          "type": "package",
+          "name": "nmap",
+          "detect": "nmap",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Network and port scanner with service detection and NSE scripts."
+        },
+        {
+          "type": "package",
+          "name": "gobuster",
+          "detect": "gobuster",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Directory, DNS, and vhost brute forcer written in Go."
+        },
+        {
+          "type": "package",
+          "name": "openvpn",
+          "detect": "openvpn",
+          "tier": "core",
+          "interactive": false,
+          "summary": "VPN client for connecting to HTB and THM lab networks."
+        },
+        {
+          "type": "package",
+          "name": "seclists",
+          "detect": "seclists",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Wordlist collection for fuzzing and brute forcing, includes rockyou."
+        },
+        {
+          "type": "package",
+          "name": "openbsd-netcat",
+          "detect": "nc",
+          "tier": "core",
+          "interactive": false,
+          "summary": "OpenBSD netcat, the nc command for shells, banners, and port checks."
+        },
+        {
+          "type": "script",
+          "name": "ffuf",
+          "detect": "ffuf",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fast web fuzzer for content, parameter, and vhost discovery."
+        },
+        {
+          "type": "package",
+          "name": "sqlmap",
+          "detect": "sqlmap",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Automatic SQL injection detection and database takeover."
+        },
+        {
+          "type": "package",
+          "name": "hydra",
+          "detect": "hydra",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Network login brute forcer for SSH, FTP, HTTP, and more."
+        },
+        {
+          "type": "package",
+          "name": "john",
+          "detect": "john",
+          "tier": "core",
+          "interactive": false,
+          "summary": "John the Ripper jumbo password and hash cracker."
+        },
+        {
+          "type": "package",
+          "name": "whois",
+          "detect": "whois",
+          "tier": "core",
+          "interactive": false,
+          "summary": "WHOIS client for domain and IP registration lookups."
+        },
+        {
+          "type": "package",
+          "name": "bind",
+          "detect": "dig",
+          "tier": "core",
+          "interactive": false,
+          "summary": "DNS query tools dig, host, and nslookup."
+        },
+        {
+          "type": "package",
+          "name": "smbclient",
+          "detect": "smbclient",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Samba SMB client for share access and enumeration."
+        },
+        {
+          "type": "script",
+          "name": "enum4linux-ng",
+          "detect": "enum4linux-ng",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Maintained SMB and Windows enumeration tool with JSON output."
+        },
+        {
+          "type": "package",
+          "name": "wireshark-qt",
+          "detect": "wireshark",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GUI network protocol analyzer; also installs tshark."
+        }
+      ],
       "tagline": "starter cyber lab",
-      "sources": "pacman / AUR / Go / pipx",
-      "path": "bundles/secpulse-basic"
+      "sources": "pacman / AUR / Go / pipx"
     },
     {
       "id": "secpulse-advanced",
       "name": "SecPulse Advanced",
+      "version": "1.0.0",
+      "path": "bundles/secpulse-advanced",
+      "author": "Ryoku Team",
+      "summary": "recon · firewall · ops",
       "description": "Nikto, Shodan, the ProjectDiscovery recon suite, masscan, firewall helpers, and proxied ops tooling.",
+      "tags": [
+        "recon",
+        "firewall",
+        "ops"
+      ],
+      "accent": "#10b981",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "417c15f05e20f037fc5742934185e455b68e60e04e0b0266c5312ef3abbcb01e",
+      "components": [
+        {
+          "type": "package",
+          "name": "nikto",
+          "detect": "nikto",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Web server scanner for dangerous files, stale software, and misconfigurations."
+        },
+        {
+          "type": "package",
+          "name": "whatweb",
+          "detect": "whatweb",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fingerprints sites: CMS, frameworks, servers, and technologies."
+        },
+        {
+          "type": "package",
+          "name": "wafw00f",
+          "detect": "wafw00f",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Detects and fingerprints web application firewalls."
+        },
+        {
+          "type": "package",
+          "name": "python-shodan",
+          "detect": "shodan",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Official Shodan CLI and library for the internet scan database."
+        },
+        {
+          "type": "package",
+          "name": "amass",
+          "detect": "amass",
+          "tier": "core",
+          "interactive": false,
+          "summary": "OWASP attack surface mapping and subdomain enumeration."
+        },
+        {
+          "type": "script",
+          "name": "subfinder",
+          "detect": "subfinder",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Passive subdomain discovery from many public sources."
+        },
+        {
+          "type": "script",
+          "name": "httpx",
+          "detect": "httpx",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fast HTTP toolkit for probing hosts, titles, status codes, and tech."
+        },
+        {
+          "type": "script",
+          "name": "nuclei",
+          "detect": "nuclei",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Template-based vulnerability scanner with a community rule library."
+        },
+        {
+          "type": "script",
+          "name": "naabu",
+          "detect": "naabu",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fast Go SYN and CONNECT port scanner."
+        },
+        {
+          "type": "package",
+          "name": "masscan",
+          "detect": "masscan",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Asynchronous mass TCP port scanner for large ranges."
+        },
+        {
+          "type": "package",
+          "name": "feroxbuster",
+          "detect": "feroxbuster",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Recursive web content and directory discovery, written in Rust."
+        },
+        {
+          "type": "package",
+          "name": "ufw",
+          "detect": "ufw",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Uncomplicated Firewall, a simple CLI front end for netfilter."
+        },
+        {
+          "type": "package",
+          "name": "gufw",
+          "detect": "gufw",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Graphical front end for ufw."
+        },
+        {
+          "type": "package",
+          "name": "firewalld",
+          "detect": "firewall-cmd",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Dynamic firewall daemon with zones; ships the firewall-config GUI."
+        },
+        {
+          "type": "package",
+          "name": "proxychains-ng",
+          "detect": "proxychains4",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Routes TCP traffic of existing programs through proxy chains."
+        },
+        {
+          "type": "package",
+          "name": "tor",
+          "detect": "tor",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Anonymizing overlay network providing a local SOCKS proxy."
+        }
+      ],
       "tagline": "recon · firewall · ops",
-      "sources": "pacman / AUR / Go",
-      "path": "bundles/secpulse-advanced"
+      "sources": "pacman / AUR / Go"
     },
     {
       "id": "the-ricer",
       "name": "The Ricer",
+      "version": "1.0.0",
+      "path": "bundles/the-ricer",
+      "author": "Ryoku Team",
+      "summary": "customize · inspect · tweak",
       "description": "Aether and the must-have apps for shaping the desktop, inspecting colors, and editing visuals.",
+      "tags": [
+        "customize",
+        "inspect",
+        "tweak"
+      ],
+      "accent": "#c084fc",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "0a4c2342a45fdfc749c0b5835168d63e24a54ec20ab0e5b43dc486afb884acf7",
+      "components": [
+        {
+          "type": "package",
+          "name": "aether",
+          "detect": "aether",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GTK app that extracts a palette from a wallpaper and themes the desktop."
+        },
+        {
+          "type": "package",
+          "name": "gpick",
+          "detect": "gpick",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GTK color picker for sampling colors and building palettes."
+        },
+        {
+          "type": "package",
+          "name": "pastel",
+          "detect": "pastel",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Command-line tool to generate, analyze, and convert colors."
+        },
+        {
+          "type": "package",
+          "name": "imv",
+          "detect": "imv",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Keyboard-driven image viewer for Wayland and X11."
+        },
+        {
+          "type": "package",
+          "name": "satty",
+          "detect": "satty",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Wayland screenshot annotation with arrows, text, blur, and crop."
+        },
+        {
+          "type": "package",
+          "name": "nwg-look",
+          "detect": "nwg-look",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GTK settings editor for wlroots: theme, icons, cursor, and fonts."
+        },
+        {
+          "type": "package",
+          "name": "qt6ct",
+          "detect": "qt6ct",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Configuration utility for the appearance of Qt 6 applications."
+        },
+        {
+          "type": "package",
+          "name": "qt5ct",
+          "detect": "qt5ct",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Configuration utility for the appearance of Qt 5 applications."
+        },
+        {
+          "type": "package",
+          "name": "kvantum",
+          "detect": "kvantummanager",
+          "tier": "core",
+          "interactive": false,
+          "summary": "SVG theme engine and manager for Qt applications."
+        },
+        {
+          "type": "package",
+          "name": "papirus-icon-theme",
+          "detect": "papirus-icon-theme",
+          "tier": "core",
+          "interactive": false,
+          "summary": "SVG icon theme with light and dark variants and folder colors."
+        },
+        {
+          "type": "package",
+          "name": "font-manager",
+          "detect": "font-manager",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GTK app to preview, compare, and manage installed fonts."
+        },
+        {
+          "type": "package",
+          "name": "cpufetch",
+          "detect": "cpufetch",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Terminal CPU information with ASCII architecture art."
+        },
+        {
+          "type": "package",
+          "name": "cmatrix",
+          "detect": "cmatrix",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Curses scrolling Matrix-style screen animation."
+        },
+        {
+          "type": "package",
+          "name": "cbonsai",
+          "detect": "cbonsai",
+          "tier": "core",
+          "interactive": false,
+          "summary": "ncurses bonsai tree generator and screensaver."
+        }
+      ],
       "tagline": "customize · inspect · tweak",
-      "sources": "pacman / AUR",
-      "path": "bundles/the-ricer"
+      "sources": "pacman / AUR"
     },
     {
       "id": "the-vibecoder",
       "name": "The Vibecoder",
+      "version": "1.0.0",
+      "path": "bundles/the-vibecoder",
+      "author": "Ryoku Team",
+      "summary": "agents · terminals · flow",
       "description": "Claude Code, Codex, OpenCode, Gemini, aider, and the terminal helpers for building with AI.",
+      "tags": [
+        "agents",
+        "terminals",
+        "flow"
+      ],
+      "accent": "#818cf8",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "2aad01ec3994802c828ed0e3fb24e96934c740d86fb3c94eb5dd2022c10759f7",
+      "components": [
+        {
+          "type": "script",
+          "name": "claude-code",
+          "detect": "claude",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Anthropic terminal coding agent that edits code from natural language."
+        },
+        {
+          "type": "script",
+          "name": "codex",
+          "detect": "codex",
+          "tier": "core",
+          "interactive": false,
+          "summary": "OpenAI terminal coding agent that reads, edits, and runs code."
+        },
+        {
+          "type": "script",
+          "name": "opencode",
+          "detect": "opencode",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Open source terminal coding agent that works across model providers."
+        },
+        {
+          "type": "script",
+          "name": "gemini-cli",
+          "detect": "gemini",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Google open source terminal agent backed by Gemini models."
+        },
+        {
+          "type": "script",
+          "name": "aider",
+          "detect": "aider",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Terminal pair programmer that edits files in your git repo through chat."
+        },
+        {
+          "type": "package",
+          "name": "zellij",
+          "detect": "zellij",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Terminal multiplexer with panes, tabs, layouts, and session resurrection."
+        },
+        {
+          "type": "package",
+          "name": "glow",
+          "detect": "glow",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Terminal markdown renderer for files, stdin, and URLs."
+        },
+        {
+          "type": "package",
+          "name": "git-delta",
+          "detect": "delta",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Syntax-highlighting pager for git diff, show, and blame."
+        },
+        {
+          "type": "package",
+          "name": "mods",
+          "detect": "mods",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Sends command output and prompts to a language model and prints markdown."
+        }
+      ],
       "tagline": "agents · terminals · flow",
-      "sources": "pacman / AUR / npm / pipx / vendor",
-      "path": "bundles/the-vibecoder"
+      "sources": "pacman / AUR / npm / pipx / vendor"
     },
     {
       "id": "the-developer",
       "name": "The Developer",
+      "version": "1.0.0",
+      "path": "bundles/the-developer",
+      "author": "Ryoku Team",
+      "summary": "real dev workflows",
       "description": "Zed, the Docker stack, git and database TUIs, and the per-project glue for actual development.",
+      "tags": [
+        "real dev workflows"
+      ],
+      "accent": "#38bdf8",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "e50db6997353e52f53564fab10b2049f57168b37cd7514cced967efce005acee",
+      "components": [
+        {
+          "type": "package",
+          "name": "zed",
+          "detect": "zeditor",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GPU-accelerated code editor with language servers and multiplayer."
+        },
+        {
+          "type": "package",
+          "name": "docker",
+          "detect": "docker",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Container engine for building, running, and shipping containers."
+        },
+        {
+          "type": "package",
+          "name": "docker-compose",
+          "detect": "docker-compose",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Docker plugin to run multi-container apps from a compose file."
+        },
+        {
+          "type": "package",
+          "name": "docker-buildx",
+          "detect": "docker-buildx",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Docker plugin for BuildKit multi-platform image builds."
+        },
+        {
+          "type": "package",
+          "name": "lazydocker",
+          "detect": "lazydocker",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Terminal UI for Docker containers, images, volumes, and logs."
+        },
+        {
+          "type": "package",
+          "name": "git-delta",
+          "detect": "delta",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Syntax-highlighting pager for git, diff, and grep output."
+        },
+        {
+          "type": "package",
+          "name": "gitui",
+          "detect": "gitui",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fast terminal UI for git, written in Rust."
+        },
+        {
+          "type": "package",
+          "name": "direnv",
+          "detect": "direnv",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Loads and unloads environment variables per directory."
+        },
+        {
+          "type": "package",
+          "name": "just",
+          "detect": "just",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Command runner for project tasks defined in a justfile."
+        },
+        {
+          "type": "package",
+          "name": "httpie",
+          "detect": "http",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Human-friendly command-line HTTP and REST client."
+        },
+        {
+          "type": "package",
+          "name": "go-yq",
+          "detect": "yq",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Command-line YAML, JSON, and XML processor with jq-style syntax."
+        },
+        {
+          "type": "script",
+          "name": "lazysql",
+          "detect": "lazysql",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Terminal UI database client for Postgres, MySQL, SQLite, and more."
+        },
+        {
+          "type": "package",
+          "name": "ruff",
+          "detect": "ruff",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fast Python linter and code formatter."
+        },
+        {
+          "type": "package",
+          "name": "shellcheck",
+          "detect": "shellcheck",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Static analysis linter for shell scripts."
+        }
+      ],
       "tagline": "real dev workflows",
-      "sources": "pacman / Go",
-      "path": "bundles/the-developer"
+      "sources": "pacman / Go"
     },
     {
       "id": "the-hacker",
       "name": "The Hacker",
+      "version": "1.0.0",
+      "path": "bundles/the-hacker",
+      "author": "Ryoku Team",
+      "summary": "reversing · forensics",
       "description": "Disassemblers, debuggers, memory and disk forensics, hex and binary inspection, and packet work.",
+      "tags": [
+        "reversing",
+        "forensics"
+      ],
+      "accent": "#84cc16",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "ab79b02cd02dd22f6a780c4ad1f353731c0b9f39897e33c1f530c2e37a6c4f79",
+      "components": [
+        {
+          "type": "package",
+          "name": "ghidra",
+          "detect": "ghidra",
+          "tier": "core",
+          "interactive": false,
+          "summary": "NSA reverse engineering suite with a multi-architecture decompiler."
+        },
+        {
+          "type": "package",
+          "name": "radare2",
+          "detect": "radare2",
+          "tier": "core",
+          "interactive": false,
+          "summary": "CLI framework to disassemble, debug, and analyze binaries."
+        },
+        {
+          "type": "package",
+          "name": "rizin",
+          "detect": "rizin",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Maintained radare2 fork for binary analysis and disassembly."
+        },
+        {
+          "type": "package",
+          "name": "cutter-bin",
+          "detect": "cutter",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Qt graphical reverse engineering interface powered by rizin."
+        },
+        {
+          "type": "package",
+          "name": "gdb",
+          "detect": "gdb",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GNU debugger for native code with scripting and remote debugging."
+        },
+        {
+          "type": "package",
+          "name": "pwndbg",
+          "detect": "pwndbg",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GDB plugin for exploit development and heap inspection."
+        },
+        {
+          "type": "package",
+          "name": "gef",
+          "detect": "gef",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GDB enhancement script for exploit development, loaded from gdbinit."
+        },
+        {
+          "type": "package",
+          "name": "ltrace",
+          "detect": "ltrace",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Traces library calls and signals of a running program."
+        },
+        {
+          "type": "package",
+          "name": "strace",
+          "detect": "strace",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Traces system calls and signals of a running program."
+        },
+        {
+          "type": "package",
+          "name": "bindiff",
+          "detect": "bindiff",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Diffs disassembled binaries to match and compare code."
+        },
+        {
+          "type": "package",
+          "name": "binwalk",
+          "detect": "binwalk",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Scans and extracts embedded files and firmware images."
+        },
+        {
+          "type": "package",
+          "name": "tinyxxd",
+          "detect": "xxd",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Standalone xxd hex dump and reverse utility."
+        },
+        {
+          "type": "package",
+          "name": "hexedit",
+          "detect": "hexedit",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Interactive terminal editor for viewing and modifying files in hex."
+        },
+        {
+          "type": "package",
+          "name": "hexyl",
+          "detect": "hexyl",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Colored command-line hex viewer with byte category highlighting."
+        },
+        {
+          "type": "script",
+          "name": "capa",
+          "detect": "capa",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Identifies capabilities in executable files using a rule set."
+        },
+        {
+          "type": "package",
+          "name": "sleuthkit",
+          "detect": "fls",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Command-line toolkit to analyze disk images and file systems."
+        },
+        {
+          "type": "package",
+          "name": "autopsy",
+          "detect": "autopsy",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Graphical digital forensics platform built on The Sleuth Kit."
+        },
+        {
+          "type": "package",
+          "name": "volatility3",
+          "detect": "vol",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Memory forensics framework for analyzing RAM captures."
+        },
+        {
+          "type": "package",
+          "name": "foremost",
+          "detect": "foremost",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Recovers files from disk images by header and footer carving."
+        },
+        {
+          "type": "package",
+          "name": "testdisk",
+          "detect": "testdisk",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Recovers lost partitions and undeletes files, includes PhotoRec."
+        },
+        {
+          "type": "package",
+          "name": "ddrescue",
+          "detect": "ddrescue",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Images failing drives while skipping bad sectors."
+        },
+        {
+          "type": "package",
+          "name": "perl-image-exiftool",
+          "detect": "exiftool",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Reads and writes metadata in images, documents, and media."
+        },
+        {
+          "type": "package",
+          "name": "wireshark-qt",
+          "detect": "wireshark",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Graphical network protocol analyzer for live and captured traffic."
+        },
+        {
+          "type": "package",
+          "name": "wireshark-cli",
+          "detect": "tshark",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Command-line packet analyzer (tshark) from the Wireshark project."
+        },
+        {
+          "type": "package",
+          "name": "tcpdump",
+          "detect": "tcpdump",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Command-line packet capture and inspection using libpcap."
+        },
+        {
+          "type": "script",
+          "name": "termshark",
+          "detect": "termshark",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Terminal user interface for tshark."
+        }
+      ],
       "tagline": "reversing · forensics",
-      "sources": "pacman / AUR / Go / pipx",
-      "path": "bundles/the-hacker"
+      "sources": "pacman / AUR / Go / pipx"
     },
     {
       "id": "cachyos-kernel",
       "name": "CachyOS Kernel",
+      "version": "1.0.0",
+      "path": "bundles/cachyos-kernel",
+      "author": "Ryoku Team",
+      "summary": "faster kernel · keeps stock as fallback",
       "description": "Swap in the performance-tuned CachyOS kernel. Pros: snappier desktop and gaming. Cons: adds the CachyOS repo, DKMS rebuilds, more bleeding-edge. Stock kernel stays as the fallback.",
+      "tags": [
+        "faster kernel",
+        "keeps stock as fallback"
+      ],
+      "accent": "#f97316",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "9d7593cd765f85a5f349afad744efac10aff0cb4b9c61a8c3b12d6c56fa00aa6",
+      "components": [
+        {
+          "type": "package",
+          "name": "linux-cachyos",
+          "detect": "linux-cachyos",
+          "tier": "core",
+          "interactive": false,
+          "summary": "The CachyOS kernel: EEVDF with sched-ext, Clang ThinLTO and AutoFDO, the Cachy patchset. Built for x86-64-v3."
+        },
+        {
+          "type": "package",
+          "name": "linux-cachyos-headers",
+          "detect": "linux-cachyos-headers",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Headers for the CachyOS kernel, needed to rebuild DKMS modules (NVIDIA, VirtualBox) against it."
+        }
+      ],
       "tagline": "faster kernel · keeps stock as fallback",
-      "sources": "CachyOS repo",
-      "path": "bundles/cachyos-kernel"
+      "sources": "CachyOS repo"
     }
   ]
 }

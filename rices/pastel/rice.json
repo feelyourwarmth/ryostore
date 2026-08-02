@@ -1,13 +1,27 @@
 {
   "schema": 1,
+  "id": "pastel",
+  "category": "rices",
+  "version": "1.0.0",
+  "destination": "ryoku/rices/pastel",
   "slug": "pastel",
   "name": "Pastel",
   "author": "Ryoku Team",
   "blurb": "Soft, bright, and round to the edge: high rounding across windows, the frame edge, the bar and the chrome, glassy blur, a gentle glow, and a cotton-candy palette.",
-  "tags": ["pastel", "rounded", "bright", "glass"],
+  "tags": [
+    "pastel",
+    "rounded",
+    "bright",
+    "glass"
+  ],
   "createdWith": "0.6.8",
-  "color": { "mode": "fixed", "palette": "palette.json" },
-  "assets": { "cursor": "Bibata-Modern-Ice" },
+  "color": {
+    "mode": "fixed",
+    "palette": "palette.json"
+  },
+  "assets": {
+    "cursor": "Bibata-Modern-Ice"
+  },
   "look": {
     "hypr": {
       "appearance": {
@@ -40,7 +54,10 @@
         "borderAngleSpeed": 2
       },
       "plugins": {
-        "hyprglass": { "enabled": true, "preset": "glass" }
+        "hyprglass": {
+          "enabled": true,
+          "preset": "glass"
+        }
       }
     },
     "shell": {
@@ -54,5 +71,23 @@
       "surfaceColor": "#221b2b"
     },
     "launcher": {}
-  }
+  },
+  "files": [
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 10134,
+      "sha256": "a309a5e10791a8be26edf254aa92c474df2ceedbeeb5f8eff779990964b52a6a",
+      "install": false
+    },
+    {
+      "source": "palette.json",
+      "destination": "palette.json",
+      "mode": "0644",
+      "size": 454,
+      "sha256": "4ab8df00e7b382a77c9dd026094bd70a4c77cb98e55b1b90603ae2ac036a1ec6",
+      "install": true
+    }
+  ]
 }

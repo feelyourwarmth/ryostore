@@ -106,9 +106,17 @@ def is_documentation(relative: str) -> bool:
     return (named_document or in_documentation) and path.suffix.lower() in DOC_EXTENSIONS
 
 
+def starts_with_shebang(path: Path) -> bool:
+    try:
+        with path.open("rb") as source:
+            return source.read(2) == b"#!"
+    except OSError:
+        return False
+
+
 def is_executable_code(path: Path) -> bool:
     try:
-        return bool(path.stat().st_mode & 0o111) or path.open("rb").read(2) == b"#!"
+        return bool(path.stat().st_mode & 0o111) or starts_with_shebang(path)
     except OSError:
         return False
 
@@ -280,10 +288,7 @@ def validate_manifest(
         if executable and mode != "0755":
             errors.append(f"{label}: executable source requires mode 0755: {source}")
         if mode == "0755":
-            try:
-                shebang = path.open("rb").read(2) == b"#!"
-            except OSError:
-                shebang = False
+            shebang = starts_with_shebang(path)
             if not executable or not shebang:
                 errors.append(f"{label}: mode 0755 is only valid for executable scripts: {source}")
 

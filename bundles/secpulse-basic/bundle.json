@@ -1,5 +1,9 @@
 {
+  "schema": 1,
   "id": "secpulse-basic",
+  "category": "bundles",
+  "version": "1.0.0",
+  "destination": "ryoku/bundles/secpulse-basic",
   "name": "SecPulse Basic",
   "description": "Nmap, Gobuster, OpenVPN, wordlists, and the HTB and TryHackMe starter kit, without pretending to be Kali.",
   "items": [
@@ -113,6 +117,40 @@
       "summary": "GUI network protocol analyzer; also installs tshark.",
       "source": "official",
       "upstream": "https://www.wireshark.org"
+    }
+  ],
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "mode": "0644",
+      "size": 2447,
+      "sha256": "ec39b2dabf2346df5468b68f29c2105f09373da30bd77f2e9934e1a6aace0e2a",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 13718,
+      "sha256": "3ec471a4580c20dad74bbe6c3a5d3bcf39cf04bdf485bc44b0062ff3db09cc3c",
+      "install": false
+    },
+    {
+      "source": "installers/enum4linux-ng.sh",
+      "destination": "installers/enum4linux-ng.sh",
+      "mode": "0755",
+      "size": 291,
+      "sha256": "54530a6dd909c097aa598d037d99bd57d2c949ccfe9b35cf0b0da6808eaf4c64",
+      "install": true
+    },
+    {
+      "source": "installers/ffuf.sh",
+      "destination": "installers/ffuf.sh",
+      "mode": "0755",
+      "size": 244,
+      "sha256": "af9ad6b426ddfc33a0e27186e231bb8d562f2dfd21298844ae0ee25eac0c346f",
+      "install": true
     }
   ]
 }

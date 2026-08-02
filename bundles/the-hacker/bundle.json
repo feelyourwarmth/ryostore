@@ -1,5 +1,9 @@
 {
+  "schema": 1,
   "id": "the-hacker",
+  "category": "bundles",
+  "version": "1.0.0",
+  "destination": "ryoku/bundles/the-hacker",
   "name": "The Hacker",
   "description": "Disassemblers, debuggers, memory and disk forensics, hex and binary inspection, and packet work.",
   "items": [
@@ -209,6 +213,40 @@
       "summary": "Terminal user interface for tshark.",
       "source": "go",
       "upstream": "https://github.com/gcla/termshark"
+    }
+  ],
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "mode": "0644",
+      "size": 3964,
+      "sha256": "806e60b5a190d5d37569c07bd823a97be28092e8b73b50a836146326866ff243",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 13308,
+      "sha256": "4ff67ca3613cc46e8a53b6a538fb823ceb0937527cddca23c3c41dc356b3beb2",
+      "install": false
+    },
+    {
+      "source": "installers/capa.sh",
+      "destination": "installers/capa.sh",
+      "mode": "0755",
+      "size": 228,
+      "sha256": "88a3e1c4455e3c403bd3085390d0ac425b0af9dbbebccee4f92175e233cf830f",
+      "install": true
+    },
+    {
+      "source": "installers/termshark.sh",
+      "destination": "installers/termshark.sh",
+      "mode": "0755",
+      "size": 290,
+      "sha256": "1a565117685d11f227d1b0561af8db927e0fb6f5b534534c57d42d5567eee86b",
+      "install": true
     }
   ]
 }

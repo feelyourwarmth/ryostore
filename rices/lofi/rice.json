@@ -1,13 +1,27 @@
 {
   "schema": 1,
+  "id": "lofi",
+  "category": "rices",
+  "version": "1.0.0",
+  "destination": "ryoku/rices/lofi",
   "slug": "lofi",
   "name": "Lofi",
   "author": "Ryoku Team",
   "blurb": "After-hours pixel art. Warm, muted, and square: zero rounding across windows, the frame edge, the bar and the chrome, no glass, a structured bar, and a warm amber palette.",
-  "tags": ["lofi", "pixel", "retro", "square"],
+  "tags": [
+    "lofi",
+    "pixel",
+    "retro",
+    "square"
+  ],
   "createdWith": "0.6.8",
-  "color": { "mode": "fixed", "palette": "palette.json" },
-  "assets": { "cursor": "Bibata-Modern-Ice" },
+  "color": {
+    "mode": "fixed",
+    "palette": "palette.json"
+  },
+  "assets": {
+    "cursor": "Bibata-Modern-Ice"
+  },
   "look": {
     "hypr": {
       "appearance": {
@@ -44,5 +58,23 @@
       "surfaceColor": "#1a1626"
     },
     "launcher": {}
-  }
+  },
+  "files": [
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 7886,
+      "sha256": "dc0c1618f31662dae0d552674033bae2e26150c2ee5059d76b998725ec22a0e6",
+      "install": false
+    },
+    {
+      "source": "palette.json",
+      "destination": "palette.json",
+      "mode": "0644",
+      "size": 454,
+      "sha256": "45a9fb94620797e93ff79668f6e568c1423a9a81d714b1201884a9764fd43a2b",
+      "install": true
+    }
+  ]
 }

@@ -1,5 +1,9 @@
 {
+  "schema": 1,
   "id": "the-developer",
+  "category": "bundles",
+  "version": "1.0.0",
+  "destination": "ryoku/bundles/the-developer",
   "name": "The Developer",
   "description": "Zed, the Docker stack, git and database TUIs, and the per-project glue for actual development.",
   "items": [
@@ -113,6 +117,32 @@
       "summary": "Static analysis linter for shell scripts.",
       "source": "official",
       "upstream": "https://www.shellcheck.net"
+    }
+  ],
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "mode": "0644",
+      "size": 2495,
+      "sha256": "fcf9b3331e93b7f73c61164bb71d1b8f18d1710760a6979113131e6bbbde96be",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 15004,
+      "sha256": "bf3cce24eb28b03e551cf86cea7914cd23b15f1525fd428ee5877714adafb27c",
+      "install": false
+    },
+    {
+      "source": "installers/lazysql.sh",
+      "destination": "installers/lazysql.sh",
+      "mode": "0755",
+      "size": 284,
+      "sha256": "901a81826613c665df134f4af028d37d8443a9947aca031b753be68382392abd",
+      "install": true
     }
   ]
 }

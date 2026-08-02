@@ -1,5 +1,9 @@
 {
+  "schema": 1,
   "id": "the-ricer",
+  "category": "bundles",
+  "version": "1.0.0",
+  "destination": "ryoku/bundles/the-ricer",
   "name": "The Ricer",
   "description": "Aether and the must-have apps for shaping the desktop, inspecting colors, and editing visuals.",
   "items": [
@@ -113,6 +117,24 @@
       "summary": "ncurses bonsai tree generator and screensaver.",
       "source": "aur",
       "upstream": "https://gitlab.com/jallbrit/cbonsai"
+    }
+  ],
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "mode": "0644",
+      "size": 2468,
+      "sha256": "72be86af325c955fe112aef5bbfd419dbe13b52c9b1b1655799b257a9ae81ebe",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 12156,
+      "sha256": "80a1ebc94f04ca78f856727b0ea8a45d29b7171dcd5b49af8dfe2166109512a1",
+      "install": false
     }
   ]
 }

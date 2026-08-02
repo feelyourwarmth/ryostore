@@ -1,8 +1,14 @@
 {
+  "schema": 1,
   "id": "cachyos-kernel",
+  "category": "bundles",
+  "version": "1.0.0",
+  "destination": "ryoku/bundles/cachyos-kernel",
   "name": "CachyOS Kernel",
   "description": "Pros: an optimized, patched kernel (Clang ThinLTO and AutoFDO, x86-64-v3, the Cachy patchset), EEVDF with sched-ext ready for opt-in schedulers (scx-scheds). Cons: adds the CachyOS repo and signing key, rebuilds your DKMS modules (NVIDIA and the like) per kernel, and tracks a more bleeding-edge kernel. Your stock Arch kernel stays installed as the default, safe fallback: pick it at the boot menu to roll back anytime.",
-  "requires": ["cachyos"],
+  "requires": [
+    "cachyos"
+  ],
   "items": [
     {
       "type": "package",
@@ -17,6 +23,16 @@
       "summary": "Headers for the CachyOS kernel, needed to rebuild DKMS modules (NVIDIA, VirtualBox) against it.",
       "source": "cachyos",
       "upstream": "https://github.com/CachyOS/linux-cachyos"
+    }
+  ],
+  "files": [
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 15696,
+      "sha256": "30da2dcedf33ae2f376a5a148e15c4105e747f5434a4610581f0551b4637579f",
+      "install": false
     }
   ]
 }

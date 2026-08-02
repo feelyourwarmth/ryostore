@@ -71,8 +71,8 @@ if [ -f bundles/registry.json ]; then
 					err "$bf: nautilus-pack '$iname' has no nautilus/$iname/manifest.json"
 				;;
 			script)
-				[ -f "installers/$iname.sh" ] ||
-					err "$bf: script '$iname' has no installers/$iname.sh"
+				[ -f "bundles/$id/installers/$iname.sh" ] ||
+					err "$bf: script '$iname' has no bundles/$id/installers/$iname.sh"
 				;;
 			package) ;;
 			*) err "$bf: unknown item type '$itype' (item '$iname')" ;;
@@ -121,22 +121,17 @@ if [ -f nautilus/registry.json ]; then
 fi
 
 # 5. installers are runnable.
-if [ -d installers ]; then
-	while IFS= read -r f; do
-		[ -x "$f" ] || err "$f is not executable"
-		head -n1 "$f" | grep -q '^#!' || err "$f has no shebang"
-	done < <(find installers -maxdepth 1 -name '*.sh' -type f)
-fi
+while IFS= read -r f; do
+	[ -x "$f" ] || err "$f is not executable"
+	head -n1 "$f" | grep -q '^#!' || err "$f has no shebang"
+done < <(find installers bundles -type f \( -path 'installers/*.sh' -o -path '*/installers/*.sh' \))
 
-# 6. The common Store contract activates once every category has migrated.
-all_store_registries=1
-for category in rices lockscreens barstyles fastfetch plugins bundles; do
-	[ -f "$category/registry.json" ] || all_store_registries=0
+# 6. Migrated categories activate the common Store contract independently.
+for category in rices plugins bundles; do
+	[ -f "$category/registry.json" ] || continue
+	python3 tests/validate-store.py --root . --categories "$category" ||
+		err "$category Store product validation failed"
 done
-if [ "$all_store_registries" -eq 1 ]; then
-	python3 tests/validate-store.py --root . ||
-		err "common Store product validation failed"
-fi
 
 if [ "$errors" -gt 0 ]; then
 	printf '\n%d catalogue error(s) found.\n' "$errors" >&2
