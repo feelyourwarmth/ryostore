@@ -1,0 +1,179 @@
+from __future__ import annotations
+
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import tempfile
+import unittest
+
+
+MODULE_PATH = Path(__file__).with_name("validate-store.py")
+SPEC = importlib.util.spec_from_file_location("validate_store", MODULE_PATH)
+validate_store = importlib.util.module_from_spec(SPEC)
+assert SPEC and SPEC.loader
+SPEC.loader.exec_module(validate_store)
+
+CATEGORIES = ("rices", "lockscreens", "barstyles", "fastfetch", "plugins", "bundles")
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def write_json(path: Path, value: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+
+
+def build_product(root: Path, category: str, product_id: str = "demo") -> tuple[Path, dict]:
+    product = root / category / product_id
+    content = product / "content" / "Widget.qml"
+    preview = product / "assets" / "preview.png"
+    content.parent.mkdir(parents=True, exist_ok=True)
+    preview.parent.mkdir(parents=True, exist_ok=True)
+    content.write_text("import QtQuick\nItem {}\n", encoding="utf-8")
+    preview.write_bytes(b"fixture preview")
+
+    manifest = {
+        "schema": 1,
+        "id": product_id,
+        "category": category,
+        "version": "1.0.0",
+        "destination": f"ryoku/{category}/{product_id}",
+        "files": [
+            {
+                "source": "content/Widget.qml",
+                "destination": "content/Widget.qml",
+                "mode": "0644",
+                "size": content.stat().st_size,
+                "sha256": digest(content),
+                "install": True,
+            },
+            {
+                "source": "assets/preview.png",
+                "destination": "assets/preview.png",
+                "mode": "0644",
+                "size": preview.stat().st_size,
+                "sha256": digest(preview),
+                "install": False,
+            },
+        ],
+    }
+    manifest_path = product / "manifest.json"
+    write_json(manifest_path, manifest)
+    entry = {
+        "id": product_id,
+        "name": "Demo",
+        "version": "1.0.0",
+        "path": f"{category}/{product_id}",
+        "author": "Ryoku Team",
+        "summary": "Fixture summary",
+        "description": "Fixture description",
+        "tags": ["fixture"],
+        "accent": "#cdc4ba",
+        "surface": "#101010",
+        "preview": "assets/preview.png",
+        "screenshots": [],
+        "manifest": "manifest.json",
+        "manifestSha256": digest(manifest_path),
+    }
+    return product, entry
+
+
+def build_tree(root: Path) -> dict[str, tuple[Path, dict]]:
+    products = {}
+    for category in CATEGORIES:
+        product, entry = build_product(root, category)
+        write_json(root / category / "registry.json", {"schema": 1, category: [entry]})
+        products[category] = (product, entry)
+    return products
+
+
+class ValidateStoreTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory()
+        self.root = Path(self.temp.name)
+        self.products = build_tree(self.root)
+
+    def tearDown(self) -> None:
+        self.temp.cleanup()
+
+    def errors(self) -> list[str]:
+        return validate_store.validate_tree(self.root)
+
+    def rewrite_manifest(self, category: str, mutate) -> None:
+        product, entry = self.products[category]
+        path = product / "manifest.json"
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        mutate(manifest)
+        write_json(path, manifest)
+        entry["manifestSha256"] = digest(path)
+        write_json(self.root / category / "registry.json", {"schema": 1, category: [entry]})
+
+    def test_valid_tree(self) -> None:
+        self.assertEqual(self.errors(), [])
+
+    def test_duplicate_ids(self) -> None:
+        _, entry = self.products["rices"]
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry, entry]})
+        self.assertIn("rices/demo: duplicate id", self.errors())
+
+    def test_missing_product_path(self) -> None:
+        _, entry = self.products["rices"]
+        entry["path"] = "rices/missing"
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: product path missing: rices/missing", self.errors())
+
+    def test_manifest_hash_mismatch(self) -> None:
+        _, entry = self.products["rices"]
+        entry["manifestSha256"] = "0" * 64
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: manifest hash mismatch", self.errors())
+
+    def test_parent_source_path_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(source="../Widget.qml"))
+        self.assertIn("rices/demo: source escapes product root: ../Widget.qml", self.errors())
+
+    def test_absolute_destination_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(destination="/tmp/Widget.qml"))
+        self.assertIn("rices/demo: destination must be relative: /tmp/Widget.qml", self.errors())
+
+    def test_symlink_is_rejected(self) -> None:
+        product, _ = self.products["rices"]
+        os.symlink(product / "content" / "Widget.qml", product / "content" / "Alias.qml")
+        self.assertIn("rices/demo: symlink forbidden: content/Alias.qml", self.errors())
+
+    def test_undeclared_payload_is_rejected(self) -> None:
+        product, _ = self.products["plugins"]
+        (product / "content" / "Extra.qml").write_text("import QtQuick\nItem {}\n", encoding="utf-8")
+        self.assertIn("plugins/demo: undeclared payload content/Extra.qml", self.errors())
+
+    def test_wrong_executable_mode_is_rejected(self) -> None:
+        product, _ = self.products["bundles"]
+        script = product / "content" / "install.sh"
+        script.write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
+        script.chmod(0o755)
+
+        def add_script(manifest: dict) -> None:
+            manifest["files"].append({
+                "source": "content/install.sh",
+                "destination": "content/install.sh",
+                "mode": "0644",
+                "size": script.stat().st_size,
+                "sha256": digest(script),
+                "install": True,
+            })
+
+        self.rewrite_manifest("bundles", add_script)
+        self.assertIn("bundles/demo: executable source requires mode 0755: content/install.sh", self.errors())
+
+    def test_missing_preview_is_rejected(self) -> None:
+        product, _ = self.products["fastfetch"]
+        (product / "assets" / "preview.png").unlink()
+        self.assertIn("fastfetch/demo: preview missing: assets/preview.png", self.errors())
+
+
+if __name__ == "__main__":
+    unittest.main()

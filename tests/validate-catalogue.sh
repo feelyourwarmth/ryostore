@@ -128,6 +128,16 @@ if [ -d installers ]; then
 	done < <(find installers -maxdepth 1 -name '*.sh' -type f)
 fi
 
+# 6. The common Store contract activates once every category has migrated.
+all_store_registries=1
+for category in rices lockscreens barstyles fastfetch plugins bundles; do
+	[ -f "$category/registry.json" ] || all_store_registries=0
+done
+if [ "$all_store_registries" -eq 1 ]; then
+	python3 tests/validate-store.py --root . ||
+		err "common Store product validation failed"
+fi
+
 if [ "$errors" -gt 0 ]; then
 	printf '\n%d catalogue error(s) found.\n' "$errors" >&2
 	exit 1
