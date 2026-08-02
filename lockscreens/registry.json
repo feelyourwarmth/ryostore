@@ -20,6 +20,266 @@
       "screenshots": [],
       "manifest": "manifest.json",
       "manifestSha256": "98939c7ed9146e914d464964122ed3e84a7b881c493a56145248de654ef5dca6"
+    },
+    {
+      "id": "field",
+      "name": "Field",
+      "version": "1.0.0",
+      "path": "lockscreens/field",
+      "author": "Darkkal44",
+      "summary": "An open pasture under soft light with a feather-light clock.",
+      "description": "A serene qylock scene: a wide field, a thin Orbitron clock, and a quiet amber login tucked into the corner.",
+      "tags": [
+        "scenic",
+        "minimal",
+        "calm"
+      ],
+      "accent": "#3c6678",
+      "surface": "#19180f",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "8ad65c07fa626aca871001c8d31948ad5afdf829e33a4771099e6d15005e1571"
+    },
+    {
+      "id": "girl-coffee",
+      "name": "Coffee Break",
+      "version": "1.0.0",
+      "path": "lockscreens/girl-coffee",
+      "author": "Darkkal44",
+      "summary": "A cosy hand-drawn morning with a warm mug in hand.",
+      "description": "A lo-fi illustrated character taking a coffee break, paired with the rounded Itim typeface and a soft, unobtrusive login.",
+      "tags": [
+        "anime",
+        "cozy",
+        "illustrated"
+      ],
+      "accent": "#8eb9b6",
+      "surface": "#695b76",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "ebbfd920bc39f03a617c23ed8256dd122a9ca24b56d9f3e3e2a59fdaa2abea8c"
+    },
+    {
+      "id": "girl-pillow",
+      "name": "Lazy Sunday",
+      "version": "1.0.0",
+      "path": "lockscreens/girl-pillow",
+      "author": "Darkkal44",
+      "summary": "A soft illustrated scene, curled up and half awake.",
+      "description": "A relaxed lo-fi illustration with the rounded Itim font and a gentle right-aligned login - quiet, warm, and unhurried.",
+      "tags": [
+        "anime",
+        "cozy",
+        "illustrated"
+      ],
+      "accent": "#737588",
+      "surface": "#625f6c",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "4891672453083058eddd46d78050e69bea1de6bc5bc47b68ed200e46ba034a34"
+    },
+    {
+      "id": "man-bicycle",
+      "name": "Evening Ride",
+      "version": "1.0.0",
+      "path": "lockscreens/man-bicycle",
+      "author": "Darkkal44",
+      "summary": "A lone cyclist against a wide illustrated sky.",
+      "description": "A cinematic lo-fi ride with the Itim typeface and a minimal login tucked into the frame.",
+      "tags": [
+        "scenic",
+        "illustrated",
+        "calm"
+      ],
+      "accent": "#2e8692",
+      "surface": "#395551",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "b2d51d79ccc58dc869b5479d11e52e781fb4e142110cdfa353ae3ed472b9886f"
+    },
+    {
+      "id": "material-you",
+      "name": "Material You",
+      "version": "1.0.0",
+      "path": "lockscreens/material-you",
+      "author": "Darkkal44",
+      "summary": "Google's Material You language, clean and adaptive.",
+      "description": "A crisp Material You lock with the Google Sans typeface, rounded surfaces, and a tidy centred login.",
+      "tags": [
+        "material",
+        "clean",
+        "modern"
+      ],
+      "accent": "#1a3c32",
+      "surface": "#1a3c32",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "4b07160bea63c9fc4fff381146d7135c99537329d4f9490cbfc5f29bdd22c3ff"
+    },
+    {
+      "id": "minecraft",
+      "name": "Minecraft Menu",
+      "version": "1.0.0",
+      "path": "lockscreens/minecraft",
+      "author": "Darkkal44",
+      "summary": "The blocky main-menu look, splash text and all.",
+      "description": "A nostalgic Minecraft title-screen lock: stone-button widgets, a random yellow splash line, and the classic logo.",
+      "tags": [
+        "game",
+        "retro",
+        "playful"
+      ],
+      "accent": "#251b12",
+      "surface": "#0f0b08",
+      "preview": "assets/preview.gif",
+      "screenshots": [
+        "assets/shot-1.png"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "c836d3168d2f70fe0e6c96b91b29ccffd302ccfee87e43ffe1e7b8b39816262e"
+    },
+    {
+      "id": "nier-automata",
+      "name": "NieR: Automata",
+      "version": "1.0.0",
+      "path": "lockscreens/nier-automata",
+      "author": "Darkkal44",
+      "summary": "The stark beige-and-black UI of YoRHa.",
+      "description": "A faithful NieR: Automata lock with bordered YoRHa buttons, the signature muted palette, and a precise login.",
+      "tags": [
+        "game",
+        "minimal",
+        "monochrome"
+      ],
+      "accent": "#1a1713",
+      "surface": "#1a1713",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "d8b4363cd83cc9c3c1032977a1afad19523122626ee5a69308053248480861cb"
+    },
+    {
+      "id": "ninja-gaiden",
+      "name": "Ninja Gaiden",
+      "version": "1.0.0",
+      "path": "lockscreens/ninja-gaiden",
+      "author": "Darkkal44",
+      "summary": "High-contrast action styling with the Tektur face.",
+      "description": "A sharp Ninja Gaiden lock: bold Tektur type, a dark cinematic background, and a decisive login.",
+      "tags": [
+        "game",
+        "bold",
+        "dark"
+      ],
+      "accent": "#040201",
+      "surface": "#020101",
+      "preview": "assets/preview.gif",
+      "screenshots": [
+        "assets/shot-1.png"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "9b454f35b5965baeedaedf333120a9df57009d87c28b4acc3bafef8267323e8c"
+    },
+    {
+      "id": "nothing",
+      "name": "Nothing OS",
+      "version": "1.0.0",
+      "path": "lockscreens/nothing",
+      "author": "Darkkal44",
+      "summary": "Dot-matrix minimalism in red and black.",
+      "description": "A Nothing-inspired lock: NDot dot-matrix numerals, twin rounded widgets, and a bright, airy backdrop.",
+      "tags": [
+        "minimal",
+        "monochrome",
+        "modern"
+      ],
+      "accent": "#b71c23",
+      "surface": "#0e0e0e",
+      "preview": "assets/preview.gif",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "4a6a8df6cab5dc7ed2ecfb1802991a560d7c90b8c81a0cf26037c11860a0a6c6"
+    },
+    {
+      "id": "terraria",
+      "name": "Terraria",
+      "version": "1.0.0",
+      "path": "lockscreens/terraria",
+      "author": "Darkkal44",
+      "summary": "The Terraria main menu, pixel logo and all.",
+      "description": "A Terraria title-screen lock with the pixel logo, a tree-lined horizon, and wood-panel buttons.",
+      "tags": [
+        "game",
+        "pixel",
+        "retro"
+      ],
+      "accent": "#4e66c5",
+      "surface": "#1a2530",
+      "preview": "assets/preview.gif",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "6105ce4c65eb446a0206d9ba3f9c9d08fe0b63276be120b44879800ba14b9237"
+    },
+    {
+      "id": "windows-7",
+      "name": "Windows 7",
+      "version": "1.0.0",
+      "path": "lockscreens/windows-7",
+      "author": "Darkkal44",
+      "summary": "The nostalgic Windows 7 welcome screen.",
+      "description": "A throwback Windows 7 lock: a round avatar, a glassy credential field, and the familiar blue welcome mood.",
+      "tags": [
+        "os",
+        "retro",
+        "nostalgic"
+      ],
+      "accent": "#0755ad",
+      "surface": "#043979",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "377240f577be55559d6328ffd5952a0053c0fcc3bcf5e87bc327967f66f5f77d"
+    },
+    {
+      "id": "women-umbrella",
+      "name": "Rainy Walk",
+      "version": "1.0.0",
+      "path": "lockscreens/women-umbrella",
+      "author": "Darkkal44",
+      "summary": "An illustrated figure under an umbrella in gentle rain.",
+      "description": "A moody lo-fi illustration of a walk in the rain, with a calm, understated login.",
+      "tags": [
+        "illustrated",
+        "rain",
+        "calm"
+      ],
+      "accent": "#a07f80",
+      "surface": "#3f3c38",
+      "preview": "assets/shot-1.png",
+      "screenshots": [
+        "assets/preview.gif"
+      ],
+      "manifest": "manifest.json",
+      "manifestSha256": "74a856e540af412b71269d41aef21a2d0fc29dcda6658c60f3c195a680215de3"
     }
   ]
 }

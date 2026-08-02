@@ -460,11 +460,15 @@ class MigratedCatalogueTest(unittest.TestCase):
         registry = json.loads(
             (root / "lockscreens" / "registry.json").read_text(encoding="utf-8")
         )
-        self.assertEqual(
-            [entry["id"] for entry in registry["lockscreens"]],
-            ["clockwork-tape"],
-        )
+        ids = [entry["id"] for entry in registry["lockscreens"]]
+        # the adopted legacy Tape stays and the built-in core fallback never
+        # ships as an installable product; real qylock skins are offered beyond
+        # the single legacy entry.
+        self.assertIn("clockwork-tape", ids)
+        self.assertNotIn("clockwork-orbital", ids)
         self.assertNotIn("clockwork-orbital", json.dumps(registry))
+        self.assertGreater(len(ids), 1)
+        self.assertEqual(len(ids), len(set(ids)))
 
     def test_bundle_components_are_complete_and_inline(self) -> None:
         root = MODULE_PATH.parent.parent

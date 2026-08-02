@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "windows-7",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/windows-7",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 481,
+      "sha256": "4dfcc777e037b0eb171a0db30aad2068e329dd5f0455a80acd2b98e70feb92dd",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 158583,
+      "sha256": "d2a05fe958c7741e627d3214c272607f235b7e004bc0ad5ad513b9a5265df8e9",
+      "install": false
+    },
+    {
+      "source": "assets/shot-1.png",
+      "destination": "shot-1.png",
+      "mode": "0644",
+      "size": 603136,
+      "sha256": "a1ded79f81c1d262153b21f1638361af1ca6e21a3b1abb8ad74b4a568fe1c139",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 18428,
+      "sha256": "6dfeb69446bbd992f8b8090b21e89b407534d0082747ce0b7e09109605bbdf10",
+      "install": true
+    },
+    {
+      "source": "content/background.png",
+      "destination": "background.png",
+      "mode": "0644",
+      "size": 603136,
+      "sha256": "a1ded79f81c1d262153b21f1638361af1ca6e21a3b1abb8ad74b4a568fe1c139",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 156,
+      "sha256": "b63d63f1c9bde6b05b346b85d5a7a6af8873bcdc107f6cf181889890ec68b2ce",
+      "install": true
+    },
+    {
+      "source": "content/pfp.png",
+      "destination": "pfp.png",
+      "mode": "0644",
+      "size": 345346,
+      "sha256": "0693daf311793d04535e485fe87ee64a15f39a707c95edd013cd4cb8f785b8cc",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 36,
+      "sha256": "4694ed888efd8e8f52f17c7dc63258c0cc3a619d0149bf9ec92be4d0c9ebdbf7",
+      "install": true
+    }
+  ]
+}
