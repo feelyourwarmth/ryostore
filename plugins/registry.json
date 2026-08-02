@@ -23,8 +23,8 @@
         "assets/preview-widget.png",
         "assets/preview-graph.png"
       ],
-      "manifest": "manifest.json",
-      "manifestSha256": "92999b39d913946a34fbfc594df47a5aef1e709f414bd5b6e369e59e5d416584",
+      "manifest": "product-manifest.json",
+      "manifestSha256": "020db5cfd2f2b5cdbb955e779a75ed6acc69d7c8c76a393526687bb830487ac6",
       "official": true,
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
       "icon": "file",
@@ -52,8 +52,8 @@
       "screenshots": [
         "assets/preview-widget.png"
       ],
-      "manifest": "manifest.json",
-      "manifestSha256": "8eaa1cc500dc6af7801b366c9a552ae7f2defbba4f227a1271c6126f0abc4db0",
+      "manifest": "product-manifest.json",
+      "manifestSha256": "9333f5fc3df55ec4449358d821a4e189221d319d37ffde0daabc8cc3e43cd54b",
       "official": true,
       "tagline": "Track a watchlist of stocks, indices, and crypto on your desktop.",
       "icon": "trending_up",
@@ -80,8 +80,8 @@
       "screenshots": [
         "assets/preview-widget.png"
       ],
-      "manifest": "manifest.json",
-      "manifestSha256": "65eccaa78ac95805e2f129c543f3a17bddfd43bbf87f4d39ab04edc022fcf508",
+      "manifest": "product-manifest.json",
+      "manifestSha256": "91a4b9c970292334eb5d8755939955522f7b0576f8f8ffd7e0a0e02dd12ec457",
       "official": true,
       "tagline": "Pin a photo to your desktop, framed the way you like it.",
       "icon": "image",
@@ -114,8 +114,8 @@
         "assets/preview-dossier.png",
         "assets/preview-inscription.png"
       ],
-      "manifest": "manifest.json",
-      "manifestSha256": "dcfb20f2df471fe9cbd13ed1f10204131096861ea9b7f0b3d07075ecefaf7062",
+      "manifest": "product-manifest.json",
+      "manifestSha256": "a64317b651c5c740ae8aeec5a30fa7d0a71a78c7033d0f6b618b1865a40e70e4",
       "official": true,
       "tagline": "A living Stargate that dials the time on your desktop.",
       "icon": "hotspot",

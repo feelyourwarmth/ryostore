@@ -1,0 +1,161 @@
+{
+  "schema": 1,
+  "id": "market",
+  "category": "plugins",
+  "version": "1.1.0",
+  "destination": "ryoku/plugins/market",
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "sha256": "1eb8f2bb5b95ca010f3b6d4decd5b3cd6b6056b1ecce57336c010c1e593ba11c",
+      "mode": "0644",
+      "size": 6082,
+      "install": false
+    },
+    {
+      "source": "assets/preview-widget.png",
+      "destination": "assets/preview-widget.png",
+      "sha256": "6c12d4c968c7f5c0f8c80fa54b4ee76a23685d8967fc111f2a62a3badd516268",
+      "mode": "0644",
+      "size": 78039,
+      "install": false
+    },
+    {
+      "source": "bin/ryoku-market-fetch",
+      "destination": "bin/ryoku-market-fetch",
+      "sha256": "a62e6a2308d7f726ba9cf89d022d97e0cef549c85d3a1c7c7fc4ed08b69ba20a",
+      "mode": "0755",
+      "size": 4902,
+      "install": true
+    },
+    {
+      "source": "content/ChangeBadge.qml",
+      "destination": "content/ChangeBadge.qml",
+      "sha256": "5f20ef3b126fcd5cd9cafdde4fb1bf44f53e44aff04b70eb04902e532132bae4",
+      "mode": "0644",
+      "size": 2265,
+      "install": true
+    },
+    {
+      "source": "content/Crosshair.qml",
+      "destination": "content/Crosshair.qml",
+      "sha256": "c120bd020e19bcf124397714f57a202a1c4923c329df35e03ddb5a20876dc11a",
+      "mode": "0644",
+      "size": 3050,
+      "install": true
+    },
+    {
+      "source": "content/FacePlaceholder.qml",
+      "destination": "content/FacePlaceholder.qml",
+      "sha256": "0154e699c9d294d96d2b481ae9366d2a93bcdbedcf1ecd4884c2a352095c71c7",
+      "mode": "0644",
+      "size": 1990,
+      "install": true
+    },
+    {
+      "source": "content/MarketArea.qml",
+      "destination": "content/MarketArea.qml",
+      "sha256": "a7ad12ecd64b0c09d55626473f8e6168558431986f9d644af618610fa34088c3",
+      "mode": "0644",
+      "size": 7938,
+      "install": true
+    },
+    {
+      "source": "content/MarketDossier.qml",
+      "destination": "content/MarketDossier.qml",
+      "sha256": "9018c261b06c2a7c0230358719c375790569ae5d67c28dd523529edb8f39a995",
+      "mode": "0644",
+      "size": 4283,
+      "install": true
+    },
+    {
+      "source": "content/MarketLine.qml",
+      "destination": "content/MarketLine.qml",
+      "sha256": "910bd3b7ba62df96863ee0321f40fdab7014fdca1955724cd063b659a0cacaca",
+      "mode": "0644",
+      "size": 7368,
+      "install": true
+    },
+    {
+      "source": "content/MarketMinimal.qml",
+      "destination": "content/MarketMinimal.qml",
+      "sha256": "9090b1d0f5ea29b55d7f3fde1a6769ab3547e9be7fc678661302a88523fd0f01",
+      "mode": "0644",
+      "size": 4038,
+      "install": true
+    },
+    {
+      "source": "content/MetaLine.qml",
+      "destination": "content/MetaLine.qml",
+      "sha256": "20d9f4d56d36eae712459a43be3e316325cff088e2423afe04ec0f03c72d8b6e",
+      "mode": "0644",
+      "size": 2987,
+      "install": true
+    },
+    {
+      "source": "content/PriceText.qml",
+      "destination": "content/PriceText.qml",
+      "sha256": "c5777e177f5ebb9df93f4990ff0c4a5770e0e091e3e994956023563a1bc517c8",
+      "mode": "0644",
+      "size": 1561,
+      "install": true
+    },
+    {
+      "source": "content/Ridgeline.qml",
+      "destination": "content/Ridgeline.qml",
+      "sha256": "c0269a5d66f01a8bc0bfc327ed5226f6e7f6de5d5b51e05551bd8eec00789bb6",
+      "mode": "0644",
+      "size": 10745,
+      "install": true
+    },
+    {
+      "source": "content/Sparkline.qml",
+      "destination": "content/Sparkline.qml",
+      "sha256": "383566b2e1a78205fcfe1eca99d7112cdd8a278373ee049928807bf2f4ba442a",
+      "mode": "0644",
+      "size": 2498,
+      "install": true
+    },
+    {
+      "source": "content/WatchRows.qml",
+      "destination": "content/WatchRows.qml",
+      "sha256": "395f670656c8e0f5b474369da835db873175bfc05cdb0ffe643913fb8e6dee4b",
+      "mode": "0644",
+      "size": 4854,
+      "install": true
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "sha256": "379d1bcec6ec47c8357917d4f9ea955f0e1d6baab869c5d599c4ea64cb6aaf83",
+      "mode": "0644",
+      "size": 5735,
+      "install": true
+    },
+    {
+      "source": "content/WindowChips.qml",
+      "destination": "content/WindowChips.qml",
+      "sha256": "2b8edcd8818eb97856021c2507d8bda73de89d73c61f43171abe1e422745f449",
+      "mode": "0644",
+      "size": 1976,
+      "install": true
+    },
+    {
+      "source": "manifest.json",
+      "destination": "manifest.json",
+      "sha256": "8eaa1cc500dc6af7801b366c9a552ae7f2defbba4f227a1271c6126f0abc4db0",
+      "mode": "0644",
+      "size": 7287,
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "sha256": "7a567a34e3db7969371a79015c777ab7b0ce550ed08bd4da3e92f3868264579f",
+      "mode": "0644",
+      "size": 17988,
+      "install": true
+    }
+  ]
+}

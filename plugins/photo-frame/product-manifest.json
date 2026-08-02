@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "photo-frame",
+  "category": "plugins",
+  "version": "1.3.0",
+  "destination": "ryoku/plugins/photo-frame",
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "sha256": "f20e4b5654074241bf5621dcad57c0b37f476d70c5c8a4d177c7dc836d755fcf",
+      "mode": "0644",
+      "size": 2500,
+      "install": false
+    },
+    {
+      "source": "assets/example.jpg",
+      "destination": "assets/example.jpg",
+      "sha256": "aa0b25bec3d8eec0bd40126a0a3ab8c403c66b4bde9829efcfe2ec3f61ef1cde",
+      "mode": "0644",
+      "size": 79536,
+      "install": true
+    },
+    {
+      "source": "assets/preview-widget.png",
+      "destination": "assets/preview-widget.png",
+      "sha256": "d5e0bc98bc9949f7a254edc64a81cdefdba487fa817ce08f650d6afa75df57a5",
+      "mode": "0644",
+      "size": 461869,
+      "install": false
+    },
+    {
+      "source": "content/PhotoFrame.qml",
+      "destination": "content/PhotoFrame.qml",
+      "sha256": "a5707205e0c3230b4c687c4d7f378b1568c7e97e55057b0d827910efd9c2e142",
+      "mode": "0644",
+      "size": 7421,
+      "install": true
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "sha256": "9d64ac7c15e9cc67d56453082db783cd0426392c29bec159733e125db08c6838",
+      "mode": "0644",
+      "size": 2411,
+      "install": true
+    },
+    {
+      "source": "manifest.json",
+      "destination": "manifest.json",
+      "sha256": "65eccaa78ac95805e2f129c543f3a17bddfd43bbf87f4d39ab04edc022fcf508",
+      "mode": "0644",
+      "size": 5735,
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "sha256": "1ced4d593ffb4463a4850dc9aed9509785dda3309e4ce909426b2ac345f47c45",
+      "mode": "0644",
+      "size": 2650,
+      "install": true
+    }
+  ]
+}

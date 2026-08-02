@@ -415,6 +415,35 @@ class MigratedCatalogueTest(unittest.TestCase):
         )
         self.assertNotIn("sumi", json.dumps(registry))
 
+    def test_plugins_publish_runtime_trees_through_product_manifests(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads(
+            (root / "plugins" / "registry.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            [entry["id"] for entry in registry["plugins"]],
+            ["obsidian", "market", "photo-frame", "stargate"],
+        )
+        for entry in registry["plugins"]:
+            with self.subTest(plugin=entry["id"]):
+                self.assertEqual(entry["manifest"], "product-manifest.json")
+                product_root = root / entry["path"]
+                manifest = json.loads(
+                    (product_root / entry["manifest"]).read_text(encoding="utf-8")
+                )
+                self.assertEqual(
+                    manifest["destination"], f"ryoku/plugins/{entry['id']}"
+                )
+                files = {item["source"]: item for item in manifest["files"]}
+                self.assertTrue(files["manifest.json"]["install"])
+                self.assertEqual(files["manifest.json"]["destination"], "manifest.json")
+                accounted = {
+                    path.relative_to(product_root).as_posix()
+                    for path in product_root.rglob("*")
+                    if path.is_file() and path.name != "product-manifest.json"
+                }
+                self.assertEqual(set(files), accounted)
+
     def test_fastfetch_catalogue_has_both_external_styles(self) -> None:
         root = MODULE_PATH.parent.parent
         registry = json.loads(
