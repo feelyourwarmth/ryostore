@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "melencolia",
+  "category": "decors",
+  "version": "1.0.0",
+  "destination": "ryodecors/melencolia",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 917,
+      "sha256": "5659f6ec0ca2c0ff7ccdb696a734e5abd62d45cb4e4d788d05c3f700e418b6ae",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 985522,
+      "sha256": "46fce66a8d54894360a57602f94f1f9fb1ace2c80ab5d805d58f5aa764330024",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 1025704,
+      "sha256": "07411f2446d2e33d37b99ffa3ce5323f149988ac7d0283f11be2defb7ec2c292",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 424871,
+      "sha256": "f64d9c04343000605e96ed4150411b06503d19154afa16cf3948ca95f25ed50a",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 7086256,
+      "sha256": "daea8f14113261239e4131cb63a0140a17d384bf9de8e20058c00e4c055aa2d7",
+      "install": true
+    }
+  ]
+}

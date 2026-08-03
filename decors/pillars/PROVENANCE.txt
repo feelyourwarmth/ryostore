@@ -1,0 +1,9 @@
+Pillars of Creation - Ryoku decor
+
+Subject: The Hubble Space Telescope's Pillars of Creation - towers of interstellar gas and dust in the Eagle Nebula - dithered so the starlight reads as Ryoku bone.
+Source: https://commons.wikimedia.org/wiki/File:Eagle_nebula_pillars.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Eagle_nebula_pillars.jpg/1920px-Eagle_nebula_pillars.jpg
+Attribution: NASA, ESA / STScI (Hubble)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp is catalogue media (the dithered look on a dark ground) and is not installed with the runtime payload.

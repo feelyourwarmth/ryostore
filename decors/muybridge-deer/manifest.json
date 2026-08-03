@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "muybridge-deer",
+  "category": "decors",
+  "version": "1.0.0",
+  "destination": "ryodecors/muybridge-deer",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 940,
+      "sha256": "80d73558b3f3d0528fc0197599b07c54398705229ee9c41b06bc35a014930ed9",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 582372,
+      "sha256": "5a91ee8643c5b5f42784c34071de793fee7b94cd0c1660511ddbe32f31db8433",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 751310,
+      "sha256": "398446f498900cd27d62907a373ce401e64a4921fef0143458e02606d6fb81cf",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 217551,
+      "sha256": "efbedd3a7c0e41d8c106f95d7d3f87946ad57c5c1f4be9211d90c4623a421d6c",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 4071756,
+      "sha256": "3f2be9a85378439eaaebe1df1c020a32a4fe39a2f982d5704652b35ffe0f6693",
+      "install": true
+    }
+  ]
+}

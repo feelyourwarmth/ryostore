@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "red-fuji",
+  "category": "decors",
+  "version": "1.0.0",
+  "destination": "ryodecors/red-fuji",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 846,
+      "sha256": "9eab0b7c7ff74a0f125e082673fd5f0c8b133c4bb39aec9efb275fd81b7cf26f",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 616660,
+      "sha256": "e54789ecba42bf78126eea4ee0fe950f80e56001d005ef7c516480f6d60e6248",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 821968,
+      "sha256": "3641f118144b5ef4e1605916922c8b15fce675c1cd1a5e339468828bbf2a8153",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 185293,
+      "sha256": "e365ab0973b0786680251373c94deddc35dc4091cb8f7de07954c23ede636994",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 4470536,
+      "sha256": "c6f04fc721629883ed3802e01a25d418bb91294d84804e6dc645c70161a77519",
+      "install": true
+    }
+  ]
+}

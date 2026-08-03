@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "rhinoceros",
+  "category": "decors",
+  "version": "1.0.0",
+  "destination": "ryodecors/rhinoceros",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 815,
+      "sha256": "fb1c437d9c1fefff865bbaa0eb87389a406257f8cc05b4fa035bac3fe9a079c5",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 858416,
+      "sha256": "669bd59a84e3305444c867c9799c07d02e057f7be5ea2544af0e6e105b755ca4",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 1081002,
+      "sha256": "2c850e1bd46dbb0e50cc9a60e9e314cc6d157b3a25fbc02866d1c6c68a505534",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 431341,
+      "sha256": "ab90378c9f401304225821d55083466c2c3f54ade3938c30f1d72b2f9e7cef2e",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 6002112,
+      "sha256": "a322d30f9d62c101c356d3d09bbf6e6447fa1b93a6797382b8c25ec1ffe893f0",
+      "install": true
+    }
+  ]
+}

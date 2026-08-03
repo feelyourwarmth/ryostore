@@ -1,0 +1,9 @@
+Deer in Motion - Ryoku decor
+
+Subject: A plate from Eadweard Muybridge's Animal Locomotion (1887) - fallow deer stepping through a wooded run, frame by frame - baked to Ryoku bone.
+Source: https://commons.wikimedia.org/wiki/File:Eadweard_Muybridge_-_Animal_Locomotion,_Plate_686_-_Google_Art_Project.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/Eadweard_Muybridge_-_Animal_Locomotion%2C_Plate_686_-_Google_Art_Project.jpg/1920px-Eadweard_Muybridge_-_Animal_Locomotion%2C_Plate_686_-_Google_Art_Project.jpg
+Attribution: Eadweard Muybridge (1887)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp is catalogue media (the dithered look on a dark ground) and is not installed with the runtime payload.

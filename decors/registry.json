@@ -1,0 +1,159 @@
+{
+  "schema": 1,
+  "decors": [
+    {
+      "id": "carceri",
+      "name": "Carceri",
+      "version": "1.0.0",
+      "path": "decors/carceri",
+      "author": "Giovanni Battista Piranesi (c.1750)",
+      "summary": "A Piranesi imaginary prison vaulting into bone shadow.",
+      "description": "The Drawbridge, a plate from Piranesi's Carceri d'Invenzione (c.1750) - impossible stairs, bridges, and engines of stone - dithered into stark Ryoku bone.",
+      "tags": [
+        "etching",
+        "piranesi",
+        "architecture",
+        "dramatic"
+      ],
+      "accent": "#e8d8c9",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "5c7a5180aaeaec73c38426d16bcfb7344a9a811601da80df1f6c894a62174477"
+    },
+    {
+      "id": "melencolia",
+      "name": "Melencolia I",
+      "version": "1.0.0",
+      "path": "decors/melencolia",
+      "author": "Albrecht Dürer (1514)",
+      "summary": "Dürer's brooding angel of genius, drawn in bone stipple.",
+      "description": "Albrecht Dürer's 1514 master engraving Melencolia I - the winged figure, the magic square, and the scattered instruments of thought - reduced to Ryoku's one-bit bone line.",
+      "tags": [
+        "engraving",
+        "durer",
+        "classical",
+        "monochrome"
+      ],
+      "accent": "#624f3e",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "3133b7c6c6929c4d1d3942b9e57b34b0c28d18fcaa76d80b763c473ae2bf38ae"
+    },
+    {
+      "id": "muybridge-deer",
+      "name": "Deer in Motion",
+      "version": "1.0.0",
+      "path": "decors/muybridge-deer",
+      "author": "Eadweard Muybridge (1887)",
+      "summary": "Muybridge's deer, caught mid-stride across the frame.",
+      "description": "A plate from Eadweard Muybridge's Animal Locomotion (1887) - fallow deer stepping through a wooded run, frame by frame - baked to Ryoku bone.",
+      "tags": [
+        "muybridge",
+        "motion",
+        "animal",
+        "sequence"
+      ],
+      "accent": "#433c38",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "77c30a94c4304e62ee45633ebde141fbd4d97efb46466c073d536859dadbf09a"
+    },
+    {
+      "id": "pillars",
+      "name": "Pillars of Creation",
+      "version": "1.0.0",
+      "path": "decors/pillars",
+      "author": "NASA, ESA / STScI (Hubble)",
+      "summary": "The Eagle Nebula's Pillars of Creation in bone light.",
+      "description": "The Hubble Space Telescope's Pillars of Creation - towers of interstellar gas and dust in the Eagle Nebula - dithered so the starlight reads as Ryoku bone.",
+      "tags": [
+        "astronomy",
+        "nasa",
+        "nebula",
+        "space"
+      ],
+      "accent": "#8f6628",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "41a7bcd5d1bd2d9bdcb5180c5f99e96b69d6776b39579b07f5d6a7bef0a5841d"
+    },
+    {
+      "id": "red-fuji",
+      "name": "Red Fuji",
+      "version": "1.0.0",
+      "path": "decors/red-fuji",
+      "author": "Katsushika Hokusai (c.1830)",
+      "summary": "Hokusai's Red Fuji under a streaked morning sky.",
+      "description": "Fine Wind, Clear Morning (Red Fuji) from Hokusai's Thirty-six Views of Mount Fuji - the bare peak and its cloud-banded sky - reduced to Ryoku's one-bit bone.",
+      "tags": [
+        "woodblock",
+        "hokusai",
+        "landscape",
+        "ukiyo-e"
+      ],
+      "accent": "#9b2e1d",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "430884405548f88c6991714771aa2207850cb2a914551f164fea4c59110f914d"
+    },
+    {
+      "id": "rhinoceros",
+      "name": "The Rhinoceros",
+      "version": "1.0.0",
+      "path": "decors/rhinoceros",
+      "author": "Albrecht Dürer (1515)",
+      "summary": "Dürer's armoured rhinoceros woodcut, one-bit and bone.",
+      "description": "The Rhinoceros (1515), Dürer's famous woodcut of a beast he never saw, plated in riveted armour - baked to bone-on-transparent stipple.",
+      "tags": [
+        "woodcut",
+        "durer",
+        "animal",
+        "monochrome"
+      ],
+      "accent": "#e8d8c9",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "7d4f541a468716abb5e0aab0a8dd66dc301747fffa13aa6966498a086f1e5199"
+    },
+    {
+      "id": "trebonianus",
+      "name": "Trebonianus Gallus",
+      "version": "1.0.0",
+      "path": "decors/trebonianus",
+      "author": "Roman bronze, The Met (Open Access, CC0)",
+      "summary": "A bronze Roman emperor, arm raised, cast in bone.",
+      "description": "The Metropolitan Museum's over-life-size bronze of the emperor Trebonianus Gallus (251-253 CE), his silhouette reduced to Ryoku's one-bit bone.",
+      "tags": [
+        "sculpture",
+        "bronze",
+        "roman",
+        "classical"
+      ],
+      "accent": "#625c3d",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "8f30047f0aaf57c68c501c48ebaef82282a116af32d21f383c35e5e832394ab9"
+    }
+  ]
+}

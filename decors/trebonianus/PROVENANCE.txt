@@ -1,0 +1,9 @@
+Trebonianus Gallus - Ryoku decor
+
+Subject: The Metropolitan Museum's over-life-size bronze of the emperor Trebonianus Gallus (251-253 CE), his silhouette reduced to Ryoku's one-bit bone.
+Source: https://www.metmuseum.org/art/collection/search/247117
+Download: https://images.metmuseum.org/CRDImages/gr/original/DP138716.jpg
+Attribution: Roman bronze, The Met (Open Access, CC0)
+License: CC0 1.0 / public domain (The Met, Open Access)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp is catalogue media (the dithered look on a dark ground) and is not installed with the runtime payload.

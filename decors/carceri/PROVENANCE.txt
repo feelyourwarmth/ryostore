@@ -1,0 +1,9 @@
+Carceri - Ryoku decor
+
+Subject: The Drawbridge, a plate from Piranesi's Carceri d'Invenzione (c.1750) - impossible stairs, bridges, and engines of stone - dithered into stark Ryoku bone.
+Source: https://commons.wikimedia.org/wiki/File:Giovanni_Battista_Piranesi_-_Le_Carceri_d%27Invenzione_-_First_Edition_-_1750_-_07_-_The_Drawbridge.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Giovanni_Battista_Piranesi_-_Le_Carceri_d%27Invenzione_-_First_Edition_-_1750_-_07_-_The_Drawbridge.jpg/1920px-Giovanni_Battista_Piranesi_-_Le_Carceri_d%27Invenzione_-_First_Edition_-_1750_-_07_-_The_Drawbridge.jpg
+Attribution: Giovanni Battista Piranesi (c.1750)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp is catalogue media (the dithered look on a dark ground) and is not installed with the runtime payload.

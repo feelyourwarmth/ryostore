@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "trebonianus",
+  "category": "decors",
+  "version": "1.0.0",
+  "destination": "ryodecors/trebonianus",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 759,
+      "sha256": "3877fd97f7e5b8d5adfd57118d63505a911648e2e289a7c762952ddb02fa60ac",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 73464,
+      "sha256": "37e4f56c612a4514800c448ed26ccb4799cd89a03fd6aaa9f9746f72404918a2",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 700298,
+      "sha256": "c60e935ddce6b6fa84cdb8f2f83abb5e13d18f706e36fddd0e956f017f8060cf",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 94884,
+      "sha256": "86da0b5e7fa6dde45ccc0e0e21a59f6283bcc7a61df43d92732be88b68597778",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 1111205,
+      "sha256": "adea72af0ebba8c704488be20e34a3901e276d743b707db39fac6a81f9df7909",
+      "install": true
+    }
+  ]
+}
