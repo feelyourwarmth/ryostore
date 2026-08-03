@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "ninth-wave",
+  "category": "launcher-images",
+  "version": "1.0.0",
+  "destination": "ryoku-launchers/ninth-wave",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 909,
+      "sha256": "2128048364df0672fe040abeb40d96f78c221012179449f85be881d1bb9c8948",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 372116,
+      "sha256": "105674371b5dde5f5d50f826315aa45319bfc62ffe6e4af6a36d749a163b47f5",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 732636,
+      "sha256": "90aeff0cba44a5f8d631ca381479b3185dc3e59758537c1c8b20669b62ef14ae",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 107655,
+      "sha256": "8c92a6b77d72bb21f35899579e51352d37de9d4f01c6dffc001c8091b3801f27",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 3437586,
+      "sha256": "dec754ddfbe285eceebab66c898f5a7a1a490cc4c4c24506888ee17ae4f824dd",
+      "install": true
+    }
+  ]
+}

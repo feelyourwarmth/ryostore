@@ -1,0 +1,9 @@
+Driving Rain at Shono - Ryoku launcher image
+
+Subject: Driving Rain at Shono (Shono hakuu), station 46 of Hiroshige's Fifty-three Stations of the Tokaido - porters and a palanquin hurrying through slanting rain - baked to Ryoku's one-bit bone.
+Source: https://commons.wikimedia.org/wiki/File:Clevelandart_1948.306.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/Clevelandart_1948.306.jpg/1920px-Clevelandart_1948.306.jpg
+Attribution: Utagawa Hiroshige (c.1833)
+License: CC0 (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp (the dithered look on a dark ground) and assets/preview-raw.webp (the raw art on the same ground) are catalogue media and are not installed with the runtime payload.

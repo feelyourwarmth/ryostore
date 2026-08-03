@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "great-wave",
+  "category": "launcher-images",
+  "version": "1.0.0",
+  "destination": "ryoku-launchers/great-wave",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 928,
+      "sha256": "d640f6fea1a248dedf2ef6a116b2c79e85de3ecbb5bb35ea87ad38702ccf59c1",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 601234,
+      "sha256": "84d19fd2e795b32f94bd1016e3d92a2f53bf49aa6cfdf6f93c8c0be20d01369b",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 861086,
+      "sha256": "9cd01538a9b78ffaca473de9f3389cf45bf945ca881cc27a137486f8b62d2efc",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 236541,
+      "sha256": "a32d2279b06d325611754342a59909ea16af586c73a4894f55fc0e26d8cca717",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 4312488,
+      "sha256": "527e98ad7d54b9aef019a129f76599a6d014e10baa6fe9bd6d195e1281c0448d",
+      "install": true
+    }
+  ]
+}

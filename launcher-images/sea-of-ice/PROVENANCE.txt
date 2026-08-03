@@ -1,0 +1,9 @@
+The Sea of Ice - Ryoku launcher image
+
+Subject: The Sea of Ice (Das Eismeer) - Caspar David Friedrich's slabs of polar ice piled into a jagged pyramid above a crushed hull - reduced to Ryoku's one-bit bone.
+Source: https://commons.wikimedia.org/wiki/File:Caspar_David_Friedrich_-_Das_Eismeer_-_Hamburger_Kunsthalle_-_02.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Caspar_David_Friedrich_-_Das_Eismeer_-_Hamburger_Kunsthalle_-_02.jpg/1920px-Caspar_David_Friedrich_-_Das_Eismeer_-_Hamburger_Kunsthalle_-_02.jpg
+Attribution: Caspar David Friedrich (1823-1824)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp (the dithered look on a dark ground) and assets/preview-raw.webp (the raw art on the same ground) are catalogue media and are not installed with the runtime payload.

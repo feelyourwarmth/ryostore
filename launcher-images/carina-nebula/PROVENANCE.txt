@@ -1,0 +1,9 @@
+The Carina Nebula - Ryoku launcher image
+
+Subject: The Hubble Space Telescope's panorama of the Carina Nebula (NGC 3372) - towers and clouds of glowing gas around unstable young stars - dithered so the nebular light reads as Ryoku bone.
+Source: https://commons.wikimedia.org/wiki/File:NGC_3372a-full.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/f/f8/NGC_3372a-full.jpg/1920px-NGC_3372a-full.jpg
+Attribution: NASA, ESA / STScI (Hubble)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp (the dithered look on a dark ground) and assets/preview-raw.webp (the raw art on the same ground) are catalogue media and are not installed with the runtime payload.

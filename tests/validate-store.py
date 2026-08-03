@@ -12,7 +12,7 @@ import sys
 from typing import Iterable
 
 
-CATEGORIES = ("rices", "lockscreens", "barstyles", "fastfetch", "plugins", "bundles", "decors")
+CATEGORIES = ("rices", "lockscreens", "barstyles", "fastfetch", "plugins", "bundles", "decors", "launcher-images")
 REQUIRED_ENTRY_FIELDS = (
     "id", "name", "version", "path", "author", "summary", "description",
     "tags", "accent", "surface", "preview", "screenshots", "manifest",

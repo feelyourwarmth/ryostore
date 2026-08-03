@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "shono",
+  "category": "launcher-images",
+  "version": "1.0.0",
+  "destination": "ryoku-launchers/shono",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 906,
+      "sha256": "199a4fea3cc795e4f7fac31e2c7f0ea6d4da740f68502da8cf9216416e4eefee",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 534000,
+      "sha256": "19355136e98450deb40f5463e202683f5f511134054f61e1918a2b797305db68",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 803980,
+      "sha256": "b218e6088ccd18e2549351dc8f6007893de4f8c5a33b4418bfdc3ca6a396efbf",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 178338,
+      "sha256": "fa80e4a0634d3fae31dfc8231ffe13191cc8057fed6a8e6f4b2acf80523c82c1",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 3916256,
+      "sha256": "1aa773eeb73599b6d35033d70cbebbda1a3a4083177314b3a61798d4cb8ac2dc",
+      "install": true
+    }
+  ]
+}

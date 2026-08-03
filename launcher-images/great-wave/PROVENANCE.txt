@@ -1,0 +1,9 @@
+The Great Wave - Ryoku launcher image
+
+Subject: Under the Wave off Kanagawa (The Great Wave) from Hokusai's Thirty-six Views of Mount Fuji - the towering breaker and its claw of foam above a small Fuji - reduced to Ryoku's one-bit bone.
+Source: https://commons.wikimedia.org/wiki/File:The_Great_Wave_off_Kanagawa.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/The_Great_Wave_off_Kanagawa.jpg/1920px-The_Great_Wave_off_Kanagawa.jpg
+Attribution: Katsushika Hokusai (c.1831)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp (the dithered look on a dark ground) and assets/preview-raw.webp (the raw art on the same ground) are catalogue media and are not installed with the runtime payload.

@@ -1,0 +1,137 @@
+{
+  "schema": 1,
+  "launcher-images": [
+    {
+      "id": "carina-nebula",
+      "name": "The Carina Nebula",
+      "version": "1.0.0",
+      "path": "launcher-images/carina-nebula",
+      "author": "NASA, ESA / STScI (Hubble)",
+      "summary": "A wide Hubble panorama of the Carina Nebula in bone light.",
+      "description": "The Hubble Space Telescope's panorama of the Carina Nebula (NGC 3372) - towers and clouds of glowing gas around unstable young stars - dithered so the nebular light reads as Ryoku bone.",
+      "tags": [
+        "astronomy",
+        "nasa",
+        "nebula",
+        "space"
+      ],
+      "accent": "#8e5f2d",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "b9c0b45bf458623ee2438fe74ee149969ff17cc3295455bb6887eb43484fd51e"
+    },
+    {
+      "id": "great-wave",
+      "name": "The Great Wave",
+      "version": "1.0.0",
+      "path": "launcher-images/great-wave",
+      "author": "Katsushika Hokusai (c.1831)",
+      "summary": "Hokusai's great wave curling over a distant Fuji, in bone.",
+      "description": "Under the Wave off Kanagawa (The Great Wave) from Hokusai's Thirty-six Views of Mount Fuji - the towering breaker and its claw of foam above a small Fuji - reduced to Ryoku's one-bit bone.",
+      "tags": [
+        "woodblock",
+        "hokusai",
+        "ukiyo-e",
+        "seascape"
+      ],
+      "accent": "#354c6c",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "1462a1042ff06f9095f37670fee70268809595fc90a149989030693bd0d209c9"
+    },
+    {
+      "id": "ninth-wave",
+      "name": "The Ninth Wave",
+      "version": "1.0.0",
+      "path": "launcher-images/ninth-wave",
+      "author": "Ivan Aivazovsky (1850)",
+      "summary": "Aivazovsky's dawn breaking over survivors and a vast swell.",
+      "description": "The Ninth Wave - Ivan Aivazovsky's shipwreck survivors clinging to a mast as a warm dawn breaks over the towering sea - reduced to Ryoku's one-bit bone.",
+      "tags": [
+        "romanticism",
+        "aivazovsky",
+        "seascape",
+        "dramatic"
+      ],
+      "accent": "#da612c",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "3fc1a0e4b23cb0e45dcbf8d1bdb5f9292e05560609eebf336e67019627fcfc24"
+    },
+    {
+      "id": "sea-of-ice",
+      "name": "The Sea of Ice",
+      "version": "1.0.0",
+      "path": "launcher-images/sea-of-ice",
+      "author": "Caspar David Friedrich (1823-1824)",
+      "summary": "Friedrich's shattered polar ice heaved over a lost ship.",
+      "description": "The Sea of Ice (Das Eismeer) - Caspar David Friedrich's slabs of polar ice piled into a jagged pyramid above a crushed hull - reduced to Ryoku's one-bit bone.",
+      "tags": [
+        "romanticism",
+        "friedrich",
+        "landscape",
+        "dramatic"
+      ],
+      "accent": "#876339",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "fd6ab2b90747c7278894413e895c684135557b96dc6425eadb4c91912482b616"
+    },
+    {
+      "id": "shono",
+      "name": "Driving Rain at Shono",
+      "version": "1.0.0",
+      "path": "launcher-images/shono",
+      "author": "Utagawa Hiroshige (c.1833)",
+      "summary": "Hiroshige's travellers bent under a grey downpour at Shono.",
+      "description": "Driving Rain at Shono (Shono hakuu), station 46 of Hiroshige's Fifty-three Stations of the Tokaido - porters and a palanquin hurrying through slanting rain - baked to Ryoku's one-bit bone.",
+      "tags": [
+        "woodblock",
+        "hiroshige",
+        "ukiyo-e",
+        "landscape"
+      ],
+      "accent": "#c5906a",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "2628a4830435868bd1900cd13cce7eb5074b81c8708574cfa8655fc52bbf185d"
+    },
+    {
+      "id": "wheatfield-crows",
+      "name": "Wheatfield with Crows",
+      "version": "1.0.0",
+      "path": "launcher-images/wheatfield-crows",
+      "author": "Vincent van Gogh (1890)",
+      "summary": "Van Gogh's crows scattering over a storm-dark wheatfield.",
+      "description": "Wheatfield with Crows - Van Gogh's turbulent sky, golden wheat, and a flock of black crows over three diverging paths - baked to Ryoku's one-bit bone.",
+      "tags": [
+        "post-impressionism",
+        "van-gogh",
+        "landscape",
+        "dramatic"
+      ],
+      "accent": "#a68d1c",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "previewRaw": "assets/preview-raw.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "7bdeb8a00befb71bc30a8042377d8fbcaf8d65c05dfd2d39c513574777c5099d"
+    }
+  ]
+}

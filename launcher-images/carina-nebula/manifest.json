@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "carina-nebula",
+  "category": "launcher-images",
+  "version": "1.0.0",
+  "destination": "ryoku-launchers/carina-nebula",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 888,
+      "sha256": "1a3ee9da6a27265f1d7c838cbd8df1ef3cd1c842d4e709bcca3a2c39656e4942",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 244432,
+      "sha256": "67ef1a315de3e8009cf85550b9571752d95b50365fdc1c4cff1d94e048b95bb0",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 534602,
+      "sha256": "9c5afa243071d8097d53d63d078533afa73e274b983833586ebe97c50a271730",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 100364,
+      "sha256": "85c87532326f8f1286190250217e459fc4123f0ec5f7bfb9bb282b0873866b51",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 2331298,
+      "sha256": "3f46e8411495a201c3131350ac38213d813692f990ab52f99f5582944b36f8eb",
+      "install": true
+    }
+  ]
+}
