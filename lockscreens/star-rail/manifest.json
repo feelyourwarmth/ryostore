@@ -1,0 +1,65 @@
+{
+  "schema": 1,
+  "id": "star-rail",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/star-rail",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 656,
+      "sha256": "e1e74274e2135e0333b617eb020c82db72bd184cb70d60d9a9ad9f89b93f5fa6",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 4611488,
+      "sha256": "9655a37d948245d748cf0bce366c3304c6535ad8c888d276a11e218b4ef46dea",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 23901,
+      "sha256": "4f2634701f58fb59528084a4c5ce2369deefeac59d952bfa7f191da4529bd4d1",
+      "install": true
+    },
+    {
+      "source": "content/bg.mp4",
+      "destination": "bg.mp4",
+      "mode": "0644",
+      "size": 8202473,
+      "sha256": "666ebadf7502e1ba2aadb5f82036f0849b2f68ce0684b1baa96464190032368c",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 156,
+      "sha256": "7501e42e17b7513a9ae7187f04a18513539c9cd921ef6555243ec33002b840eb",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 39,
+      "sha256": "009ef036f1f95efbe95f01f2f50f67aa391bcad883e524d4204140670fb1e8e4",
+      "install": true
+    }
+  ]
+}

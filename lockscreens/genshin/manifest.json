@@ -1,0 +1,113 @@
+{
+  "schema": 1,
+  "id": "genshin",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/genshin",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 657,
+      "sha256": "d55cc1e2d74f063dacd69a5d6d9a0145514f0c7298f91c18adb557ac93fca69c",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 3334417,
+      "sha256": "f0b2d3728f8a125114907a55140ea7580bc63f4c184a97abf37b1c05e6a6f721",
+      "install": false
+    },
+    {
+      "source": "content/GenshinButton.qml",
+      "destination": "GenshinButton.qml",
+      "mode": "0644",
+      "size": 901,
+      "sha256": "edabdbf106002ed31d73d5404f663e80e3d714e2bbd16c29038755395c4b15af",
+      "install": true
+    },
+    {
+      "source": "content/GenshinFrame.qml",
+      "destination": "GenshinFrame.qml",
+      "mode": "0644",
+      "size": 3448,
+      "sha256": "4f10af4635d0e01f9e77b89b67d4c06d7427bbca19817cb51ca361ed07cbf91e",
+      "install": true
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 26401,
+      "sha256": "0a4d92ed6bb18e0fb21824360e9597b9341c8083b87ad685de935d38b4c01f00",
+      "install": true
+    },
+    {
+      "source": "content/dawn.mp4",
+      "destination": "dawn.mp4",
+      "mode": "0644",
+      "size": 9264526,
+      "sha256": "a4fd5541037bd0d8390f66beea925cb1b05a3b7bdd656b8f3790f5459cd00cd9",
+      "install": true
+    },
+    {
+      "source": "content/day.mp4",
+      "destination": "day.mp4",
+      "mode": "0644",
+      "size": 11865025,
+      "sha256": "a0f83548bc7d265768bc72cc7973f737176ce4ec18ab2a6156338255aceb4fdc",
+      "install": true
+    },
+    {
+      "source": "content/dusk.mp4",
+      "destination": "dusk.mp4",
+      "mode": "0644",
+      "size": 8745955,
+      "sha256": "2cae13958c0ce3ba292a6b6a4a35341868d026fcbc2587a0ddfa3c7422e3e925",
+      "install": true
+    },
+    {
+      "source": "content/logo.png",
+      "destination": "logo.png",
+      "mode": "0644",
+      "size": 72226,
+      "sha256": "bc4c163e761d5831abbf5e2edf6f6d5a24c09558b426951b95c992f29908bb49",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 152,
+      "sha256": "cb2bb2ed5cd0fb055a7c954e900c2a3f3696e7ede9bed81424b9055375e3c655",
+      "install": true
+    },
+    {
+      "source": "content/night.mp4",
+      "destination": "night.mp4",
+      "mode": "0644",
+      "size": 8900052,
+      "sha256": "d6fc4e8ae40627e9861c40879292c5644f21df82ad0898f21d840f5f91cd9430",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 83,
+      "sha256": "bd59cf01d8715012f0cf8ca21676c0a8036a2d1240a809c3887b8c4c54850f0b",
+      "install": true
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "dog-samurai",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/dog-samurai",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 662,
+      "sha256": "6c06f32f89f9a3dc7b7eb554abaeeb71d1eed8813e7ef3ed3f278f11d9e170cf",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 1463420,
+      "sha256": "d22208ff12afa2ad754291aba813fb5e7920fefd8b7386231c63c7ba39cbd0a0",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 28606,
+      "sha256": "920aa3223ca2d18ef5fa97d5553f392fb3272f9ab5c2eb475c5304ccf43825db",
+      "install": true
+    },
+    {
+      "source": "content/bg.mp4",
+      "destination": "bg.mp4",
+      "mode": "0644",
+      "size": 5530737,
+      "sha256": "7f482b6e1bd4c79f25d37d4cbd241e005c0aaef7f8fa01412668c296ed1db6fd",
+      "install": true
+    },
+    {
+      "source": "content/font/Orbitron-VariableFont_wght.ttf",
+      "destination": "font/Orbitron-VariableFont_wght.ttf",
+      "mode": "0644",
+      "size": 38548,
+      "sha256": "46eefc7084fd9abffd87547c47f729b6071c7f7a8d5af281266bb09e5461c435",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 136,
+      "sha256": "402e993a52ce459f4e257934d22d38647bf73f2ba476cb0908fd7f2484618c22",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 154,
+      "sha256": "6cc818f341750a814ab651cee53a97f67cb833105899fa94d2628e6cd94102c3",
+      "install": true
+    }
+  ]
+}
