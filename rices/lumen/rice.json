@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "slug": "lumen",
+  "name": "Lumen",
+  "author": "Ryoku Team",
+  "blurb": "Soft and airy. Rounded corners, generous gaps, a glassy blur and a gentle lift; colours track your wallpaper through matugen, so any wall becomes a calm, luminous desktop.",
+  "tags": ["adaptive", "rounded", "glass", "soft"],
+  "createdWith": "0.19.2",
+  "color": { "mode": "wallpaper" },
+  "assets": { "cursor": "Bibata-Modern-Ice" },
+  "look": {
+    "hypr": {
+      "appearance": {
+        "gapsIn": 8,
+        "gapsOut": 18,
+        "borderSize": 2,
+        "rounding": 16,
+        "roundingPower": 2,
+        "activeOpacity": 1,
+        "inactiveOpacity": 0.97,
+        "dimInactive": false,
+        "blurEnabled": true,
+        "shadowEnabled": true,
+        "shadowRange": 20,
+        "shadowPower": 3,
+        "glowEnabled": false,
+        "animations": true,
+        "layout": "dwindle"
+      }
+    },
+    "shell": {
+      "frameBars": { "style": "slate-frame" }
+    },
+    "launcher": {
+      "bgBlur": 24
+    }
+  }
+}

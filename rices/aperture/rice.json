@@ -1,0 +1,38 @@
+{
+  "schema": 1,
+  "slug": "aperture",
+  "name": "Aperture",
+  "author": "Ryoku Team",
+  "blurb": "A crisp, brutalist instrument. Square corners, tight gaps, a hard-edged frame and no glass; colours track your wallpaper through matugen, so any wall becomes a sharp technical desktop.",
+  "tags": ["adaptive", "brutalist", "square", "dark"],
+  "createdWith": "0.19.2",
+  "color": { "mode": "wallpaper" },
+  "assets": { "cursor": "Bibata-Modern-Ice" },
+  "look": {
+    "hypr": {
+      "appearance": {
+        "gapsIn": 4,
+        "gapsOut": 8,
+        "borderSize": 2,
+        "rounding": 0,
+        "roundingPower": 2,
+        "activeOpacity": 1,
+        "inactiveOpacity": 1,
+        "dimInactive": false,
+        "blurEnabled": false,
+        "shadowEnabled": true,
+        "shadowRange": 12,
+        "shadowPower": 3,
+        "glowEnabled": false,
+        "animations": true,
+        "layout": "dwindle"
+      }
+    },
+    "shell": {
+      "frameBars": { "style": "ryoku-frame" }
+    },
+    "launcher": {
+      "bgBlur": 0
+    }
+  }
+}
