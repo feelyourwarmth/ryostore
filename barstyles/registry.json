@@ -4,7 +4,7 @@
     {
       "id": "nacre",
       "name": "Nacre",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "barstyles/nacre",
       "author": "Ryoku Team",
       "summary": "Instrument archipelago",
@@ -19,12 +19,12 @@
       "preview": "assets/preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "5e876257c8754c4be5c52b21be28d9bcbaad2e2cefdae066884ac2596b50394c"
+      "manifestSha256": "6be1ddeb8bba442f035eb92339b2bd8a8a7de33756b2b8ca3e980180521f6aa7"
     },
     {
       "id": "obi",
       "name": "Obi",
-      "version": "1.0.0",
+      "version": "1.0.1",
       "path": "barstyles/obi",
       "author": "Ryoku Team",
       "summary": "Floating sash",
@@ -39,7 +39,7 @@
       "preview": "assets/preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "aa66f7291cc5f9131520f2b502036314f0a64850fc613fb18905408995dc39fb"
+      "manifestSha256": "d826d25bc8fa3fb5989bbe7d8113e99bede763023d1453c224c134ba5228eab4"
     }
   ]
 }
