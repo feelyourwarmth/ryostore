@@ -38,8 +38,8 @@ Item {
 
     // energy colour: canonical event-horizon cyan, optionally pulled toward the
     // wallpaper accent.
-    readonly property color energy: (service && service.wallustGlow)
-        ? Qt.tint("#3fb8ff", Qt.rgba(Wallust.accent.r, Wallust.accent.g, Wallust.accent.b, 0.5))
+    readonly property color energy: (service && service.wallpaperGlow)
+        ? Qt.tint("#3fb8ff", Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.5))
         : "#3fb8ff"
 
     // ── the gate ─────────────────────────────────────────────────────────────

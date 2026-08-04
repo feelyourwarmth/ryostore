@@ -64,7 +64,7 @@
         { "value": "quiver", "label": "Quiver (font)" }
       ] },
       { "key": "glyphFontPath", "type": "text", "label": "Glyph font file", "group": "Glyphs", "default": "", "placeholder": "~/.local/share/fonts/stargate_sg1.ttf or a family name" },
-      { "key": "wallustGlow", "type": "toggle", "label": "Match wallpaper", "group": "Style", "default": false }
+      { "key": "wallpaperGlow", "type": "toggle", "label": "Match wallpaper", "group": "Style", "default": false }
     ]
   }
 }

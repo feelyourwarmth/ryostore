@@ -93,7 +93,7 @@ accent.
 
 | Setting  | Default      | What it does                                           |
 | -------- | ------------ | ------------------------------------------------------ |
-| `accent` | `brand`      | Chrome tint: fixed vermillion / wallust / mono         |
+| `accent` | `brand`      | Chrome tint: fixed vermillion / wallpaper / mono         |
 | `vault`  | *(on tile)*  | Absolute path to the vault; picked from the chooser    |
 | `inbox`  | *(today)*    | Default capture note; empty means today's daily note   |
 

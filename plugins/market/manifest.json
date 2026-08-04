@@ -55,8 +55,8 @@
         { "value": "1Y", "label": "1 year" }
       ] },
       { "key": "refreshSec", "type": "slider", "label": "Refresh (s)", "group": "Data", "default": 60, "min": 30, "max": 600, "step": 30, "decimals": 0 },
-      { "key": "accent", "type": "choice", "label": "Accent", "group": "Style", "default": "wallust", "options": [
-        { "value": "wallust", "label": "Wallust" },
+      { "key": "accent", "type": "choice", "label": "Accent", "group": "Style", "default": "wallpaper", "options": [
+        { "value": "wallpaper", "label": "Wallpaper" },
         { "value": "brand", "label": "Brand" },
         { "value": "mono", "label": "Mono" }
       ] },

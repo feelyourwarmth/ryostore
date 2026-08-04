@@ -77,7 +77,7 @@ menu (chips, switch, slider) and the hub form.
 | `symbols`    | `BTC-USD` | The watchlist: comma-separated Yahoo tickers, up to six |
 | `window`     | `1D`      | History window: 1 day / week / month / year             |
 | `refreshSec` | `60`      | Poll interval in seconds (30 - 600)                     |
-| `accent`     | `wallust` | Chrome tint: follow wallpaper / brand / mono            |
+| `accent`     | `wallpaper` | Chrome tint: follow wallpaper / brand / mono            |
 | `showGrid`   | `true`    | Draw the grid behind the Line and Area faces            |
 
 (The active symbol is tile state, persisted as `active` alongside the settings;

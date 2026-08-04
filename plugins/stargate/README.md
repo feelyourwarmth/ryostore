@@ -87,7 +87,7 @@ placement; the plugin only draws the gate.
 | `showDesignation` | show the P#X-### designation and status | `true` |
 | `glyphSet` | procedural / sg1 / concept / universe / atlantis / anquietas / quiver | `procedural` |
 | `glyphFontPath` | a `.ttf` path (or an installed family name) that overrides the set | `""` |
-| `wallustGlow` | tint the gate energy toward the wallpaper accent | `false` |
+| `wallpaperGlow` | tint the gate energy toward the wallpaper accent | `false` |
 
 ## Develop
 

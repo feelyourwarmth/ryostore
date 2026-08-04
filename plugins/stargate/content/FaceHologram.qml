@@ -35,8 +35,8 @@ Item {
     readonly property bool established: service ? service.established : true
     readonly property string family: service ? service.glyphFamily : ""
 
-    readonly property color tint: (service && service.wallustGlow)
-        ? Qt.tint("#3fe0ff", Qt.rgba(Wallust.accent.r, Wallust.accent.g, Wallust.accent.b, 0.55))
+    readonly property color tint: (service && service.wallpaperGlow)
+        ? Qt.tint("#3fe0ff", Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.55))
         : "#3fe0ff"
     readonly property color energized: "#ffb648"
 

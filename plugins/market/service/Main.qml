@@ -100,7 +100,7 @@ Item {
   property string _winOverride: ""
   readonly property string winKey: _winOverride.length > 0 ? _winOverride : _str("window", "1D")
   readonly property int refreshSec: Math.max(30, _num("refreshSec", 60))
-  readonly property string accent: _str("accent", "wallust")
+  readonly property string accent: _str("accent", "wallpaper")
   readonly property bool showGrid: _bool("showGrid", true)
 
   // drop an optimistic override once the persisted file catches up to it.
@@ -442,11 +442,11 @@ Item {
   }
 
   // Faces call this for chrome tints (window chips, active row tick, grid) so
-  // the wallust vs brand vs mono choice lives in one place. Trend green/red
+  // the wallpaper vs brand vs mono choice lives in one place. Trend green/red
   // stays semantic (above).
   function accentColor() {
     return accent === "brand" ? Theme.sun
       : accent === "mono" ? Theme.cream
-      : (Wallust.accent !== undefined ? Wallust.accent : Theme.brand);
+      : (Theme.accent !== undefined ? Theme.accent : Theme.brand);
   }
 }

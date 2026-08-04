@@ -34,7 +34,7 @@ Item {
     readonly property bool animate: _bool("animate", true)
     readonly property bool showTime: _bool("showTime", true)
     readonly property bool showDesignation: _bool("showDesignation", true)
-    readonly property bool wallustGlow: _bool("wallustGlow", false)
+    readonly property bool wallpaperGlow: _bool("wallpaperGlow", false)
     // Inscription face: free text the user types, transliterated to gate glyphs.
     readonly property string text: _str("text", "chevron seven locked")
     readonly property bool showTranslation: _bool("showTranslation", true)

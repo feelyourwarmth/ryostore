@@ -188,9 +188,9 @@ In the service and content:
 - `Ryoku.PluginKit` - `GlyphIcon`, `MicroLabel`, `SearchField`, `CornerTicks`,
   `WaveMeter`, `Card`.
 - `Ryoku.PluginKit.Singletons` - `Theme` (colours, fonts), `Motion` (durations,
-  easings, radii), `Wallust` (the live wallpaper palette), `Config`.
+  easings, radii), `Scheme` (the live wallpaper palette), `Config`.
 
-`Theme` and `Wallust` follow the wallpaper, so do not hardcode a colour that
+`Theme` and `Scheme` follow the wallpaper, so do not hardcode a colour that
 should theme. Match the existing usage in `plugins/photo-frame/`; do not invent
 parallel styling. That is what keeps a
 plugin from reading like a generic widget bolted onto the desktop.

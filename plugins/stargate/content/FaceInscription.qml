@@ -40,8 +40,8 @@ Item {
     readonly property real cell: Math.max(15 * s, Math.min(26 * s, (cw - pad * 2) / 13))
 
     // warm "Ancient" amber, optionally pulled toward the wallpaper accent.
-    readonly property color glow: (service && service.wallustGlow)
-        ? Qt.tint("#e8b46a", Qt.rgba(Wallust.accent.r, Wallust.accent.g, Wallust.accent.b, 0.5))
+    readonly property color glow: (service && service.wallpaperGlow)
+        ? Qt.tint("#e8b46a", Qt.rgba(Theme.accent.r, Theme.accent.g, Theme.accent.b, 0.5))
         : "#e8b46a"
 
     readonly property int glyphCount: {

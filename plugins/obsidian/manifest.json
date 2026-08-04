@@ -42,7 +42,7 @@
     "settings": [
       { "key": "accent", "type": "choice", "label": "Accent", "group": "Style", "default": "brand", "options": [
         { "value": "brand", "label": "Vermillion" },
-        { "value": "wallust", "label": "Wallust" },
+        { "value": "wallpaper", "label": "Wallpaper" },
         { "value": "mono", "label": "Mono" }
       ] },
       { "key": "vault", "type": "text", "label": "Vault path", "group": "Vault", "default": "", "placeholder": "Pick it on the widget, or type a full path" },

@@ -481,10 +481,10 @@ Item {
     }
 
     // chrome tint. A desktop widget must read on any wallpaper, so the default
-    // "brand" is the FIXED vermillion (Theme.sun/verm), never the wallust accent
-    // that can wash out to grey on a muted wallpaper. wallust/mono are opt-in.
+    // "brand" is the FIXED vermillion (Theme.sun/verm), never the wallpaper accent
+    // that can wash out to grey on a muted wallpaper. wallpaper/mono are opt-in.
     function accentColor() {
-        return accent === "wallust" ? (Wallust.accent !== undefined ? Wallust.accent : Theme.sun)
+        return accent === "wallpaper" ? (Theme.accent !== undefined ? Theme.accent : Theme.sun)
             : accent === "mono" ? Theme.cream
             : Theme.sun;   // "brand" = the FIXED red-sun vermillion (#e2342a)
     }
