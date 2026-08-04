@@ -1,10 +1,10 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import pill.Singletons
+import shell.services
 import "../shared" as Shared
 import "../popouts" as Popouts
-import pill as Pill
+import shell.barkit as Pill
 
 // Obi media chip: a small rounded album thumbnail and an elided "title · artist"
 // line. Hovering opens a now-playing control card with larger art, a seek line,

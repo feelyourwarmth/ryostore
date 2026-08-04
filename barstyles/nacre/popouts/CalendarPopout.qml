@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell
-import pill.Singletons
+import shell.services
 
 Item {
     implicitWidth: content.implicitWidth + 40

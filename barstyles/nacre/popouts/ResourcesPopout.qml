@@ -1,7 +1,7 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import pill.Singletons
+import shell.services
 
 Item {
     implicitWidth: 280

@@ -3,10 +3,10 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell.Bluetooth
 import Quickshell.Io
-import pill.Singletons
+import shell.services
 import "../shared" as Shared
 import "../popouts" as Popouts
-import pill as Pill
+import shell.barkit as Pill
 
 // Obi connectivity: a Wi-Fi (or ethernet) glyph and a Bluetooth glyph in the bar,
 // with a card on hover for joining Wi-Fi networks and connecting Bluetooth

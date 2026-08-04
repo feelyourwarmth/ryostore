@@ -2,8 +2,8 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell
-import pill.Singletons
-import pill as Pill
+import shell.services
+import shell.barkit as Pill
 
 // Obi tray: a live row of SNI icons from the daemon `tray` topic (Tray
 // singleton). Left click activates the item; right click opens the item's own

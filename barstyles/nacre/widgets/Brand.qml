@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell
-import pill as Pill
+import shell.barkit as Pill
 
 Item {
     property real barHeight: 40

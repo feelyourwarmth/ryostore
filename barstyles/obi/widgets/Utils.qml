@@ -1,5 +1,5 @@
 import QtQuick
-import pill.Singletons
+import shell.services
 
 // Obi recording indicator: a pulsing dot and REC label, shown only while a
 // screen or audio capture is running. Display only.

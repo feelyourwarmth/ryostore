@@ -1,6 +1,6 @@
 import QtQuick
-import pill.Singletons
-import pill as Pill
+import shell.services
+import shell.barkit as Pill
 import "../Format.js" as Format
 
 Item {

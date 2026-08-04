@@ -1,5 +1,5 @@
 import QtQuick
-import pill.Singletons
+import shell.services
 
 // One Obi pill: a rounded surface group that hugs its content in a centred row,
 // mirroring iNiR's BarGroup. Widgets dropped inside lay out left to right.

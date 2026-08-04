@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell.Hyprland
-import pill.Singletons
+import shell.services
 
 Text {
     id: root

@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Ryoku.Blobs
-import pill.Singletons
+import shell.services
 
 Item {
     id: root

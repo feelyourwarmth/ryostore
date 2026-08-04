@@ -1,6 +1,6 @@
 import QtQuick
 import Quickshell.Hyprland
-import pill.Singletons
+import shell.services
 
 // Obi active-window title: the focused window's title, elided. Falls back to a
 // neutral label on an empty workspace.

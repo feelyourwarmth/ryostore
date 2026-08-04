@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell
-import pill.Singletons
+import shell.services
 import "../shared" as Shared
 import "../popouts" as Popouts
 

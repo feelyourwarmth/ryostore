@@ -5,7 +5,7 @@ import Quickshell
 import Quickshell.Hyprland
 import Quickshell.Wayland
 import Ryoku.Blobs
-import pill.Singletons
+import shell.services
 import "components" as Components
 import "popouts" as NacrePopouts
 

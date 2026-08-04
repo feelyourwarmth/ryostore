@@ -2,7 +2,7 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell.Hyprland
-import pill.Singletons
+import shell.services
 
 Item {
     id: root

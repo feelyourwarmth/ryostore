@@ -3,7 +3,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
-import pill.Singletons
+import shell.services
 
 // Obi workspaces: a centred row of kanji numerals, one per live Hyprland
 // workspace. The focused one is a filled pill, occupied ones read solid, empty

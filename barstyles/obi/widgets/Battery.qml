@@ -1,8 +1,8 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import pill.Singletons
-import pill as Pill
+import shell.services
+import shell.barkit as Pill
 import "../shared" as Shared
 import "../popouts" as Popouts
 import "../Format.js" as Format

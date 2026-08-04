@@ -1,5 +1,5 @@
 import QtQuick
-import pill.framebars.menus as Menus
+import shell.barkit as Menus
 
 Item {
     id: root

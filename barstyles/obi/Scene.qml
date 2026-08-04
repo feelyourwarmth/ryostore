@@ -3,7 +3,7 @@ pragma ComponentBehavior: Bound
 import QtQuick
 import Quickshell
 import Quickshell.Wayland
-import pill.Singletons
+import shell.services
 import "components" as C
 import "widgets" as W
 

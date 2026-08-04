@@ -1,7 +1,7 @@
 import QtQuick
 import Quickshell.Bluetooth
-import pill.Singletons
-import pill as Pill
+import shell.services
+import shell.barkit as Pill
 
 Item {
     id: root

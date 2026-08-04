@@ -1,10 +1,10 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import pill.Singletons
-import pill as Pill
-import pill.framebars.menus as Menus
-import pill.popouts as Popouts
+import shell.services
+import shell.barkit as Pill
+import shell.barkit as Menus
+import shell.barkit as Popouts
 
 Item {
     id: root

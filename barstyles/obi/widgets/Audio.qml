@@ -1,10 +1,10 @@
 pragma ComponentBehavior: Bound
 
 import QtQuick
-import pill.Singletons
+import shell.services
 import "../shared" as Shared
 import "../popouts" as NacrePopouts
-import pill as Pill
+import shell.barkit as Pill
 
 // Obi audio: compact output and input controls in the bar (scroll to set volume,
 // click to mute), with a mixer card on hover that grows off them: output and

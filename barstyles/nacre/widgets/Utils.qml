@@ -1,5 +1,5 @@
 import QtQuick
-import pill.Singletons
+import shell.services
 
 Row {
     id: root

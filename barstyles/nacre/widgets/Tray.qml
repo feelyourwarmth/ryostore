@@ -2,8 +2,8 @@ pragma ComponentBehavior: Bound
 
 import QtQuick
 import Quickshell
-import pill.Singletons
-import pill as Pill
+import shell.services
+import shell.barkit as Pill
 
 Item {
     id: root
