@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "slug": "evangelion",
+  "name": "Evangelion",
+  "author": "Ryoku Team",
+  "blurb": "Unit-01. Purple and neon green on a black void, a hard-edged frame, NERV decor and a rebranded seal. The wallpaper carries the beast; the chrome runs the operation.",
+  "tags": ["evangelion", "anime", "eva-01", "nerv", "purple", "dark"],
+  "createdWith": "0.19.2",
+  "color": {
+    "mode": "fixed",
+    "palette": "palette.json",
+    "themeApps": true
+  },
+  "assets": {
+    "wallpaper": "wall.png",
+    "hero": "hero.jpg",
+    "cursor": "Bibata-Modern-Ice"
+  },
+  "look": {
+    "hypr": {
+      "appearance": {
+        "gapsIn": 5,
+        "gapsOut": 12,
+        "borderSize": 3,
+        "rounding": 4,
+        "roundingPower": 2,
+        "activeOpacity": 1,
+        "inactiveOpacity": 0.92,
+        "dimInactive": true,
+        "dimStrength": 0.35,
+        "blurEnabled": false,
+        "shadowEnabled": true,
+        "shadowRange": 16,
+        "shadowPower": 3,
+        "shadowColor": "#000000",
+        "glowEnabled": false,
+        "animations": true,
+        "layout": "dwindle",
+        "activeBorder": "#b794ff",
+        "inactiveBorder": "#2a2733"
+      }
+    },
+    "shell": {
+      "frameEnabled": true,
+      "frameRadius": 4,
+      "frameBorder": 1,
+      "surfaceColor": "#141218",
+      "roundness": 4,
+      "osdRadius": 6,
+      "frameBars": { "style": "ryoku-frame" }
+    },
+    "launcher": {
+      "heroStrength": 0.5,
+      "heroPosX": 0.72,
+      "heroPosY": 0.4,
+      "bgBlur": 12,
+      "radius": 4,
+      "showGreeting": true,
+      "showWeather": true,
+      "resultSettleMs": 200
+    },
+    "decor": {
+      "connections.hero": { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-nerv.png" },
+      "gpu.render":       { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-atfield.png" },
+      "input.map":        { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-reticle.png" },
+      "addons.installed": { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-hazard.png" },
+      "anim.motion":      { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-atpulse.gif" }
+    }
+  },
+  "layers": {
+    "brand": { "name": "NERV", "markImage": "rice://nerv-mark.png", "markTint": true }
+  }
+}
