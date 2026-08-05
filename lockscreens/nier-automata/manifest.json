@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "nier-automata",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/nier-automata",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 499,
+      "sha256": "df6246f28936add7fbb6262c4c962e67e5fcdc7032d0b864aaed82cb3d240a08",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 366606,
+      "sha256": "387fca999889ca512b953f4e0096512ffb0b03a11c09dc14273a0208dd435ae1",
+      "install": false
+    },
+    {
+      "source": "assets/shot-1.png",
+      "destination": "shot-1.png",
+      "mode": "0644",
+      "size": 161561,
+      "sha256": "24c143cb85ca412ebab0f8013b5f0b2c224063ffdec7d4cf70d7d439117b9fd8",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 55726,
+      "sha256": "68459f04f2b5cfea7e5fc7a03a16ca3c96074d7718a654c2e7de6034491253db",
+      "install": true
+    },
+    {
+      "source": "content/NierButton.qml",
+      "destination": "NierButton.qml",
+      "mode": "0644",
+      "size": 1652,
+      "sha256": "4bef0e9c0e0d13fda3dfcda93fcae18ed17e61219f83863f323eb5d3c3eca768",
+      "install": true
+    },
+    {
+      "source": "content/bg.png",
+      "destination": "bg.png",
+      "mode": "0644",
+      "size": 161561,
+      "sha256": "24c143cb85ca412ebab0f8013b5f0b2c224063ffdec7d4cf70d7d439117b9fd8",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 164,
+      "sha256": "b72d1af5ac4869daeb2b08393bc38daa5154b0f14c7493de72a561070d15e512",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 28,
+      "sha256": "d3fbb08a80c8c6bf37e0068657ccb1b41af911349c7989d9ada1206457bae6a4",
+      "install": true
+    }
+  ]
+}

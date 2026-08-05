@@ -1,0 +1,9 @@
+Wheatfield with Crows - Ryoku launcher image
+
+Subject: Wheatfield with Crows - Van Gogh's turbulent sky, golden wheat, and a flock of black crows over three diverging paths - baked to Ryoku's one-bit bone.
+Source: https://commons.wikimedia.org/wiki/File:Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/b/ba/Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg/1920px-Vincent_van_Gogh_-_Wheatfield_with_crows_-_Google_Art_Project.jpg
+Attribution: Vincent van Gogh (1890)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp (the dithered look on a dark ground) and assets/preview-raw.webp (the raw art on the same ground) are catalogue media and are not installed with the runtime payload.

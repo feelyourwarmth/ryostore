@@ -1,0 +1,9 @@
+The Ninth Wave - Ryoku launcher image
+
+Subject: The Ninth Wave - Ivan Aivazovsky's shipwreck survivors clinging to a mast as a warm dawn breaks over the towering sea - reduced to Ryoku's one-bit bone.
+Source: https://commons.wikimedia.org/wiki/File:Aivazovsky,_Ivan_-_The_Ninth_Wave.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Aivazovsky%2C_Ivan_-_The_Ninth_Wave.jpg/1920px-Aivazovsky%2C_Ivan_-_The_Ninth_Wave.jpg
+Attribution: Ivan Aivazovsky (1850)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp (the dithered look on a dark ground) and assets/preview-raw.webp (the raw art on the same ground) are catalogue media and are not installed with the runtime payload.

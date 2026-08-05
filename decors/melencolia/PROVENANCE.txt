@@ -1,0 +1,9 @@
+Melencolia I - Ryoku decor
+
+Subject: Albrecht Dürer's 1514 master engraving Melencolia I - the winged figure, the magic square, and the scattered instruments of thought - reduced to Ryoku's one-bit bone line.
+Source: https://commons.wikimedia.org/wiki/File:Albrecht_D%C3%BCrer_-_Melencolia_I_-_Google_Art_Project.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Albrecht_D%C3%BCrer_-_Melencolia_I_-_Google_Art_Project.jpg/1920px-Albrecht_D%C3%BCrer_-_Melencolia_I_-_Google_Art_Project.jpg
+Attribution: Albrecht Dürer (1514)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp is catalogue media (the dithered look on a dark ground) and is not installed with the runtime payload.

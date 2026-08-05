@@ -1,0 +1,9 @@
+The Rhinoceros - Ryoku decor
+
+Subject: The Rhinoceros (1515), Dürer's famous woodcut of a beast he never saw, plated in riveted armour - baked to bone-on-transparent stipple.
+Source: https://commons.wikimedia.org/wiki/File:D%C3%BCrer%27s_Rhinoceros,_1515.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/D%C3%BCrer%27s_Rhinoceros%2C_1515.jpg/1920px-D%C3%BCrer%27s_Rhinoceros%2C_1515.jpg
+Attribution: Albrecht Dürer (1515)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp is catalogue media (the dithered look on a dark ground) and is not installed with the runtime payload.

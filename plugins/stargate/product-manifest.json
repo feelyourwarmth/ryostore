@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "id": "stargate",
+  "category": "plugins",
+  "version": "1.1.1",
+  "destination": "ryoku/plugins/stargate",
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "sha256": "14ca2107451e2621778ed58f9678277825c54bc13bb7c00421ca935e6f550fd9",
+      "mode": "0644",
+      "size": 5490,
+      "install": false
+    },
+    {
+      "source": "assets/preview-dossier.png",
+      "destination": "assets/preview-dossier.png",
+      "sha256": "c1606437ecec6c2605cda886ff14908c6816e6a2ebaad6f22cbb9f291b973c2f",
+      "mode": "0644",
+      "size": 174884,
+      "install": false
+    },
+    {
+      "source": "assets/preview-hologram.png",
+      "destination": "assets/preview-hologram.png",
+      "sha256": "8a2e2c93056d99daf37151224412ee9515a93687fe6fa6aab64b9a17504f6b15",
+      "mode": "0644",
+      "size": 562177,
+      "install": false
+    },
+    {
+      "source": "assets/preview-inscription.png",
+      "destination": "assets/preview-inscription.png",
+      "sha256": "57396ed44f57659c22d2bbdf34b4ca2b7bef63aa13d8d0bf99a2ef536a5f968c",
+      "mode": "0644",
+      "size": 20688,
+      "install": false
+    },
+    {
+      "source": "assets/preview-naquadah.png",
+      "destination": "assets/preview-naquadah.png",
+      "sha256": "c1e49679fb750ad3d6cbf79f4b2d1426af7e1cab36fff2682da4a337489e06bc",
+      "mode": "0644",
+      "size": 541163,
+      "install": false
+    },
+    {
+      "source": "assets/preview-widget.png",
+      "destination": "assets/preview-widget.png",
+      "sha256": "9ca111c100b9d6e770c2a03ad78def4fe8f184cc6d019ac81645c9b8048c5cd2",
+      "mode": "0644",
+      "size": 457024,
+      "install": false
+    },
+    {
+      "source": "content/EventHorizon.qml",
+      "destination": "content/EventHorizon.qml",
+      "sha256": "e9dd55918481b780cfb7cc4606d6075d3aee65e3b491be0a8b1bc864054259df",
+      "mode": "0644",
+      "size": 6765,
+      "install": true
+    },
+    {
+      "source": "content/FaceDossier.qml",
+      "destination": "content/FaceDossier.qml",
+      "sha256": "cda87e6f8771e4c74e623a724822e48896249d6a3a683626e654a2e2752a9570",
+      "mode": "0644",
+      "size": 13689,
+      "install": true
+    },
+    {
+      "source": "content/FaceHologram.qml",
+      "destination": "content/FaceHologram.qml",
+      "sha256": "745d13ab86d4fafb28d42fdd6dcb1a5894ad1f10175db58ed25b90b16279a9c8",
+      "mode": "0644",
+      "size": 8971,
+      "install": true
+    },
+    {
+      "source": "content/FaceInscription.qml",
+      "destination": "content/FaceInscription.qml",
+      "sha256": "ebcd8b6f0202224926ac4f59fc5c282d5448f386d977fb865729f6544961e75f",
+      "mode": "0644",
+      "size": 8321,
+      "install": true
+    },
+    {
+      "source": "content/FaceNaquadah.qml",
+      "destination": "content/FaceNaquadah.qml",
+      "sha256": "88b6eebceec119ade22e1e346dbeeb24f64eb6b2050303d0dc5c6ba98c1ccdf2",
+      "mode": "0644",
+      "size": 11163,
+      "install": true
+    },
+    {
+      "source": "content/GateChevron.qml",
+      "destination": "content/GateChevron.qml",
+      "sha256": "02ad024bc51ed77c53836393e6667bed5f1e4539d82dcb31ff2e23617d34072a",
+      "mode": "0644",
+      "size": 4186,
+      "install": true
+    },
+    {
+      "source": "content/GateGlyph.qml",
+      "destination": "content/GateGlyph.qml",
+      "sha256": "f2ec82a3493a9b864e95b693c89c4b2b2c71a047ae0203fd79346682befc37a3",
+      "mode": "0644",
+      "size": 5291,
+      "install": true
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "sha256": "08a3ec57df126c3274ce5fb211b15ef82df11f0515f4e2272330189ea3504097",
+      "mode": "0644",
+      "size": 2057,
+      "install": true
+    },
+    {
+      "source": "content/gate.js",
+      "destination": "content/gate.js",
+      "sha256": "50af88dd3a726d500128c14cf14d2667672d86cddbf8373d1936e1759c8a28a8",
+      "mode": "0644",
+      "size": 7292,
+      "install": true
+    },
+    {
+      "source": "manifest.json",
+      "destination": "manifest.json",
+      "sha256": "dcfb20f2df471fe9cbd13ed1f10204131096861ea9b7f0b3d07075ecefaf7062",
+      "mode": "0644",
+      "size": 8100,
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "sha256": "b1d6e5c6cb983ed9da41832f24ba731e83b1517c277e5c8eebc280bc2e22057c",
+      "mode": "0644",
+      "size": 6124,
+      "install": true
+    }
+  ]
+}

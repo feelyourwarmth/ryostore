@@ -1,0 +1,12 @@
+Pixel Skyscrapers qylock theme
+
+Upstream: https://github.com/Darkkal44/qylock
+Vendored from commit: c45eed24c0f9a3148a7d13081b28acc4d7874853
+Upstream theme: themes/pixel-skyscrapers
+Upstream preview: Assets/pixel_skyscrapers.gif
+Author: Darkkal44 and qylock contributors
+License: GNU General Public License version 3; see LICENSE
+
+Ryoku ships assets/preview.gif (and assets/shot-*.<ext>) as catalogue media pulled directly from the qylock repository. These previews are not installed with the runtime payload.
+
+Video note: the .mp4 background(s) were re-encoded to <=1080p H.264 (CRF 23) from the upstream source to keep the catalogue lean; every other byte is upstream-verbatim.

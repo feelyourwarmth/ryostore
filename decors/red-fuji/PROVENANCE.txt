@@ -1,0 +1,9 @@
+Red Fuji - Ryoku decor
+
+Subject: Fine Wind, Clear Morning (Red Fuji) from Hokusai's Thirty-six Views of Mount Fuji - the bare peak and its cloud-banded sky - reduced to Ryoku's one-bit bone.
+Source: https://commons.wikimedia.org/wiki/File:Red_Fuji_southern_wind_clear_morning.jpg
+Download: https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/Red_Fuji_southern_wind_clear_morning.jpg/1920px-Red_Fuji_southern_wind_clear_morning.jpg
+Attribution: Katsushika Hokusai (c.1830)
+License: Public domain (Wikimedia Commons)
+
+content/source.png is the raw public-domain image, normalised to PNG at up to 1800px on the long edge. content/dither.png is the Ryoku one-bit bone-on-transparent variant baked with bin/art/ryodither. assets/preview.webp is catalogue media (the dithered look on a dark ground) and is not installed with the runtime payload.

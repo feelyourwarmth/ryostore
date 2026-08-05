@@ -1,0 +1,8 @@
+Clockwork Tape qylock theme
+
+Upstream: https://github.com/Darkkal44/qylock
+Vendored from commit: cde4d11e9e3d385620becdc877a0521e40a55e47
+Author: Darkkal44 and qylock contributors
+License: GNU General Public License version 3; see LICENSE
+
+Ryoku adds assets/preview.gif as catalogue media rendered from the theme. The preview is not installed with the runtime payload.

@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "girl-pillow",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/girl-pillow",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 492,
+      "sha256": "d42df16a6791acfcd841b060d7b634dffd9c51740444158e4448119ca67a5633",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 58676,
+      "sha256": "d375c9ddc976ecccda292421ea06d82e0190d3cb6afd7ef5866b67c56debdf10",
+      "install": false
+    },
+    {
+      "source": "assets/shot-1.png",
+      "destination": "shot-1.png",
+      "mode": "0644",
+      "size": 485309,
+      "sha256": "6fc76427616c2566a1d392ec05b2c066321a9fedc2e54abe5680a2cdf2d3739d",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 9237,
+      "sha256": "706d1c739de886b1935fd1a0415051f250fd94eea7f91bdc6c0bf777414cb23d",
+      "install": true
+    },
+    {
+      "source": "content/bg.png",
+      "destination": "bg.png",
+      "mode": "0644",
+      "size": 485309,
+      "sha256": "6fc76427616c2566a1d392ec05b2c066321a9fedc2e54abe5680a2cdf2d3739d",
+      "install": true
+    },
+    {
+      "source": "content/font/Itim-Regular.ttf",
+      "destination": "font/Itim-Regular.ttf",
+      "mode": "0644",
+      "size": 362640,
+      "sha256": "acdd351e7e72ab5e3d16cc26cda212c51482905cd83cc5bfb8c799c272e0e09a",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 147,
+      "sha256": "92bc4fd437b20b4db1df02b819b449805963a2812f9b71285af9ebabdf39ef82",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 54,
+      "sha256": "613c7c6ca8e9ef5362bc4538c37247ea22f52b3911d048f849f097fdf08a5eef",
+      "install": true
+    }
+  ]
+}

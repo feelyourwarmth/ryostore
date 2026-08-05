@@ -1,0 +1,1 @@
+Ryoku Dossier is an original Ryoku Team configuration derived from the Fastfetch configuration shipped by Ryoku. It was adapted for standalone redistribution by removing the machine-local emblem path and using only built-in Fastfetch modules.

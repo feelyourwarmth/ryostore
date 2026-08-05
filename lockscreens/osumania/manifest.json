@@ -1,0 +1,145 @@
+{
+  "schema": 1,
+  "id": "osumania",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/osumania",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 484,
+      "sha256": "6425cefd94364c397b9aacba878774c772b4cf4808071c1dd8660907867e0a28",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 3324492,
+      "sha256": "862c9a157faeb7ee1d47c65da82ca38134c11fa8719055e50ad9a0500c23dcdd",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 64660,
+      "sha256": "32fffbbf9cffc6246643c211f4353841c3e17914741991e4a4d50e2025d5bb58",
+      "install": true
+    },
+    {
+      "source": "content/avatars/achlys.png",
+      "destination": "avatars/achlys.png",
+      "mode": "0644",
+      "size": 36043,
+      "sha256": "12f61d32a7dbe209491af55abd1cb746cc5430e9472bf8d5b29ed801e3b82963",
+      "install": true
+    },
+    {
+      "source": "content/avatars/darkkal.png",
+      "destination": "avatars/darkkal.png",
+      "mode": "0644",
+      "size": 6962,
+      "sha256": "bca8664cdf773a9e80be2979368d4bbd2d0b03ba32602e89d491f847dc833fa5",
+      "install": true
+    },
+    {
+      "source": "content/avatars/kaizky.png",
+      "destination": "avatars/kaizky.png",
+      "mode": "0644",
+      "size": 78041,
+      "sha256": "f594b146eb3a530369de2032f3b9ede8c249dfa379e97724e78128122a4f2e22",
+      "install": true
+    },
+    {
+      "source": "content/avatars/pfp.png",
+      "destination": "avatars/pfp.png",
+      "mode": "0644",
+      "size": 36043,
+      "sha256": "12f61d32a7dbe209491af55abd1cb746cc5430e9472bf8d5b29ed801e3b82963",
+      "install": true
+    },
+    {
+      "source": "content/background/A Glow.jpg",
+      "destination": "background/A Glow.jpg",
+      "mode": "0644",
+      "size": 5740575,
+      "sha256": "1c347ab1ad4a2814ec528f4367e120a8904a89bba7a5246195b55254988d8cb5",
+      "install": true
+    },
+    {
+      "source": "content/background/B Glow.jpg",
+      "destination": "background/B Glow.jpg",
+      "mode": "0644",
+      "size": 6047194,
+      "sha256": "bfb324bd98e8a7a76e6718ee452706e3934ade9cd0f4ddcfb7eec1aa20e4ebdc",
+      "install": true
+    },
+    {
+      "source": "content/background/C Glow.jpg",
+      "destination": "background/C Glow.jpg",
+      "mode": "0644",
+      "size": 5510504,
+      "sha256": "648ba25e116b31f4c6f7fb6574a7a20ae7734b375d013301efc29178d39c6a11",
+      "install": true
+    },
+    {
+      "source": "content/background/D Glow.jpg",
+      "destination": "background/D Glow.jpg",
+      "mode": "0644",
+      "size": 5713927,
+      "sha256": "e09a5950a10035e205889a98f23a2d886595eba06f73399f1e780b86ff8710ba",
+      "install": true
+    },
+    {
+      "source": "content/background/E Glow.jpg",
+      "destination": "background/E Glow.jpg",
+      "mode": "0644",
+      "size": 5763259,
+      "sha256": "bc5e6e60cc49e88d408151c92d3d7291ece1087509ba85194eaf77f98716ae91",
+      "install": true
+    },
+    {
+      "source": "content/background/F Glow.jpg",
+      "destination": "background/F Glow.jpg",
+      "mode": "0644",
+      "size": 4714768,
+      "sha256": "52d9b38741855065690cc80eb811234af9df6f1848c39eef71e627f3e2f0deb7",
+      "install": true
+    },
+    {
+      "source": "content/background/G Glow.jpg",
+      "destination": "background/G Glow.jpg",
+      "mode": "0644",
+      "size": 4738163,
+      "sha256": "1957c48de6b24d07b49637a73f529efe38815f2e1d71bc4faee91948a31dec72",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 148,
+      "sha256": "a793c12063781b6eb54cb65d2675a3f99c83004ac65d7e8b51a8febe7976c768",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 146,
+      "sha256": "241c731bcf0373ee849b8e29be28bb320d326a1e18a98f0471518a3f638bb2af",
+      "install": true
+    }
+  ]
+}

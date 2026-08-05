@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "forest",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/forest",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 647,
+      "sha256": "69d966ee44ad1638fd16d7081db539920f59cadd88dd94d7277bb066d42a2b6b",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 2483972,
+      "sha256": "d42fe55c1216489429138bd60442a06741b2d0880b1858a83a980f703df38fc2",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 23026,
+      "sha256": "2126062d181384b63bc76ceb05e4cb624dd3aeaaff78a49efefad452a74e7146",
+      "install": true
+    },
+    {
+      "source": "content/bg.mp4",
+      "destination": "bg.mp4",
+      "mode": "0644",
+      "size": 7822672,
+      "sha256": "60c23b61403d3359ea5dbbf629d7bd9e1c3a135675142efc3fcded554489a422",
+      "install": true
+    },
+    {
+      "source": "content/font/Figtree-Bold.ttf",
+      "destination": "font/Figtree-Bold.ttf",
+      "mode": "0644",
+      "size": 40324,
+      "sha256": "183bf1a8523731738c72be9aa8236453a21d6a3ed70bd8e5266723b212331dc4",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 150,
+      "sha256": "c23350e4ffcae8466556a26a44c5a27353600bddf6361c3f4e04b3594081187d",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 85,
+      "sha256": "17634a3855c4134659c406d53ff696b9b3723f97d028def5db1dc2c03dec4aa8",
+      "install": true
+    }
+  ]
+}

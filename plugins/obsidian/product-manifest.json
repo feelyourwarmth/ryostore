@@ -1,0 +1,153 @@
+{
+  "schema": 1,
+  "id": "obsidian",
+  "category": "plugins",
+  "version": "1.3.0",
+  "destination": "ryoku/plugins/obsidian",
+  "files": [
+    {
+      "source": "README.md",
+      "destination": "README.md",
+      "sha256": "42aebc46100828a52860aac0a0bd3ad2f9dfa3a969b24eb130f077c4758f7b18",
+      "mode": "0644",
+      "size": 7291,
+      "install": false
+    },
+    {
+      "source": "assets/preview-graph.png",
+      "destination": "assets/preview-graph.png",
+      "sha256": "0d8742fe4b852e36644baf445df7367fb90e4cdb18649e163c46504da56010b4",
+      "mode": "0644",
+      "size": 18579,
+      "install": false
+    },
+    {
+      "source": "assets/preview-widget.png",
+      "destination": "assets/preview-widget.png",
+      "sha256": "ae2fe9822de86491f112eac8ecaf7d7d1eb6390a2b24f40fdc97bfa6a3509d1c",
+      "mode": "0644",
+      "size": 49336,
+      "install": false
+    },
+    {
+      "source": "bin/ryoku-obsidian",
+      "destination": "bin/ryoku-obsidian",
+      "sha256": "24a21938f164302be3602a289d35ecf1be3aaa4ff6d3d7a045b2c008efe50920",
+      "mode": "0755",
+      "size": 17912,
+      "install": true
+    },
+    {
+      "source": "content/BlockEditor.qml",
+      "destination": "content/BlockEditor.qml",
+      "sha256": "08384279d8e76bb9ed39f995b755159fbe1367203c21504356e8084663369f91",
+      "mode": "0644",
+      "size": 14700,
+      "install": true
+    },
+    {
+      "source": "content/EditGlyph.qml",
+      "destination": "content/EditGlyph.qml",
+      "sha256": "a023d97e998b866b9c54a802d703e795d99dd5a6c6eb763a537afde0f07db67a",
+      "mode": "0644",
+      "size": 1184,
+      "install": true
+    },
+    {
+      "source": "content/Eyebrow.qml",
+      "destination": "content/Eyebrow.qml",
+      "sha256": "884d15e79bb1dbcf809fd0b49b65ce5c6a668a177cae9b0ca2973633ce174a09",
+      "mode": "0644",
+      "size": 1172,
+      "install": true
+    },
+    {
+      "source": "content/GraphPanel.qml",
+      "destination": "content/GraphPanel.qml",
+      "sha256": "e88aafa8b9ff19f0176844af3d729664f8a5e0e13e1132e7cb4f647429afcf35",
+      "mode": "0644",
+      "size": 20431,
+      "install": true
+    },
+    {
+      "source": "content/MainFace.qml",
+      "destination": "content/MainFace.qml",
+      "sha256": "1d42e440cc3fd8b27072130375ba8de83e446f1c5c3d27d5e8ce28b28bd0cacf",
+      "mode": "0644",
+      "size": 14702,
+      "install": true
+    },
+    {
+      "source": "content/NotePicker.qml",
+      "destination": "content/NotePicker.qml",
+      "sha256": "75fae2b146ea173d29aadbf04a4154e6e2689a9726977023485ebf03efa86148",
+      "mode": "0644",
+      "size": 6852,
+      "install": true
+    },
+    {
+      "source": "content/ObsidianMark.qml",
+      "destination": "content/ObsidianMark.qml",
+      "sha256": "8faa0069cef95e2970265c5f278fa98137c2f22c064ea3d0e5e328dd021c231a",
+      "mode": "0644",
+      "size": 1687,
+      "install": true
+    },
+    {
+      "source": "content/Panel.qml",
+      "destination": "content/Panel.qml",
+      "sha256": "1a36447e4d95c47b384d5f6c9c06e6eb62b78e786e5b6692a7b06bd7840bfd7d",
+      "mode": "0644",
+      "size": 1678,
+      "install": true
+    },
+    {
+      "source": "content/QuickCapture.qml",
+      "destination": "content/QuickCapture.qml",
+      "sha256": "5d0ea65516e04f48c6fc3a990842d3319db67dda6c563319815c0ffa4dba27fa",
+      "mode": "0644",
+      "size": 15633,
+      "install": true
+    },
+    {
+      "source": "content/SetupPanel.qml",
+      "destination": "content/SetupPanel.qml",
+      "sha256": "fc354255f05f99d73816a918522d371d2075dea076c82dc91d0e9964cb3b022a",
+      "mode": "0644",
+      "size": 10572,
+      "install": true
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "sha256": "f25b7ae6951399ca0c55e918abfdccc8266a0778c64bcbc93aa820a34ffe2b72",
+      "mode": "0644",
+      "size": 4480,
+      "install": true
+    },
+    {
+      "source": "content/WorkflowBlock.qml",
+      "destination": "content/WorkflowBlock.qml",
+      "sha256": "1a1be2273e3e26dc9360483a961fca159d510e3ae14280586a1bc8ff18f88597",
+      "mode": "0644",
+      "size": 8595,
+      "install": true
+    },
+    {
+      "source": "manifest.json",
+      "destination": "manifest.json",
+      "sha256": "92999b39d913946a34fbfc594df47a5aef1e709f414bd5b6e369e59e5d416584",
+      "mode": "0644",
+      "size": 5939,
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "sha256": "e2bba12822d854e005c1c23acd4ec8e1058dc2e85a264aa0f3ec1f7dafeabb90",
+      "mode": "0644",
+      "size": 20666,
+      "install": true
+    }
+  ]
+}

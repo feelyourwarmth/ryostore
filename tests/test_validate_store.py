@@ -1,0 +1,489 @@
+from __future__ import annotations
+
+import hashlib
+import importlib.util
+import json
+import os
+from pathlib import Path
+import tempfile
+import unittest
+from unittest import mock
+
+
+MODULE_PATH = Path(__file__).with_name("validate-store.py")
+SPEC = importlib.util.spec_from_file_location("validate_store", MODULE_PATH)
+validate_store = importlib.util.module_from_spec(SPEC)
+assert SPEC and SPEC.loader
+SPEC.loader.exec_module(validate_store)
+
+CATEGORIES = ("rices", "lockscreens", "barstyles", "fastfetch", "plugins", "bundles", "decors", "launcher-images")
+
+
+def digest(path: Path) -> str:
+    return hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def write_json(path: Path, value: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
+
+
+def build_product(root: Path, category: str, product_id: str = "demo") -> tuple[Path, dict]:
+    product = root / category / product_id
+    content = product / "content" / "Widget.qml"
+    preview = product / "assets" / "preview.png"
+    content.parent.mkdir(parents=True, exist_ok=True)
+    preview.parent.mkdir(parents=True, exist_ok=True)
+    content.write_text("import QtQuick\nItem {}\n", encoding="utf-8")
+    preview.write_bytes(b"fixture preview")
+
+    manifest = {
+        "schema": 1,
+        "id": product_id,
+        "category": category,
+        "version": "1.0.0",
+        "destination": f"ryoku/{category}/{product_id}",
+        "files": [
+            {
+                "source": "content/Widget.qml",
+                "destination": "content/Widget.qml",
+                "mode": "0644",
+                "size": content.stat().st_size,
+                "sha256": digest(content),
+                "install": True,
+            },
+            {
+                "source": "assets/preview.png",
+                "destination": "assets/preview.png",
+                "mode": "0644",
+                "size": preview.stat().st_size,
+                "sha256": digest(preview),
+                "install": False,
+            },
+        ],
+    }
+    if category == "bundles":
+        manifest["items"] = [
+            {
+                "type": "script",
+                "name": "demo-tool",
+                "detect": "demo",
+                "summary": "Fixture tool.",
+            }
+        ]
+    manifest_path = product / "manifest.json"
+    write_json(manifest_path, manifest)
+    entry = {
+        "id": product_id,
+        "name": "Demo",
+        "version": "1.0.0",
+        "path": f"{category}/{product_id}",
+        "author": "Ryoku Team",
+        "summary": "Fixture summary",
+        "description": "Fixture description",
+        "tags": ["fixture"],
+        "accent": "#cdc4ba",
+        "surface": "#101010",
+        "preview": "assets/preview.png",
+        "screenshots": [],
+        "manifest": "manifest.json",
+        "manifestSha256": digest(manifest_path),
+    }
+    if category == "bundles":
+        entry["components"] = validate_store.normalized_bundle_components(manifest)
+    return product, entry
+
+
+def build_tree(root: Path) -> dict[str, tuple[Path, dict]]:
+    products = {}
+    for category in CATEGORIES:
+        product, entry = build_product(root, category)
+        write_json(root / category / "registry.json", {"schema": 1, category: [entry]})
+        products[category] = (product, entry)
+    return products
+
+
+class ValidateStoreTest(unittest.TestCase):
+    def setUp(self) -> None:
+        self.temp = tempfile.TemporaryDirectory()
+        self.root = Path(self.temp.name)
+        self.products = build_tree(self.root)
+
+    def tearDown(self) -> None:
+        self.temp.cleanup()
+
+    def errors(self) -> list[str]:
+        return validate_store.validate_tree(self.root)
+
+    def rewrite_manifest(self, category: str, mutate) -> None:
+        product, entry = self.products[category]
+        path = product / "manifest.json"
+        manifest = json.loads(path.read_text(encoding="utf-8"))
+        mutate(manifest)
+        write_json(path, manifest)
+        entry["manifestSha256"] = digest(path)
+        write_json(self.root / category / "registry.json", {"schema": 1, category: [entry]})
+
+    def test_valid_tree(self) -> None:
+        self.assertEqual(self.errors(), [])
+
+    def test_unsupported_registry_schema_is_rejected(self) -> None:
+        _, entry = self.products["lockscreens"]
+        write_json(
+            self.root / "lockscreens" / "registry.json",
+            {"schema": 2, "lockscreens": [entry]},
+        )
+        self.assertIn(
+            "lockscreens/registry.json: unsupported schema",
+            self.errors(),
+        )
+
+    def test_registry_extra_key_is_rejected(self) -> None:
+        _, entry = self.products["lockscreens"]
+        write_json(
+            self.root / "lockscreens" / "registry.json",
+            {"schema": 1, "lockscreens": [entry], "archived": []},
+        )
+        self.assertIn(
+            "lockscreens/registry.json: invalid registry envelope",
+            self.errors(),
+        )
+
+    def test_bundle_components_match_manifest_items(self) -> None:
+        product, entry = self.products["bundles"]
+        manifest_path = product / "manifest.json"
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        manifest["items"] = [
+            {
+                "type": "script",
+                "name": "demo-tool",
+                "detect": "demo",
+                "tier": "optional",
+                "interactive": True,
+                "summary": "Fixture tool.",
+            }
+        ]
+        write_json(manifest_path, manifest)
+        entry["manifestSha256"] = digest(manifest_path)
+        entry["components"] = [
+            {
+                "type": "script",
+                "name": "demo-tool",
+                "detect": "wrong",
+                "tier": "optional",
+                "interactive": True,
+                "summary": "Fixture tool.",
+            }
+        ]
+        write_json(self.root / "bundles" / "registry.json", {"schema": 1, "bundles": [entry]})
+        self.assertIn(
+            "bundles/demo: components do not match manifest items",
+            self.errors(),
+        )
+
+    def test_duplicate_ids(self) -> None:
+        _, entry = self.products["rices"]
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry, entry]})
+        self.assertIn("rices/demo: duplicate id", self.errors())
+
+    def test_missing_product_path(self) -> None:
+        _, entry = self.products["rices"]
+        entry["path"] = "rices/missing"
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: product path missing: rices/missing", self.errors())
+
+    def test_manifest_hash_mismatch(self) -> None:
+        _, entry = self.products["rices"]
+        entry["manifestSha256"] = "0" * 64
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: manifest hash mismatch", self.errors())
+
+    def test_null_registry_is_rejected(self) -> None:
+        (self.root / "rices" / "registry.json").write_text("null\n", encoding="utf-8")
+        self.assertIn("rices/registry.json: root must be an object", self.errors())
+
+    def test_null_manifest_is_rejected(self) -> None:
+        product, entry = self.products["rices"]
+        manifest = product / "manifest.json"
+        manifest.write_text("null\n", encoding="utf-8")
+        entry["manifestSha256"] = digest(manifest)
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: manifest must be an object", self.errors())
+
+    def test_non_json_numeric_constant_is_rejected(self) -> None:
+        product, entry = self.products["rices"]
+        manifest = product / "manifest.json"
+        value = json.loads(manifest.read_text(encoding="utf-8"))
+        value["extra"] = float("nan")
+        write_json(manifest, value)
+        entry["manifestSha256"] = digest(manifest)
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertTrue(any("invalid JSON" in error for error in self.errors()))
+
+    def test_parent_source_path_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(source="../Widget.qml"))
+        self.assertIn("rices/demo: source escapes product root: ../Widget.qml", self.errors())
+
+    def test_absolute_destination_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(destination="/tmp/Widget.qml"))
+        self.assertIn("rices/demo: destination must be relative: /tmp/Widget.qml", self.errors())
+
+    def test_symlink_is_rejected(self) -> None:
+        product, _ = self.products["rices"]
+        os.symlink(product / "content" / "Widget.qml", product / "content" / "Alias.qml")
+        self.assertIn("rices/demo: symlink forbidden: content/Alias.qml", self.errors())
+
+    def test_product_ancestor_symlink_is_rejected(self) -> None:
+        product, entry = self.products["rices"]
+        shared = self.root / "shared"
+        shared.mkdir()
+        product.rename(shared / "demo")
+        os.symlink(shared, self.root / "rices" / "linked")
+        entry["path"] = "rices/linked/demo"
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: product path contains a symlink: rices/linked/demo", self.errors())
+
+    def test_registry_symlink_is_rejected(self) -> None:
+        registry = self.root / "rices" / "registry.json"
+        target = self.root / "rices-registry.json"
+        registry.rename(target)
+        os.symlink(target, registry)
+        self.assertIn("rices/registry.json: symlink forbidden", self.errors())
+
+    def test_invalid_manifest_hash_stops_before_parsing(self) -> None:
+        product, entry = self.products["rices"]
+        (product / "manifest.json").write_text("{", encoding="utf-8")
+        entry["manifestSha256"] = "invalid"
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        errors = self.errors()
+        self.assertIn("rices/demo: manifestSha256 must be lowercase SHA-256", errors)
+        self.assertFalse(any("invalid JSON" in error for error in errors))
+
+    def test_invalid_collection_and_path_types_report_errors(self) -> None:
+        _, entry = self.products["rices"]
+        entry["screenshots"] = 42
+        write_json(self.root / "rices" / "registry.json", {"schema": 1, "rices": [entry]})
+        self.assertIn("rices/demo: screenshots must be non-empty strings", self.errors())
+
+        self.products = build_tree(self.root)
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(destination=[]))
+        self.assertIn("rices/demo: destination must be relative: []", self.errors())
+
+    def test_extra_manifest_file_key_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest["files"][0].update(extra=True))
+        self.assertIn("rices/demo: files[0] has unknown field extra", self.errors())
+
+    def test_documentation_directory_does_not_exempt_payload(self) -> None:
+        product, _ = self.products["plugins"]
+        docs = product / "docs"
+        docs.mkdir()
+        (docs / "Widget.qml").write_text("import QtQuick\nItem {}\n", encoding="utf-8")
+        self.assertIn("plugins/demo: undeclared payload docs/Widget.qml", self.errors())
+
+    def test_executable_documentation_path_is_not_exempt(self) -> None:
+        product, _ = self.products["plugins"]
+        docs = product / "docs"
+        docs.mkdir()
+        script = docs / "install"
+        script.write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
+        script.chmod(0o755)
+        self.assertIn("plugins/demo: undeclared payload docs/install", self.errors())
+
+    def test_executable_named_document_is_not_exempt(self) -> None:
+        product, _ = self.products["plugins"]
+        script = product / "docs" / "README"
+        script.parent.mkdir()
+        script.write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
+        script.chmod(0o755)
+        self.assertIn("plugins/demo: undeclared payload docs/README", self.errors())
+
+    def test_destination_ancestor_collision_is_rejected(self) -> None:
+        self.rewrite_manifest(
+            "rices",
+            lambda manifest: manifest["files"][1].update(
+                destination="content/Widget.qml/preview.png"
+            ),
+        )
+        self.assertIn(
+            "rices/demo: destination path collision: content/Widget.qml/preview.png",
+            self.errors(),
+        )
+
+    def test_bare_dot_path_is_rejected(self) -> None:
+        self.rewrite_manifest(
+            "rices",
+            lambda manifest: manifest["files"][0].update(destination="."),
+        )
+        self.assertIn("rices/demo: destination must be relative: .", self.errors())
+
+    def test_boolean_manifest_schema_is_rejected(self) -> None:
+        self.rewrite_manifest("rices", lambda manifest: manifest.update(schema=True))
+        self.assertIn("rices/demo: manifest schema does not match registry", self.errors())
+
+    def test_noncanonical_source_path_is_rejected(self) -> None:
+        self.rewrite_manifest(
+            "rices",
+            lambda manifest: manifest["files"][0].update(source="content//Widget.qml"),
+        )
+        self.assertIn("rices/demo: source escapes product root: content//Widget.qml", self.errors())
+
+    def test_undeclared_payload_is_rejected(self) -> None:
+        product, _ = self.products["plugins"]
+        (product / "content" / "Extra.qml").write_text("import QtQuick\nItem {}\n", encoding="utf-8")
+        self.assertIn("plugins/demo: undeclared payload content/Extra.qml", self.errors())
+
+    def test_wrong_executable_mode_is_rejected(self) -> None:
+        product, _ = self.products["bundles"]
+        script = product / "content" / "install.sh"
+        script.write_text("#!/usr/bin/env bash\nexit 0\n", encoding="utf-8")
+        script.chmod(0o755)
+
+        def add_script(manifest: dict) -> None:
+            manifest["files"].append({
+                "source": "content/install.sh",
+                "destination": "content/install.sh",
+                "mode": "0644",
+                "size": script.stat().st_size,
+                "sha256": digest(script),
+                "install": True,
+            })
+
+        self.rewrite_manifest("bundles", add_script)
+        self.assertIn("bundles/demo: executable source requires mode 0755: content/install.sh", self.errors())
+
+    def test_missing_preview_is_rejected(self) -> None:
+        product, _ = self.products["fastfetch"]
+        (product / "assets" / "preview.png").unlink()
+        self.assertIn("fastfetch/demo: preview missing: assets/preview.png", self.errors())
+
+    def test_svg_media_is_decoded(self) -> None:
+        media = self.root / "preview.svg"
+        media.write_text(
+            '<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="720"/>',
+            encoding="utf-8",
+        )
+        responses = [
+            mock.Mock(stdout="1280 720"),
+            mock.Mock(stdout="0.25"),
+        ]
+        with mock.patch.object(validate_store.subprocess, "run", side_effect=responses) as run:
+            self.assertIsNone(validate_store.media_error(media, "fixture"))
+        self.assertEqual(run.call_count, 2)
+
+    def test_media_blankness_composites_alpha(self) -> None:
+        media = self.root / "preview.png"
+        media.write_bytes(b"fixture")
+        responses = [
+            mock.Mock(stdout="1280 720"),
+            mock.Mock(stdout="0.25"),
+        ]
+        with mock.patch.object(validate_store.subprocess, "run", side_effect=responses) as run:
+            self.assertIsNone(validate_store.media_error(media, "fixture"))
+        deviation_command = run.call_args_list[1].args[0]
+        self.assertIn("-background", deviation_command)
+        self.assertIn("-alpha", deviation_command)
+        self.assertIn("remove", deviation_command)
+
+    def test_multiframe_media_statistics_are_parsed_per_frame(self) -> None:
+        media = self.root / "preview.gif"
+        media.write_bytes(b"fixture")
+        responses = [
+            mock.Mock(stdout="1280 720\n1280 720\n"),
+            mock.Mock(stdout="0.25\n0.10\n"),
+        ]
+        with mock.patch.object(validate_store.subprocess, "run", side_effect=responses):
+            self.assertIsNone(validate_store.media_error(media, "fixture"))
+
+class MigratedCatalogueTest(unittest.TestCase):
+    def test_migrated_categories_satisfy_store_contract(self) -> None:
+        root = MODULE_PATH.parent.parent
+        for category in ("rices", "plugins", "bundles", "barstyles", "fastfetch"):
+            with self.subTest(category=category):
+                self.assertEqual(
+                    validate_store.validate_tree(root, (category,)),
+                    [],
+                )
+
+    def test_barstyles_exclude_builtin_sumi(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads(
+            (root / "barstyles" / "registry.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            [entry["id"] for entry in registry["barstyles"]],
+            ["nacre", "obi"],
+        )
+        self.assertNotIn("sumi", json.dumps(registry))
+
+    def test_plugins_publish_runtime_trees_through_product_manifests(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads(
+            (root / "plugins" / "registry.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            [entry["id"] for entry in registry["plugins"]],
+            ["obsidian", "market", "photo-frame", "stargate"],
+        )
+        for entry in registry["plugins"]:
+            with self.subTest(plugin=entry["id"]):
+                self.assertEqual(entry["manifest"], "product-manifest.json")
+                product_root = root / entry["path"]
+                manifest = json.loads(
+                    (product_root / entry["manifest"]).read_text(encoding="utf-8")
+                )
+                self.assertEqual(
+                    manifest["destination"], f"ryoku/plugins/{entry['id']}"
+                )
+                files = {item["source"]: item for item in manifest["files"]}
+                self.assertTrue(files["manifest.json"]["install"])
+                self.assertEqual(files["manifest.json"]["destination"], "manifest.json")
+                accounted = {
+                    path.relative_to(product_root).as_posix()
+                    for path in product_root.rglob("*")
+                    if path.is_file() and path.name != "product-manifest.json"
+                }
+                self.assertEqual(set(files), accounted)
+
+    def test_fastfetch_catalogue_has_both_external_styles(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads(
+            (root / "fastfetch" / "registry.json").read_text(encoding="utf-8")
+        )
+        self.assertEqual(
+            [entry["id"] for entry in registry["fastfetch"]],
+            ["ryoku-dossier", "minimal-grid"],
+        )
+
+    def test_lockscreens_satisfy_store_contract_without_core_fallback(self) -> None:
+        root = MODULE_PATH.parent.parent
+        self.assertEqual(validate_store.validate_tree(root, ("lockscreens",)), [])
+        registry = json.loads(
+            (root / "lockscreens" / "registry.json").read_text(encoding="utf-8")
+        )
+        ids = [entry["id"] for entry in registry["lockscreens"]]
+        # the adopted legacy Tape stays and the built-in core fallback never
+        # ships as an installable product; real qylock skins are offered beyond
+        # the single legacy entry.
+        self.assertIn("clockwork-tape", ids)
+        self.assertNotIn("clockwork-orbital", ids)
+        self.assertNotIn("clockwork-orbital", json.dumps(registry))
+        self.assertGreater(len(ids), 1)
+        self.assertEqual(len(ids), len(set(ids)))
+
+    def test_bundle_components_are_complete_and_inline(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads((root / "bundles" / "registry.json").read_text(encoding="utf-8"))
+        for entry in registry["bundles"]:
+            with self.subTest(bundle=entry["id"]):
+                manifest = json.loads(
+                    (root / entry["path"] / entry["manifest"]).read_text(encoding="utf-8")
+                )
+                self.assertEqual(
+                    entry.get("components"),
+                    validate_store.normalized_bundle_components(manifest),
+                )
+
+
+
+if __name__ == "__main__":
+    unittest.main()

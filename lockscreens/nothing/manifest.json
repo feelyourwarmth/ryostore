@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "nothing",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/nothing",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 483,
+      "sha256": "f12dad2f88098c54d0674e1c9a793a89b48c16e735e2c1339479155baa4ac845",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 206636,
+      "sha256": "ada47b04871d974a2b764c123a56aea1a6844c1943426105c6c788c3e64fd335",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 26653,
+      "sha256": "9dad177cfc6c5289d6efa6e22966721c3753ba255cbd7679edf5e10bf622a15a",
+      "install": true
+    },
+    {
+      "source": "content/font/NDot55.otf",
+      "destination": "font/NDot55.otf",
+      "mode": "0644",
+      "size": 224708,
+      "sha256": "2ca128bd28c27bcfcc561cdf4539f780446f58b1505278475dc68af702f02d9c",
+      "install": true
+    },
+    {
+      "source": "content/font/NType82.otf",
+      "destination": "font/NType82.otf",
+      "mode": "0644",
+      "size": 23544,
+      "sha256": "51afd15702d82b7ceb4819fd7b39805b18de67ed8df8f4ceaf39aa40e208efc3",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 211,
+      "sha256": "74ff4b70d6920bc1136f9fe8f42d196dbcc9c7ef1bd737e0e68053b3f40f0a4b",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 48,
+      "sha256": "1c4f9cd70c26c41b5d0017e71f20f07440fe85f25ddac26512fcb1d12fbe5fe6",
+      "install": true
+    }
+  ]
+}

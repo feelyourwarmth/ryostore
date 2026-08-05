@@ -1,0 +1,281 @@
+{
+  "schema": 1,
+  "id": "nacre",
+  "category": "barstyles",
+  "version": "1.0.1",
+  "destination": "ryoku/barstyles/nacre",
+  "files": [
+    {
+      "source": "Format.js",
+      "destination": "Format.js",
+      "mode": "0644",
+      "size": 1733,
+      "sha256": "a8c754e628b15fe5c7cf66d82ec86acf8f7588fa9cde97a47e85e11e9825585b",
+      "install": true
+    },
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 265,
+      "sha256": "6bec8d4965a3802ad2683bc57faff7990e36ab3a35e49a594370ebe5ecafa488",
+      "install": true
+    },
+    {
+      "source": "Scene.qml",
+      "destination": "Scene.qml",
+      "mode": "0644",
+      "size": 17599,
+      "sha256": "d9fd2f553b08ba9f62dcb2fa47e0638692267bddd7684c6f86786c861654d39b",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 1088562,
+      "sha256": "826b6074f22bf970d8881b948ae9d67871cc936ecdb969f59ea20605e0972bd3",
+      "install": false
+    },
+    {
+      "source": "components/Island.qml",
+      "destination": "components/Island.qml",
+      "mode": "0644",
+      "size": 2400,
+      "sha256": "b4baf27bd98b9dd10a9ae29573dd631dda8a70899d0e54d7a88805942e7d2dae",
+      "install": true
+    },
+    {
+      "source": "components/Popout.qml",
+      "destination": "components/Popout.qml",
+      "mode": "0644",
+      "size": 5630,
+      "sha256": "839d86111ecc6fa62dabd4b631bb4d1edd25a2531edaaf1529c9bc3ff03aa19c",
+      "install": true
+    },
+    {
+      "source": "components/WidgetHost.qml",
+      "destination": "components/WidgetHost.qml",
+      "mode": "0644",
+      "size": 1076,
+      "sha256": "33478728776a193b15fd490dd2db428972b9d929c5287194a8851fd37f2ccac1",
+      "install": true
+    },
+    {
+      "source": "popouts/AudioPopout.qml",
+      "destination": "popouts/AudioPopout.qml",
+      "mode": "0644",
+      "size": 4998,
+      "sha256": "238eb8967278cf3ea321bd8a90433357af0eb5211c4cd4ae5a645f2c541d2d66",
+      "install": true
+    },
+    {
+      "source": "popouts/BatteryPopout.qml",
+      "destination": "popouts/BatteryPopout.qml",
+      "mode": "0644",
+      "size": 3928,
+      "sha256": "a18a814c59d3044f3e73253d4b34ce52b32c63db3e9604761d5388faaea0b2a5",
+      "install": true
+    },
+    {
+      "source": "popouts/BluetoothSection.qml",
+      "destination": "popouts/BluetoothSection.qml",
+      "mode": "0644",
+      "size": 6239,
+      "sha256": "888fca54df40dab82849283b16ee94c6d380416774e0600dfdb6194edf724c89",
+      "install": true
+    },
+    {
+      "source": "popouts/CalendarPopout.qml",
+      "destination": "popouts/CalendarPopout.qml",
+      "mode": "0644",
+      "size": 1145,
+      "sha256": "d16ae4a8b26ed0b2885a9982d1eec992be98d1fd669439448c839a29e715fd2e",
+      "install": true
+    },
+    {
+      "source": "popouts/ConnectivityPopout.qml",
+      "destination": "popouts/ConnectivityPopout.qml",
+      "mode": "0644",
+      "size": 703,
+      "sha256": "3d06b467867c9936b553b1c53fc6eb873c72da57c025d625a63225704eec2070",
+      "install": true
+    },
+    {
+      "source": "popouts/MediaPopout.qml",
+      "destination": "popouts/MediaPopout.qml",
+      "mode": "0644",
+      "size": 8944,
+      "sha256": "4d5669c9c25f4a619f4ea53ef808e83261b98a7995a05e2d1045ddffadcaa60a",
+      "install": true
+    },
+    {
+      "source": "popouts/NetworkSection.qml",
+      "destination": "popouts/NetworkSection.qml",
+      "mode": "0644",
+      "size": 4135,
+      "sha256": "efe6c3e7288feb1a832f3007acadf98af96e4ae093d7c0bd1414888852daf855",
+      "install": true
+    },
+    {
+      "source": "popouts/NotificationInbox.qml",
+      "destination": "popouts/NotificationInbox.qml",
+      "mode": "0644",
+      "size": 371,
+      "sha256": "3a6828f67abc9d04f67ed23a1d0cfbcfe2497e87c8d3d90902bc2532e783730b",
+      "install": true
+    },
+    {
+      "source": "popouts/NotificationToast.qml",
+      "destination": "popouts/NotificationToast.qml",
+      "mode": "0644",
+      "size": 824,
+      "sha256": "385d91c1604e1787de5c3787dff347a8ce37e4cb1b0655d5bc238e830b958e0d",
+      "install": true
+    },
+    {
+      "source": "popouts/ResourcesPopout.qml",
+      "destination": "popouts/ResourcesPopout.qml",
+      "mode": "0644",
+      "size": 2256,
+      "sha256": "9a5d432f14c4b767ccf00e8643f355b1cd5d02f935ef74bd2a8807e166fd569c",
+      "install": true
+    },
+    {
+      "source": "popouts/WeatherPopout.qml",
+      "destination": "popouts/WeatherPopout.qml",
+      "mode": "0644",
+      "size": 6210,
+      "sha256": "ac3d3f9614b8a60a7d6a6142549a65e790beeb0c5b3923a5eaafd4afd364aa78",
+      "install": true
+    },
+    {
+      "source": "popouts/components/AccessPointRow.qml",
+      "destination": "popouts/components/AccessPointRow.qml",
+      "mode": "0644",
+      "size": 5079,
+      "sha256": "8fab7a4ae8a301f3d0f582af7e5daa230d12a877afd96fd92d4b4885c3699f8e",
+      "install": true
+    },
+    {
+      "source": "popouts/components/IconButton.qml",
+      "destination": "popouts/components/IconButton.qml",
+      "mode": "0644",
+      "size": 707,
+      "sha256": "6d934a349e30187b2ba2c82bdde6522c724074e844676f1b7429c5cdf1c7f920",
+      "install": true
+    },
+    {
+      "source": "widgets/ActiveWindow.qml",
+      "destination": "widgets/ActiveWindow.qml",
+      "mode": "0644",
+      "size": 571,
+      "sha256": "c994d6b4cce746c2a8b047c187715947d14a4c066fe395c402671f9f1be9431c",
+      "install": true
+    },
+    {
+      "source": "widgets/Audio.qml",
+      "destination": "widgets/Audio.qml",
+      "mode": "0644",
+      "size": 1548,
+      "sha256": "880867cf5e7a661929e2f42ade9bfa816fe961e64ffd9bdb305f7937ac05e908",
+      "install": true
+    },
+    {
+      "source": "widgets/Battery.qml",
+      "destination": "widgets/Battery.qml",
+      "mode": "0644",
+      "size": 1157,
+      "sha256": "71a02a62ce42b15237858e620ed28fc41aba86225ebd3b6cbaef537641b81bac",
+      "install": true
+    },
+    {
+      "source": "widgets/Brand.qml",
+      "destination": "widgets/Brand.qml",
+      "mode": "0644",
+      "size": 321,
+      "sha256": "71021ebcd19db92fb6fe627fffb15a7d5be4f003144391789a4eb58d9ab36409",
+      "install": true
+    },
+    {
+      "source": "widgets/Clock.qml",
+      "destination": "widgets/Clock.qml",
+      "mode": "0644",
+      "size": 1208,
+      "sha256": "ce5e7b8195088c7c966a1a4a283bd24c3e985eb1b0961e4cdf6cc983ca5687e5",
+      "install": true
+    },
+    {
+      "source": "widgets/Connectivity.qml",
+      "destination": "widgets/Connectivity.qml",
+      "mode": "0644",
+      "size": 2112,
+      "sha256": "5aaea235db8a2794ada268fb1cec26e28a0fcf6c8d2305432d5f9c0806dd28a0",
+      "install": true
+    },
+    {
+      "source": "widgets/Media.qml",
+      "destination": "widgets/Media.qml",
+      "mode": "0644",
+      "size": 1566,
+      "sha256": "3cf099d74ba58af11c1a7d366ff04607a22fdc659b5ea138b574bfde178a4611",
+      "install": true
+    },
+    {
+      "source": "widgets/Notifications.qml",
+      "destination": "widgets/Notifications.qml",
+      "mode": "0644",
+      "size": 819,
+      "sha256": "00460649c2923bbb18774512ec9ed768af49a21c641a96549e2d8af520b72491",
+      "install": true
+    },
+    {
+      "source": "widgets/Resources.qml",
+      "destination": "widgets/Resources.qml",
+      "mode": "0644",
+      "size": 2030,
+      "sha256": "8564de0cc11a37694bab2283e521d702661044da85bf4ab6bdf6d8ee222aab4d",
+      "install": true
+    },
+    {
+      "source": "widgets/Tray.qml",
+      "destination": "widgets/Tray.qml",
+      "mode": "0644",
+      "size": 2671,
+      "sha256": "eebbb64da358056f4fa307bab2f21fc2910a70d5c813134f3c04ea6455a628ca",
+      "install": true
+    },
+    {
+      "source": "widgets/Utils.qml",
+      "destination": "widgets/Utils.qml",
+      "mode": "0644",
+      "size": 797,
+      "sha256": "14ac1ea1b0c36d4a981a7a30696fb065f48c6921740ad4832b5f72ca3917cb98",
+      "install": true
+    },
+    {
+      "source": "widgets/Weather.qml",
+      "destination": "widgets/Weather.qml",
+      "mode": "0644",
+      "size": 1151,
+      "sha256": "ae3f9e17df03211e3c63254e66c9a45742f52c806a51882dcf0785d2861374f0",
+      "install": true
+    },
+    {
+      "source": "widgets/Workspaces.qml",
+      "destination": "widgets/Workspaces.qml",
+      "mode": "0644",
+      "size": 4465,
+      "sha256": "6cf9df0b5ac338e78c7199013b9a03d9dbe3ab1b9865b5c92f5eec73d0fb2b67",
+      "install": true
+    }
+  ]
+}

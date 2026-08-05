@@ -1,0 +1,37 @@
+{
+  "schema": 1,
+  "fastfetch": [
+    {
+      "id": "ryoku-dossier",
+      "name": "Ryoku Dossier",
+      "version": "1.0.0",
+      "path": "fastfetch/ryoku-dossier",
+      "author": "Ryoku Team",
+      "summary": "Editorial system dossier",
+      "description": "A structured Ryoku readout with grouped vitals, system, and session sections in vermillion and warm paper tones.",
+      "tags": ["editorial", "detailed", "ryoku"],
+      "accent": "#e2342a",
+      "surface": "#11100f",
+      "preview": "preview.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "099fb3b7139624a3dfd0b8e06e5e970136ab1ac78c481d0d8475c78b819dbe94"
+    },
+    {
+      "id": "minimal-grid",
+      "name": "Minimal Grid",
+      "version": "1.0.0",
+      "path": "fastfetch/minimal-grid",
+      "author": "Ryoku Team",
+      "summary": "Compact terminal inventory",
+      "description": "A quiet, logo-free grid that keeps the essential machine facts legible in narrow terminal panes.",
+      "tags": ["compact", "minimal", "terminal"],
+      "accent": "#68c7c1",
+      "surface": "#0b1115",
+      "preview": "preview.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "21bfdd19994e4114562ecd9c681e55d5b51c8869b9ceb1fa00fdb51495e05b2d"
+    }
+  ]
+}

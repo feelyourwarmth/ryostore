@@ -1,0 +1,44 @@
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "none"
+  },
+  "display": {
+    "color": { "keys": "38;2;226;52;42" },
+    "key": { "width": 9 },
+    "separator": "  ",
+    "percent": {
+      "type": 9,
+      "color": {
+        "green": "38;2;127;191;106",
+        "yellow": "38;2;217;164;65",
+        "red": "38;2;226;52;42"
+      }
+    }
+  },
+  "modules": [
+    "break",
+    { "type": "title", "format": "\u001b[1;38;2;243;237;225m{user-name}\u001b[0m\u001b[38;2;143;135;112m @ \u001b[0m\u001b[1;38;2;243;237;225m{host-name}\u001b[0m" },
+    { "type": "custom", "format": "\u001b[38;2;226;52;42m■\u001b[0m \u001b[38;2;143;135;112mRYOKU · 力 · a hand-built Arch desktop\u001b[0m" },
+    "break",
+    { "type": "custom", "format": "\u001b[38;2;226;52;42m──\u001b[0m \u001b[1;38;2;243;237;225mVITALS\u001b[0m \u001b[38;2;58;46;36m──────────────────────────\u001b[0m" },
+    { "type": "cpu", "key": "CPU" },
+    { "type": "gpu", "key": "GPU", "detectionMethod": "pci" },
+    { "type": "memory", "key": "MEMORY" },
+    { "type": "disk", "key": "DISK" },
+    "break",
+    { "type": "custom", "format": "\u001b[38;2;226;52;42m──\u001b[0m \u001b[1;38;2;243;237;225mSYSTEM\u001b[0m \u001b[38;2;58;46;36m──────────────────────────\u001b[0m" },
+    { "type": "os", "key": "OS" },
+    { "type": "kernel", "key": "KERNEL" },
+    { "type": "wm", "key": "WM" },
+    { "type": "shell", "key": "SHELL" },
+    { "type": "packages", "key": "PKGS" },
+    "break",
+    { "type": "custom", "format": "\u001b[38;2;226;52;42m──\u001b[0m \u001b[1;38;2;243;237;225mSESSION\u001b[0m \u001b[38;2;58;46;36m─────────────────────────\u001b[0m" },
+    { "type": "uptime", "key": "UPTIME" },
+    { "type": "terminal", "key": "TERM" },
+    "break",
+    { "type": "colors", "symbol": "circle", "paddingLeft": 2 },
+    "break"
+  ]
+}

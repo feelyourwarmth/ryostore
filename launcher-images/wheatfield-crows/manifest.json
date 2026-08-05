@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "wheatfield-crows",
+  "category": "launcher-images",
+  "version": "1.0.0",
+  "destination": "ryoku-launchers/wheatfield-crows",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 995,
+      "sha256": "3dc481332d87ee0d69a6da3e480eab3809e5e333b11f2d1fe0cd4dc2b74794e1",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 460742,
+      "sha256": "3194ddfb1bcf568924eabec8122f5970da76e7200e51a0914fb30d5065bf0a67",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 555446,
+      "sha256": "1603828cf3989296b8a21005e2fc7e1fa76b0f3e5f58198673841ce725d0b8be",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 153326,
+      "sha256": "69bf60c226da343bea964ad37d66c3627a9fbabe6b82733ef57162355468fc10",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 3525058,
+      "sha256": "f7ca75288930452d471bcdaa4a9147a194f12e4ca9f106b9ef0a191f44d7c270",
+      "install": true
+    }
+  ]
+}

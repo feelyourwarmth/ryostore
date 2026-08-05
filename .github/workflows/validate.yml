@@ -16,6 +16,8 @@ jobs:
       - name: Install jq and shellcheck
         run: sudo apt-get update && sudo apt-get install -y jq shellcheck
       - name: Shellcheck the validator and installers
-        run: shellcheck tests/validate-catalogue.sh installers/*.sh
+        run: |
+          shellcheck tests/validate-catalogue.sh
+          find installers bundles -type f \( -path 'installers/*.sh' -o -path '*/installers/*.sh' \) -exec shellcheck {} +
       - name: Validate catalogue integrity
         run: bash tests/validate-catalogue.sh

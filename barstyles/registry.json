@@ -1,0 +1,45 @@
+{
+  "schema": 1,
+  "barstyles": [
+    {
+      "id": "nacre",
+      "name": "Nacre",
+      "version": "1.0.1",
+      "path": "barstyles/nacre",
+      "author": "Ryoku Team",
+      "summary": "Instrument archipelago",
+      "description": "Configurable islands whose widgets and spacing compose into a technical top bar.",
+      "tags": [
+        "top",
+        "islands",
+        "configurable"
+      ],
+      "accent": "#68c7c1",
+      "surface": "#0b1115",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "6be1ddeb8bba442f035eb92339b2bd8a8a7de33756b2b8ca3e980180521f6aa7"
+    },
+    {
+      "id": "obi",
+      "name": "Obi",
+      "version": "1.0.1",
+      "path": "barstyles/obi",
+      "author": "Ryoku Team",
+      "summary": "Floating sash",
+      "description": "A compact floating top bar with kanji workspaces, paper groups, and live popouts.",
+      "tags": [
+        "top",
+        "floating",
+        "compact"
+      ],
+      "accent": "#b86b5f",
+      "surface": "#11100f",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "manifest.json",
+      "manifestSha256": "d826d25bc8fa3fb5989bbe7d8113e99bede763023d1453c224c134ba5228eab4"
+    }
+  ]
+}

@@ -1,65 +1,260 @@
 {
+  "schema": 1,
   "id": "photo-frame",
-  "name": "Photo Frame",
+  "category": "plugins",
   "version": "1.4.0",
+  "destination": "ryoku/plugins/photo-frame",
+  "name": "Photo Frame",
   "author": "Ryoku Team <hello@ryoku.sh>",
   "description": "Pin a photo to your desktop in a chosen frame style, with shadow and filter controls.",
   "license": "MIT",
-  "tags": ["photo", "desktop-widget"],
+  "tags": [
+    "photo",
+    "desktop-widget"
+  ],
   "official": true,
   "entryPoints": {
     "main": "service/Main.qml",
     "content": "content/Widget.qml"
   },
-  "files": [
-    "content/PhotoFrame.qml",
-    "assets/example.jpg",
-    "assets/preview-widget.png"
-  ],
   "capabilities": {
-    "densities": ["glyph", "compact", "full"]
+    "densities": [
+      "glyph",
+      "compact",
+      "full"
+    ]
   },
-  "hosts": ["desktopWidget"],
+  "hosts": [
+    "desktopWidget"
+  ],
   "defaults": {
     "host": "desktopWidget",
-    "desktopWidget": { "bg": "none" },
+    "desktopWidget": {
+      "bg": "none"
+    },
     "icon": "image",
     "label": "Photo"
   },
   "metadata": {
     "settings": [
-      { "key": "imagePath", "type": "image", "label": "Image", "group": "Photo", "default": "" },
-      { "key": "style", "type": "choice", "label": "Style", "group": "Photo", "default": "rounded", "options": [
-        { "value": "rounded", "label": "Rounded" },
-        { "value": "square", "label": "Square" },
-        { "value": "polaroid", "label": "Polaroid" },
-        { "value": "framed", "label": "Framed" },
-        { "value": "film", "label": "Film" }
-      ] },
-      { "key": "aspect", "type": "choice", "label": "Aspect", "group": "Photo", "default": "4:3", "options": [
-        { "value": "1:1", "label": "Square" },
-        { "value": "4:3", "label": "4:3" },
-        { "value": "3:2", "label": "3:2" },
-        { "value": "16:9", "label": "16:9" },
-        { "value": "3:4", "label": "Portrait" }
-      ] },
-      { "key": "radius", "type": "slider", "label": "Roundness", "group": "Photo", "default": 18, "min": 0, "max": 48, "step": 1, "decimals": 0 },
-      { "key": "frame", "type": "slider", "label": "Frame size", "group": "Photo", "default": 14, "min": 0, "max": 48, "step": 1, "decimals": 0 },
-      { "key": "caption", "type": "text", "label": "Caption", "group": "Photo", "default": "", "placeholder": "Shown on polaroid / framed" },
-      { "key": "filter", "type": "choice", "label": "Filter", "group": "Filter", "default": "none", "options": [
-        { "value": "none", "label": "None" },
-        { "value": "mono", "label": "Mono" },
-        { "value": "noir", "label": "Noir" },
-        { "value": "sepia", "label": "Sepia" },
-        { "value": "warm", "label": "Warm" },
-        { "value": "cool", "label": "Cool" },
-        { "value": "vivid", "label": "Vivid" },
-        { "value": "fade", "label": "Fade" }
-      ] },
-      { "key": "shadowEnabled", "type": "toggle", "label": "Drop shadow", "group": "Shadow", "default": true },
-      { "key": "shadowBlur", "type": "slider", "label": "Blur", "group": "Shadow", "default": 0.55, "min": 0, "max": 1, "step": 0.01, "decimals": 2 },
-      { "key": "shadowOffset", "type": "slider", "label": "Offset", "group": "Shadow", "default": 8, "min": 0, "max": 28, "step": 1, "decimals": 0 },
-      { "key": "shadowOpacity", "type": "slider", "label": "Opacity", "group": "Shadow", "default": 0.45, "min": 0, "max": 1, "step": 0.01, "decimals": 2 }
+      {
+        "key": "imagePath",
+        "type": "image",
+        "label": "Image",
+        "group": "Photo",
+        "default": ""
+      },
+      {
+        "key": "style",
+        "type": "choice",
+        "label": "Style",
+        "group": "Photo",
+        "default": "rounded",
+        "options": [
+          {
+            "value": "rounded",
+            "label": "Rounded"
+          },
+          {
+            "value": "square",
+            "label": "Square"
+          },
+          {
+            "value": "polaroid",
+            "label": "Polaroid"
+          },
+          {
+            "value": "framed",
+            "label": "Framed"
+          },
+          {
+            "value": "film",
+            "label": "Film"
+          }
+        ]
+      },
+      {
+        "key": "aspect",
+        "type": "choice",
+        "label": "Aspect",
+        "group": "Photo",
+        "default": "4:3",
+        "options": [
+          {
+            "value": "1:1",
+            "label": "Square"
+          },
+          {
+            "value": "4:3",
+            "label": "4:3"
+          },
+          {
+            "value": "3:2",
+            "label": "3:2"
+          },
+          {
+            "value": "16:9",
+            "label": "16:9"
+          },
+          {
+            "value": "3:4",
+            "label": "Portrait"
+          }
+        ]
+      },
+      {
+        "key": "radius",
+        "type": "slider",
+        "label": "Roundness",
+        "group": "Photo",
+        "default": 18,
+        "min": 0,
+        "max": 48,
+        "step": 1,
+        "decimals": 0
+      },
+      {
+        "key": "frame",
+        "type": "slider",
+        "label": "Frame size",
+        "group": "Photo",
+        "default": 14,
+        "min": 0,
+        "max": 48,
+        "step": 1,
+        "decimals": 0
+      },
+      {
+        "key": "caption",
+        "type": "text",
+        "label": "Caption",
+        "group": "Photo",
+        "default": "",
+        "placeholder": "Shown on polaroid / framed"
+      },
+      {
+        "key": "filter",
+        "type": "choice",
+        "label": "Filter",
+        "group": "Filter",
+        "default": "none",
+        "options": [
+          {
+            "value": "none",
+            "label": "None"
+          },
+          {
+            "value": "mono",
+            "label": "Mono"
+          },
+          {
+            "value": "noir",
+            "label": "Noir"
+          },
+          {
+            "value": "sepia",
+            "label": "Sepia"
+          },
+          {
+            "value": "warm",
+            "label": "Warm"
+          },
+          {
+            "value": "cool",
+            "label": "Cool"
+          },
+          {
+            "value": "vivid",
+            "label": "Vivid"
+          },
+          {
+            "value": "fade",
+            "label": "Fade"
+          }
+        ]
+      },
+      {
+        "key": "shadowEnabled",
+        "type": "toggle",
+        "label": "Drop shadow",
+        "group": "Shadow",
+        "default": true
+      },
+      {
+        "key": "shadowBlur",
+        "type": "slider",
+        "label": "Blur",
+        "group": "Shadow",
+        "default": 0.55,
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "decimals": 2
+      },
+      {
+        "key": "shadowOffset",
+        "type": "slider",
+        "label": "Offset",
+        "group": "Shadow",
+        "default": 8,
+        "min": 0,
+        "max": 28,
+        "step": 1,
+        "decimals": 0
+      },
+      {
+        "key": "shadowOpacity",
+        "type": "slider",
+        "label": "Opacity",
+        "group": "Shadow",
+        "default": 0.45,
+        "min": 0,
+        "max": 1,
+        "step": 0.01,
+        "decimals": 2
+      }
     ]
-  }
+  },
+  "files": [
+    {
+      "source": "assets/example.jpg",
+      "destination": "assets/example.jpg",
+      "mode": "0644",
+      "size": 79536,
+      "sha256": "aa0b25bec3d8eec0bd40126a0a3ab8c403c66b4bde9829efcfe2ec3f61ef1cde",
+      "install": true
+    },
+    {
+      "source": "assets/preview-widget.png",
+      "destination": "assets/preview-widget.png",
+      "mode": "0644",
+      "size": 461869,
+      "sha256": "d5e0bc98bc9949f7a254edc64a81cdefdba487fa817ce08f650d6afa75df57a5",
+      "install": false
+    },
+    {
+      "source": "content/PhotoFrame.qml",
+      "destination": "content/PhotoFrame.qml",
+      "mode": "0644",
+      "size": 7421,
+      "sha256": "a5707205e0c3230b4c687c4d7f378b1568c7e97e55057b0d827910efd9c2e142",
+      "install": true
+    },
+    {
+      "source": "content/Widget.qml",
+      "destination": "content/Widget.qml",
+      "mode": "0644",
+      "size": 2411,
+      "sha256": "9d64ac7c15e9cc67d56453082db783cd0426392c29bec159733e125db08c6838",
+      "install": true
+    },
+    {
+      "source": "service/Main.qml",
+      "destination": "service/Main.qml",
+      "mode": "0644",
+      "size": 2650,
+      "sha256": "1ced4d593ffb4463a4850dc9aed9509785dda3309e4ce909426b2ac345f47c45",
+      "install": true
+    }
+  ]
 }

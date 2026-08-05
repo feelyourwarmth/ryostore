@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "field",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/field",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 474,
+      "sha256": "a6d58f7a8f3ea921c4643b1fefb70bb1c774da17b7b8bab9a0aa823a862658e7",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 329011,
+      "sha256": "772ecc650d5d16a42f05b77bb2aa09f5d46eb1ff8686236724185b7db19dba0b",
+      "install": false
+    },
+    {
+      "source": "assets/shot-1.png",
+      "destination": "shot-1.png",
+      "mode": "0644",
+      "size": 1784920,
+      "sha256": "4e673009ca8421907a03360e992d934ebefc4d97bc763f6d4541be50329175a7",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 9540,
+      "sha256": "55e45cef0c5ddc36c59dbac2f1c308e3e8370b4bb3575844bd78a9d4923ad939",
+      "install": true
+    },
+    {
+      "source": "content/bg.png",
+      "destination": "bg.png",
+      "mode": "0644",
+      "size": 1784920,
+      "sha256": "4e673009ca8421907a03360e992d934ebefc4d97bc763f6d4541be50329175a7",
+      "install": true
+    },
+    {
+      "source": "content/font/Orbitron-VariableFont_wght.ttf",
+      "destination": "font/Orbitron-VariableFont_wght.ttf",
+      "mode": "0644",
+      "size": 38548,
+      "sha256": "46eefc7084fd9abffd87547c47f729b6071c7f7a8d5af281266bb09e5461c435",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 135,
+      "sha256": "27aa48e5afa6507c434eb169436abfb21a6d98d98d3207dcda7cc22ba694e7bc",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 43,
+      "sha256": "c750cee9a1b91f70678c2c026244f0ea70fa20a41e138eea0f212bc40e99b401",
+      "install": true
+    }
+  ]
+}

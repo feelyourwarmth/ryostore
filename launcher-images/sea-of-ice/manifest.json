@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "sea-of-ice",
+  "category": "launcher-images",
+  "version": "1.0.0",
+  "destination": "ryoku-launchers/sea-of-ice",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 1016,
+      "sha256": "2343fe51d2ab9c95e99b52a49696e8368109134a859fd4fe37a5a5c8b3bd2062",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 424352,
+      "sha256": "20b6603d49830b970f67287bc055282880a0e5792b1d62d08aafbc8199a42b99",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 876418,
+      "sha256": "391921a88b4d1620e28638039f3291fab080d6cb0208760ca06098b748c06390",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 147157,
+      "sha256": "d51cdc3e4198ec71efa00133ce5302b4116e491585a5037f5e6ddcd51c666aac",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 3659618,
+      "sha256": "846aa707500d475db2b1a1767e17324516f320f693baab9b9306e46eca12aad8",
+      "install": true
+    }
+  ]
+}

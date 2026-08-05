@@ -1,101 +1,699 @@
 {
-  "version": 1,
+  "schema": 1,
   "bundles": [
     {
       "id": "gaming",
       "name": "Gaming",
+      "version": "1.0.0",
+      "path": "bundles/gaming",
+      "author": "Ryoku Team",
+      "summary": "proton · overlays · emulators",
       "description": "The native Linux gaming stack: launchers, Wine and Proton, performance overlays, controller support, and a full lineup of console emulators. Ryoku installs the matching 32-bit GPU drivers for full hardware capacity.",
+      "tags": [
+        "proton",
+        "overlays",
+        "emulators"
+      ],
+      "accent": "#3fb950",
+      "surface": "#101010",
+      "preview": "assets/hero.png",
+      "screenshots": [
+        "assets/hero.png"
+      ],
+      "manifest": "bundle.json",
+      "manifestSha256": "4cbff415232ddeebd8121b0b0780fe0d09acce3e487287569eec23597006a030",
+      "components": [
+        {
+          "type": "package",
+          "name": "steam",
+          "detect": "steam",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Valve game store and client, with built-in Proton compatibility."
+        },
+        {
+          "type": "package",
+          "name": "lutris",
+          "detect": "lutris",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Open game manager for Windows, native, and emulated games."
+        },
+        {
+          "type": "package",
+          "name": "heroic-games-launcher-bin",
+          "detect": "heroic",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Launcher for Epic Games, GOG, and Amazon Prime games."
+        },
+        {
+          "type": "package",
+          "name": "umu-launcher",
+          "detect": "umu-run",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Valve's unified Proton runtime for non-Steam games (Lutris and Heroic use it)."
+        },
+        {
+          "type": "package",
+          "name": "wine",
+          "detect": "wine",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Compatibility layer for running Windows applications on Linux."
+        },
+        {
+          "type": "package",
+          "name": "winetricks",
+          "detect": "winetricks",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Installs runtime libraries and tweaks into Wine prefixes."
+        },
+        {
+          "type": "package",
+          "name": "protontricks",
+          "detect": "protontricks",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Runs winetricks tasks inside Steam Proton game prefixes."
+        },
+        {
+          "type": "package",
+          "name": "protonup-qt",
+          "detect": "protonup-qt",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Installs GE-Proton and Wine-GE for Steam, Lutris, and Heroic."
+        },
+        {
+          "type": "package",
+          "name": "vkd3d",
+          "detect": "vkd3d",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Direct3D 12 to Vulkan translation for Wine and Lutris games."
+        },
+        {
+          "type": "package",
+          "name": "lib32-vkd3d",
+          "detect": "lib32-vkd3d",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit Direct3D 12 to Vulkan translation for 32-bit Wine games."
+        },
+        {
+          "type": "package",
+          "name": "gamemode",
+          "detect": "gamemoded",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Applies temporary performance optimizations while gaming."
+        },
+        {
+          "type": "package",
+          "name": "lib32-gamemode",
+          "detect": "lib32-gamemode",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit GameMode libraries for 32-bit games."
+        },
+        {
+          "type": "package",
+          "name": "gamescope",
+          "detect": "gamescope",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Micro-compositor for upscaling, frame limiting, and isolating games."
+        },
+        {
+          "type": "package",
+          "name": "mangohud",
+          "detect": "mangohud",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vulkan and OpenGL overlay for FPS, frametimes, and system metrics."
+        },
+        {
+          "type": "package",
+          "name": "lib32-mangohud",
+          "detect": "lib32-mangohud",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit MangoHud libraries for 32-bit games."
+        },
+        {
+          "type": "package",
+          "name": "goverlay",
+          "detect": "goverlay",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GUI to configure MangoHud and vkBasalt without editing config files."
+        },
+        {
+          "type": "package",
+          "name": "vkbasalt",
+          "detect": "vkbasalt",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vulkan post-processing layer for sharpening, FXAA, SMAA, and deband."
+        },
+        {
+          "type": "package",
+          "name": "lib32-vkbasalt",
+          "detect": "lib32-vkbasalt",
+          "tier": "core",
+          "interactive": false,
+          "summary": "32-bit vkBasalt post-processing for 32-bit games."
+        },
+        {
+          "type": "package",
+          "name": "game-devices-udev",
+          "detect": "game-devices-udev",
+          "tier": "core",
+          "interactive": false,
+          "summary": "udev rules for Xbox, PlayStation, Nintendo, Steam, and 8BitDo controllers."
+        },
+        {
+          "type": "package",
+          "name": "vesktop-bin",
+          "detect": "vesktop",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Discord client with Vencord and working Wayland screen share."
+        },
+        {
+          "type": "package",
+          "name": "retroarch",
+          "detect": "retroarch",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "All-in-one frontend for libretro emulator cores (add the cores below or in-app)."
+        },
+        {
+          "type": "package",
+          "name": "libretro-core-info",
+          "detect": "libretro-core-info",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Core metadata RetroArch needs to list and load libretro cores."
+        },
+        {
+          "type": "package",
+          "name": "libretro-snes9x",
+          "detect": "libretro-snes9x",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "SNES / Super Famicom core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-mesen",
+          "detect": "libretro-mesen",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "NES / Famicom core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-genesis-plus-gx",
+          "detect": "libretro-genesis-plus-gx",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Sega Master System, Game Gear, Genesis, and Mega Drive core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-beetle-psx-hw",
+          "detect": "libretro-beetle-psx-hw",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Hardware-rendered PlayStation 1 core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "libretro-mupen64plus-next",
+          "detect": "libretro-mupen64plus-next",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Nintendo 64 core for RetroArch."
+        },
+        {
+          "type": "package",
+          "name": "dolphin-emu",
+          "detect": "dolphin-emu",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "GameCube and Wii emulator."
+        },
+        {
+          "type": "package",
+          "name": "pcsx2",
+          "detect": "pcsx2-qt",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "PlayStation 2 emulator."
+        },
+        {
+          "type": "package",
+          "name": "rpcs3-bin",
+          "detect": "rpcs3",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "PlayStation 3 emulator."
+        },
+        {
+          "type": "package",
+          "name": "ppsspp",
+          "detect": "ppsspp",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "PlayStation Portable (PSP) emulator."
+        },
+        {
+          "type": "package",
+          "name": "mgba-qt",
+          "detect": "mgba-qt",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Game Boy, Game Boy Color, and Game Boy Advance emulator."
+        },
+        {
+          "type": "package",
+          "name": "melonds",
+          "detect": "melonDS",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Nintendo DS emulator."
+        },
+        {
+          "type": "package",
+          "name": "flycast",
+          "detect": "flycast",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Sega Dreamcast, Naomi, and Atomiswave emulator."
+        },
+        {
+          "type": "package",
+          "name": "cemu",
+          "detect": "cemu",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Wii U emulator."
+        },
+        {
+          "type": "package",
+          "name": "xemu",
+          "detect": "xemu",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Original Xbox emulator."
+        },
+        {
+          "type": "package",
+          "name": "mame",
+          "detect": "mame",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Multi-Arcade Machine Emulator for classic arcade boards."
+        },
+        {
+          "type": "package",
+          "name": "scummvm",
+          "detect": "scummvm",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Runtime for classic point-and-click adventure games."
+        },
+        {
+          "type": "package",
+          "name": "dosbox",
+          "detect": "dosbox",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "DOS emulator for running classic MS-DOS games."
+        },
+        {
+          "type": "package",
+          "name": "corectrl",
+          "detect": "corectrl",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Per-profile GPU and CPU tuning and fan curves (AMD-focused)."
+        },
+        {
+          "type": "package",
+          "name": "antimicrox",
+          "detect": "antimicrox",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Map a gamepad to keyboard and mouse for games without native pad support."
+        },
+        {
+          "type": "package",
+          "name": "sc-controller",
+          "detect": "sc-controller",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Configure Steam Controller, DualShock, and other gamepads with custom profiles."
+        }
+      ],
       "tagline": "proton · overlays · emulators",
       "sources": "pacman / AUR",
-      "icon": "sports_esports",
-      "accent": "#3fb950",
-      "preview": "assets/hero.png",
-      "screenshots": ["assets/hero.png"],
-      "path": "bundles/gaming"
-    },
-    {
-      "id": "audiophile",
-      "name": "Audiophile",
-      "description": "EasyEffects, patchbays, mixers, and PipeWire inspection for people who care how the machine sounds.",
-      "tagline": "pipewire · tools · control",
-      "sources": "pacman / AUR",
-      "path": "bundles/audiophile"
+      "icon": "sports_esports"
     },
     {
       "id": "the-influencer",
       "name": "The Influencer",
+      "version": "1.0.0",
+      "path": "bundles/the-influencer",
+      "author": "Ryoku Team",
+      "summary": "stream · record · edit · publish",
       "description": "A complete stream, record, edit, reformat, caption, and publish kit: recorders, editors, audio and thumbnail tools, plus a right-click video toolkit in the file manager.",
+      "tags": [
+        "stream",
+        "record",
+        "edit",
+        "publish"
+      ],
+      "accent": "#e2342a",
+      "surface": "#101010",
+      "preview": "assets/hero.png",
+      "screenshots": [
+        "assets/hero.png"
+      ],
+      "manifest": "bundle.json",
+      "manifestSha256": "d1052812380f38ee448f5c8ed2791c37f58c11760875dd48bec9948e208e4abb",
+      "components": [
+        {
+          "type": "nautilus-pack",
+          "name": "video-reformat",
+          "detect": "video-reformat",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Right-click video reformat, transcode, compress, caption-prep, and thumbnail tools."
+        },
+        {
+          "type": "package",
+          "name": "obs-studio",
+          "detect": "obs",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Streaming and recording studio with native PipeWire screen and app audio capture."
+        },
+        {
+          "type": "package",
+          "name": "obs-vkcapture",
+          "detect": "obs-gamecapture",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vulkan and OpenGL game capture for OBS on Wayland."
+        },
+        {
+          "type": "package",
+          "name": "obs-backgroundremoval",
+          "detect": "obs-backgroundremoval",
+          "tier": "core",
+          "interactive": false,
+          "summary": "AI webcam background removal for OBS, no green screen needed."
+        },
+        {
+          "type": "package",
+          "name": "obs-pipewire-audio-capture",
+          "detect": "obs-pipewire-audio-capture",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Per-application audio capture for OBS (capture one app's sound)."
+        },
+        {
+          "type": "package",
+          "name": "v4l2loopback-dkms",
+          "detect": "v4l2loopback-dkms",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Virtual camera kernel module that powers the OBS Virtual Camera."
+        },
+        {
+          "type": "package",
+          "name": "linux-headers",
+          "detect": "linux-headers",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Kernel headers so DKMS can build v4l2loopback (use linux-cachyos-headers on the CachyOS kernel)."
+        },
+        {
+          "type": "package",
+          "name": "gpu-screen-recorder",
+          "detect": "gpu-screen-recorder",
+          "tier": "core",
+          "interactive": false,
+          "summary": "ShadowPlay-style GPU-encoded recorder and replay buffer for instant clips."
+        },
+        {
+          "type": "package",
+          "name": "wf-recorder",
+          "detect": "wf-recorder",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Lightweight wlroots-native screen recorder."
+        },
+        {
+          "type": "package",
+          "name": "kdenlive",
+          "detect": "kdenlive",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Multitrack non-linear video editor with effects, transitions, and keyframes."
+        },
+        {
+          "type": "package",
+          "name": "losslesscut-bin",
+          "detect": "losslesscut",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Fast lossless trimming, cutting, and merging of video and audio."
+        },
+        {
+          "type": "package",
+          "name": "easyeffects",
+          "detect": "easyeffects",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Real-time PipeWire microphone and audio effects chain, system-wide."
+        },
+        {
+          "type": "package",
+          "name": "noise-suppression-for-voice",
+          "detect": "noise-suppression-for-voice",
+          "tier": "core",
+          "interactive": false,
+          "summary": "RNNoise neural noise suppression (LADSPA/LV2) for EasyEffects, OBS, and Ardour."
+        },
+        {
+          "type": "package",
+          "name": "audacity",
+          "detect": "audacity",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Multitrack audio recorder and editor for voiceovers and podcasts."
+        },
+        {
+          "type": "package",
+          "name": "gimp",
+          "detect": "gimp",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Raster image editor for thumbnails, compositing, and retouching."
+        },
+        {
+          "type": "package",
+          "name": "inkscape",
+          "detect": "inkscape",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Vector editor for crisp thumbnail text, logos, and overlay assets."
+        },
+        {
+          "type": "package",
+          "name": "krita",
+          "detect": "krita",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Digital painting for illustrated thumbnails and channel art."
+        },
+        {
+          "type": "package",
+          "name": "yt-dlp",
+          "detect": "yt-dlp",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Download reference footage and your own back-catalogue; extract audio."
+        },
+        {
+          "type": "package",
+          "name": "handbrake",
+          "detect": "ghb",
+          "tier": "core",
+          "interactive": false,
+          "summary": "GUI and CLI batch transcoder with presets for each platform."
+        },
+        {
+          "type": "package",
+          "name": "whisper.cpp",
+          "detect": "whisper-cli",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Local speech-to-text engine behind the right-click Generate captions (SRT) action."
+        },
+        {
+          "type": "script",
+          "name": "capture-website-cli",
+          "detect": "capture-website",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Renders a URL or HTML file to an image for scripted thumbnails."
+        },
+        {
+          "type": "script",
+          "name": "youtubeuploader",
+          "detect": "youtubeuploader",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Scripted YouTube uploads from the command line with metadata."
+        },
+        {
+          "type": "script",
+          "name": "davinci-resolve",
+          "detect": "davinci-resolve",
+          "tier": "optional",
+          "interactive": true,
+          "summary": "Pro NLE and color grading. Proprietary: you download the installer from Blackmagic, then this builds it. Free build on Linux cannot import H.264/H.265; use the DaVinci reformat action."
+        },
+        {
+          "type": "package",
+          "name": "reaper",
+          "detect": "reaper",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Pro DAW with a native Linux build (paid after a 60-day evaluation)."
+        },
+        {
+          "type": "package",
+          "name": "wl-screenrec",
+          "detect": "wl-screenrec",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "High-performance hardware-encoded wlroots screen recorder."
+        },
+        {
+          "type": "package",
+          "name": "distroav",
+          "detect": "distroav",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "NDI in and out for OBS (multi-PC and multi-app video over the LAN)."
+        },
+        {
+          "type": "package",
+          "name": "owncast-bin",
+          "detect": "owncast",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Self-hosted live streaming server (your own Twitch alternative)."
+        },
+        {
+          "type": "package",
+          "name": "shotcut",
+          "detect": "shotcut",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Simple cross-platform MLT video editor, approachable for newcomers."
+        },
+        {
+          "type": "package",
+          "name": "blender",
+          "detect": "blender",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "3D suite with a Video Sequence Editor and compositor for intros and motion graphics."
+        },
+        {
+          "type": "package",
+          "name": "darktable",
+          "detect": "darktable",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "RAW photo developer for high-quality still and thumbnail source shots."
+        },
+        {
+          "type": "package",
+          "name": "upscayl-bin",
+          "detect": "upscayl",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "AI image upscaler (Real-ESRGAN) to rescue low-res thumbnail assets."
+        },
+        {
+          "type": "package",
+          "name": "qprompt",
+          "detect": "qprompt",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "Modern teleprompter for scripted delivery."
+        },
+        {
+          "type": "package",
+          "name": "subtitleedit",
+          "detect": "subtitleedit",
+          "tier": "optional",
+          "interactive": false,
+          "summary": "GUI subtitle editor with built-in whisper.cpp transcription and styling."
+        }
+      ],
       "tagline": "stream · record · edit · publish",
       "sources": "pacman / AUR / Go / npm / ryoku",
-      "icon": "movie",
-      "accent": "#e2342a",
-      "preview": "assets/hero.png",
-      "screenshots": ["assets/hero.png"],
-      "path": "bundles/the-influencer"
-    },
-    {
-      "id": "office-worker",
-      "name": "Office Worker",
-      "description": "FOSS office suites, PDF reading and editing, mail and calendar, Teams, and a Windows app fallback.",
-      "tagline": "docs · mail · meetings",
-      "sources": "pacman / AUR",
-      "path": "bundles/office-worker"
-    },
-    {
-      "id": "secpulse-basic",
-      "name": "SecPulse Basic",
-      "description": "Nmap, Gobuster, OpenVPN, wordlists, and the HTB and TryHackMe starter kit, without pretending to be Kali.",
-      "tagline": "starter cyber lab",
-      "sources": "pacman / AUR / Go / pipx",
-      "path": "bundles/secpulse-basic"
-    },
-    {
-      "id": "secpulse-advanced",
-      "name": "SecPulse Advanced",
-      "description": "Nikto, Shodan, the ProjectDiscovery recon suite, masscan, firewall helpers, and proxied ops tooling.",
-      "tagline": "recon · firewall · ops",
-      "sources": "pacman / AUR / Go",
-      "path": "bundles/secpulse-advanced"
-    },
-    {
-      "id": "the-ricer",
-      "name": "The Ricer",
-      "description": "Aether and the must-have apps for shaping the desktop, inspecting colors, and editing visuals.",
-      "tagline": "customize · inspect · tweak",
-      "sources": "pacman / AUR",
-      "path": "bundles/the-ricer"
-    },
-    {
-      "id": "the-vibecoder",
-      "name": "The Vibecoder",
-      "description": "Claude Code, Codex, OpenCode, Gemini, aider, and the terminal helpers for building with AI.",
-      "tagline": "agents · terminals · flow",
-      "sources": "pacman / AUR / npm / pipx / vendor",
-      "path": "bundles/the-vibecoder"
-    },
-    {
-      "id": "the-developer",
-      "name": "The Developer",
-      "description": "Zed, the Docker stack, git and database TUIs, and the per-project glue for actual development.",
-      "tagline": "real dev workflows",
-      "sources": "pacman / Go",
-      "path": "bundles/the-developer"
-    },
-    {
-      "id": "the-hacker",
-      "name": "The Hacker",
-      "description": "Disassemblers, debuggers, memory and disk forensics, hex and binary inspection, and packet work.",
-      "tagline": "reversing · forensics",
-      "sources": "pacman / AUR / Go / pipx",
-      "path": "bundles/the-hacker"
+      "icon": "movie"
     },
     {
       "id": "cachyos-kernel",
       "name": "CachyOS Kernel",
+      "version": "1.0.0",
+      "path": "bundles/cachyos-kernel",
+      "author": "Ryoku Team",
+      "summary": "faster kernel · keeps stock as fallback",
       "description": "Swap in the performance-tuned CachyOS kernel. Pros: snappier desktop and gaming. Cons: adds the CachyOS repo, DKMS rebuilds, more bleeding-edge. Stock kernel stays as the fallback.",
+      "tags": [
+        "faster kernel",
+        "keeps stock as fallback"
+      ],
+      "accent": "#f97316",
+      "surface": "#101010",
+      "preview": "assets/preview.webp",
+      "screenshots": [],
+      "manifest": "bundle.json",
+      "manifestSha256": "911e9b54ec090ec350689d2e500363b49d310b218ecd81fd5ccd53e534f28798",
+      "components": [
+        {
+          "type": "package",
+          "name": "linux-cachyos",
+          "detect": "linux-cachyos",
+          "tier": "core",
+          "interactive": false,
+          "summary": "The CachyOS kernel: EEVDF with sched-ext, Clang ThinLTO and AutoFDO, the Cachy patchset. Built for x86-64-v3."
+        },
+        {
+          "type": "package",
+          "name": "linux-cachyos-headers",
+          "detect": "linux-cachyos-headers",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Headers for the CachyOS kernel, needed to rebuild DKMS modules (NVIDIA, VirtualBox) against it."
+        }
+      ],
       "tagline": "faster kernel · keeps stock as fallback",
-      "sources": "CachyOS repo",
-      "path": "bundles/cachyos-kernel"
+      "sources": "CachyOS repo"
     }
   ]
 }

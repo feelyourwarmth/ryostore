@@ -1,0 +1,81 @@
+{
+  "schema": 1,
+  "id": "pixel-waterfall",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/pixel-waterfall",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 504,
+      "sha256": "c37823bec87a980b951b8e160ef222ac04150c20f3e3a6f4a59eb0237594824a",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 1685709,
+      "sha256": "c148f984296d5c74f17392b9824a9d392a2389833bd5fa310e2efaa877036c54",
+      "install": false
+    },
+    {
+      "source": "content/BackgroundVideo.qml",
+      "destination": "BackgroundVideo.qml",
+      "mode": "0644",
+      "size": 435,
+      "sha256": "05bf8b51cbddedd59c873968a84b95bfe81922867102f53eee46d8d8e8bbff9e",
+      "install": true
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 12926,
+      "sha256": "c6951fa666502dfbbe47e04821dd3ae7c4c05550cfb309f7b485fa6b7db2fc01",
+      "install": true
+    },
+    {
+      "source": "content/bg.mp4",
+      "destination": "bg.mp4",
+      "mode": "0644",
+      "size": 3062043,
+      "sha256": "5d4ee70254eccd271c5b23f6f3dddc69da8e41cccb4874d43198dd34a181949b",
+      "install": true
+    },
+    {
+      "source": "content/font/PixelifySans-Bold.ttf",
+      "destination": "font/PixelifySans-Bold.ttf",
+      "mode": "0644",
+      "size": 50872,
+      "sha256": "7da4a657e842e0266b1f225acfe080756e2b20df064a16edc3733a42d4789ca8",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 168,
+      "sha256": "7ad2b261e8fc4ac18ec21e0d1d24a8d7ba7277ca49ead70e97c63dec3c096cce",
+      "install": true
+    },
+    {
+      "source": "content/theme.conf",
+      "destination": "theme.conf",
+      "mode": "0644",
+      "size": 83,
+      "sha256": "70c4932a637a4a50edc4e3afaf5804663825f867f0c643ae04e88ee9370e07bc",
+      "install": true
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "schema": 1,
+  "id": "pillars",
+  "category": "decors",
+  "version": "1.0.0",
+  "destination": "ryodecors/pillars",
+  "files": [
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 806,
+      "sha256": "f5e22229ddf9eb71a404c7ee7078b4ce1a1d1db4e067f365dff85a0a33244456",
+      "install": true
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 307700,
+      "sha256": "5d567f543f41b2c787ce78286381be295b0cdd7c1cfffe0306a5ad47550fdc54",
+      "install": false
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 819784,
+      "sha256": "552fbeddcf01c1193ed97b4c7dd43fd7623adfeadca74871833525384c2f753a",
+      "install": false
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 113986,
+      "sha256": "40ad38731dd4471b504a2cc21b430db1babe802b750088e2651ddf111d015f1f",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 3490271,
+      "sha256": "cdcdc183410ec08b471d65d9b7ca479647f95bceec448346ba1c2c89acb08073",
+      "install": true
+    }
+  ]
+}

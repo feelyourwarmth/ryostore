@@ -1,0 +1,73 @@
+{
+  "schema": 1,
+  "id": "r1999-2",
+  "category": "lockscreens",
+  "version": "1.0.0",
+  "destination": "qylock/themes/r1999-2",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 35149,
+      "sha256": "3972dc9744f6499f0f9b2dbf76696f2ae7ad8af9b23dde66d6af86c9dfb36986",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 656,
+      "sha256": "547a294e8b556330b2ee6aa862bfad25dcd7fbf83c4e5322655fdea42d422f95",
+      "install": true
+    },
+    {
+      "source": "assets/preview.gif",
+      "destination": "preview.gif",
+      "mode": "0644",
+      "size": 1765256,
+      "sha256": "11c2e844d83c6dc66c6d2e4e129a077de723df65afe0f0ff91ad581e0fa017f7",
+      "install": false
+    },
+    {
+      "source": "content/Main.qml",
+      "destination": "Main.qml",
+      "mode": "0644",
+      "size": 17577,
+      "sha256": "c64596f55ec2335954524fedc22f8ac285f4d15cf94261e80c529f199daa6d5d",
+      "install": true
+    },
+    {
+      "source": "content/bg.mp4",
+      "destination": "bg.mp4",
+      "mode": "0644",
+      "size": 2482969,
+      "sha256": "c6aaacb8fc3b451e0fa5b5d722fb9fc6c48ae56e149593f72958680a432736ed",
+      "install": true
+    },
+    {
+      "source": "content/font/Cinzel-Bold.ttf",
+      "destination": "font/Cinzel-Bold.ttf",
+      "mode": "0644",
+      "size": 77060,
+      "sha256": "f606ab3a8a0a75863022676ea496478bb0f4d520ae8c40b6050df3d6dbffad20",
+      "install": true
+    },
+    {
+      "source": "content/logo.png",
+      "destination": "logo.png",
+      "mode": "0644",
+      "size": 61345,
+      "sha256": "c97d56f2272dcc03c848c9d43912b7a444dcfd976a2bded6f70df981cc4a9b22",
+      "install": true
+    },
+    {
+      "source": "content/metadata.desktop",
+      "destination": "metadata.desktop",
+      "mode": "0644",
+      "size": 157,
+      "sha256": "15b5c6531b5b466ddc0d5866e0711b03cc1bd2624ab2467265b0ca69f3364020",
+      "install": true
+    }
+  ]
+}
