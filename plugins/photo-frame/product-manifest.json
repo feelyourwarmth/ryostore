@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "photo-frame",
   "category": "plugins",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "destination": "ryoku/plugins/photo-frame",
   "files": [
     {
@@ -40,15 +40,15 @@
     {
       "source": "content/Widget.qml",
       "destination": "content/Widget.qml",
-      "sha256": "9d64ac7c15e9cc67d56453082db783cd0426392c29bec159733e125db08c6838",
+      "sha256": "81e40234edd6eb32641128b53196fcb2234e0f454821a1ea9e08e8379abf1765",
       "mode": "0644",
-      "size": 2411,
+      "size": 3190,
       "install": true
     },
     {
       "source": "manifest.json",
       "destination": "manifest.json",
-      "sha256": "65eccaa78ac95805e2f129c543f3a17bddfd43bbf87f4d39ab04edc022fcf508",
+      "sha256": "9ed988da58ebf84734b585138d3152d22bde00a1bc2f516f8a8e3a5ab25b8f00",
       "mode": "0644",
       "size": 5735,
       "install": true

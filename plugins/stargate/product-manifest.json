@@ -8,9 +8,9 @@
     {
       "source": "README.md",
       "destination": "README.md",
-      "sha256": "14ca2107451e2621778ed58f9678277825c54bc13bb7c00421ca935e6f550fd9",
+      "sha256": "ce9b926ad0e134903c88d434d16443a90fbda21b47f63bf90f326c6f95bd0b56",
       "mode": "0644",
-      "size": 5490,
+      "size": 5492,
       "install": false
     },
     {
@@ -72,25 +72,25 @@
     {
       "source": "content/FaceHologram.qml",
       "destination": "content/FaceHologram.qml",
-      "sha256": "745d13ab86d4fafb28d42fdd6dcb1a5894ad1f10175db58ed25b90b16279a9c8",
+      "sha256": "03e7f286c0bd4c237083e135db4f2510a59a84da44065fb2c4e11c25d8d06e47",
       "mode": "0644",
-      "size": 8971,
+      "size": 8967,
       "install": true
     },
     {
       "source": "content/FaceInscription.qml",
       "destination": "content/FaceInscription.qml",
-      "sha256": "ebcd8b6f0202224926ac4f59fc5c282d5448f386d977fb865729f6544961e75f",
+      "sha256": "b7a7368c33ff870665bc58d7b9cf13449090f7ba2f937d8936dd0af722125bd0",
       "mode": "0644",
-      "size": 8321,
+      "size": 8317,
       "install": true
     },
     {
       "source": "content/FaceNaquadah.qml",
       "destination": "content/FaceNaquadah.qml",
-      "sha256": "88b6eebceec119ade22e1e346dbeeb24f64eb6b2050303d0dc5c6ba98c1ccdf2",
+      "sha256": "f7b5f33c0b292c047eea16d92d633439f5955f2ee9324bd2685970b0962e2248",
       "mode": "0644",
-      "size": 11163,
+      "size": 11159,
       "install": true
     },
     {
@@ -136,9 +136,9 @@
     {
       "source": "service/Main.qml",
       "destination": "service/Main.qml",
-      "sha256": "b1d6e5c6cb983ed9da41832f24ba731e83b1517c277e5c8eebc280bc2e22057c",
+      "sha256": "57c52987716418812a79854655e2c0007528ce125a125845d2f1081b728e7524",
       "mode": "0644",
-      "size": 6124,
+      "size": 6128,
       "install": true
     }
   ]

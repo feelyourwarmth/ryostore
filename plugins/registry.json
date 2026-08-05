@@ -24,7 +24,7 @@
         "assets/preview-graph.png"
       ],
       "manifest": "product-manifest.json",
-      "manifestSha256": "020db5cfd2f2b5cdbb955e779a75ed6acc69d7c8c76a393526687bb830487ac6",
+      "manifestSha256": "87820fe149cccabd1b58ab19b42c8ef8bef3bc4a0d34f4357fcc2b75b1e52397",
       "official": true,
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
       "icon": "file",
@@ -53,7 +53,7 @@
         "assets/preview-widget.png"
       ],
       "manifest": "product-manifest.json",
-      "manifestSha256": "9333f5fc3df55ec4449358d821a4e189221d319d37ffde0daabc8cc3e43cd54b",
+      "manifestSha256": "adce3f1ba258ec55acce831c4ff092ab017f19130f8707e5fb78fd78e72faa8b",
       "official": true,
       "tagline": "Track a watchlist of stocks, indices, and crypto on your desktop.",
       "icon": "trending_up",
@@ -65,7 +65,7 @@
     {
       "id": "photo-frame",
       "name": "Photo Frame",
-      "version": "1.3.0",
+      "version": "1.4.0",
       "path": "plugins/photo-frame",
       "author": "Ryoku Team",
       "summary": "Pin a photo to your desktop, framed the way you like it.",
@@ -81,7 +81,7 @@
         "assets/preview-widget.png"
       ],
       "manifest": "product-manifest.json",
-      "manifestSha256": "91a4b9c970292334eb5d8755939955522f7b0576f8f8ffd7e0a0e02dd12ec457",
+      "manifestSha256": "3b28f90afa928baed4c46e9334eee815953d571c39d55829181124aaf2cedacf",
       "official": true,
       "tagline": "Pin a photo to your desktop, framed the way you like it.",
       "icon": "image",
@@ -115,7 +115,7 @@
         "assets/preview-inscription.png"
       ],
       "manifest": "product-manifest.json",
-      "manifestSha256": "a64317b651c5c740ae8aeec5a30fa7d0a71a78c7033d0f6b618b1865a40e70e4",
+      "manifestSha256": "80d6ef37ee0794f517a13dace8cbc2013e2fd17d50ff5a738d3fd201e7dc4521",
       "official": true,
       "tagline": "A living Stargate that dials the time on your desktop.",
       "icon": "hotspot",

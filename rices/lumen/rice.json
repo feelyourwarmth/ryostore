@@ -1,38 +1,63 @@
 {
   "schema": 1,
+  "id": "lumen",
+  "category": "rices",
+  "version": "1.0.0",
+  "destination": "ryoku/rices/lumen",
   "slug": "lumen",
   "name": "Lumen",
   "author": "Ryoku Team",
   "blurb": "Soft and airy. Rounded corners, generous gaps, a glassy blur and a gentle lift; colours track your wallpaper through matugen, so any wall becomes a calm, luminous desktop.",
-  "tags": ["adaptive", "rounded", "glass", "soft"],
+  "tags": [
+    "adaptive",
+    "rounded",
+    "glass",
+    "soft"
+  ],
   "createdWith": "0.19.2",
-  "color": { "mode": "wallpaper" },
-  "assets": { "cursor": "Bibata-Modern-Ice" },
+  "color": {
+    "mode": "wallpaper"
+  },
+  "assets": {
+    "cursor": "Bibata-Modern-Ice"
+  },
   "look": {
     "hypr": {
       "appearance": {
+        "activeOpacity": 1,
+        "animations": true,
+        "blurEnabled": true,
+        "borderSize": 2,
+        "dimInactive": false,
         "gapsIn": 8,
         "gapsOut": 18,
-        "borderSize": 2,
+        "glowEnabled": false,
+        "inactiveOpacity": 0.97,
+        "layout": "dwindle",
         "rounding": 16,
         "roundingPower": 2,
-        "activeOpacity": 1,
-        "inactiveOpacity": 0.97,
-        "dimInactive": false,
-        "blurEnabled": true,
         "shadowEnabled": true,
-        "shadowRange": 20,
         "shadowPower": 3,
-        "glowEnabled": false,
-        "animations": true,
-        "layout": "dwindle"
+        "shadowRange": 20
       }
-    },
-    "shell": {
-      "frameBars": { "style": "slate-frame" }
     },
     "launcher": {
       "bgBlur": 24
+    },
+    "shell": {
+      "frameBars": {
+        "style": "slate-frame"
+      }
     }
-  }
+  },
+  "files": [
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 154564,
+      "sha256": "85533ea080bce2983c94c8f20cd2eb19d8825bae21ca214b8b058d83eba70070",
+      "install": false
+    }
+  ]
 }

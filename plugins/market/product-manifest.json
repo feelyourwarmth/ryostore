@@ -8,9 +8,9 @@
     {
       "source": "README.md",
       "destination": "README.md",
-      "sha256": "1eb8f2bb5b95ca010f3b6d4decd5b3cd6b6056b1ecce57336c010c1e593ba11c",
+      "sha256": "a196c5813c5556e6f412e4b1262520b15af62dc727a0590ced86c20f173c570d",
       "mode": "0644",
-      "size": 6082,
+      "size": 6084,
       "install": false
     },
     {
@@ -152,7 +152,7 @@
     {
       "source": "service/Main.qml",
       "destination": "service/Main.qml",
-      "sha256": "7a567a34e3db7969371a79015c777ab7b0ce550ed08bd4da3e92f3868264579f",
+      "sha256": "b3b58de16c91cb6fc486a09e29ced7643e056d71ede63ad5dd921998165f1bb0",
       "mode": "0644",
       "size": 17988,
       "install": true

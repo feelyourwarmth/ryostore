@@ -1,10 +1,21 @@
 {
   "schema": 1,
+  "id": "evangelion",
+  "category": "rices",
+  "version": "1.0.0",
+  "destination": "ryoku/rices/evangelion",
   "slug": "evangelion",
   "name": "Evangelion",
   "author": "Ryoku Team",
   "blurb": "Unit-01. Purple and neon green on a black void, a hard-edged frame, NERV decor and a rebranded seal. The wallpaper carries the beast; the chrome runs the operation.",
-  "tags": ["evangelion", "anime", "eva-01", "nerv", "purple", "dark"],
+  "tags": [
+    "evangelion",
+    "anime",
+    "eva-01",
+    "nerv",
+    "purple",
+    "dark"
+  ],
   "createdWith": "0.19.2",
   "color": {
     "mode": "fixed",
@@ -18,61 +29,193 @@
     "fastfetch": "fastfetch-emblem.png"
   },
   "look": {
+    "decor": {
+      "addons.installed": {
+        "posX": 0.5,
+        "posY": 0.5,
+        "shot": 0,
+        "src": "rice://decor-hazard.png",
+        "zoom": 1
+      },
+      "anim.motion": {
+        "posX": 0.5,
+        "posY": 0.5,
+        "shot": 0,
+        "src": "rice://decor-atpulse.gif",
+        "zoom": 1
+      },
+      "connections.hero": {
+        "posX": 0.5,
+        "posY": 0.5,
+        "shot": 0,
+        "src": "rice://decor-nerv.png",
+        "zoom": 1
+      },
+      "gpu.render": {
+        "posX": 0.5,
+        "posY": 0.5,
+        "shot": 0,
+        "src": "rice://decor-atfield.png",
+        "zoom": 1
+      },
+      "input.map": {
+        "posX": 0.5,
+        "posY": 0.5,
+        "shot": 0,
+        "src": "rice://decor-reticle.png",
+        "zoom": 1
+      }
+    },
     "hypr": {
       "appearance": {
-        "gapsIn": 5,
-        "gapsOut": 12,
-        "borderSize": 3,
-        "rounding": 4,
-        "roundingPower": 2,
+        "activeBorder": "#b794ff",
         "activeOpacity": 1,
-        "inactiveOpacity": 0.92,
+        "animations": true,
+        "blurEnabled": false,
+        "borderSize": 3,
         "dimInactive": true,
         "dimStrength": 0.35,
-        "blurEnabled": false,
-        "shadowEnabled": true,
-        "shadowRange": 16,
-        "shadowPower": 3,
-        "shadowColor": "#000000",
+        "gapsIn": 5,
+        "gapsOut": 12,
         "glowEnabled": false,
-        "animations": true,
+        "inactiveBorder": "#2a2733",
+        "inactiveOpacity": 0.92,
         "layout": "dwindle",
-        "activeBorder": "#b794ff",
-        "inactiveBorder": "#2a2733"
+        "rounding": 4,
+        "roundingPower": 2,
+        "shadowColor": "#000000",
+        "shadowEnabled": true,
+        "shadowPower": 3,
+        "shadowRange": 16
+      }
+    },
+    "launcher": {
+      "bgBlur": 12,
+      "heroPosX": 0.72,
+      "heroPosY": 0.4,
+      "heroStrength": 0.5,
+      "radius": 4,
+      "resultSettleMs": 200,
+      "showGreeting": true,
+      "showWeather": true
+    },
+    "profile": {
+      "hero": {
+        "focalX": 0.5,
+        "focalY": 0.35,
+        "kind": "custom",
+        "source": "profile-hero.jpg",
+        "zoom": 1.05
       }
     },
     "shell": {
+      "frameBars": {
+        "style": "ryoku-frame"
+      },
+      "frameBorder": 1,
+      "frameCorner": 0,
       "frameEnabled": true,
       "frameRadius": 0,
-      "frameCorner": 0,
-      "frameBorder": 1,
-      "surfaceColor": "#141218",
-      "roundness": 0,
       "osdRadius": 6,
-      "frameBars": { "style": "ryoku-frame" }
-    },
-    "launcher": {
-      "heroStrength": 0.5,
-      "heroPosX": 0.72,
-      "heroPosY": 0.4,
-      "bgBlur": 12,
-      "radius": 4,
-      "showGreeting": true,
-      "showWeather": true,
-      "resultSettleMs": 200
-    },
-    "decor": {
-      "connections.hero": { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-nerv.png" },
-      "gpu.render":       { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-atfield.png" },
-      "input.map":        { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-reticle.png" },
-      "addons.installed": { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-hazard.png" },
-      "anim.motion":      { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-atpulse.gif" }
-    },
-    "profile": {
-      "hero": { "kind": "custom", "source": "profile-hero.jpg", "focalX": 0.5, "focalY": 0.35, "zoom": 1.05 }
+      "roundness": 0,
+      "surfaceColor": "#141218"
     }
   },
   "layers": {
-    "brand": { "name": "NERV", "markImage": "rice://nerv-mark.png", "markTint": true }
-  }
+    "brand": {
+      "name": "NERV",
+      "markImage": "rice://nerv-mark.png",
+      "markTint": true
+    }
+  },
+  "files": [
+    {
+      "source": "assets/preview.webp",
+      "destination": "assets/preview.webp",
+      "mode": "0644",
+      "size": 72074,
+      "sha256": "86f42e281482ad3e11cec71e794cd6e7b57d2d1d7a9bfab3b1264a4b88b0e729",
+      "install": false
+    },
+    {
+      "source": "decor-atfield.png",
+      "destination": "decor-atfield.png",
+      "mode": "0644",
+      "size": 22908,
+      "sha256": "47ade000386344e6d303ac8dea65de58c5817f803b41124ac388fb9daab9d49c",
+      "install": true
+    },
+    {
+      "source": "decor-atpulse.gif",
+      "destination": "decor-atpulse.gif",
+      "mode": "0644",
+      "size": 114298,
+      "sha256": "e1a0bb73d0a70be008baf17f4fd6e66b6b49b939feb960d9ce21dde2504c64a8",
+      "install": true
+    },
+    {
+      "source": "decor-hazard.png",
+      "destination": "decor-hazard.png",
+      "mode": "0644",
+      "size": 22201,
+      "sha256": "6c2228991020ef65442dcdc817e9952888d71792210fb6fabbf3ef7aac149363",
+      "install": true
+    },
+    {
+      "source": "decor-nerv.png",
+      "destination": "decor-nerv.png",
+      "mode": "0644",
+      "size": 25743,
+      "sha256": "a19480266cfddf0cb092934545e410756abb31995b864aa6502c12484e0fdd87",
+      "install": true
+    },
+    {
+      "source": "decor-reticle.png",
+      "destination": "decor-reticle.png",
+      "mode": "0644",
+      "size": 21020,
+      "sha256": "c730fa8c0875d70e56677465d1544d2f82e3cd3e39796d358a6744de375907b9",
+      "install": true
+    },
+    {
+      "source": "fastfetch-emblem.png",
+      "destination": "fastfetch-emblem.png",
+      "mode": "0644",
+      "size": 94193,
+      "sha256": "7acd8a6946807e341cb2a6c821b8141c962e08441e0cb07c17d21f3768e300ab",
+      "install": true
+    },
+    {
+      "source": "nerv-mark.png",
+      "destination": "nerv-mark.png",
+      "mode": "0644",
+      "size": 53548,
+      "sha256": "1a34e8559be9be08398a38f75cc788566d255fdfc309a4b3181ab6dcca79c2f2",
+      "install": true
+    },
+    {
+      "source": "palette.json",
+      "destination": "palette.json",
+      "mode": "0644",
+      "size": 1421,
+      "sha256": "724a80af1b70d0c296484e9d987ab612749a9621417f4e35548f7aab4d6ac824",
+      "install": true
+    },
+    {
+      "source": "profile-hero.jpg",
+      "destination": "profile-hero.jpg",
+      "mode": "0644",
+      "size": 179566,
+      "sha256": "39a25788db6fce7f299c3ac62b8e606f187b80b852e1b3f3521f75f7448f559f",
+      "install": true
+    },
+    {
+      "source": "screenshots/1.webp",
+      "destination": "screenshots/1.webp",
+      "mode": "0644",
+      "size": 118418,
+      "sha256": "a5f0ac3567dbaf7ac53c27f21af13892ef5bb8747e30575afdf7c131805314bc",
+      "install": false
+    }
+  ]
 }
