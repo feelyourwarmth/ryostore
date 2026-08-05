@@ -14,7 +14,8 @@
   "assets": {
     "wallpaper": "wall.png",
     "hero": "hero.jpg",
-    "cursor": "Bibata-Modern-Ice"
+    "cursor": "Bibata-Modern-Ice",
+    "fastfetch": "fastfetch-emblem.png"
   },
   "look": {
     "hypr": {
@@ -42,10 +43,11 @@
     },
     "shell": {
       "frameEnabled": true,
-      "frameRadius": 4,
+      "frameRadius": 0,
+      "frameCorner": 0,
       "frameBorder": 1,
       "surfaceColor": "#141218",
-      "roundness": 4,
+      "roundness": 0,
       "osdRadius": 6,
       "frameBars": { "style": "ryoku-frame" }
     },
@@ -65,6 +67,9 @@
       "input.map":        { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-reticle.png" },
       "addons.installed": { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-hazard.png" },
       "anim.motion":      { "shot": 0, "zoom": 1, "posX": 0.5, "posY": 0.5, "src": "rice://decor-atpulse.gif" }
+    },
+    "profile": {
+      "hero": { "kind": "custom", "source": "profile-hero.jpg", "focalX": 0.5, "focalY": 0.35, "zoom": 1.05 }
     }
   },
   "layers": {
