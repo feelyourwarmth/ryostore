@@ -2,8 +2,12 @@
   "version": 1,
   "themes": [
     {
+      "id": "adw",
       "name": "ADW",
+      "provider": "Noctalia",
       "path": "colorschemes/ADW",
+      "accent": "#3584e4",
+      "surface": "#242424",
       "dark": {
         "mPrimary": "#3584e4",
         "mOnPrimary": "#ffffff",
@@ -42,8 +46,12 @@
       }
     },
     {
+      "id": "ayu-blue",
       "name": "Ayu Blue",
+      "provider": "Noctalia",
       "path": "colorschemes/Ayu Blue",
+      "accent": "#39BAE6",
+      "surface": "#0B0E14",
       "dark": {
         "mPrimary": "#39BAE6",
         "mOnPrimary": "#0B0E14",
@@ -82,8 +90,12 @@
       }
     },
     {
+      "id": "ayu-green",
       "name": "Ayu Green",
+      "provider": "Noctalia",
       "path": "colorschemes/Ayu Green",
+      "accent": "#AAD94C",
+      "surface": "#0B0E14",
       "dark": {
         "mPrimary": "#AAD94C",
         "mOnPrimary": "#0B0E14",
@@ -122,8 +134,12 @@
       }
     },
     {
+      "id": "ayu-red",
       "name": "Ayu Red",
+      "provider": "Noctalia",
       "path": "colorschemes/Ayu Red",
+      "accent": "#D95757",
+      "surface": "#0B0E14",
       "dark": {
         "mPrimary": "#D95757",
         "mOnPrimary": "#0B0E14",
@@ -162,8 +178,12 @@
       }
     },
     {
+      "id": "breeze",
       "name": "Breeze",
+      "provider": "Noctalia",
       "path": "colorschemes/Breeze",
+      "accent": "#3daee9",
+      "surface": "#202224",
       "dark": {
         "mPrimary": "#3daee9",
         "mOnPrimary": "#141618",
@@ -202,8 +222,12 @@
       }
     },
     {
+      "id": "catppuccin-lavender",
       "name": "Catppuccin Lavender",
+      "provider": "Noctalia",
       "path": "colorschemes/Catppuccin Lavender",
+      "accent": "#b4befe",
+      "surface": "#1e1e2e",
       "dark": {
         "mPrimary": "#b4befe",
         "mOnPrimary": "#11111b",
@@ -242,8 +266,12 @@
       }
     },
     {
+      "id": "cherry-blossom",
       "name": "Cherry Blossom",
+      "provider": "Noctalia",
       "path": "colorschemes/Cherry Blossom",
+      "accent": "#F2C1D4",
+      "surface": "#2A1922",
       "dark": {
         "mPrimary": "#F2C1D4",
         "mOnPrimary": "#2A1B21",
@@ -282,8 +310,12 @@
       }
     },
     {
+      "id": "cream",
       "name": "Cream",
+      "provider": "Noctalia",
       "path": "colorschemes/Cream",
+      "accent": "#a9b665",
+      "surface": "#282828",
       "dark": {
         "mPrimary": "#a9b665",
         "mOnPrimary": "#282828",
@@ -322,8 +354,12 @@
       }
     },
     {
+      "id": "cream-autumn",
       "name": "Cream Autumn",
+      "provider": "Noctalia",
       "path": "colorschemes/Cream Autumn",
+      "accent": "#e0a84a",
+      "surface": "#282828",
       "dark": {
         "mPrimary": "#e0a84a",
         "mOnPrimary": "#282828",
@@ -362,8 +398,12 @@
       }
     },
     {
+      "id": "cream-autumn-old",
       "name": "Cream Autumn Old",
+      "provider": "Noctalia",
       "path": "colorschemes/Cream Autumn Old",
+      "accent": "#e0a84a",
+      "surface": "#1d1610",
       "dark": {
         "mPrimary": "#e0a84a",
         "mOnPrimary": "#282828",
@@ -402,8 +442,12 @@
       }
     },
     {
+      "id": "cyberpunk",
       "name": "Cyberpunk",
+      "provider": "Noctalia",
       "path": "colorschemes/Cyberpunk",
+      "accent": "#C4A82E",
+      "surface": "#0C1017",
       "dark": {
         "mPrimary": "#C4A82E",
         "mOnPrimary": "#0E1015",
@@ -442,8 +486,12 @@
       }
     },
     {
+      "id": "doomed",
       "name": "Doomed",
+      "provider": "Noctalia",
       "path": "colorschemes/Doomed",
+      "accent": "#51afef",
+      "surface": "#1c1e1e",
       "dark": {
         "mPrimary": "#51afef",
         "mOnPrimary": "#1c1e1e",
@@ -482,8 +530,12 @@
       }
     },
     {
+      "id": "espresso-cream",
       "name": "Espresso Cream",
+      "provider": "Noctalia",
       "path": "colorschemes/Espresso Cream",
+      "accent": "#e29578",
+      "surface": "#1a120b",
       "dark": {
         "mPrimary": "#e29578",
         "mOnPrimary": "#1a120b",
@@ -522,8 +574,12 @@
       }
     },
     {
+      "id": "everdeer",
       "name": "Everdeer",
+      "provider": "Noctalia",
       "path": "colorschemes/Everdeer",
+      "accent": "#ffb4a3",
+      "surface": "#1c110e",
       "dark": {
         "mPrimary": "#ffb4a3",
         "mOnPrimary": "#621000",
@@ -562,8 +618,12 @@
       }
     },
     {
+      "id": "everforest",
       "name": "Everforest",
+      "provider": "Noctalia",
       "path": "colorschemes/Everforest",
+      "accent": "#A7C080",
+      "surface": "#232A2E",
       "dark": {
         "mPrimary": "#A7C080",
         "mOnPrimary": "#232A2E",
@@ -602,8 +662,12 @@
       }
     },
     {
+      "id": "flexoki",
       "name": "Flexoki",
+      "provider": "Noctalia",
       "path": "colorschemes/Flexoki",
+      "accent": "#879a39",
+      "surface": "#100f0f",
       "dark": {
         "mPrimary": "#879a39",
         "mOnPrimary": "#1a1e0c",
@@ -642,8 +706,12 @@
       }
     },
     {
+      "id": "github-dark",
       "name": "GitHub Dark",
+      "provider": "Noctalia",
       "path": "colorschemes/GitHub Dark",
+      "accent": "#58a6ff",
+      "surface": "#010409",
       "dark": {
         "mPrimary": "#58a6ff",
         "mOnPrimary": "#010409",
@@ -682,8 +750,12 @@
       }
     },
     {
+      "id": "gruber-darker",
       "name": "Gruber Darker",
+      "provider": "Noctalia",
       "path": "colorschemes/Gruber Darker",
+      "accent": "#ffdd33",
+      "surface": "#181818",
       "dark": {
         "mPrimary": "#ffdd33",
         "mOnPrimary": "#181818",
@@ -722,8 +794,12 @@
       }
     },
     {
+      "id": "gruvboxalt",
       "name": "GruvboxAlt",
+      "provider": "Noctalia",
       "path": "colorschemes/GruvboxAlt",
+      "accent": "#ebdbb2",
+      "surface": "#282828",
       "dark": {
         "mPrimary": "#ebdbb2",
         "mOnPrimary": "#282828",
@@ -762,8 +838,12 @@
       }
     },
     {
+      "id": "hexa34c",
       "name": "Hexa34C",
+      "provider": "Noctalia",
       "path": "colorschemes/Hexa34C",
+      "accent": "#9ad4a1",
+      "surface": "#101510",
       "dark": {
         "mPrimary": "#9ad4a1",
         "mOnPrimary": "#003916",
@@ -802,8 +882,12 @@
       }
     },
     {
+      "id": "horizon",
       "name": "Horizon",
+      "provider": "Noctalia",
       "path": "colorschemes/Horizon",
+      "accent": "#25B2BC",
+      "surface": "#1A1C23",
       "dark": {
         "mPrimary": "#25B2BC",
         "mOnPrimary": "#16161C",
@@ -842,8 +926,12 @@
       }
     },
     {
+      "id": "kanagawa-dragon",
       "name": "Kanagawa Dragon",
+      "provider": "Noctalia",
       "path": "colorschemes/Kanagawa Dragon",
+      "accent": "#8a9a7b",
+      "surface": "#181616",
       "dark": {
         "mPrimary": "#8a9a7b",
         "mOnPrimary": "#181616",
@@ -882,8 +970,12 @@
       }
     },
     {
+      "id": "kanagawa-paper",
       "name": "Kanagawa Paper",
+      "provider": "Noctalia",
       "path": "colorschemes/Kanagawa Paper",
+      "accent": "#c4b28a",
+      "surface": "#1F1F28",
       "dark": {
         "mPrimary": "#c4b28a",
         "mOnPrimary": "#1F1F28",
@@ -922,8 +1014,12 @@
       }
     },
     {
+      "id": "kemuri",
       "name": "Kemuri",
+      "provider": "Noctalia",
       "path": "colorschemes/Kemuri",
+      "accent": "#cb9168",
+      "surface": "#242120",
       "dark": {
         "mPrimary": "#cb9168",
         "mOnPrimary": "#242120",
@@ -962,8 +1058,12 @@
       }
     },
     {
+      "id": "kemuri-koke",
       "name": "Kemuri Koke",
+      "provider": "Noctalia",
       "path": "colorschemes/Kemuri Koke",
+      "accent": "#8ba37e",
+      "surface": "#242120",
       "dark": {
         "mPrimary": "#8ba37e",
         "mOnPrimary": "#242120",
@@ -1002,8 +1102,12 @@
       }
     },
     {
+      "id": "lilac-amoled",
       "name": "Lilac AMOLED",
+      "provider": "Noctalia",
       "path": "colorschemes/Lilac AMOLED",
+      "accent": "#b58fff",
+      "surface": "#000000",
       "dark": {
         "mPrimary": "#b58fff",
         "mOnPrimary": "#000000",
@@ -1042,8 +1146,12 @@
       }
     },
     {
+      "id": "matecito",
       "name": "Matecito",
+      "provider": "Noctalia",
       "path": "colorschemes/Matecito",
+      "accent": "#8da383",
+      "surface": "#1e2320",
       "dark": {
         "mPrimary": "#8da383",
         "mOnPrimary": "#1e2320",
@@ -1082,8 +1190,12 @@
       }
     },
     {
+      "id": "miasma",
       "name": "Miasma",
+      "provider": "Noctalia",
       "path": "colorschemes/Miasma",
+      "accent": "#c9a554",
+      "surface": "#222222",
       "dark": {
         "mPrimary": "#c9a554",
         "mOnPrimary": "#222222",
@@ -1122,8 +1234,12 @@
       }
     },
     {
+      "id": "mine",
       "name": "Mine",
+      "provider": "Noctalia",
       "path": "colorschemes/Mine",
+      "accent": "#e1e2d5",
+      "surface": "#1d1b1d",
       "dark": {
         "mPrimary": "#e1e2d5",
         "mOnPrimary": "#1d1b1d",
@@ -1162,8 +1278,12 @@
       }
     },
     {
+      "id": "monochrome",
       "name": "Monochrome",
+      "provider": "Noctalia",
       "path": "colorschemes/Monochrome",
+      "accent": "#aaaaaa",
+      "surface": "#111111",
       "dark": {
         "mPrimary": "#aaaaaa",
         "mOnPrimary": "#111111",
@@ -1202,8 +1322,12 @@
       }
     },
     {
+      "id": "murasaki",
       "name": "Murasaki",
+      "provider": "Noctalia",
       "path": "colorschemes/Murasaki",
+      "accent": "#e8bcfb",
+      "surface": "#300443",
       "dark": {
         "mPrimary": "#e8bcfb",
         "mOnPrimary": "#8e0cc6",
@@ -1242,8 +1366,12 @@
       }
     },
     {
+      "id": "murata",
       "name": "Murata",
+      "provider": "Noctalia",
       "path": "colorschemes/Murata",
+      "accent": "#db6d6d",
+      "surface": "#1a1b1c",
       "dark": {
         "mPrimary": "#db6d6d",
         "mOnPrimary": "#1a1b1c",
@@ -1282,8 +1410,12 @@
       }
     },
     {
+      "id": "naysayer",
       "name": "NaySayer",
+      "provider": "Noctalia",
       "path": "colorschemes/NaySayer",
+      "accent": "#2ec09c",
+      "surface": "#062329",
       "dark": {
         "mPrimary": "#2ec09c",
         "mOnPrimary": "#062329",
@@ -1322,8 +1454,12 @@
       }
     },
     {
+      "id": "neon-surf",
       "name": "Neon Surf",
+      "provider": "Noctalia",
       "path": "colorschemes/Neon Surf",
+      "accent": "#00a8f4",
+      "surface": "#000000",
       "dark": {
         "mPrimary": "#00a8f4",
         "mOnPrimary": "#000000",
@@ -1362,8 +1498,12 @@
       }
     },
     {
+      "id": "noctalia-legacy",
       "name": "Noctalia legacy",
+      "provider": "Noctalia",
       "path": "colorschemes/Noctalia legacy",
+      "accent": "#c7a1d8",
+      "surface": "#1c1822",
       "dark": {
         "mPrimary": "#c7a1d8",
         "mOnPrimary": "#1a151f",
@@ -1402,8 +1542,12 @@
       }
     },
     {
+      "id": "oasis-abyss",
       "name": "Oasis Abyss",
+      "provider": "Noctalia",
       "path": "colorschemes/Oasis Abyss",
+      "accent": "#D06666",
+      "surface": "#1A1A1A",
       "dark": {
         "mPrimary": "#D06666",
         "mOnPrimary": "#1A1A1A",
@@ -1442,8 +1586,12 @@
       }
     },
     {
+      "id": "occult-umbral",
       "name": "Occult Umbral",
+      "provider": "Noctalia",
       "path": "colorschemes/Occult Umbral",
+      "accent": "#8B2E2E",
+      "surface": "#0A0A12",
       "dark": {
         "mPrimary": "#8B2E2E",
         "mOnPrimary": "#1C1C28",
@@ -1482,8 +1630,12 @@
       }
     },
     {
+      "id": "one",
       "name": "One",
+      "provider": "Noctalia",
       "path": "colorschemes/One",
+      "accent": "#61afef",
+      "surface": "#1e2127",
       "dark": {
         "mPrimary": "#61afef",
         "mOnPrimary": "#1e2127",
@@ -1522,8 +1674,12 @@
       }
     },
     {
+      "id": "one-dark-two",
       "name": "One Dark Two",
+      "provider": "Noctalia",
       "path": "colorschemes/One Dark Two",
+      "accent": "#62BAC6",
+      "surface": "#21252B",
       "dark": {
         "mPrimary": "#62BAC6",
         "mOnPrimary": "#21252B",
@@ -1562,8 +1718,12 @@
       }
     },
     {
+      "id": "osaka-jade",
       "name": "Osaka jade",
+      "provider": "Noctalia",
       "path": "colorschemes/Osaka jade",
+      "accent": "#1E9177",
+      "surface": "#081512",
       "dark": {
         "mPrimary": "#1E9177",
         "mOnPrimary": "#B8C8C4",
@@ -1602,8 +1762,12 @@
       }
     },
     {
+      "id": "oxide",
       "name": "Oxide",
+      "provider": "Noctalia",
       "path": "colorschemes/Oxide",
+      "accent": "#B85A30",
+      "surface": "#231D1B",
       "dark": {
         "mPrimary": "#B85A30",
         "mOnPrimary": "#1D1816",
@@ -1642,8 +1806,12 @@
       }
     },
     {
+      "id": "oxocarbon",
       "name": "Oxocarbon",
+      "provider": "Noctalia",
       "path": "colorschemes/Oxocarbon",
+      "accent": "#33b1ff",
+      "surface": "#161616",
       "dark": {
         "mPrimary": "#33b1ff",
         "mOnPrimary": "#161616",
@@ -1682,8 +1850,12 @@
       }
     },
     {
+      "id": "peche",
       "name": "Peche",
+      "provider": "Noctalia",
       "path": "colorschemes/Peche",
+      "accent": "#9DD2C0",
+      "surface": "#0e1214",
       "dark": {
         "mPrimary": "#9DD2C0",
         "mOnPrimary": "#0e1214",
@@ -1722,8 +1894,12 @@
       }
     },
     {
+      "id": "rose-pine-moon",
       "name": "Rose Pine Moon",
+      "provider": "Noctalia",
       "path": "colorschemes/Rose Pine Moon",
+      "accent": "#ea9a97",
+      "surface": "#232136",
       "dark": {
         "mPrimary": "#ea9a97",
         "mOnPrimary": "#232136",
@@ -1762,8 +1938,12 @@
       }
     },
     {
+      "id": "rosey-amoled",
       "name": "Rosey AMOLED",
+      "provider": "Noctalia",
       "path": "colorschemes/Rosey AMOLED",
+      "accent": "#ff8cb3",
+      "surface": "#000000",
       "dark": {
         "mPrimary": "#ff8cb3",
         "mOnPrimary": "#000000",
@@ -1802,8 +1982,12 @@
       }
     },
     {
+      "id": "shien",
       "name": "Shien",
+      "provider": "Noctalia",
       "path": "colorschemes/Shien",
+      "accent": "#9B8BC1",
+      "surface": "#15131B",
       "dark": {
         "mPrimary": "#9B8BC1",
         "mOnPrimary": "#15131B",
@@ -1842,8 +2026,12 @@
       }
     },
     {
+      "id": "shinonome",
       "name": "Shinonome",
+      "provider": "Noctalia",
       "path": "colorschemes/Shinonome",
+      "accent": "#D5ACA9",
+      "surface": "#1A1D20",
       "dark": {
         "mPrimary": "#D5ACA9",
         "mOnPrimary": "#1A1D20",
@@ -1882,8 +2070,12 @@
       }
     },
     {
+      "id": "solarized",
       "name": "Solarized",
+      "provider": "Noctalia",
       "path": "colorschemes/Solarized",
+      "accent": "#b58900",
+      "surface": "#002b36",
       "dark": {
         "mPrimary": "#b58900",
         "mOnPrimary": "#002b36",
@@ -1922,8 +2114,12 @@
       }
     },
     {
+      "id": "sway-classic",
       "name": "Sway Classic",
+      "provider": "Noctalia",
       "path": "colorschemes/Sway Classic",
+      "accent": "#4C7899",
+      "surface": "#222222",
       "dark": {
         "mPrimary": "#4C7899",
         "mOnPrimary": "#FFFFFF",
@@ -1962,8 +2158,12 @@
       }
     },
     {
+      "id": "tokyo-night-moon",
       "name": "Tokyo Night Moon",
+      "provider": "Noctalia",
       "path": "colorschemes/Tokyo Night Moon",
+      "accent": "#7a88cf",
+      "surface": "#1f2335",
       "dark": {
         "mPrimary": "#7a88cf",
         "mOnPrimary": "#1f2335",
@@ -2002,8 +2202,12 @@
       }
     },
     {
+      "id": "vesper",
       "name": "Vesper",
+      "provider": "Noctalia",
       "path": "colorschemes/Vesper",
+      "accent": "#FFC799",
+      "surface": "#0C0C0C",
       "dark": {
         "mPrimary": "#FFC799",
         "mOnPrimary": "#000000",
@@ -2039,6 +2243,1491 @@
         "mShadow": "#D9D9D9",
         "mHover": "#E0E0E0",
         "mOnHover": "#0C0C0C"
+      }
+    },
+    {
+      "id": "hancore-aamis",
+      "name": "Aamis",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-aamis",
+      "accent": "#e2be8a",
+      "surface": "#0f0f0f",
+      "source": "https://github.com/HANCORE-linux/omarchy-aamis-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-aamis-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#e2be8a",
+        "mOnPrimary": "#0f0f0f",
+        "mSecondary": "#cea37f",
+        "mOnSecondary": "#0f0f0f",
+        "mTertiary": "#f4bb54",
+        "mOnTertiary": "#0f0f0f",
+        "mError": "#e25d6c",
+        "mOnError": "#0f0f0f",
+        "mSurface": "#0f0f0f",
+        "mOnSurface": "#eadccc",
+        "mHover": "#e2be8a",
+        "mOnHover": "#0f0f0f",
+        "mSurfaceVariant": "#363333",
+        "mOnSurfaceVariant": "#e6caab",
+        "mOutline": "#ede4c8",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0f0f0f",
+            "red": "#e25d6c",
+            "green": "#cea37f",
+            "yellow": "#f4bb54",
+            "blue": "#e2be8a",
+            "magenta": "#ede4c8",
+            "cyan": "#e8ab3b",
+            "white": "#e6caab"
+          },
+          "bright": {
+            "black": "#706a6a",
+            "red": "#e9838f",
+            "green": "#cea37f",
+            "yellow": "#edb95a",
+            "blue": "#eacea7",
+            "magenta": "#ede4c8",
+            "cyan": "#ecb95c",
+            "white": "#eadccc"
+          },
+          "foreground": "#eadccc",
+          "background": "#0f0f0f",
+          "cursor": "#eadccc",
+          "selectionFg": "#eadccc",
+          "selectionBg": "#e2be8a"
+        }
+      }
+    },
+    {
+      "id": "hancore-batou",
+      "name": "Batou",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-batou",
+      "accent": "#605d5b",
+      "surface": "#121212",
+      "source": "https://github.com/HANCORE-linux/omarchy-batou-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-batou-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#605d5b",
+        "mOnPrimary": "#121212",
+        "mSecondary": "#a5a297",
+        "mOnSecondary": "#121212",
+        "mTertiary": "#c6c4b0",
+        "mOnTertiary": "#121212",
+        "mError": "#e19e74",
+        "mOnError": "#121212",
+        "mSurface": "#121212",
+        "mOnSurface": "#a4a4a4",
+        "mHover": "#605d5b",
+        "mOnHover": "#121212",
+        "mSurfaceVariant": "#212120",
+        "mOnSurfaceVariant": "#dbd9d3",
+        "mOutline": "#8a8575",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#121212",
+            "red": "#e19e74",
+            "green": "#a5a297",
+            "yellow": "#c6c4b0",
+            "blue": "#605d5b",
+            "magenta": "#8a8575",
+            "cyan": "#C2BBB0",
+            "white": "#dbd9d3"
+          },
+          "bright": {
+            "black": "#383735",
+            "red": "#984b1e",
+            "green": "#637380",
+            "yellow": "#8f4445",
+            "blue": "#b7a798",
+            "magenta": "#b3adad",
+            "cyan": "#90947a",
+            "white": "#a4a4a4"
+          },
+          "foreground": "#a4a4a4",
+          "background": "#121212",
+          "cursor": "#a4a4a4",
+          "selectionFg": "#121212",
+          "selectionBg": "#a4a4a4"
+        }
+      }
+    },
+    {
+      "id": "hancore-blackgold",
+      "name": "Blackgold",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-blackgold",
+      "accent": "#6E6A58",
+      "surface": "#0D0D0D",
+      "source": "https://github.com/HANCORE-linux/omarchy-blackgold-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-blackgold-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#6E6A58",
+        "mOnPrimary": "#0D0D0D",
+        "mSecondary": "#a3850e",
+        "mOnSecondary": "#0D0D0D",
+        "mTertiary": "#4D574E",
+        "mOnTertiary": "#0D0D0D",
+        "mError": "#D35F5F",
+        "mOnError": "#0D0D0D",
+        "mSurface": "#0D0D0D",
+        "mOnSurface": "#ebdbb2",
+        "mHover": "#6E6A58",
+        "mOnHover": "#0D0D0D",
+        "mSurfaceVariant": "#1b1d1b",
+        "mOnSurfaceVariant": "#F6F1DD",
+        "mOutline": "#BFA75D",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0D0D0D",
+            "red": "#D35F5F",
+            "green": "#a3850e",
+            "yellow": "#4D574E",
+            "blue": "#6E6A58",
+            "magenta": "#BFA75D",
+            "cyan": "#7A6A2C",
+            "white": "#F6F1DD"
+          },
+          "bright": {
+            "black": "#303531",
+            "red": "#D35F5F",
+            "green": "#a3850e",
+            "yellow": "#4D574E",
+            "blue": "#6E6A58",
+            "magenta": "#BFA75D",
+            "cyan": "#7A6A2C",
+            "white": "#F6F1DD"
+          },
+          "foreground": "#ebdbb2",
+          "background": "#0D0D0D",
+          "cursor": "#a3850e",
+          "selectionFg": "#0D0D0D",
+          "selectionBg": "#ebdbb2"
+        }
+      }
+    },
+    {
+      "id": "hancore-blackmoney",
+      "name": "Blackmoney",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-blackmoney",
+      "accent": "#d8d4b4",
+      "surface": "#0C0C0C",
+      "source": "https://github.com/HANCORE-linux/omarchy-blackmoney-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-blackmoney-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#d8d4b4",
+        "mOnPrimary": "#0C0C0C",
+        "mSecondary": "#2a593f",
+        "mOnSecondary": "#0C0C0C",
+        "mTertiary": "#525b54",
+        "mOnTertiary": "#0C0C0C",
+        "mError": "#dd5670",
+        "mOnError": "#0C0C0C",
+        "mSurface": "#0C0C0C",
+        "mOnSurface": "#d8d4b4",
+        "mHover": "#d8d4b4",
+        "mOnHover": "#0C0C0C",
+        "mSurfaceVariant": "#262b25",
+        "mOnSurfaceVariant": "#ece4d4",
+        "mOutline": "#689e80",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0C0C0C",
+            "red": "#dd5670",
+            "green": "#2a593f",
+            "yellow": "#525b54",
+            "blue": "#d8d4b4",
+            "magenta": "#689e80",
+            "cyan": "#88c6a3",
+            "white": "#ece4d4"
+          },
+          "bright": {
+            "black": "#4e594a",
+            "red": "#dd5670",
+            "green": "#2a593f",
+            "yellow": "#525b54",
+            "blue": "#d8d4b4",
+            "magenta": "#689e80",
+            "cyan": "#88c6a3",
+            "white": "#ece4d4"
+          },
+          "foreground": "#d8d4b4",
+          "background": "#0C0C0C",
+          "cursor": "#9F8A57",
+          "selectionFg": "#0C0C0C",
+          "selectionBg": "#d8d4b4"
+        }
+      }
+    },
+    {
+      "id": "hancore-blackturq",
+      "name": "Blackturq",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-blackturq",
+      "accent": "#ADF0E9",
+      "surface": "#0a0a0a",
+      "source": "https://github.com/HANCORE-linux/omarchy-blackturq-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-blackturq-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#ADF0E9",
+        "mOnPrimary": "#0a0a0a",
+        "mSecondary": "#8FECD5",
+        "mOnSecondary": "#0a0a0a",
+        "mTertiary": "#A9D1D7",
+        "mOnTertiary": "#0a0a0a",
+        "mError": "#D35F5F",
+        "mOnError": "#0a0a0a",
+        "mSurface": "#0a0a0a",
+        "mOnSurface": "#c8dcdc",
+        "mHover": "#ADF0E9",
+        "mOnHover": "#0a0a0a",
+        "mSurfaceVariant": "#1a191e",
+        "mOnSurfaceVariant": "#c4d8e2",
+        "mOutline": "#485362",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0a0a0a",
+            "red": "#D35F5F",
+            "green": "#8FECD5",
+            "yellow": "#A9D1D7",
+            "blue": "#ADF0E9",
+            "magenta": "#485362",
+            "cyan": "#5a676b",
+            "white": "#c4d8e2"
+          },
+          "bright": {
+            "black": "#322F3B",
+            "red": "#D35F5F",
+            "green": "#8FECD5",
+            "yellow": "#A9D1D7",
+            "blue": "#ADF0E9",
+            "magenta": "#485362",
+            "cyan": "#5a676b",
+            "white": "#d2d9db"
+          },
+          "foreground": "#c8dcdc",
+          "background": "#0a0a0a",
+          "cursor": "#75dddd",
+          "selectionFg": "#0a0a0a",
+          "selectionBg": "#c8dcdc"
+        }
+      }
+    },
+    {
+      "id": "hancore-demon",
+      "name": "Demon",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-demon",
+      "accent": "#5C624B",
+      "surface": "#0F0F0F",
+      "source": "https://github.com/HANCORE-linux/omarchy-demon-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-demon-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#5C624B",
+        "mOnPrimary": "#0F0F0F",
+        "mSecondary": "#586259",
+        "mOnSecondary": "#0F0F0F",
+        "mTertiary": "#E24C00",
+        "mOnTertiary": "#0F0F0F",
+        "mError": "#BB1C1C",
+        "mOnError": "#0F0F0F",
+        "mSurface": "#0F0F0F",
+        "mOnSurface": "#E0D4C2",
+        "mHover": "#5C624B",
+        "mOnHover": "#0F0F0F",
+        "mSurfaceVariant": "#343332",
+        "mOnSurfaceVariant": "#BDB5AA",
+        "mOutline": "#655E56",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0F0F0F",
+            "red": "#BB1C1C",
+            "green": "#586259",
+            "yellow": "#E24C00",
+            "blue": "#5C624B",
+            "magenta": "#655E56",
+            "cyan": "#7A7D80",
+            "white": "#BDB5AA"
+          },
+          "bright": {
+            "black": "#6B6867",
+            "red": "#BB1C1C",
+            "green": "#3C6A3E",
+            "yellow": "#E24C00",
+            "blue": "#4A6829",
+            "magenta": "#655E56",
+            "cyan": "#7A7D80",
+            "white": "#E0D4C2"
+          },
+          "foreground": "#E0D4C2",
+          "background": "#0F0F0F",
+          "cursor": "#FF4500",
+          "selectionFg": "#E0D4C2",
+          "selectionBg": "#4A1414"
+        }
+      }
+    },
+    {
+      "id": "hancore-dos-moos",
+      "name": "Dos Moos",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-dos-moos",
+      "accent": "#819890",
+      "surface": "#131516",
+      "source": "https://github.com/HANCORE-linux/omarchy-dos-moos-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-dos-moos-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#819890",
+        "mOnPrimary": "#131516",
+        "mSecondary": "#819890",
+        "mOnSecondary": "#131516",
+        "mTertiary": "#F4E276",
+        "mOnTertiary": "#131516",
+        "mError": "#F0334A",
+        "mOnError": "#131516",
+        "mSurface": "#131516",
+        "mOnSurface": "#F8EBE3",
+        "mHover": "#819890",
+        "mOnHover": "#131516",
+        "mSurfaceVariant": "#23292a",
+        "mOnSurfaceVariant": "#d5dbd7",
+        "mOutline": "#72856C",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#131516",
+            "red": "#F0334A",
+            "green": "#819890",
+            "yellow": "#F4E276",
+            "blue": "#A5B5AB",
+            "magenta": "#72856C",
+            "cyan": "#6d877d",
+            "white": "#d5dbd7"
+          },
+          "bright": {
+            "black": "#3A4849",
+            "red": "#F0334A",
+            "green": "#819890",
+            "yellow": "#F4E276",
+            "blue": "#A5B5AB",
+            "magenta": "#72856C",
+            "cyan": "#6d877d",
+            "white": "#F8EBE3"
+          },
+          "foreground": "#F8EBE3",
+          "background": "#131516",
+          "cursor": "#F4E276",
+          "selectionFg": "#131516",
+          "selectionBg": "#A5B5AB"
+        }
+      }
+    },
+    {
+      "id": "hancore-greek-noir",
+      "name": "Greek Noir",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-greek-noir",
+      "accent": "#F25623",
+      "surface": "#171717",
+      "source": "https://github.com/HANCORE-linux/omarchy-greek-noir-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-greek-noir-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#F25623",
+        "mOnPrimary": "#171717",
+        "mSecondary": "#F25623",
+        "mOnSecondary": "#171717",
+        "mTertiary": "#757864",
+        "mOnTertiary": "#171717",
+        "mError": "#aeab94",
+        "mOnError": "#171717",
+        "mSurface": "#171717",
+        "mOnSurface": "#CCD0CF",
+        "mHover": "#F25623",
+        "mOnHover": "#171717",
+        "mSurfaceVariant": "#2f2f2f",
+        "mOnSurfaceVariant": "#a6ada6",
+        "mOutline": "#F56E0F",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#171717",
+            "red": "#aeab94",
+            "green": "#F25623",
+            "yellow": "#757864",
+            "blue": "#88A57D",
+            "magenta": "#F56E0F",
+            "cyan": "#7b837b",
+            "white": "#a6ada6"
+          },
+          "bright": {
+            "black": "#525252",
+            "red": "#aeab94",
+            "green": "#F25623",
+            "yellow": "#757864",
+            "blue": "#88A57D",
+            "magenta": "#F56E0F",
+            "cyan": "#7b837b",
+            "white": "#bcbfbc"
+          },
+          "foreground": "#CCD0CF",
+          "background": "#171717",
+          "cursor": "#aeab94",
+          "selectionFg": "#171717",
+          "selectionBg": "#F56E0F"
+        }
+      }
+    },
+    {
+      "id": "hancore-harbor",
+      "name": "Harbor",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-harbor",
+      "accent": "#5e81ac",
+      "surface": "#dfe4c4",
+      "source": "https://github.com/HANCORE-linux/omarchy-harbor-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-harbor-theme/master/preview.png",
+      "light": {
+        "mPrimary": "#5e81ac",
+        "mOnPrimary": "#dfe4c4",
+        "mSecondary": "#556753",
+        "mOnSecondary": "#dfe4c4",
+        "mTertiary": "#dc8164",
+        "mOnTertiary": "#dfe4c4",
+        "mError": "#b14752",
+        "mOnError": "#dfe4c4",
+        "mSurface": "#dfe4c4",
+        "mOnSurface": "#1c2d28",
+        "mHover": "#5e81ac",
+        "mOnHover": "#dfe4c4",
+        "mSurfaceVariant": "#b8bfb1",
+        "mOnSurfaceVariant": "#384f54",
+        "mOutline": "#8a5b81",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#dfe4c4",
+            "red": "#b14752",
+            "green": "#556753",
+            "yellow": "#dc8164",
+            "blue": "#4c6c94",
+            "magenta": "#8a5b81",
+            "cyan": "#3d727d",
+            "white": "#384f54"
+          },
+          "bright": {
+            "black": "#7d8794",
+            "red": "#b14752",
+            "green": "#556753",
+            "yellow": "#dc8164",
+            "blue": "#4c6c94",
+            "magenta": "#8a5b81",
+            "cyan": "#3d727d",
+            "white": "#1c2d28"
+          },
+          "foreground": "#1c2d28",
+          "background": "#dfe4c4",
+          "cursor": "#1c2d28",
+          "selectionFg": "#1c2d28",
+          "selectionBg": "#5e81ac"
+        }
+      }
+    },
+    {
+      "id": "hancore-harbordark",
+      "name": "Harbordark",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-harbordark",
+      "accent": "#e75a50",
+      "surface": "#1B1B1B",
+      "source": "https://github.com/HANCORE-linux/omarchy-harbordark-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-harbordark-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#e75a50",
+        "mOnPrimary": "#1B1B1B",
+        "mSecondary": "#e75a50",
+        "mOnSecondary": "#1B1B1B",
+        "mTertiary": "#a99b7a",
+        "mOnTertiary": "#1B1B1B",
+        "mError": "#F44336",
+        "mOnError": "#1B1B1B",
+        "mSurface": "#1B1B1B",
+        "mOnSurface": "#efebdc",
+        "mHover": "#e75a50",
+        "mOnHover": "#1B1B1B",
+        "mSurfaceVariant": "#44433a",
+        "mOnSurfaceVariant": "#E1CE98",
+        "mOutline": "#77838a",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#1B1B1B",
+            "red": "#F44336",
+            "green": "#e75a50",
+            "yellow": "#a99b7a",
+            "blue": "#e58980",
+            "magenta": "#77838a",
+            "cyan": "#6d6d6d",
+            "white": "#E1CE98"
+          },
+          "bright": {
+            "black": "#817f68",
+            "red": "#e75a50",
+            "green": "#77838a",
+            "yellow": "#a99b7a",
+            "blue": "#e58980",
+            "magenta": "#9ba2a6",
+            "cyan": "#888888",
+            "white": "#efebdc"
+          },
+          "foreground": "#efebdc",
+          "background": "#1B1B1B",
+          "cursor": "#C0AF7F",
+          "selectionFg": "#1B1B1B",
+          "selectionBg": "#e75a50"
+        }
+      }
+    },
+    {
+      "id": "hancore-inkypinky",
+      "name": "Inkypinky",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-inkypinky",
+      "accent": "#7c7ca8",
+      "surface": "#13131D",
+      "source": "https://github.com/HANCORE-linux/omarchy-inkypinky-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-inkypinky-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#7c7ca8",
+        "mOnPrimary": "#13131D",
+        "mSecondary": "#a6b2c7",
+        "mOnSecondary": "#13131D",
+        "mTertiary": "#D18BA2",
+        "mOnTertiary": "#13131D",
+        "mError": "#EA90A8",
+        "mOnError": "#13131D",
+        "mSurface": "#13131D",
+        "mOnSurface": "#c8c8c8",
+        "mHover": "#7c7ca8",
+        "mOnHover": "#13131D",
+        "mSurfaceVariant": "#262633",
+        "mOnSurfaceVariant": "#a1a2a7",
+        "mOutline": "#9f859f",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#13131D",
+            "red": "#EA90A8",
+            "green": "#a6b2c7",
+            "yellow": "#D18BA2",
+            "blue": "#7c7ca8",
+            "magenta": "#9f859f",
+            "cyan": "#919ab7",
+            "white": "#a1a2a7"
+          },
+          "bright": {
+            "black": "#434353",
+            "red": "#f6bfce",
+            "green": "#d1d9e4",
+            "yellow": "#e3aebf",
+            "blue": "#bcbcd4",
+            "magenta": "#bfadbf",
+            "cyan": "#d2d7e3",
+            "white": "#c8c8c8"
+          },
+          "foreground": "#c8c8c8",
+          "background": "#13131D",
+          "cursor": "#c8c8c8",
+          "selectionFg": "#13131D",
+          "selectionBg": "#c8c8c8"
+        }
+      }
+    },
+    {
+      "id": "hancore-kanso",
+      "name": "Kanso",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-kanso",
+      "accent": "#8ba4b0",
+      "surface": "#090E13",
+      "source": "https://github.com/HANCORE-linux/omarchy-kanso-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-kanso-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#8ba4b0",
+        "mOnPrimary": "#090E13",
+        "mSecondary": "#8a9a7b",
+        "mOnSecondary": "#090E13",
+        "mTertiary": "#c4b28a",
+        "mOnTertiary": "#090E13",
+        "mError": "#c4746e",
+        "mOnError": "#090E13",
+        "mSurface": "#090E13",
+        "mOnSurface": "#C5C9C7",
+        "mHover": "#8ba4b0",
+        "mOnHover": "#090E13",
+        "mSurfaceVariant": "#1c2027",
+        "mOnSurfaceVariant": "#c8c093",
+        "mOutline": "#a292a3",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#090E13",
+            "red": "#c4746e",
+            "green": "#8a9a7b",
+            "yellow": "#c4b28a",
+            "blue": "#8ba4b0",
+            "magenta": "#a292a3",
+            "cyan": "#8ea4a2",
+            "white": "#c8c093"
+          },
+          "bright": {
+            "black": "#393B44",
+            "red": "#e46876",
+            "green": "#87a987",
+            "yellow": "#e6c384",
+            "blue": "#7fb4ca",
+            "magenta": "#938aa9",
+            "cyan": "#7aa89f",
+            "white": "#A4A7A4"
+          },
+          "foreground": "#C5C9C7",
+          "background": "#090E13",
+          "cursor": "#C5C9C7",
+          "selectionFg": "#C5C9C7",
+          "selectionBg": "#393B44"
+        }
+      }
+    },
+    {
+      "id": "hancore-lasthorizon",
+      "name": "Lasthorizon",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-lasthorizon",
+      "accent": "#b59790",
+      "surface": "#0c0b0c",
+      "source": "https://github.com/HANCORE-linux/omarchy-lasthorizon-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-lasthorizon-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#b59790",
+        "mOnPrimary": "#0c0b0c",
+        "mSecondary": "#87a9b0",
+        "mOnSecondary": "#0c0b0c",
+        "mTertiary": "#6B5E73",
+        "mOnTertiary": "#0c0b0c",
+        "mError": "#c38b7b",
+        "mOnError": "#0c0b0c",
+        "mSurface": "#0c0b0c",
+        "mOnSurface": "#FAFCFB",
+        "mHover": "#b59790",
+        "mOnHover": "#0c0b0c",
+        "mSurfaceVariant": "#2a2628",
+        "mOnSurfaceVariant": "#cfd3cd",
+        "mOutline": "#c4d8e2",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0c0b0c",
+            "red": "#c38b7b",
+            "green": "#87a9b0",
+            "yellow": "#6B5E73",
+            "blue": "#b59790",
+            "magenta": "#c4d8e2",
+            "cyan": "#a5a0b6",
+            "white": "#cfd3cd"
+          },
+          "bright": {
+            "black": "#584e51",
+            "red": "#c38b7b",
+            "green": "#87a9b0",
+            "yellow": "#6B5E73",
+            "blue": "#b59790",
+            "magenta": "#c4d8e2",
+            "cyan": "#a5a0b6",
+            "white": "#e2dddc"
+          },
+          "foreground": "#FAFCFB",
+          "background": "#0c0b0c",
+          "cursor": "#e2dddc",
+          "selectionFg": "#0c0b0c",
+          "selectionBg": "#FAFCFB"
+        }
+      }
+    },
+    {
+      "id": "hancore-mechanoonna",
+      "name": "Mechanoonna",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-mechanoonna",
+      "accent": "#706e6b",
+      "surface": "#1c1b19",
+      "source": "https://github.com/HANCORE-linux/omarchy-mechanoonna-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-mechanoonna-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#706e6b",
+        "mOnPrimary": "#1c1b19",
+        "mSecondary": "#a89984",
+        "mOnSecondary": "#1c1b19",
+        "mTertiary": "#ebdbb2",
+        "mOnTertiary": "#1c1b19",
+        "mError": "#c5564a",
+        "mOnError": "#1c1b19",
+        "mSurface": "#1c1b19",
+        "mOnSurface": "#f0e4c5",
+        "mHover": "#706e6b",
+        "mOnHover": "#1c1b19",
+        "mSurfaceVariant": "#3c3934",
+        "mOnSurfaceVariant": "#fbf1c7",
+        "mOutline": "#afa499",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#1c1b19",
+            "red": "#c5564a",
+            "green": "#a89984",
+            "yellow": "#ebdbb2",
+            "blue": "#908d88",
+            "magenta": "#afa499",
+            "cyan": "#d4bd99",
+            "white": "#fbf1c7"
+          },
+          "bright": {
+            "black": "#6b655c",
+            "red": "#d94e38",
+            "green": "#c2a571",
+            "yellow": "#f7df97",
+            "blue": "#aaa090",
+            "magenta": "#cbae8e",
+            "cyan": "#e7c07c",
+            "white": "#fff8e8"
+          },
+          "foreground": "#f0e4c5",
+          "background": "#1c1b19",
+          "cursor": "#f0e4c5",
+          "selectionFg": "#f0e4c5",
+          "selectionBg": "#706e6b"
+        }
+      }
+    },
+    {
+      "id": "hancore-moodpeak",
+      "name": "Moodpeak",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-moodpeak",
+      "accent": "#4ecdc4",
+      "surface": "#181c22",
+      "source": "https://github.com/HANCORE-linux/omarchy-moodpeak-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-moodpeak-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#4ecdc4",
+        "mOnPrimary": "#181c22",
+        "mSecondary": "#4ecdc4",
+        "mOnSecondary": "#181c22",
+        "mTertiary": "#82eeff",
+        "mOnTertiary": "#181c22",
+        "mError": "#ff7b92",
+        "mOnError": "#181c22",
+        "mSurface": "#181c22",
+        "mOnSurface": "#e0e6ed",
+        "mHover": "#4ecdc4",
+        "mOnHover": "#181c22",
+        "mSurfaceVariant": "#272c36",
+        "mOnSurfaceVariant": "#d1d7e0",
+        "mOutline": "#b388eb",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#181c22",
+            "red": "#ff7b92",
+            "green": "#4ecdc4",
+            "yellow": "#82eeff",
+            "blue": "#6a85ff",
+            "magenta": "#b388eb",
+            "cyan": "#c9aff0",
+            "white": "#d1d7e0"
+          },
+          "bright": {
+            "black": "#3d4455",
+            "red": "#ff9ead",
+            "green": "#82eeff",
+            "yellow": "#b388eb",
+            "blue": "#96aaff",
+            "magenta": "#d1b3ff",
+            "cyan": "#a5f5ff",
+            "white": "#efedf2"
+          },
+          "foreground": "#e0e6ed",
+          "background": "#181c22",
+          "cursor": "#e6dbf5",
+          "selectionFg": "#181c22",
+          "selectionBg": "#82eeff"
+        }
+      }
+    },
+    {
+      "id": "hancore-oxford",
+      "name": "Oxford",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-oxford",
+      "accent": "#bda07f",
+      "surface": "#292b31",
+      "source": "https://github.com/HANCORE-linux/omarchy-oxford-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-oxford-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#bda07f",
+        "mOnPrimary": "#292b31",
+        "mSecondary": "#76856a",
+        "mOnSecondary": "#292b31",
+        "mTertiary": "#f3e9bd",
+        "mOnTertiary": "#292b31",
+        "mError": "#dd5544",
+        "mOnError": "#292b31",
+        "mSurface": "#292b31",
+        "mOnSurface": "#d6d1c9",
+        "mHover": "#bda07f",
+        "mOnHover": "#292b31",
+        "mSurfaceVariant": "#414246",
+        "mOnSurfaceVariant": "#ffffff",
+        "mOutline": "#b7a593",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#292b31",
+            "red": "#dd5544",
+            "green": "#76856a",
+            "yellow": "#f3e9bd",
+            "blue": "#bda07f",
+            "magenta": "#b7a593",
+            "cyan": "#9b907f",
+            "white": "#ffffff"
+          },
+          "bright": {
+            "black": "#646466",
+            "red": "#f28b7c",
+            "green": "#a8b49d",
+            "yellow": "#fff4d4",
+            "blue": "#d8c3a5",
+            "magenta": "#b0a89d",
+            "cyan": "#c7c0b5",
+            "white": "#d6d1c9"
+          },
+          "foreground": "#d6d1c9",
+          "background": "#292b31",
+          "cursor": "#d6d1c9",
+          "selectionFg": "#d6d1c9",
+          "selectionBg": "#bda07f"
+        }
+      }
+    },
+    {
+      "id": "hancore-oxocarbon",
+      "name": "Oxocarbon",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-oxocarbon",
+      "accent": "#42be65",
+      "surface": "#161616",
+      "source": "https://github.com/HANCORE-linux/omarchy-oxocarbon-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-oxocarbon-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#42be65",
+        "mOnPrimary": "#161616",
+        "mSecondary": "#33b1ff",
+        "mOnSecondary": "#161616",
+        "mTertiary": "#ee5396",
+        "mOnTertiary": "#161616",
+        "mError": "#3ddbd9",
+        "mOnError": "#161616",
+        "mSurface": "#161616",
+        "mOnSurface": "#f2f4f8",
+        "mHover": "#42be65",
+        "mOnHover": "#161616",
+        "mSurfaceVariant": "#2e2e2e",
+        "mOnSurfaceVariant": "#f2f4f8",
+        "mOutline": "#be95ff",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#161616",
+            "red": "#3ddbd9",
+            "green": "#33b1ff",
+            "yellow": "#ee5396",
+            "blue": "#42be65",
+            "magenta": "#be95ff",
+            "cyan": "#ff7eb6",
+            "white": "#f2f4f8"
+          },
+          "bright": {
+            "black": "#525252",
+            "red": "#78a9ff",
+            "green": "#ff7eb6",
+            "yellow": "#be95ff",
+            "blue": "#dde1e6",
+            "magenta": "#ffffff",
+            "cyan": "#82cfff",
+            "white": "#08bdba"
+          },
+          "foreground": "#f2f4f8",
+          "background": "#161616",
+          "cursor": "#f2f4f8",
+          "selectionFg": "#E1E1E6",
+          "selectionBg": "#41414D"
+        }
+      }
+    },
+    {
+      "id": "hancore-roseofdune",
+      "name": "Roseofdune",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-roseofdune",
+      "accent": "#76634c",
+      "surface": "#F5E6D3",
+      "source": "https://github.com/HANCORE-linux/omarchy-roseofdune-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-roseofdune-theme/master/preview.png",
+      "light": {
+        "mPrimary": "#76634c",
+        "mOnPrimary": "#F5E6D3",
+        "mSecondary": "#9e4f5b",
+        "mOnSecondary": "#F5E6D3",
+        "mTertiary": "#644535",
+        "mOnTertiary": "#F5E6D3",
+        "mError": "#a02b16",
+        "mOnError": "#F5E6D3",
+        "mSurface": "#F5E6D3",
+        "mOnSurface": "#35302a",
+        "mHover": "#76634c",
+        "mOnHover": "#F5E6D3",
+        "mSurfaceVariant": "#e3cfb4",
+        "mOnSurfaceVariant": "#a94a34",
+        "mOutline": "#78292e",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#F5E6D3",
+            "red": "#a02b16",
+            "green": "#9e4f5b",
+            "yellow": "#644535",
+            "blue": "#76634c",
+            "magenta": "#78292e",
+            "cyan": "#713a56",
+            "white": "#a94a34"
+          },
+          "bright": {
+            "black": "#C8AC86",
+            "red": "#a02b16",
+            "green": "#9e4f5b",
+            "yellow": "#694C45",
+            "blue": "#76634c",
+            "magenta": "#78292e",
+            "cyan": "#713a56",
+            "white": "#a94a34"
+          },
+          "foreground": "#35302a",
+          "background": "#F5E6D3",
+          "cursor": "#DEA193",
+          "selectionFg": "#35302a",
+          "selectionBg": "#c68d95"
+        }
+      }
+    },
+    {
+      "id": "hancore-ryu",
+      "name": "Ryu",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-ryu",
+      "accent": "#525e5a",
+      "surface": "#050505",
+      "source": "https://github.com/HANCORE-linux/omarchy-ryu-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-ryu-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#525e5a",
+        "mOnPrimary": "#050505",
+        "mSecondary": "#8B9388",
+        "mOnSecondary": "#050505",
+        "mTertiary": "#51605b",
+        "mOnTertiary": "#050505",
+        "mError": "#da614e",
+        "mOnError": "#050505",
+        "mSurface": "#050505",
+        "mOnSurface": "#D6D0C5",
+        "mHover": "#525e5a",
+        "mOnHover": "#050505",
+        "mSurfaceVariant": "#1d1d1d",
+        "mOnSurfaceVariant": "#D6D0C5",
+        "mOutline": "#C2A46D",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#050505",
+            "red": "#da614e",
+            "green": "#8B9388",
+            "yellow": "#51605b",
+            "blue": "#75897F",
+            "magenta": "#C2A46D",
+            "cyan": "#717C7C",
+            "white": "#D6D0C5"
+          },
+          "bright": {
+            "black": "#404040",
+            "red": "#df6124",
+            "green": "#525e5a",
+            "yellow": "#8B9388",
+            "blue": "#75897F",
+            "magenta": "#C2A46D",
+            "cyan": "#52565e",
+            "white": "#FFF9ED"
+          },
+          "foreground": "#D6D0C5",
+          "background": "#050505",
+          "cursor": "#D6D0C5",
+          "selectionFg": "#050505",
+          "selectionBg": "#D6D0C5"
+        }
+      }
+    },
+    {
+      "id": "hancore-saga",
+      "name": "Saga",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-saga",
+      "accent": "#b2fff3",
+      "surface": "#05080a",
+      "source": "https://github.com/HANCORE-linux/omarchy-saga-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-saga-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#b2fff3",
+        "mOnPrimary": "#05080a",
+        "mSecondary": "#baf7b5",
+        "mOnSecondary": "#05080a",
+        "mTertiary": "#fff6c3",
+        "mOnTertiary": "#05080a",
+        "mError": "#ff9fbc",
+        "mOnError": "#05080a",
+        "mSurface": "#05080a",
+        "mOnSurface": "#fff6ff",
+        "mHover": "#b2fff3",
+        "mOnHover": "#05080a",
+        "mSurfaceVariant": "#212325",
+        "mOnSurfaceVariant": "#f3ceff",
+        "mOutline": "#dfbaff",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#05080a",
+            "red": "#ff9fbc",
+            "green": "#baf7b5",
+            "yellow": "#fff6c3",
+            "blue": "#b2fff3",
+            "magenta": "#dfbaff",
+            "cyan": "#ffc79b",
+            "white": "#f3ceff"
+          },
+          "bright": {
+            "black": "#4b4c4d",
+            "red": "#ffaecb",
+            "green": "#baf7b5",
+            "yellow": "#fff6c3",
+            "blue": "#b2fff3",
+            "magenta": "#dfbaff",
+            "cyan": "#ffc79b",
+            "white": "#ffe1e1"
+          },
+          "foreground": "#fff6ff",
+          "background": "#05080a",
+          "cursor": "#b2fff3",
+          "selectionFg": "#05080a",
+          "selectionBg": "#ffc2df"
+        }
+      }
+    },
+    {
+      "id": "hancore-sapphire",
+      "name": "Sapphire",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-sapphire",
+      "accent": "#f7c3c6",
+      "surface": "#060d1f",
+      "source": "https://github.com/HANCORE-linux/omarchy-sapphire-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-sapphire-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#f7c3c6",
+        "mOnPrimary": "#060d1f",
+        "mSecondary": "#6488EA",
+        "mOnSecondary": "#060d1f",
+        "mTertiary": "#d5edeb",
+        "mOnTertiary": "#060d1f",
+        "mError": "#e95c4b",
+        "mOnError": "#060d1f",
+        "mSurface": "#060d1f",
+        "mOnSurface": "#E0F7FA",
+        "mHover": "#f7c3c6",
+        "mOnHover": "#060d1f",
+        "mSurfaceVariant": "#24314b",
+        "mOnSurfaceVariant": "#e1e9f5",
+        "mOutline": "#85cec4",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#060d1f",
+            "red": "#e95c4b",
+            "green": "#6488EA",
+            "yellow": "#d5edeb",
+            "blue": "#f7c3c6",
+            "magenta": "#85cec4",
+            "cyan": "#fff6d2",
+            "white": "#e1e9f5"
+          },
+          "bright": {
+            "black": "#51688E",
+            "red": "#ed7b6d",
+            "green": "#819fee",
+            "yellow": "#d7ebe9",
+            "blue": "#f2c8cb",
+            "magenta": "#8cc7bf",
+            "cyan": "#fef4d7",
+            "white": "#c8cbd0"
+          },
+          "foreground": "#E0F7FA",
+          "background": "#060d1f",
+          "cursor": "#6488EA",
+          "selectionFg": "#374cb3",
+          "selectionBg": "#d7ebe9"
+        }
+      }
+    },
+    {
+      "id": "hancore-shadesofjade",
+      "name": "Shadesofjade",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-shadesofjade",
+      "accent": "#D1FFb0",
+      "surface": "#00110b",
+      "source": "https://github.com/HANCORE-linux/omarchy-shadesofjade-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-shadesofjade-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#D1FFb0",
+        "mOnPrimary": "#00110b",
+        "mSecondary": "#00a86b",
+        "mOnSecondary": "#00110b",
+        "mTertiary": "#D1FFb0",
+        "mOnTertiary": "#00110b",
+        "mError": "#ff3370",
+        "mOnError": "#00110b",
+        "mSurface": "#00110b",
+        "mOnSurface": "#e6f6f0",
+        "mHover": "#D1FFb0",
+        "mOnHover": "#00110b",
+        "mSurfaceVariant": "#193327",
+        "mOnSurfaceVariant": "#FFF7F2",
+        "mOutline": "#8fc85c",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#00110b",
+            "red": "#ff3370",
+            "green": "#00a86b",
+            "yellow": "#D1FFb0",
+            "blue": "#FF6600",
+            "magenta": "#8fc85c",
+            "cyan": "#80d4b5",
+            "white": "#FFF7F2"
+          },
+          "bright": {
+            "black": "#3E6650",
+            "red": "#ff3370",
+            "green": "#00a86b",
+            "yellow": "#D1FFb0",
+            "blue": "#FF6600",
+            "magenta": "#8fc85c",
+            "cyan": "#80d4b5",
+            "white": "#e6f6f0"
+          },
+          "foreground": "#e6f6f0",
+          "background": "#00110b",
+          "cursor": "#E25F4B",
+          "selectionFg": "#00110b",
+          "selectionBg": "#E25F4B"
+        }
+      }
+    },
+    {
+      "id": "hancore-solitude",
+      "name": "Solitude",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-solitude",
+      "accent": "#798186",
+      "surface": "#101315",
+      "source": "https://github.com/HANCORE-linux/omarchy-solitude-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-solitude-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#798186",
+        "mOnPrimary": "#101315",
+        "mSecondary": "#9fa5a9",
+        "mOnSecondary": "#101315",
+        "mTertiary": "#d9dbdc",
+        "mOnTertiary": "#101315",
+        "mError": "#565d60",
+        "mOnError": "#101315",
+        "mSurface": "#101315",
+        "mOnSurface": "#cacccc",
+        "mHover": "#798186",
+        "mOnHover": "#101315",
+        "mSurfaceVariant": "#282b2f",
+        "mOnSurfaceVariant": "#cbc2be",
+        "mOutline": "#aeaeae",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#101315",
+            "red": "#565d60",
+            "green": "#9fa5a9",
+            "yellow": "#d9dbdc",
+            "blue": "#798186",
+            "magenta": "#aeaeae",
+            "cyan": "#707070",
+            "white": "#cbc2be"
+          },
+          "bright": {
+            "black": "#4b4e55",
+            "red": "#de6145",
+            "green": "#343d41",
+            "yellow": "#c9c2b4",
+            "blue": "#5d6367",
+            "magenta": "#9a9a9a",
+            "cyan": "#707070",
+            "white": "#a5aeb4"
+          },
+          "foreground": "#cacccc",
+          "background": "#101315",
+          "cursor": "#cacccc",
+          "selectionFg": "#101315",
+          "selectionBg": "#798186"
+        }
+      }
+    },
+    {
+      "id": "hancore-thegreek",
+      "name": "Thegreek",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-thegreek",
+      "accent": "#DE6A41",
+      "surface": "#d0d0c8",
+      "source": "https://github.com/HANCORE-linux/omarchy-thegreek-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-thegreek-theme/master/preview.png",
+      "light": {
+        "mPrimary": "#DE6A41",
+        "mOnPrimary": "#d0d0c8",
+        "mSecondary": "#2e3125",
+        "mOnSecondary": "#d0d0c8",
+        "mTertiary": "#51573b",
+        "mOnTertiary": "#d0d0c8",
+        "mError": "#db0030",
+        "mOnError": "#d0d0c8",
+        "mSurface": "#d0d0c8",
+        "mOnSurface": "#242424",
+        "mHover": "#DE6A41",
+        "mOnHover": "#d0d0c8",
+        "mSurfaceVariant": "#a8ab9e",
+        "mOnSurfaceVariant": "#383835",
+        "mOutline": "#43432b",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#d0d0c8",
+            "red": "#db0030",
+            "green": "#2e3125",
+            "yellow": "#51573b",
+            "blue": "#DE6A41",
+            "magenta": "#43432b",
+            "cyan": "#6b1f2f",
+            "white": "#383835"
+          },
+          "bright": {
+            "black": "#6b7360",
+            "red": "#db0030",
+            "green": "#2e3125",
+            "yellow": "#51573b",
+            "blue": "#DE6A41",
+            "magenta": "#43432b",
+            "cyan": "#6b1f2f",
+            "white": "#242424"
+          },
+          "foreground": "#242424",
+          "background": "#d0d0c8",
+          "cursor": "#242424",
+          "selectionFg": "#d0d0c8",
+          "selectionBg": "#242424"
+        }
+      }
+    },
+    {
+      "id": "hancore-turbonite",
+      "name": "Turbonite",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-turbonite",
+      "accent": "#6E6A64",
+      "surface": "#0B0C0C",
+      "source": "https://github.com/HANCORE-linux/omarchy-turbonite-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-turbonite-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#6E6A64",
+        "mOnPrimary": "#0B0C0C",
+        "mSecondary": "#6E6A64",
+        "mOnSecondary": "#0B0C0C",
+        "mTertiary": "#ed9a1d",
+        "mOnTertiary": "#0B0C0C",
+        "mError": "#f24331",
+        "mOnError": "#0B0C0C",
+        "mSurface": "#0B0C0C",
+        "mOnSurface": "#eae9e3",
+        "mHover": "#6E6A64",
+        "mOnHover": "#0B0C0C",
+        "mSurfaceVariant": "#1a1d1e",
+        "mOnSurfaceVariant": "#CAC8C4",
+        "mOutline": "#A7A483",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0B0C0C",
+            "red": "#f24331",
+            "green": "#6E6A64",
+            "yellow": "#ed9a1d",
+            "blue": "#847B4E",
+            "magenta": "#A7A483",
+            "cyan": "#EBD698",
+            "white": "#CAC8C4"
+          },
+          "bright": {
+            "black": "#31363A",
+            "red": "#f24331",
+            "green": "#6E6A64",
+            "yellow": "#ed9a1d",
+            "blue": "#847B4E",
+            "magenta": "#A7A483",
+            "cyan": "#EBD698",
+            "white": "#f9f9f8"
+          },
+          "foreground": "#eae9e3",
+          "background": "#0B0C0C",
+          "cursor": "#8e3a59",
+          "selectionFg": "#0B0C0C",
+          "selectionBg": "#eae9e3"
+        }
+      }
+    },
+    {
+      "id": "hancore-velvetnight",
+      "name": "Velvetnight",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-velvetnight",
+      "accent": "#9099a5",
+      "surface": "#0A101F",
+      "source": "https://github.com/HANCORE-linux/omarchy-velvetnight-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-velvetnight-theme/master/preview.png",
+      "dark": {
+        "mPrimary": "#9099a5",
+        "mOnPrimary": "#0A101F",
+        "mSecondary": "#5C637A",
+        "mOnSecondary": "#0A101F",
+        "mTertiary": "#e5af1b",
+        "mOnTertiary": "#0A101F",
+        "mError": "#811139",
+        "mOnError": "#0A101F",
+        "mSurface": "#0A101F",
+        "mOnSurface": "#ffffff",
+        "mHover": "#9099a5",
+        "mOnHover": "#0A101F",
+        "mSurfaceVariant": "#313756",
+        "mOnSurfaceVariant": "#F5ECDF",
+        "mOutline": "#e2687c",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#0A101F",
+            "red": "#811139",
+            "green": "#5C637A",
+            "yellow": "#e5af1b",
+            "blue": "#9099a5",
+            "magenta": "#e2687c",
+            "cyan": "#C24F40",
+            "white": "#F5ECDF"
+          },
+          "bright": {
+            "black": "#6B72A8",
+            "red": "#e21d63",
+            "green": "#5C637A",
+            "yellow": "#f0d17c",
+            "blue": "#9099a5",
+            "magenta": "#e88595",
+            "cyan": "#DC9B68",
+            "white": "#C7D3E0"
+          },
+          "foreground": "#ffffff",
+          "background": "#0A101F",
+          "cursor": "#ffffff",
+          "selectionFg": "#9099a5",
+          "selectionBg": "#ffffff"
+        }
+      }
+    },
+    {
+      "id": "hancore-whitegold",
+      "name": "Whitegold",
+      "provider": "HANCORE-linux",
+      "path": "colorschemes/hancore-whitegold",
+      "accent": "#005C32",
+      "surface": "#DEDBC8",
+      "source": "https://github.com/HANCORE-linux/omarchy-whitegold-theme",
+      "preview": "https://raw.githubusercontent.com/HANCORE-linux/omarchy-whitegold-theme/master/preview.png",
+      "light": {
+        "mPrimary": "#005C32",
+        "mOnPrimary": "#DEDBC8",
+        "mSecondary": "#725c0a",
+        "mOnSecondary": "#DEDBC8",
+        "mTertiary": "#2E311A",
+        "mOnTertiary": "#DEDBC8",
+        "mError": "#4B0304",
+        "mOnError": "#DEDBC8",
+        "mSurface": "#DEDBC8",
+        "mOnSurface": "#0c0c14",
+        "mHover": "#005C32",
+        "mOnHover": "#DEDBC8",
+        "mSurfaceVariant": "#c3bda8",
+        "mOnSurfaceVariant": "#665e4a",
+        "mOutline": "#762b2f",
+        "mShadow": "#000000",
+        "terminal": {
+          "normal": {
+            "black": "#DEDBC8",
+            "red": "#4B0304",
+            "green": "#725c0a",
+            "yellow": "#2E311A",
+            "blue": "#005C32",
+            "magenta": "#762b2f",
+            "cyan": "#3B3B3B",
+            "white": "#665e4a"
+          },
+          "bright": {
+            "black": "#9a9078",
+            "red": "#4B0304",
+            "green": "#725c0a",
+            "yellow": "#005C32",
+            "blue": "#2E311A",
+            "magenta": "#762b2f",
+            "cyan": "#3B3B3B",
+            "white": "#0c0c14"
+          },
+          "foreground": "#0c0c14",
+          "background": "#DEDBC8",
+          "cursor": "#91760d",
+          "selectionFg": "#0c0c14",
+          "selectionBg": "#9a9078"
+        }
       }
     }
   ]
