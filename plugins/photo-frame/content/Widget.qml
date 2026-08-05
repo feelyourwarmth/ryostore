@@ -60,5 +60,20 @@ Item {
         shadowOpacity: root.service ? root.service.shadowOpacity : 0.45
         radius: root.service ? root.service.radius : 18
         frame: root.service ? root.service.frame : 14
+
+        // A real click (not a drag, not a right-click) asks the host to show
+        // this photo large + centered. gesturePolicy DragThreshold keeps the
+        // tile draggable: a press that becomes a drag never counts as a tap, so
+        // the grip MouseArea under the content still moves the tile, and
+        // RightButton is left to the grip's menu. No-op on hosts that do not
+        // provide the viewer (expandImage absent).
+        TapHandler {
+            acceptedButtons: Qt.LeftButton
+            gesturePolicy: TapHandler.DragThreshold
+            onTapped: {
+                if (root.service && root.pluginApi && typeof root.pluginApi.expandImage === "function")
+                    root.pluginApi.expandImage(root.service.source);
+            }
+        }
     }
 }
