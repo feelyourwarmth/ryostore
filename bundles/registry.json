@@ -657,15 +657,16 @@
       "icon": "movie"
     },
     {
-      "id": "cachyos-kernel",
-      "name": "CachyOS Kernel",
+      "id": "cachyos-layer",
+      "name": "CachyOS Layer",
       "version": "1.0.0",
-      "path": "bundles/cachyos-kernel",
+      "path": "bundles/cachyos-layer",
       "author": "Ryoku Team",
-      "summary": "faster kernel · keeps stock as fallback",
-      "description": "Swap in the performance-tuned CachyOS kernel. Pros: snappier desktop and gaming. Cons: adds the CachyOS repo, DKMS rebuilds, more bleeding-edge. Stock kernel stays as the fallback.",
+      "summary": "kernel · tuning · schedulers · proton",
+      "description": "Turn Ryoku into CachyOS: the performance-tuned kernel, cachyos-settings tuning, sched-ext schedulers, the ananicy-cpp auto-nice daemon and ruleset, and the CachyOS Proton build. Adds the CachyOS repos above Arch's, so opting in goes full CachyOS; the stock kernel stays as the boot fallback. Install all, or pick individual tools. Every item but scx-scheds needs the CachyOS repo.",
       "tags": [
         "faster kernel",
+        "cachyos repo",
         "keeps stock as fallback"
       ],
       "accent": "#f97316",
@@ -673,7 +674,7 @@
       "preview": "assets/preview.webp",
       "screenshots": [],
       "manifest": "bundle.json",
-      "manifestSha256": "911e9b54ec090ec350689d2e500363b49d310b218ecd81fd5ccd53e534f28798",
+      "manifestSha256": "67008e592b46a3248c2716f464e4d068f595290440ca5e5d799cd4ca9d4d82d8",
       "components": [
         {
           "type": "package",
@@ -681,7 +682,7 @@
           "detect": "linux-cachyos",
           "tier": "core",
           "interactive": false,
-          "summary": "The CachyOS kernel: EEVDF with sched-ext, Clang ThinLTO and AutoFDO, the Cachy patchset. Built for x86-64-v3."
+          "summary": "The CachyOS kernel: EEVDF with sched-ext, Clang ThinLTO and AutoFDO, the Cachy patchset, x86-64-v3. Needs the CachyOS repo; not on plain Arch."
         },
         {
           "type": "package",
@@ -689,11 +690,51 @@
           "detect": "linux-cachyos-headers",
           "tier": "core",
           "interactive": false,
-          "summary": "Headers for the CachyOS kernel, needed to rebuild DKMS modules (NVIDIA, VirtualBox) against it."
+          "summary": "Headers for the CachyOS kernel, needed to rebuild DKMS modules (NVIDIA, VirtualBox) against it. Needs the CachyOS repo; not on plain Arch."
+        },
+        {
+          "type": "package",
+          "name": "cachyos-settings",
+          "detect": "cachyos-settings",
+          "tier": "core",
+          "interactive": false,
+          "summary": "CachyOS system tuning: sysctl, udev, modprobe and systemd defaults for a responsive desktop. Needs the CachyOS repo; not on plain Arch."
+        },
+        {
+          "type": "package",
+          "name": "ananicy-cpp",
+          "detect": "ananicy-cpp",
+          "tier": "core",
+          "interactive": false,
+          "summary": "Auto-nice daemon that reprioritizes processes so the compositor and foreground apps stay responsive under load. From the CachyOS repo (AUR on plain Arch)."
+        },
+        {
+          "type": "package",
+          "name": "cachyos-ananicy-rules",
+          "detect": "cachyos-ananicy-rules",
+          "tier": "core",
+          "interactive": false,
+          "summary": "The CachyOS ruleset ananicy-cpp applies. Needs the CachyOS repo; not on plain Arch."
+        },
+        {
+          "type": "package",
+          "name": "scx-scheds",
+          "detect": "scx-scheds",
+          "tier": "core",
+          "interactive": false,
+          "summary": "sched-ext userspace schedulers (bpfland, rusty, lavd). In Arch extra, so it runs on plain Arch too; it just shines on the CachyOS kernel."
+        },
+        {
+          "type": "package",
+          "name": "proton-cachyos-native",
+          "detect": "proton-cachyos-native",
+          "tier": "core",
+          "interactive": false,
+          "summary": "The CachyOS-tuned Proton build for Steam and Lutris. Needs the CachyOS repo (and multilib for its 32-bit libraries); not on plain Arch."
         }
       ],
-      "tagline": "faster kernel · keeps stock as fallback",
-      "sources": "CachyOS repo"
+      "tagline": "kernel · tuning · schedulers · proton",
+      "sources": "CachyOS repo / Arch"
     }
   ]
 }
