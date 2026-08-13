@@ -57,7 +57,7 @@ Right-click file-manager actions live in `nautilus/<id>/`. Copy the layout in
 
 ## Before you open a PR
 
-Run the catalogue check:
+**Run the catalogue check** from the repo root:
 
 ```
 tests/validate-catalogue.sh
@@ -67,3 +67,16 @@ It confirms every bundle item resolves to a real registry entry, manifest, and
 installer, that each Nautilus manifest matches the scripts on disk, and that all
 JSON parses, so a dangling reference never reaches a user as a failed install. CI
 runs the same check on every push and pull request.
+
+**Test the thing itself, too.** The catalogue check only validates wiring, not
+that your product works. Install and exercise it in your own session before you
+submit:
+
+- **Plugin** - run the local `RYOKU_PLUGINS_DIR` loop and the per-plugin
+  checklist in [`plugins/AUTHORING.md`](plugins/AUTHORING.md#before-you-submit):
+  enable it in Ryoku Settings, render it as a desktop widget / frame popout,
+  and confirm drag, resize, settings, and a clean shell log.
+- **Bundle** - `ryoku-extras-install install bundle <id>` and confirm every item
+  lands (and removes cleanly).
+- **Color scheme, rice, lockscreen, Fastfetch, Nautilus pack** - install and
+  apply it, then look at the result.

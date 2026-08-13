@@ -20,6 +20,8 @@ cp -r plugins/template plugins/my-plugin
 2. Rewrite `service/Main.qml` and `content/Widget.qml`.
 3. Replace `assets/preview-widget.png` and rewrite `README.md`.
 4. Add an entry to `plugins/registry.json` so it shows up in Settings.
+5. **Test it locally** (see below) - enable it in your shell and confirm it
+   renders and behaves, then work the **Before you submit** checklist and PR.
 
 ## The manifest
 
@@ -203,6 +205,52 @@ a popout. Follow the section order in `plugins/template/README.md`: title,
 one-liner, the image, What it does, Install, How it plugs in, Settings table,
 Develop tree, Credits.
 
+## Test it locally
+
+Before you list a plugin or open a PR, run it in your own shell. The dev
+override discovers a plugin straight from its source folder - no registry entry,
+no Store install, no receipt required:
+
+```
+# point the shell at this repo's plugins folder (colon-separate several dirs)
+systemctl --user set-environment RYOKU_PLUGINS_DIR="$HOME/Work/ryoku-extras/plugins"
+systemctl --user restart ryoku-shell
+```
+
+Then open Ryoku Settings and enable it:
+
+```
+ryoku-shell hub open        # or Super+comma
+```
+
+Go to **Add-ons -> Plugins**, find your plugin, toggle it on, and set the host
+to **Desktop widget** (or **Frame popout**). A desktop widget lands on the
+wallpaper: drag to move it, drag the corner bracket to scale, right-click for its
+menu and settings. Placement and settings persist to
+`~/.config/ryoku/plugins.json` and the shell hot-reloads, so after the first
+enable you can edit `content/Widget.qml` and reopen the widget to see the change
+(restart `ryoku-shell` if a change is cached).
+
+Watch the shell log while you open it, and confirm - at every density you
+declare:
+
+```
+journalctl --user -u ryoku-shell -f
+```
+
+- it reports a size and renders (a root that never sets `implicitWidth` /
+  `implicitHeight` collapses to nothing);
+- drag, corner-resize, and the right-click menu all work on the wallpaper tile;
+- every `metadata.settings` entry appears in the menu and actually changes the view;
+- the log shows no QML errors when the widget opens.
+
+Unset the override when you are done:
+
+```
+systemctl --user unset-environment RYOKU_PLUGINS_DIR
+systemctl --user restart ryoku-shell
+```
+
 ## List it in the registry
 
 Add an object to the `plugins` array in `plugins/registry.json` so it appears in
@@ -229,3 +277,17 @@ Settings -> Plugins -> Discover:
 
 `official: false` for community plugins. Keep `path` as `plugins/<id>`, `hosts`
 in sync with the manifest, and `lastUpdated` in `YYYY-MM-DD`.
+
+## Before you submit
+
+- [ ] `manifest.json` `id` matches the folder name, and `version` is bumped.
+- [ ] `hosts` in the manifest and the registry entry agree.
+- [ ] `README.md` follows the template order and embeds a real
+      `assets/preview-*.png` (not a placeholder).
+- [ ] Tested locally via `RYOKU_PLUGINS_DIR` (see **Test it locally**): it
+      renders, drags, resizes, and every setting works, with a clean shell log.
+- [ ] Listed in `plugins/registry.json` with `path`, `hosts`, and `lastUpdated`
+      correct.
+- [ ] `tests/validate-catalogue.sh` passes from the repo root.
+
+Then open your PR.
