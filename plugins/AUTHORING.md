@@ -213,7 +213,7 @@ no Store install, no receipt required:
 
 ```
 # point the shell at this repo's plugins folder (colon-separate several dirs)
-systemctl --user set-environment RYOKU_PLUGINS_DIR="$HOME/Work/ryoku-extras/plugins"
+systemctl --user set-environment RYOSTORE_PLUGINS_DIR="$HOME/Work/ryostore/plugins"
 systemctl --user restart ryoku-shell
 ```
 
@@ -247,7 +247,7 @@ journalctl --user -u ryoku-shell -f
 Unset the override when you are done:
 
 ```
-systemctl --user unset-environment RYOKU_PLUGINS_DIR
+systemctl --user unset-environment RYOSTORE_PLUGINS_DIR
 systemctl --user restart ryoku-shell
 ```
 
@@ -284,7 +284,7 @@ in sync with the manifest, and `lastUpdated` in `YYYY-MM-DD`.
 - [ ] `hosts` in the manifest and the registry entry agree.
 - [ ] `README.md` follows the template order and embeds a real
       `assets/preview-*.png` (not a placeholder).
-- [ ] Tested locally via `RYOKU_PLUGINS_DIR` (see **Test it locally**): it
+- [ ] Tested locally via `RYOSTORE_PLUGINS_DIR` (see **Test it locally**): it
       renders, drags, resizes, and every setting works, with a clean shell log.
 - [ ] Listed in `plugins/registry.json` with `path`, `hosts`, and `lastUpdated`
       correct.

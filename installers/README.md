@@ -3,7 +3,7 @@
 Small, auditable scripts for tools that do not come from pacman/AUR. Each script
 lives at `bundles/<id>/installers/<name>.sh` beside the one bundle that owns it,
 and covers a curl, npm, Go, Cargo, or pipx install path pinned to an official
-upstream. `ryoku-extras-install` runs it when the referenced tool is missing.
+upstream. `ryostore-install` runs it when the referenced tool is missing.
 
 ## Adding an installer
 

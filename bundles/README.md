@@ -3,7 +3,7 @@
 A bundle is a named set of tools you install together: packages, small installer
 scripts, and (later) Ryoku plugins. The Hub's Extras section lists every bundle
 here and installs it, or individual items, with one click, backed by
-`ryoku-extras-install`.
+`ryostore-install`.
 
 Each bundle lives in its own folder under `bundles/<id>/` with a `bundle.json`.
 The top-level `registry.json` is the index the Hub reads to discover them.
@@ -45,7 +45,7 @@ The top-level `registry.json` is the index the Hub reads to discover them.
 Each item has a `type`, a `name`, an optional one-line `summary`, an optional
 `source` and `upstream` (shown on the card), and a `detect` command:
 
-- **`package`** a pacman/AUR package. `ryoku-extras-install` routes it
+- **`package`** a pacman/AUR package. `ryostore-install` routes it
   automatically: a package that resolves with `pacman -Si` installs from the
   official repos via `ryoku-pkg-add`, the rest from the AUR via
   `ryoku-pkg-aur-add`, so you only ever write the package name. Presence is
@@ -74,15 +74,15 @@ mis-routing the bundle's packages.
 
 Installs are per item with real feedback:
 
-- The Extras section runs `ryoku-extras-install` inside a **floating terminal** so
+- The Extras section runs `ryostore-install` inside a **floating terminal** so
   the `sudo` and AUR prompts have a TTY; package installs cannot complete from a
   silent background process. You watch progress there and type your password if
   asked.
 - The command writes a per-bundle JSON report
-  (`$XDG_RUNTIME_DIR/ryoku-extras/<id>.json`) with each item's `status`
+  (`$XDG_RUNTIME_DIR/ryostore/<id>.json`) with each item's `status`
   (`present` | `installing` | `installed` | `removing` | `removed` | `absent` |
   `failed` | `deferred` | `skipped`) that the Hub watches to drive per-item state.
-  `ryoku-extras-install status bundle <id>` reports presence without changing
+  `ryostore-install status bundle <id>` reports presence without changing
   anything.
 - **Uninstall all** (or a single tool) removes the bundle's package items with
   `ryoku-pkg-remove`. Scripts are not auto-removed; plugins are removed from the

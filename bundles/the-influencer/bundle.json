@@ -22,7 +22,7 @@
       "tier": "core",
       "source": "ryoku",
       "summary": "Right-click video reformat, transcode, compress, caption-prep, and thumbnail tools.",
-      "upstream": "https://github.com/neur0map/ryoku-extras"
+      "upstream": "https://github.com/neur0map/ryostore"
     },
     {
       "type": "package",
@@ -313,8 +313,8 @@
       "source": "README.md",
       "destination": "README.md",
       "mode": "0644",
-      "size": 3456,
-      "sha256": "a0699b002d70e04e9c124cb24428ff919ef79ed1eda0090cd00e00653ea2736a",
+      "size": 3452,
+      "sha256": "ce152d8e17a136c833e811905bfa5ff38fe5115daa93899c8b148a3763d28c8c",
       "install": true
     },
     {

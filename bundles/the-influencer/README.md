@@ -7,7 +7,7 @@ needs no setup. Install it from **Settings, Extras, The Influencer, Install all*
 (core items); optional items install one at a time from the card. Removing the
 bundle removes everything it added.
 
-## The right-click video toolkit (shipped from ryoku-extras, no setup)
+## The right-click video toolkit (shipped from ryostore, no setup)
 
 **Video Reformat** is a Nautilus script pack: it adds a **Scripts, Ryoku Creator**
 menu to the file manager. Select one or more clips, right-click, and pick an

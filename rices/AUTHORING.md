@@ -27,7 +27,7 @@ livewalls ships its videos. Small text and preview images live in-repo.
 Build the look in Ryoku Settings, use Save current setup to make a rice, then:
 
 ```
-ryoku-hub rice publish <slug> /path/to/ryoku-extras
+ryoku-hub rice publish <slug> /path/to/ryostore
 ```
 
 That writes `rices/<slug>/` and upserts the registry entry for you. Upload any

@@ -1,82 +1,74 @@
-# Contributing to ryoku-extras
+# Submitting to Ryostore
 
-This repo is a set of catalogues. Every catalogue has a `registry.json` that lists what is
-installable; an item is invisible to the shell until it is listed there. Add your folder,
-add the registry entry, open a PR.
+Thanks for building for Ryoku. This is the one page that gets your work into the
+store. It is short on purpose; the deep details live in each catalogue's own
+authoring guide, linked below.
 
-## A color scheme
+**Before you submit, build it and test it live.** The
+[DEVELOP.md](DEVELOP.md) guide shows you how to point your running desktop at
+your local copy and watch it work. Do that first; it catches almost everything.
 
-Add a folder under `colorschemes/<name>/` and an entry to `colorschemes/registry.json`.
-Follow an existing scheme for the file layout.
+## The shape of a submission
 
-## A plugin
+Ryostore is a catalogue repo. Every item is:
 
-Plugins live in `plugins/<id>/`. Copy `plugins/template/` to start, then read
-[`plugins/AUTHORING.md`](plugins/AUTHORING.md) for the full guide - it covers the manifest,
-the three entry points, how the shell hosts your frame popout, settings persistence, and
-the README + GIF requirements. List the plugin in `plugins/registry.json` when it is ready.
+1. **A folder** under its catalogue (for example `plugins/my-plugin/` or
+   `rices/my-rice/`), with a manifest and a preview image.
+2. **One entry** in that catalogue's `registry.json`. The desktop only shows
+   items that are listed there.
 
-## A bundle
+Pick your catalogue and follow its authoring guide for the folder layout and
+manifest fields:
 
-A bundle installs a curated set of packages, scripts, and plugins together. Add:
+| You are adding | Start from | Full guide |
+| --- | --- | --- |
+| A shell plugin (widget / popout) | `plugins/template/` | [`plugins/AUTHORING.md`](plugins/AUTHORING.md) |
+| A rice (whole-desktop look) | Save current setup in Settings | [`rices/AUTHORING.md`](rices/AUTHORING.md) |
+| A colour scheme | an existing `colorschemes/<name>/` | see below |
+| A bundle (tool set) | `bundles/the-ricer/` | [`bundles/README.md`](bundles/README.md) |
+| A Nautilus script pack | `nautilus/video-reformat/` | [`nautilus/AUTHORING.md`](nautilus/AUTHORING.md) |
+| A live wallpaper | an existing `livewalls/<id>/` | [`livewalls/README.md`](livewalls/README.md) |
+| A lockscreen, bar style, fastfetch, launcher image, decor | an existing item in that catalogue | copy the layout of a neighbour |
 
-1. `bundles/<id>/bundle.json` - the full item list and metadata.
-2. `bundles/<id>/README.md` - what it installs and why.
-3. An entry in `bundles/registry.json`.
+A colour scheme is the simplest: add `colorschemes/<name>/` following an existing
+scheme's layout, then add its entry to `colorschemes/registry.json`.
 
-Each item declares a `type`, and may carry a one-line `summary`, a `source`, and an
-`upstream` (shown on the card):
+## Two ways to submit
 
-- `package` - a pacman/AUR package. `ryoku-extras-install` routes it automatically (official
-  repos via `ryoku-pkg-add`, otherwise the AUR via `ryoku-pkg-aur-add`), so you only write
-  the package name. Presence is decided by `pacman -Qq`; `detect` documents the command it
-  provides.
-- `script` - installed by running `bundles/<id>/installers/<name>.sh`. `detect` is the resulting command.
-- `plugin` - installed through the shell's plugin path; `name` is the plugin id.
+### 1. Open a pull request (preferred)
 
-A bundle may also declare `"requires": ["multilib"]` to enable a repo before its packages
-are routed (Gaming needs it for Steam and the 32-bit libraries).
+If you are comfortable with git, this is the fastest path and the one that
+scales:
 
-See `bundles/the-ricer/` for the worked example.
+1. Fork this repo and add your item folder plus its `registry.json` entry.
+2. Run the check from the repo root:
 
-## An installer script
+   ```sh
+   tests/validate-catalogue.sh
+   ```
 
-For tools that install via a curl/script rather than a package, add
-`bundles/<id>/installers/<name>.sh` inside the bundle that owns it. Keep it small
-and auditable, pin the upstream URL, and use the Ryoku helpers
-(`ryoku-cmd-present`, `ryoku-pkg-add`) rather than raw shell. A `script` bundle
-item points at it by name. See `installers/README.md`.
+   It confirms every item resolves to a real folder, manifest, and installer,
+   and that all JSON parses. CI runs the same check, so a green local run means
+   a green PR.
+3. Open the pull request. The [PR template](.github/PULL_REQUEST_TEMPLATE.md)
+   walks you through the checklist.
 
-## A Nautilus script pack
+### 2. Fill in the submission form
 
-Right-click file-manager actions live in `nautilus/<id>/`. Copy the layout in
-[`nautilus/AUTHORING.md`](nautilus/AUTHORING.md), list the pack in
-`nautilus/registry.json`, and a bundle references it with an item
-`{ "type": "nautilus-pack", "name": "<id>" }`. The scripts install to
-`~/.local/share/nautilus/scripts/<subdir>/` and are removed cleanly on uninstall.
+Not set up for a pull request, or want a maintainer to help land it? Open the
+[**submission form**](https://github.com/neur0map/ryostore/issues/new?template=submit-item.yml).
+Tell us the kind, a short description, where the content lives (a repo, gist, or
+zip), and a preview image. A maintainer reviews it and opens the pull request
+with you.
 
-## Before you open a PR
+## What every submission needs
 
-**Run the catalogue check** from the repo root:
+- A **preview image** that is a real screenshot, not a placeholder.
+- A **licence** you can honour: your own work, CC0, or content explicitly
+  licensed for redistribution. Say so in the item's README or manifest.
+- A **`registry.json` entry** with the fields your catalogue's guide lists,
+  `lastUpdated` in `YYYY-MM-DD`, and (for community work) `official: false`.
+- **`tests/validate-catalogue.sh` passing.**
 
-```
-tests/validate-catalogue.sh
-```
-
-It confirms every bundle item resolves to a real registry entry, manifest, and
-installer, that each Nautilus manifest matches the scripts on disk, and that all
-JSON parses, so a dangling reference never reaches a user as a failed install. CI
-runs the same check on every push and pull request.
-
-**Test the thing itself, too.** The catalogue check only validates wiring, not
-that your product works. Install and exercise it in your own session before you
-submit:
-
-- **Plugin** - run the local `RYOKU_PLUGINS_DIR` loop and the per-plugin
-  checklist in [`plugins/AUTHORING.md`](plugins/AUTHORING.md#before-you-submit):
-  enable it in Ryoku Settings, render it as a desktop widget / frame popout,
-  and confirm drag, resize, settings, and a clean shell log.
-- **Bundle** - `ryoku-extras-install install bundle <id>` and confirm every item
-  lands (and removes cleanly).
-- **Color scheme, rice, lockscreen, Fastfetch, Nautilus pack** - install and
-  apply it, then look at the result.
+That is the whole contract. When in doubt, copy the closest existing item and
+change one thing at a time.

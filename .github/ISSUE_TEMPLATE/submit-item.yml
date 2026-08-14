@@ -1,0 +1,101 @@
+name: Submit to Ryostore
+description: Propose a rice, plugin, colour scheme, bundle, or other item for the Ryoku store.
+title: "[Submit]: "
+labels:
+  - submission
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for building for Ryoku. Comfortable with git? A
+        [pull request](https://github.com/neur0map/ryostore/blob/main/CONTRIBUTING.md)
+        is faster. Otherwise fill this in and a maintainer will help land it.
+
+        Please build and test it live first, the
+        [develop guide](https://github.com/neur0map/ryostore/blob/main/DEVELOP.md)
+        shows how.
+
+  - type: input
+    id: name
+    attributes:
+      label: Item name
+      description: The display name, as it should appear in the store.
+      placeholder: Aurora Veil
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      description: What are you submitting?
+      options:
+        - Rice (whole-desktop look)
+        - Plugin (widget / popout)
+        - Colour scheme
+        - Lockscreen
+        - Bar style
+        - Fastfetch preset
+        - Launcher image
+        - Decor (poster / ornament)
+        - Live wallpaper
+        - Bundle (tool set)
+        - Nautilus script pack
+    validations:
+      required: true
+
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      description: Your name or handle, as it should be credited.
+      placeholder: yourname
+    validations:
+      required: true
+
+  - type: input
+    id: summary
+    attributes:
+      label: One-line summary
+      description: A single sentence for the store card.
+      placeholder: A calm aurora that drifts behind your desktop.
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: What it is, what it looks like, and anything a reviewer should know (dependencies, setup, permissions).
+    validations:
+      required: true
+
+  - type: input
+    id: source
+    attributes:
+      label: Where does the content live?
+      description: A public link a maintainer can pull the files from, a GitHub repo, a gist, or a hosted zip.
+      placeholder: https://github.com/yourname/your-item
+    validations:
+      required: true
+
+  - type: input
+    id: preview
+    attributes:
+      label: Preview image
+      description: A link to a real screenshot of the item, or drag one into the Description field above.
+      placeholder: https://... (or attached above)
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checklist
+      options:
+        - label: I tested it live in Ryoku and it renders and behaves correctly.
+          required: true
+        - label: I own or have permission to submit this content and its preview, and it is licensed for redistribution.
+          required: true
+        - label: It does not overwrite user configuration or run privileged commands without clear consent.
+          required: true
+        - label: I understand review is for listing and is not a security audit.
+          required: true

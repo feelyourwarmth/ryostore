@@ -385,7 +385,7 @@
         "assets/hero.png"
       ],
       "manifest": "bundle.json",
-      "manifestSha256": "d1052812380f38ee448f5c8ed2791c37f58c11760875dd48bec9948e208e4abb",
+      "manifestSha256": "f50c36dd37446738682a65a7e53ff9626c3632d89a1b481606ee37c06a8eda54",
       "components": [
         {
           "type": "nautilus-pack",

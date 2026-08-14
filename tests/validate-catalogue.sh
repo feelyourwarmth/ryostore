@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Catalogue integrity check for ryoku-extras.
+# Catalogue integrity check for ryostore.
 #
 # The Hub fetches this repo at runtime and the actuator installs straight from
 # it, so a dangling reference reaches a user as a failed install: a bundle item

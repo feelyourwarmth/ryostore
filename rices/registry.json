@@ -80,8 +80,8 @@
       "color": "fixed",
       "palette": "rices/evangelion/palette.json",
       "rounding": 4,
-      "wallpaper": "https://github.com/neur0map/ryoku-extras/releases/download/rices/evangelion-wall.png",
-      "hero": "https://github.com/neur0map/ryoku-extras/releases/download/rices/evangelion-hero.jpg"
+      "wallpaper": "https://github.com/neur0map/ryostore/releases/download/rices/evangelion-wall.png",
+      "hero": "https://github.com/neur0map/ryostore/releases/download/rices/evangelion-hero.jpg"
     }
   ]
 }
