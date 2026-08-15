@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "gojo",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/gojo",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 482,
+      "sha256": "9a1c2aff56a600a4639356d98c154098f20f7af4519dd038b6946437f3333cd6",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 160678,
+      "sha256": "6d3dbab7b4667597d599458dcea19bd58829ff031b6b0fd5fd45882cad23b833",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 12890,
+      "sha256": "602f62de75cac0df4d8c909cd719c10261012ffa26473317320be43cc594a8b7",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 92590,
+      "sha256": "a0a03920973e64ddcf218c05ba451630a00ee16f9a559fe8d2cc9f150c7f7f4a",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 22578,
+      "sha256": "b96d9328c12c155082522fe2c63bc649745eb0cc7d01d7a1a996632b3d724e01",
+      "install": false
+    }
+  ]
+}

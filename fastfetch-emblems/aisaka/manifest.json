@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "aisaka",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/aisaka",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 486,
+      "sha256": "f1aa721d3dc1731f8eac0a5061e0eea0d1b50020c05e4df94abeefa779a8e1b5",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 139638,
+      "sha256": "94cb5c56f50dbf19ec3868ae6f76973e79c50dacd2b14dbdd715518a6baaa86a",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 18911,
+      "sha256": "ce025dfd6e0aa4b89d0e0d117dd456071ff67de63264c2746b15b9b2c048d432",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 103122,
+      "sha256": "34b3c800d852c0ffbe0816157fc3d9146008ee38bfd4c20a92c6358b963b21bd",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 33890,
+      "sha256": "c41f8a34e10d1362a1cb3539a3b314906c48f9dffe75e196d2203ec0ddcd7da7",
+      "install": false
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "nyarch-2",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/nyarch-2",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 512,
+      "sha256": "4629a2bb705004ab856666070139299903cd68f5a02e4a407482c30ede289389",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 72297,
+      "sha256": "37378de0a67c70921dbcca8ec924e7c6d05932dad8922da1f07e986545baafac",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 13160,
+      "sha256": "058cc3eca4b4898252ec3b86ac230504b0b0d63d28e3219edd250cfd8a2f0f06",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 88258,
+      "sha256": "bc309b913991dcb9da3110c7f2426a5c04c8ed1f7386d25a7d34270f14f7fadc",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 24470,
+      "sha256": "7ef9ad6f17b53b61f628eeff88ae7dfd0c2f625ea243f7ff6a46af7f3ada3b53",
+      "install": false
+    }
+  ]
+}

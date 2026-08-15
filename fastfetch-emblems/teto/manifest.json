@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "teto",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/teto",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 483,
+      "sha256": "a82ac68e8b7a869c62d4864210e5d89de2b62c6e88cb873f02534a6bfe197306",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 275347,
+      "sha256": "81c94dcc03b5ff2f27b37049671aaa29df41b4e817399b84243eec68353c7860",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 18560,
+      "sha256": "1fda2c2bda7aec599103f8cd0d5a2fef06eaf8e3df7ff7376edf3056a8fd354e",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 115348,
+      "sha256": "ded99811cfecd6f1e96124afc704375fbb9a6c8076f7adbd543d42a4ba0e9a62",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 41962,
+      "sha256": "e3af0462199144b3f44aabab4f6715e85cfaebf4b08a81daf2746b1cd40ade2e",
+      "install": false
+    }
+  ]
+}

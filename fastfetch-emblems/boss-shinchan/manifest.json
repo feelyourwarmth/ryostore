@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "boss-shinchan",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/boss-shinchan",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 500,
+      "sha256": "223e84e5ca83af56d71ba9292328f4476f9fb04f22196654e5a74b54bf396043",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 114916,
+      "sha256": "9cb4d0555781afc0e719255b859f39c2bc4a1747574fefc89e416dc6e7025294",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 10905,
+      "sha256": "f102f8a427c9acc985377b817a87e3cefd3d3363aa731ae3f4e139d66d08de6b",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 86490,
+      "sha256": "bd152d1075e658305f9fab636960057c6b91daad362f5f0fe32ce23bf482f526",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 13962,
+      "sha256": "1c64a4a404ee2bc9cae48a0b647f6d0a38a2bbc4dd5115c7082b7c76ad9738de",
+      "install": false
+    }
+  ]
+}

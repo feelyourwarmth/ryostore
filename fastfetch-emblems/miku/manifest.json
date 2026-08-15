@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "miku",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/miku",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 482,
+      "sha256": "fad97d4f7bb40cdc93072edbd3c9e1edaee556870eaf7110487ca12b8c30bd96",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 195294,
+      "sha256": "a4a9001abf747583f7d7ec85ca210f6252884e99e10342939a7e8942ab356d82",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 19096,
+      "sha256": "b7a0c9c6fe7a8d25f9a67b635b129bfe5881f69dae3b136bd18f5fe8ca62ccbe",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 93884,
+      "sha256": "bb2bb0efa9865890c7d5fdad84a7e1e0d8738fc9128a93c21e28ecd16ff8c03a",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 37238,
+      "sha256": "524e30d648b32aade7588adab59a19e7c0a0434b8f7cfcb8d937df7d30fc3e97",
+      "install": false
+    }
+  ]
+}

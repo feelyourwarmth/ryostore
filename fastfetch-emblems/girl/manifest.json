@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "girl",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/girl",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 504,
+      "sha256": "4025458380acfea8dfa57896df6b2eae013a735c4616e6e92597b2e6e90f7d4f",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 208057,
+      "sha256": "47ed64afedb8783b22646f0b981e8a73ce29212bdf841c46bb91643c2a5bde4c",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 6476,
+      "sha256": "b1db0afb3fe73f6b2bfeb5be75b24b7fa25731797daa58458b587b9835cec078",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 136186,
+      "sha256": "83179004f4221034dbff633757d70b3716bdf5f7e167864bc8c1a3bc363a8a60",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 34318,
+      "sha256": "cf3961d6a9a558335e865b724e0a9f22cd75ae2e912c6249ff83aba326b101c8",
+      "install": false
+    }
+  ]
+}

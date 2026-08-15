@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "shinchan-with-gun",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/shinchan-with-gun",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 508,
+      "sha256": "c4a366443224795c2402df86168938c78b65d826a1d4f1916aff9b68f5c3254b",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 160086,
+      "sha256": "52f6f13f4a86dec6c477c11e12b6178691c6833a8d4d6002e08e4c924fc0c96b",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 14822,
+      "sha256": "8eac741fdeea7be32200eada8a241a468c44fbd3a7f28af1c26a25b20339e761",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 99468,
+      "sha256": "8e3028b2c3eef777ecb769c66b77debb0bf3aa4104f537f6b9e0550c10151010",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 20978,
+      "sha256": "53c48cce1ac2ade27985997aea83418812a13cd815901e6860630ec24168811a",
+      "install": false
+    }
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "sasuke",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/sasuke",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 486,
+      "sha256": "c408133e4e511c8a233f3e7a6af98e664fa5503f7a5b6abc4528dd1cd8ef66a6",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 251580,
+      "sha256": "e776fe818bff600ae1279a02b5f49a7945227fe8ea995616ea9ca79439b97a51",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 26555,
+      "sha256": "164571b33f9dab4a4bede4377b69b752fe9d0e4e1865ad46af5b32784bd3352b",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 100784,
+      "sha256": "1895f504040af44a91c6f4011d577486aa6eb0396a75ae419f8db0254405253f",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 41230,
+      "sha256": "bd6fa7793d633222f768e93b3919148cc5482ddd9998b998bdb83fbb6d5b15e3",
+      "install": false
+    }
+  ]
+}

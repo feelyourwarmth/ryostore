@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "madara",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/madara",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 486,
+      "sha256": "a4ca0e81007abd1be2f7d5beb816871cce795a4c73b5d267a8c56619514271ec",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 126057,
+      "sha256": "6605123bc85994668111b5cced1fc1312ad0730aa2885ffc69a424a5cee60ec4",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 12518,
+      "sha256": "fb9cf3ffa54f3c6f87aac7da3a33f187ba635ec222f1f53608eb2473a23d38ae",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 69270,
+      "sha256": "54d7747ae92ae6b467edec1b0b1d4b53555f9ee2009fc32282b66887dd0d8d1a",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 17170,
+      "sha256": "b6e83a79f95c73c34d54d1c550fdc1bc2b894d8c98aee48ae185a589761f605b",
+      "install": false
+    }
+  ]
+}

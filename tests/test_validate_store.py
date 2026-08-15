@@ -17,7 +17,10 @@ validate_store = importlib.util.module_from_spec(SPEC)
 assert SPEC and SPEC.loader
 SPEC.loader.exec_module(validate_store)
 
-CATEGORIES = ("rices", "lockscreens", "barstyles", "fastfetch", "plugins", "bundles", "decors", "launcher-images")
+CATEGORIES = (
+    "rices", "lockscreens", "barstyles", "fastfetch", "plugins", "bundles",
+    "decors", "launcher-images", "fastfetch-emblems",
+)
 
 
 def digest(path: Path) -> str:

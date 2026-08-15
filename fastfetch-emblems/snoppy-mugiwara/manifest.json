@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "snoppy-mugiwara",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/snoppy-mugiwara",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 523,
+      "sha256": "710232e4b8bccc38036544379c70d0bce5ab03a3d4afea14989921a3b5f1c33c",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 163146,
+      "sha256": "9da4f7f4ebdefcb479e43d6cf42ecbf49d04620ed7565ba520cf3126b257546f",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 12580,
+      "sha256": "538c3ca899f041acf54a019d595d97f03af8884aaeff818926fd9ab01e7e130d",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 99186,
+      "sha256": "7e51ed010838f49d1dd99149c418d176369b9f6ac7514a0cdb62c6a82e38003c",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 31116,
+      "sha256": "b879ff34ed9b377c3039a09972261d06c631cb43cd06a150406a05d3054c4250",
+      "install": false
+    }
+  ]
+}

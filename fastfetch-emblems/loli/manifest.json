@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "loli",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/loli",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 482,
+      "sha256": "d28b045a8ee0de691bb9c0973f5abcda19915222830ba8a3943c20b1a04d7853",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 147500,
+      "sha256": "9d7de71424bcdb5cf47bb11b497498f4d1184db809df8e8837ddce7cca096299",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 15734,
+      "sha256": "2dbba868599b3d9e23230d4d234c8754f406734a75e21e86712a44647aa755f0",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 70594,
+      "sha256": "297314c31fe8cdebe02caba344d6d008c9cdf3d85ea2585a69b4d8abffd024c6",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 22688,
+      "sha256": "9a4a9eddf22442058777585277a121969b169cb8a1b2640462d70b6644c468af",
+      "install": false
+    }
+  ]
+}

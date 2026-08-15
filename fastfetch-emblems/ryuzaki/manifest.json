@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "ryuzaki",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/ryuzaki",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 488,
+      "sha256": "4f7a69fbc7b00c5648aef855688814288c993ba94365d122f3454bbb5d222b4b",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 125535,
+      "sha256": "ebb050e2917102630dd6ea399762781733f2548609d3b4cbb3f1bf5e56d44b7d",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 15119,
+      "sha256": "4139364f2e18c1bc5a78096f164bc7c9348e8741ffbe41a16e12daa3d870334a",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 94816,
+      "sha256": "f223bd1370546982826fd1cca289bb1e2e5c864690531464d37a16c8b8011991",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 30408,
+      "sha256": "ac23a1fd25baa9b9395113449488d6e26d99db5ae9b1b7266cfc6cb1b86a7744",
+      "install": false
+    }
+  ]
+}

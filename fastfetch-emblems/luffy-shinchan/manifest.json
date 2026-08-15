@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "luffy-shinchan",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/luffy-shinchan",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 502,
+      "sha256": "9b78c2ffa48a12bdbfa20d5052ba29847f5e572a01dde706b9a64462f78ba6d1",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 137611,
+      "sha256": "66e5ea971707effb1f853b13f842cef18891e0da7e13ddfccc2ada4ca7543288",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 12388,
+      "sha256": "0424100ca96e405ed038ea0af518017268c1cb4377a920f3b7922adcca56382d",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 62390,
+      "sha256": "1d546f488408481f29c583a5ad8c6e291cac27c01ec3a26005a3173da1d72f14",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 24580,
+      "sha256": "67d012a12ca70ad777c171f8686e061a22da172e12efec941bde06d21f0f5239",
+      "install": false
+    }
+  ]
+}

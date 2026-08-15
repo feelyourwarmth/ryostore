@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "gudetama",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/gudetama",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 491,
+      "sha256": "18f82f2cdf078933e3219a1b4ee6d3fa5fe679be75ac5a8307ed02b5b4c0e235",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 122523,
+      "sha256": "14af3e35751e5a97a19c22dbe5e79fe5378a4e4a033d1864304666875280eb8b",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 11925,
+      "sha256": "562fe95e55b653a50183242207aaeb94cb1de1e6133a9f18b32a849050819e59",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 65236,
+      "sha256": "60b17d6617669b1189595a3533c66a02538f37385e4fb5266257a836b5a33bff",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 21772,
+      "sha256": "76a5b007eeb4711444a4515e6112f044566b4b61cd29044588a8b03b38798336",
+      "install": false
+    }
+  ]
+}

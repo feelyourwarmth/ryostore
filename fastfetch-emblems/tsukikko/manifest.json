@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "tsukikko",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/tsukikko",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 490,
+      "sha256": "b74a7a43f7cc87f31fc8c9453c4eb498697282fddeaec1c81c9aad53ef7f31d1",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 268589,
+      "sha256": "d157d39ee4f71705931f88e5e1683ab6b74c795e004c9ecfb628b7519f030f2a",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 22961,
+      "sha256": "932a7a33ae620da3b79260f913297b3250a5eb242c6199eb00c7ddfb16d31715",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 140084,
+      "sha256": "d9c34ceb4eb6ecaf5c556d01ce2cf7bbd8159e8206dfda103a0f9837d6050ce7",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 38886,
+      "sha256": "94dbb22611cc131969d8627ab39cf6c7ff55e41fb689e3935a2bdb36b9a17c01",
+      "install": false
+    }
+  ]
+}

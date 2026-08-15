@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "sukuna",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/sukuna",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 486,
+      "sha256": "ed54d35eb6d39cc92866b08e1f4716992c97affa081c0e80e1e43af4a54af2c1",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 195689,
+      "sha256": "6bcd24cdd528550a4e85abcf47ee92424045e38ed8351655713c439c18115ce4",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 17864,
+      "sha256": "e8ced4a2fe1ecf31606cd18568f6d89b7ab84828447313e9ad168aa53df6e076",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 117282,
+      "sha256": "5efc641903cc84410085c9706f4e566de7d320f3a926e66139d81a772118cb68",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 29642,
+      "sha256": "906448738c7d94b3531673688550f249ff59337f9bd6f1818eb2fd8c7d24a093",
+      "install": false
+    }
+  ]
+}

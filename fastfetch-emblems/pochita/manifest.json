@@ -1,0 +1,57 @@
+{
+  "schema": 1,
+  "id": "pochita",
+  "category": "fastfetch-emblems",
+  "version": "1.0.0",
+  "destination": "ryoemblems/pochita",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 488,
+      "sha256": "828e514c2ca93eb2b7b5f9bf76ad5950a3fa2dcaf16a472e91f7a42d472ebbee",
+      "install": true
+    },
+    {
+      "source": "content/source.png",
+      "destination": "source.png",
+      "mode": "0644",
+      "size": 137934,
+      "sha256": "a55d02cc3818bf5cd894544fe9a0609f31147b548f7eb374abc733075aabaa5e",
+      "install": true
+    },
+    {
+      "source": "content/dither.png",
+      "destination": "dither.png",
+      "mode": "0644",
+      "size": 17399,
+      "sha256": "1b3883edb69ae04a618d1bfa2f1ba0ea68b705c30dfbf202f25cb0807fa0c0e7",
+      "install": true
+    },
+    {
+      "source": "assets/preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 102342,
+      "sha256": "910b82a35e0ea04b30289b3e827723d9fba0837e8890620f8964d6cbb0d36320",
+      "install": false
+    },
+    {
+      "source": "assets/preview-raw.webp",
+      "destination": "preview-raw.webp",
+      "mode": "0644",
+      "size": 38762,
+      "sha256": "19e511db09d1e2e2a28c7799b61897eefa5c3d31ad2faaddb0e07fa24abfa9fa",
+      "install": false
+    }
+  ]
+}
