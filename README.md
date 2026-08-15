@@ -37,8 +37,9 @@ Two guides, one job each:
   and a maintainer helps land it.
 
 Deep, per-catalogue authoring references live beside each catalogue
-(`plugins/AUTHORING.md`, `rices/AUTHORING.md`, `nautilus/AUTHORING.md`,
-`bundles/README.md`, `installers/README.md`, `livewalls/README.md`).
+(`plugins/AUTHORING.md`, `rices/AUTHORING.md`, `colorschemes/AUTHORING.md`,
+`fastfetch/AUTHORING.md`, `nautilus/AUTHORING.md`, `bundles/README.md`,
+`installers/README.md`, `livewalls/README.md`).
 
 ## The rules, briefly
 

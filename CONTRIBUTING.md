@@ -24,11 +24,12 @@ manifest fields:
 | --- | --- | --- |
 | A shell plugin (widget / popout) | `plugins/template/` | [`plugins/AUTHORING.md`](plugins/AUTHORING.md) |
 | A rice (whole-desktop look) | Save current setup in Settings | [`rices/AUTHORING.md`](rices/AUTHORING.md) |
-| A colour scheme | an existing `colorschemes/<name>/` | see below |
+| A colour scheme | `colorschemes/template/` | [`colorschemes/AUTHORING.md`](colorschemes/AUTHORING.md) |
 | A bundle (tool set) | `bundles/the-ricer/` | [`bundles/README.md`](bundles/README.md) |
 | A Nautilus script pack | `nautilus/video-reformat/` | [`nautilus/AUTHORING.md`](nautilus/AUTHORING.md) |
 | A live wallpaper | an existing `livewalls/<id>/` | [`livewalls/README.md`](livewalls/README.md) |
-| A lockscreen, bar style, fastfetch, launcher image, decor | an existing item in that catalogue | copy the layout of a neighbour |
+| A fastfetch preset (terminal readout) | `fastfetch/ryoku-dossier/` | [`fastfetch/AUTHORING.md`](fastfetch/AUTHORING.md) |
+| A lockscreen, bar style, launcher image, decor | an existing item in that catalogue | copy the layout of a neighbour |
 
 A colour scheme is the simplest: add `colorschemes/<name>/` following an existing
 scheme's layout, then add its entry to `colorschemes/registry.json`.
