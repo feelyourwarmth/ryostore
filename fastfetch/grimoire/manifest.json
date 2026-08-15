@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "grimoire",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/grimoire",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 1112,
+      "sha256": "65682ba19fa375a2a45a21ad61ee8ca751bd0e3d3c06736658b0616274a19421",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 2027,
+      "sha256": "291103119dc5c745cbf3eb79f4b344fe373a959484dab7437844ae6bbebb11f0",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 52352,
+      "sha256": "fa37d0abfa0578fd209e8e128fc5b39703ad4c92e3ab88c0ab3aff3c8e619e88",
+      "install": false
+    }
+  ]
+}

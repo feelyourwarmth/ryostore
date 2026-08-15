@@ -1,0 +1,43 @@
+// Pill Box - boxed Nerd Font label column, straw-yellow icons, cyan/magenta section heads
+// Ported for Ryoku from awesome-fastfetch-collection (configs/snoopy-mugiwara), MIT.
+// ryoku:recolor keys=primary title=foreground
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": { "type": "none" },
+  "display": { "separator": " ", "color": { "keys": "#f4c430", "title": "#d5d5d5" } },
+  "modules": [
+    { "type": "custom", "format": "" },
+    { "type": "custom", "key": "{#title}╭─────────────╮" },
+    { "type": "os", "key": "{#title}│ {#36}\uEBC6  Distro   {#title}│" },
+    { "type": "de", "key": "{#title}│ {#35}\uF373  DE       {#title}│" },
+    { "type": "wm", "key": "{#title}│ {#keys}\uEB7F  WM       {#title}│" },
+    { "type": "lm", "key": "{#title}│ {#keys}\uDB80\uDF42  LM       {#title}│" },
+    { "type": "kernel", "key": "{#title}│ {#keys}\uF423  Kernel   {#title}│" },
+    { "type": "bootmgr", "key": "{#title}│ {#keys}\uDB85\uDC0B  BootMgr  {#title}│" },
+    { "type": "terminal", "key": "{#title}│ {#keys}\uF4B5  Terminal {#title}│" },
+    { "type": "terminalfont", "key": "{#title}│ {#keys}\uDB81\uDED6  TermFont {#title}│" },
+    { "type": "shell", "key": "{#title}│ {#keys}\uE691  Shell    {#title}│" },
+    { "type": "packages", "key": "{#title}│ {#keys}\uDB80\uDFD6  Packages {#title}│" },
+    { "type": "uptime", "key": "{#title}│ {#keys}\uDB82\uDD54  Uptime   {#title}│" },
+    { "type": "custom", "key": "{#title}├─────────────┤" },
+    { "type": "host", "key": "{#title}│ {#keys}\uDB80\uDDC5  Machine  {#title}│" },
+    { "type": "bios", "key": "{#title}│ {#keys}\uEABE  Bios     {#title}│" },
+    { "type": "cpu", "key": "{#title}│ {#keys}\uDB80\uDF5B  CPU      {#title}│", "showPeCoreCount": true },
+    { "type": "cpuusage", "key": "{#title}│ {#keys}\uDB83\uDF86  CPU Use  {#title}│" },
+    { "type": "gpu", "key": "{#title}│ {#keys}\uDB80\uDF5B  GFX      {#title}│" },
+    { "type": "vulkan", "key": "{#title}│ {#keys}\uDB80\uDF5B  Vulkan   {#title}│" },
+    { "type": "monitor", "key": "{#title}│ {#keys}\uDB80\uDF79  Monitor  {#title}│" },
+    { "type": "memory", "key": "{#title}│ {#keys}\uDB81\uDFF6  Memory   {#title}│" },
+    { "type": "swap", "key": "{#title}│ {#keys}\uDB82\uDCC1  Swap     {#title}│" },
+    { "type": "custom", "key": "{#title}├─────────────┤" },
+    { "type": "disk", "key": "{#title}│ {#keys}\uDB80\uDE49  Storage  {#title}│" },
+    { "type": "custom", "key": "{#title}├─────────────┤" },
+    { "type": "sound", "key": "{#title}│ {#keys}\uDB81\uDF1F  Sound    {#title}│" },
+    { "type": "media", "key": "{#title}│ {#keys}\uEC1B  Playing  {#title}│" },
+    { "type": "custom", "key": "{#title}├─────────────┤" },
+    { "type": "datetime", "key": "{#title}│ {#keys}\uDB80\uDCF0  Date     {#title}│", "dateFormat": "%d/%m/%Y", "timeFormat": "%H:%M" },
+    { "type": "custom", "key": "{#title}├─────────────┤" },
+    { "type": "colors", "key": "{#title}│ {#keys}\uDB80\uDFD8  Colors   {#title}│", "symbol": "circle" },
+    { "type": "custom", "key": "{#title}╰─────────────╯" },
+  ]
+}

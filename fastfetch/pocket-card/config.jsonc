@@ -1,0 +1,56 @@
+// Pocket Card - compact single blue card headed with the hostname
+// Ported for Ryoku from awesome-fastfetch-collection (configs/kuruma-config/mini.jsonc), MIT.
+// ryoku:recolor keys=primary output=onSurfaceVariant
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "small",
+    "source": "arch"
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "#61afef",
+      "output": "#c5c9c5"
+    }
+  },
+  "modules": [
+    {
+      "type": "title",
+      "format": "{#keys}╭──────── {host-name}'s PC ────────"
+    },
+    {
+      "type": "os",
+      "key": "│ {icon} OS     │",
+      "format": "{name}"
+    },
+    {
+      "type": "title",
+      "key": "│ \uf007 user   │",
+      "format": "{user-name}@{host-name}"
+    },
+    {
+      "type": "kernel",
+      "key": "│ \uf013 kernel │",
+      "format": "{sysname} {release}"
+    },
+    {
+      "type": "uptime",
+      "key": "│ \udb84\udfab uptime │"
+    },
+    {
+      "type": "packages",
+      "key": "│ \udb80\udfd7 pakgs  │",
+      "format": "{flatpak-all} (flatpak), {pacman} (pacman)"
+    },
+    {
+      "type": "memory",
+      "key": "│ \uefc5 mem    │",
+      "format": "{used} / {total}"
+    },
+    {
+      "type": "custom",
+      "key": "{#keys}╰──────────────────────────────"
+    }
+  ]
+}

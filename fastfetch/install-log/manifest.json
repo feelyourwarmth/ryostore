@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "install-log",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/install-log",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 797,
+      "sha256": "a4ad3271583c1d9d50d4829099894456e96faa41f7438d980617120deecb1d55",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 1537,
+      "sha256": "75eb5c78ea27461e24cece03734cdf9118049b3d3c29e11af946b56fa5bbffcb",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 70298,
+      "sha256": "3ff0f8c20ec4b4c469b61585d3d4310b1dce535ff818a30aa618559b3ab612ca",
+      "install": false
+    }
+  ]
+}

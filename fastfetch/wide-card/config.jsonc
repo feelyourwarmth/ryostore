@@ -1,0 +1,98 @@
+// Wide Card - two stacked blue rounded boxes: identity above, hardware below
+// Ported for Ryoku from awesome-fastfetch-collection (configs/kuruma-config/config.jsone), MIT.
+// ryoku:recolor keys=primary output=onSurfaceVariant
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "arch"
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "#61afef",
+      "output": "#c5c9c5"
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "key": "╭────────────╮"
+    },
+    {
+      "type": "title",
+      "key": "│ \uf007 user     │",
+      "format": "{user-name}@{host-name}"
+    },
+    {
+      "type": "custom",
+      "key": "├────────────┤"
+    },
+    {
+      "type": "os",
+      "key": "│ {icon} OS       │",
+      "format": "{name}"
+    },
+    {
+      "type": "kernel",
+      "key": "│ \uf013 Kernel   │"
+    },
+    {
+      "type": "de",
+      "key": "│ \uf013 DE       │"
+    },
+    {
+      "type": "wm",
+      "key": "│ \ue62a WM       │"
+    },
+    {
+      "type": "packages",
+      "key": "│ \udb80\udfd7 Packages │"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────╯"
+    },
+    {
+      "type": "custom",
+      "key": "╭────────────╮"
+    },
+    {
+      "type": "memory",
+      "key": "│ \uefc5 Memory   │",
+      "format": "{used} / {total}"
+    },
+    {
+      "type": "disk",
+      "key": "│ \uede9 Disk     │",
+      "format": "{size-used} / {size-total}"
+    },
+    {
+      "type": "swap",
+      "key": "│ \uf021 Swap     │",
+      "format": "{used} / {total}"
+    },
+    {
+      "type": "cpu",
+      "key": "│ \ue28c CPU      │",
+      "format": "{name} ({cores-logical})"
+    },
+    {
+      "type": "gpu",
+      "key": "│ \uf4bc GPU      │",
+      "format": "{name} ({type})"
+    },
+    {
+      "type": "host",
+      "key": "│ \udb80\udf22 Chassis  │"
+    },
+    {
+      "type": "battery",
+      "key": "│ \uf240 Battery  │"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────╯"
+    }
+  ]
+}

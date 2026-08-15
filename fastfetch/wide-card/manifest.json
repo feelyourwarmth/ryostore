@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "wide-card",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/wide-card",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 1111,
+      "sha256": "2ff93a577e093083994e1485255644d26370291caac0be5739820da462f36488",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 2233,
+      "sha256": "f08c30bd70ccd59ad3408a7ee85288b04d3175c9a72205c867461ab8f4b3692a",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 77210,
+      "sha256": "1463985437f07877305ceece98122c64b029126889f797b4f9f57d2f16c30ca7",
+      "install": false
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+// Cassette - twin-box readout: magenta/green/blue/yellow/red mini-boxes beside a white panel
+// Ported for Ryoku from awesome-fastfetch-collection (configs/9.jsonc), MIT.
+// ryoku:recolor keys=primary title=secondary
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "none"
+  },
+  "display": {
+    "separator": ": ",
+    "color": {
+      "keys": "#5fd75f",
+      "title": "#d75fd7"
+    }
+  },
+  "modules": [
+    {
+      "type": "break"
+    },
+    {
+      "type": "custom",
+      "format": "{#title}\u250f\u2501\u2501\u2501\u2501\u2501\u2513{#37}\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+    },
+    {
+      "type": "title",
+      "key": "{#title}\u2503  \uf007  \u2503{#37}\u2502",
+      "format": "{#title}{user-name}{at-symbol-colored}{host-name-colored}"
+    },
+    {
+      "type": "custom",
+      "format": "{#title}\u2517\u2501\u2501\u2501\u2501\u2501\u251b{#37}\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+    },
+    {
+      "type": "custom",
+      "format": "{#keys}\u250f\u2501\u2501\u2501\u2501\u2501\u2513{#37}\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+    },
+    {
+      "type": "os",
+      "key": "\u2503\uf30f OS \u2503{#37}\u2502",
+      "format": "{name} {version} {arch}"
+    },
+    {
+      "type": "kernel",
+      "key": "\u2503\u2502 \u251c\uf31a \u2503{#37}\u2502",
+      "format": "{sysname} {release}"
+    },
+    {
+      "type": "shell",
+      "key": "\u2503\u2502 \u251c\ueaf8 \u2503{#37}\u2502",
+      "format": "{process-name} {version}"
+    },
+    {
+      "type": "terminal",
+      "key": "\u2503\u2514 \u2514\uf489 \u2503{#37}\u2502",
+      "format": "{process-name} {version}"
+    },
+    {
+      "type": "host",
+      "key": "\u2503\udb83\udf5f PC \u2503{#37}\u2502",
+      "format": "{name}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "cpu",
+      "key": "\u2503\u2502 \u251c\uec19 \u2503{#37}\u2502",
+      "format": "{name} [{cores-online}] {freq-max}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "gpu",
+      "key": "\u2503\u2502 \u251c\uf4bc \u2503{#37}\u2502",
+      "format": "{vendor} {type} {shared-total}",
+      "keyColor": "blue"
+    },
+    {
+      "type": "memory",
+      "key": "\u2503\u2502 \u251c\udb83\udf4b \u2503{#37}\u2502",
+      "format": "{1} / {2} ({3})",
+      "keyColor": "blue"
+    },
+    {
+      "type": "monitor",
+      "key": "\u2503\u2514 \u2514\udb80\udf79 \u2503{#37}\u2502",
+      "format": "{width}x{height} @ {refresh-rate} Hz",
+      "keyColor": "blue"
+    },
+    {
+      "type": "de",
+      "key": "\u2503\uf35f DE \u2503{#37}\u2502",
+      "format": "{pretty-name} {version}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "wmtheme",
+      "key": "\u2503\u2502 \u251c\uf488 \u2503{#37}\u2502",
+      "format": "{1}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "theme",
+      "key": "\u2503\u2502 \u251c\uf2d2 \u2503{#37}\u2502",
+      "format": "{1}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "icons",
+      "key": "\u2503\u2502 \u251c\uf11c \u2503{#37}\u2502",
+      "format": "{1}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "font",
+      "key": "\u2503\u2514 \u2514\uf1ab \u2503{#37}\u2502",
+      "format": "{font1}",
+      "keyColor": "yellow"
+    },
+    {
+      "type": "custom",
+      "format": "{#33}\u2517\u2501\u2501\u2501\u2501\u2501\u251b{#37}\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+    },
+    {
+      "type": "custom",
+      "format": "{#31}\u250f\u2501\u2501\u2501\u2501\u2501\u2513{#37}\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+    },
+    {
+      "type": "custom",
+      "key": "{#31}\u2503  \uec1b  \u2503{#37}\u2502",
+      "keyColor": "red",
+      "format": "\u266a SIDE A \u00b7 MIXTAPE \u00b7 \u25b6 PLAY"
+    },
+    {
+      "type": "custom",
+      "format": "{#31}\u2517\u2501\u2501\u2501\u2501\u2501\u251b{#37}\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 8,
+      "symbol": "diamond"
+    }
+  ]
+}

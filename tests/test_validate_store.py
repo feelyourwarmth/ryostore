@@ -4,6 +4,7 @@ import hashlib
 import importlib.util
 import json
 import os
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -444,15 +445,36 @@ class MigratedCatalogueTest(unittest.TestCase):
                 }
                 self.assertEqual(set(files), accounted)
 
-    def test_fastfetch_catalogue_has_both_external_styles(self) -> None:
+    def test_fastfetch_catalogue_ids(self) -> None:
         root = MODULE_PATH.parent.parent
         registry = json.loads(
             (root / "fastfetch" / "registry.json").read_text(encoding="utf-8")
         )
         self.assertEqual(
-            [entry["id"] for entry in registry["fastfetch"]],
-            ["ryoku-dossier", "minimal-grid"],
+            [entry["id"] for entry in registry["fastfetch"]][:4],
+            ["ryoku-dossier", "minimal-grid", "spectrum", "system-console"],
         )
+        ported = [entry["id"] for entry in registry["fastfetch"]][4:]
+        self.assertEqual(ported, sorted(ported))
+        self.assertEqual(len(registry["fastfetch"]), 27)
+
+    def test_fastfetch_presets_are_self_contained(self) -> None:
+        root = MODULE_PATH.parent.parent
+        registry = json.loads(
+            (root / "fastfetch" / "registry.json").read_text(encoding="utf-8")
+        )
+        forbidden = re.compile(
+            r"~/|\$HOME|/home/|%USERPROFILE%|(?<![A-Za-z])[A-Za-z]:[\\/]"
+            r"|\$\(|\"type\"\s*:\s*\"(?:command|exec)\""
+        )
+        for entry in registry["fastfetch"]:
+            with self.subTest(preset=entry["id"]):
+                config = root / entry["path"] / "config.jsonc"
+                text = config.read_text(encoding="utf-8")
+                self.assertIsNone(
+                    forbidden.search(text),
+                    f"{entry['id']}: a preset must not reach outside its own file",
+                )
 
     def test_lockscreens_satisfy_store_contract_without_core_fallback(self) -> None:
         root = MODULE_PATH.parent.parent

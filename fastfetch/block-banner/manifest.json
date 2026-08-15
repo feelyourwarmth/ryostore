@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "block-banner",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/block-banner",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 1246,
+      "sha256": "d48bf4c6e8947f293ec50e726dd6a1fb7a16809411d5b074bc98ab8eea17821f",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 2723,
+      "sha256": "72624828f6037ed468e7d04e6c0794583535f03bf97c5d80a5a4a69c5867bfd7",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 52312,
+      "sha256": "9895f97f863abe8e8067b6ed0edf8ff3c3ddccc39099599e4a931c01338e466d",
+      "install": false
+    }
+  ]
+}

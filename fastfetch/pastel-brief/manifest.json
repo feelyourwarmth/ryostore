@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "pastel-brief",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/pastel-brief",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 752,
+      "sha256": "f3ff0d9558fced5f788af4a965bc3877e961fe36ba29f2dd75f6a2ee9c35465b",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 990,
+      "sha256": "2c120ca2ca0bf7c547d86158c6f75b978fbe27a18190475c1059b8bde5a34007",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 22136,
+      "sha256": "a1bc7fb50b7bb77a5a7c7b720a78ef4896a9da9241ac156c9e7dfee7d8fff75a",
+      "install": false
+    }
+  ]
+}

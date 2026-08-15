@@ -1,0 +1,84 @@
+// Dual Panel - magenta System panel over a cyan Hardware panel, arrow readouts
+// Ported for Ryoku from awesome-fastfetch-collection (configs/kuruma-config/config2.jsonc), MIT.
+// ryoku:recolor keys=primary output=onSurfaceVariant
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "small",
+    "source": "arch"
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "#c678dd",
+      "output": "#c5c9c5"
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "key": "╭────────── System ──────────···"
+    },
+    {
+      "type": "title",
+      "key": "│ \uf007 User    │ ➜",
+      "format": "{user-name}@{host-name}"
+    },
+    {
+      "type": "os",
+      "key": "│ {icon} OS      │ ➜"
+    },
+    {
+      "type": "kernel",
+      "key": "│ \udb81\udc8b Kernel  │ ➜"
+    },
+    {
+      "type": "uptime",
+      "key": "│ \udb84\udfab Uptime  │ ➜"
+    },
+    {
+      "type": "wm",
+      "key": "│ \uf488 WM      │ ➜"
+    },
+    {
+      "type": "shell",
+      "key": "│ \uf489 Shell   │ ➜"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────────────────────···"
+    },
+    "break",
+    {
+      "type": "custom",
+      "key": "{#36}╭───────── Hardware ─────────···"
+    },
+    {
+      "type": "cpu",
+      "key": "{#36}│ \uf4bc CPU     │ ➜",
+      "format": "{name} ({cores-logical})"
+    },
+    {
+      "type": "gpu",
+      "key": "{#36}│ \udb82\udcae GPU     │ ➜",
+      "format": "{name} ({type})"
+    },
+    {
+      "type": "memory",
+      "key": "{#36}│ \uefc5 RAM     │ ➜",
+      "format": "{used} / {total}"
+    },
+    {
+      "type": "display",
+      "key": "{#36}│ \udb80\udf79 Display │ ➜"
+    },
+    {
+      "type": "battery",
+      "key": "{#36}│ \uf240 Battery │ ➜"
+    },
+    {
+      "type": "custom",
+      "key": "{#36}╰────────────────────────────···"
+    }
+  ]
+}

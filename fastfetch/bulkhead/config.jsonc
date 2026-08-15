@@ -1,0 +1,149 @@
+// Bulkhead - a yellow-framed hardware/software/misc tree beside the Arch logo
+// Ported for Ryoku from awesome-fastfetch-collection (configs/Cmdr_Scotty/config.jsonc), MIT.
+// ryoku:recolor keys=primary
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "arch",
+    "padding": {
+      "top": 1,
+      "left": 1,
+      "right": 2
+    }
+  },
+  "display": {
+    "color": {
+      "keys": "#e06c75"
+    }
+  },
+  "modules": [
+    "break",
+    {
+      "type": "custom",
+      "format": "{#33}\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500Hardware\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+    },
+    {
+      "type": "title",
+      "key": "\uf109 PC",
+      "format": "{user-name}"
+    },
+    {
+      "type": "host",
+      "key": "\u2502 \u251c\uf51e",
+      "hostname": true
+    },
+    {
+      "type": "cpu",
+      "key": "\u2502 \u251c\uf4bc",
+      "showPeCoreCount": true
+    },
+    {
+      "type": "gpu",
+      "key": "\u2502 \u251c\udb82\udcae"
+    },
+    {
+      "type": "memory",
+      "key": "\u2502 \u251c\uefc5"
+    },
+    {
+      "type": "disk",
+      "key": "\u2502 \u251c\uf0a0",
+      "format": "{1} / {2} ({3}) - {9}"
+    },
+    {
+      "type": "swap",
+      "key": "\u2502 \u2514\uf1b8"
+    },
+    {
+      "type": "custom",
+      "format": "{#33}\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500Software\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+    },
+    {
+      "type": "os",
+      "key": "\uf17c OS",
+      "keyColor": "green"
+    },
+    {
+      "type": "kernel",
+      "key": "\u2502 \u251c\uf013",
+      "keyColor": "green"
+    },
+    {
+      "type": "packages",
+      "key": "\u2502 \u251c\udb80\udfd6",
+      "keyColor": "green"
+    },
+    {
+      "type": "terminal",
+      "key": "\u2502 \u251c\uf489",
+      "keyColor": "green"
+    },
+    {
+      "type": "shell",
+      "key": "\u2502 \u2514\uee41",
+      "keyColor": "green"
+    },
+    {
+      "type": "de",
+      "key": "\uf488 DE",
+      "keyColor": "blue"
+    },
+    {
+      "type": "lm",
+      "key": "\u2502 \u251c\uf488",
+      "keyColor": "blue"
+    },
+    {
+      "type": "wm",
+      "key": "\u2502 \u251c\uf488",
+      "keyColor": "blue"
+    },
+    {
+      "type": "wmtheme",
+      "key": "\u2502 \u251c\udb80\ude7c",
+      "keyColor": "blue"
+    },
+    {
+      "type": "font",
+      "key": "\u2502 \u251c\uf031",
+      "keyColor": "blue"
+    },
+    {
+      "type": "cursor",
+      "key": "\u2502 \u2514\udb80\uddbf",
+      "keyColor": "blue"
+    },
+    {
+      "type": "custom",
+      "format": "{#33}\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500Miscellaneous\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+    },
+    {
+      "type": "uptime",
+      "key": "\u2502 \uf017 Uptime",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "media",
+      "key": "\u2502 \uf001 Music",
+      "keyColor": "magenta",
+      "format": "{1} - {4}"
+    },
+    {
+      "type": "datetime",
+      "key": "\u2502 \uf073 Date and Time",
+      "keyColor": "magenta",
+      "format": "{3}/{11}/{1} - {14}:{18} {22}"
+    },
+    {
+      "type": "custom",
+      "format": "{#33}\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+    },
+    {
+      "type": "colors",
+      "paddingLeft": 20,
+      "symbol": "star"
+    },
+    "break"
+  ]
+}

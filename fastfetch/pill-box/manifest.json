@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "pill-box",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/pill-box",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 881,
+      "sha256": "5f93a1a54f5157031e2b3af9225460a0e831f0d0625bb2f06d98d938202f6dde",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 3397,
+      "sha256": "d737a3b8e0355cb6f87bf4de312f13b8a279379e913fa3cd3278acbbc24dffaa",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 59568,
+      "sha256": "d2977d8b8682f6a243c7f6a93a67b26291b712823a4c12ae95978b14be7b14eb",
+      "install": false
+    }
+  ]
+}

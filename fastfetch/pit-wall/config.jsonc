@@ -1,0 +1,116 @@
+// Pit Wall - F1 pit-wall telemetry: navy bars, yellow/red labels, dotted leaders, boxed header
+// Ported for Ryoku from awesome-fastfetch-collection (configs/6.jsonc), MIT.
+// ryoku:recolor keys=primary title=tertiary separator=secondary output=onSurface
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "none"
+  },
+  "display": {
+    "separator": "",
+    "color": {
+      "keys": "#ffcc00",
+      "title": "#dc0000",
+      "separator": "#3a5ea8",
+      "output": "#f0f0f0"
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "{#separator}═══════════════════════════════════════════════════════════════"
+    },
+    {
+      "type": "custom",
+      "format": "{#separator}║         {#keys}PIT WALL{#title}  //  {#output}LIVE TELEMETRY{#title}  //  {#keys}STRATEGY          {#separator}║"
+    },
+    {
+      "type": "custom",
+      "format": "{#separator}═══════════════════════════════════════════════════════════════"
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "os",
+      "key": "{#separator}▌{#keys} TEAM       {#separator}... ",
+      "format": "{#output}{2}"
+    },
+    {
+      "type": "kernel",
+      "key": "{#separator}▌{#keys} CHASSIS    {#separator}... ",
+      "format": "{#output}{2}"
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "cpu",
+      "key": "{#separator}▌{#title} POWER UNIT {#separator}... ",
+      "format": "{#output}{1}"
+    },
+    {
+      "type": "gpu",
+      "key": "{#separator}▌{#title} AERO       {#separator}... ",
+      "format": "{#output}{1}"
+    },
+    {
+      "type": "memory",
+      "key": "{#separator}▌{#title} FUEL       {#separator}... ",
+      "format": "{#output}{1} / {2}"
+    },
+    {
+      "type": "disk",
+      "key": "{#separator}▌{#title} TELEMETRY  {#separator}... ",
+      "format": "{#output}{1} / {2}",
+      "folders": "/"
+    },
+    {
+      "type": "battery",
+      "key": "{#separator}▌{#title} ENERGY     {#separator}... ",
+      "format": "{#output}{capacity} {status}"
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "custom",
+      "format": "{#separator}───────────────────────────────────────────────────────────────"
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    {
+      "type": "uptime",
+      "key": "{#separator}▌{#keys} SESSION    {#separator}... ",
+      "format": "{#output}{1}d {2}h {3}m {4}s"
+    },
+    {
+      "type": "packages",
+      "key": "{#separator}▌{#keys} SETUP      {#separator}... ",
+      "format": "{#output}{all}"
+    },
+    {
+      "type": "shell",
+      "key": "{#separator}▌{#keys} RACE ENG.  {#separator}... ",
+      "format": "{#output}{1}"
+    },
+    {
+      "type": "terminal",
+      "key": "{#separator}▌{#keys} COCKPIT    {#separator}... ",
+      "format": "{#output}{1}"
+    },
+    {
+      "type": "custom",
+      "format": "{#separator}═══════════════════════════════════════════════════════════════"
+    },
+    {
+      "type": "custom",
+      "format": "{#separator}  telemetry nominal"
+    }
+  ]
+}

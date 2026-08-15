@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "pit-wall",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/pit-wall",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 1346,
+      "sha256": "bd052a57801a671ba19f32b4e42b76e5b8c62f591c67b50b1c66bfaf9543d6c0",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 3646,
+      "sha256": "7f07048cb950ec4b84f0c29dee6bb1cb97ceacc321f5b611578a2c9bbeb99f30",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 36732,
+      "sha256": "06c7654fe962dfd3ac50848e5cc77bfe31ee9d26735b43a3e5c1756d149fa4aa",
+      "install": false
+    }
+  ]
+}

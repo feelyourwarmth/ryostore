@@ -1,0 +1,115 @@
+// Key Cards - twin rounded red panels of system info beside the Arch logo
+// Ported for Ryoku from awesome-fastfetch-collection (configs/7.jsonc), MIT.
+// ryoku:recolor keys=primary title=secondary
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "arch",
+    "padding": {
+      "top": 1,
+      "left": 1,
+      "right": 2
+    }
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "#e5484d",
+      "title": "#3fb950"
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "key": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e"
+    },
+    {
+      "type": "title",
+      "key": "\u2502 \uf007 User     \u2502",
+      "format": "{6}{7}{8}"
+    },
+    {
+      "type": "custom",
+      "key": "\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+    },
+    {
+      "type": "host",
+      "key": "\u2502 \udb80\udf22 Machine  \u2502"
+    },
+    {
+      "type": "os",
+      "key": "\u2502 \uf303 OS       \u2502",
+      "format": "{name}"
+    },
+    {
+      "type": "kernel",
+      "key": "\u2502 \uf013 Kernel   \u2502"
+    },
+    {
+      "type": "de",
+      "key": "\u2502 \uf013 DE       \u2502"
+    },
+    {
+      "type": "wm",
+      "key": "\u2502 \ue62a WM       \u2502"
+    },
+    {
+      "type": "terminal",
+      "key": "\u2502 \ue795 Terminal \u2502"
+    },
+    {
+      "type": "packages",
+      "key": "\u2502 \udb80\udfd7 Packages \u2502",
+      "disabled": [
+        "apk"
+      ],
+      "combined": false
+    },
+    {
+      "type": "custom",
+      "key": "\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+    },
+    {
+      "type": "custom",
+      "key": "\u256d\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256e"
+    },
+    {
+      "type": "display",
+      "key": "{#title}\u2502 \udb80\udf79 Display  \u2502",
+      "format": "{1}x{2} @ {3}Hz{?7} [{7}]{?}"
+    },
+    {
+      "type": "memory",
+      "key": "\u2502 \uefc5 Memory   \u2502",
+      "format": "{used} / {total}"
+    },
+    {
+      "type": "disk",
+      "key": "\u2502 \uede9 Disk     \u2502",
+      "format": "{size-used} / {size-total}"
+    },
+    {
+      "type": "cpu",
+      "key": "\u2502 \ue28c CPU      \u2502",
+      "format": "{name} ({cores-logical})"
+    },
+    {
+      "type": "gpu",
+      "key": "\u2502 \uf4bc GPU      \u2502",
+      "format": "{name}"
+    },
+    {
+      "type": "battery",
+      "key": "\u2502 \uf240 Battery  \u2502"
+    },
+    {
+      "type": "uptime",
+      "key": "{#title}\u2502 \udb86\uded0 Uptime   \u2502"
+    },
+    {
+      "type": "custom",
+      "key": "\u2570\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u256f"
+    }
+  ]
+}

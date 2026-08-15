@@ -1,0 +1,123 @@
+// Terminal Online - a TERMINAL ONLINE banner over two bordered CPU/OS panels
+// Ported for Ryoku from awesome-fastfetch-collection (configs/kitty-cachyos/config.jsonc), MIT.
+// ryoku:recolor keys=primary
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "arch",
+    "padding": {
+      "top": 2,
+      "left": 2,
+      "right": 2
+    }
+  },
+  "display": {
+    "separator": " ",
+    "key": {
+      "width": 18
+    },
+    "color": {
+      "keys": "#ff5555"
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "\u001b[1;31m \udb80\udea0 \u001b[1;35m\udb80\udea0 \u001b[1;36m\udb80\udea0 \u001b[1;33m\udb82\udfaf \u001b[0;33m\u00b7 \u00b7 \u00b7 \u00b7 \u001b[1;38;5;208mTERMINAL \u001b[1;32mONLINE"
+    },
+    {
+      "type": "custom",
+      "format": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+    },
+    {
+      "type": "os",
+      "key": "  \udb82\udcc7  OS",
+      "format": "{2}"
+    },
+    {
+      "type": "kernel",
+      "key": "  \udb80\udf3d  Kernel",
+      "format": "{2}"
+    },
+    {
+      "type": "packages",
+      "key": "  \udb80\udfd6  Packages"
+    },
+    {
+      "type": "display",
+      "key": "  \udb80\udf79  Display",
+      "keyColor": "green",
+      "format": "{1}x{2} @ {3}Hz"
+    },
+    {
+      "type": "wm",
+      "key": "  \udb82\ude07  WM",
+      "keyColor": "green",
+      "format": "{2}"
+    },
+    {
+      "type": "de",
+      "key": "  \udb82\udde8  DE",
+      "keyColor": "green",
+      "format": "{2}"
+    },
+    {
+      "type": "terminal",
+      "key": "  \udb80\udd8d  Terminal",
+      "keyColor": "yellow",
+      "format": "{3}"
+    },
+    {
+      "type": "shell",
+      "key": "  \udb81\udfb7  Shell",
+      "keyColor": "yellow",
+      "format": "{1}"
+    },
+    {
+      "type": "custom",
+      "format": "\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+    },
+    "break",
+    {
+      "type": "title",
+      "format": "  \u001b[35m\udb82\uddc2  {1}@{2}"
+    },
+    {
+      "type": "custom",
+      "format": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+    },
+    {
+      "type": "cpu",
+      "key": "  \udb83\udee0  CPU",
+      "keyColor": "blue",
+      "format": "{1}"
+    },
+    {
+      "type": "gpu",
+      "key": "  \udb82\udcae  GPU",
+      "keyColor": "blue",
+      "format": "{1} {2}"
+    },
+    {
+      "type": "memory",
+      "key": "  \udb80\udf5b  Memory",
+      "keyColor": "blue",
+      "format": "{1} / {2} {3}"
+    },
+    {
+      "type": "uptime",
+      "key": "  \udb80\udd50  Uptime",
+      "keyColor": "magenta"
+    },
+    {
+      "type": "custom",
+      "format": "\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+    },
+    "break",
+    {
+      "type": "colors",
+      "symbol": "circle"
+    }
+  ]
+}

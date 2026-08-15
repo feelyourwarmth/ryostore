@@ -1,0 +1,37 @@
+// Service Manual - red double-ruled diagnostics table: left wall, aligned column bar, ANSI key icons
+// Ported for Ryoku from awesome-fastfetch-collection (configs/thinkpad-styled), MIT.
+// ryoku:recolor keys=primary
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": { "type": "none" },
+  "display": { "separator": " ", "color": { "keys": "#e2342a" } },
+  "modules": [
+    { "type":"custom", "format":"{#keys}╔════════════════════════════════════════════════════════════════" },
+    { "type":"title", "format":"{#keys}║              {#41}  {#42}  {#43}  {#44}  {#}  {#1}{#keys}{user-name}{#}{#90}@{#}{#1}{#34}{host-name}{#}  {#45}  {#46}  {#47}  {#40}  {#}" },
+    { "type":"custom", "format":"{#keys}╠════════════╤═══════════════════════════════════════════════════" },
+    { "type":"host", "key":"{#keys}║  {#32}\uDB80\uDF22 model   {#keys}│" },
+    { "type":"custom", "format":"{#keys}╠════════════╪═══════════════════════════════════════════════════" },
+    { "type":"datetime", "key":"{#keys}║  {#31}\uF43A time    {#keys}│" },
+    { "type":"uptime", "key":"{#keys}║  {#33}\uDB80\uDD50 uptime  {#keys}│" },
+    { "type":"custom", "format":"{#keys}╠════════════╪═══════════════════════════════════════════════════" },
+    { "type":"os", "key":"{#keys}║  {#34}\uF30A distro  {#keys}│", "format":"{2} {8}" },
+    { "type":"kernel", "key":"{#keys}║  {#32}\uF013 kernel  {#keys}│" },
+    { "type":"packages", "key":"{#keys}║  {#33}\uDB80\uDFD6 pkgs    {#keys}│" },
+    { "type":"shell", "key":"{#keys}║  {#36}\uF489 shell   {#keys}│" },
+    { "type":"terminal", "key":"{#keys}║  {#35}\uE795 term    {#keys}│" },
+    { "type":"de", "key":"{#keys}║  {#34}\uDB80\uDDC4 de/wm   {#keys}│" },
+    { "type":"custom", "format":"{#keys}╠════════════╪═══════════════════════════════════════════════════" },
+    { "type":"cpu", "key":"{#keys}║  {#32}\uDB80\uDF5B cpu     {#keys}│", "showPeCoreCount": true, "temp": true },
+    { "type":"gpu", "key":"{#keys}║  {#33}\uDB80\uDF5B gpu     {#keys}│", "format":"{name}{?frequency} @ {frequency}{?} [{type}]" },
+    { "type":"display", "key":"{#keys}║  {#36}\uDB80\uDF79 display {#keys}│", "format":"{name} {width}x{height} @ {refresh-rate}Hz{?inch} {inch}\"{?}" },
+    { "type":"sound", "key":"{#keys}║  {#35}\uF028 sound   {#keys}│" },
+    { "type":"custom", "format":"{#keys}╠════════════╪═══════════════════════════════════════════════════" },
+    { "type":"memory", "key":"{#keys}║  {#34}\uEFC5 memory  {#keys}│" },
+    { "type":"disk", "key":"{#keys}║  {#35}\uDB80\uDE49 disk    {#keys}│", "folders":"/" },
+    { "type":"custom", "format":"{#keys}╠════════════╪═══════════════════════════════════════════════════" },
+    { "type":"battery", "key":"{#keys}║  {#32}\uF240 bat     {#keys}│", "format":"{capacity} ({status})" },
+    { "type":"poweradapter", "key":"{#keys}║  {#33}\uF1E6 power   {#keys}│", "format":"{name}" },
+    { "type":"wifi", "key":"{#keys}║  {#36}\uF1EB wifi    {#keys}│", "format":"{ssid} ({signal-quality})" },
+    { "type":"custom", "format":"{#keys}╚════════════╧═══════════════════════════════════════════════════" },
+  ]
+}

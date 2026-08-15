@@ -1,0 +1,104 @@
+// Deep Specs - arrow-separated tree in red, green, yellow with detailed CPU/GPU/host rows
+// Ported for Ryoku from awesome-fastfetch-collection (configs/ghosttree/config.jsonc), MIT.
+// ryoku:recolor keys=primary title=secondary separator=tertiary
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "arch",
+    "padding": { "top": 2, "right": 2 }
+  },
+  "display": {
+    "separator": " ➜  ",
+    "color": {
+      "keys": "#e06c75",
+      "title": "#98c379",
+      "separator": "#e5c07b"
+    }
+  },
+  "modules": [
+    "break",
+    "break",
+    "break",
+    {
+      "type": "os",
+      "key": "OS   "
+    },
+    {
+      "type": "packages",
+      "format": "{pacman}",
+      "key": " \u251c \udb80\udfd6 "
+    },
+    {
+      "type": "shell",
+      "key": " \u2514 \uf489 "
+    },
+    "break",
+    {
+      "type": "wm",
+      "key": "WM   ",
+      "keyColor": "title"
+    },
+    {
+      "type": "wmtheme",
+      "key": " \u251c \udb80\ude7c ",
+      "keyColor": "title"
+    },
+    {
+      "type": "icons",
+      "key": " \u251c \udb80\udc3b ",
+      "keyColor": "title"
+    },
+    {
+      "type": "cursor",
+      "key": " \u251c \ue623 ",
+      "keyColor": "title"
+    },
+    {
+      "type": "terminal",
+      "key": " \u251c \ue795 ",
+      "keyColor": "title"
+    },
+    {
+      "type": "terminalfont",
+      "key": " \u2514 \uf031 ",
+      "keyColor": "title"
+    },
+    "break",
+    {
+      "type": "host",
+      "format": "{1}",
+      "key": "PC   ",
+      "keyColor": "separator"
+    },
+    {
+      "type": "cpu",
+      "format": "{1} ({3}) @ {7}",
+      "key": " \u251c \uf4bc ",
+      "keyColor": "separator"
+    },
+    {
+      "type": "gpu",
+      "format": "{2}",
+      "key": " \u251c \udb82\udcae ",
+      "keyColor": "separator"
+    },
+    {
+      "type": "memory",
+      "key": " \u251c \uf2db ",
+      "keyColor": "separator"
+    },
+    {
+      "type": "disk",
+      "key": " \u251c \udb80\udeca ",
+      "keyColor": "separator"
+    },
+    {
+      "type": "monitor",
+      "format": "{width}x{height} @ {refresh-rate} Hz",
+      "key": " \u2514 \uf108 ",
+      "keyColor": "separator"
+    },
+    "break"
+  ]
+}

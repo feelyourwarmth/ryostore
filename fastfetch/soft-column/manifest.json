@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "soft-column",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/soft-column",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 846,
+      "sha256": "aa5c100dae974a40e3e0320a8f2f99dbb5d8ac8b1dfe2254550020be89ab0a8c",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 1825,
+      "sha256": "01c554ebde8210f8695fc5b987bcae9ae721bbe58698e73d317a4cec49796416",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 73328,
+      "sha256": "7879082fda5ca0b5c311070eb4b71d79b4753be979db6d6e6af949b2d3053fd6",
+      "install": false
+    }
+  ]
+}

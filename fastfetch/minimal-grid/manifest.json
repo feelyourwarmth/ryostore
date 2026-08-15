@@ -2,39 +2,39 @@
   "schema": 1,
   "id": "minimal-grid",
   "category": "fastfetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "destination": "ryoku/fastfetch/minimal-grid",
   "files": [
     {
       "source": "LICENSE",
       "destination": "LICENSE",
       "mode": "0644",
-      "size": 1067,
-      "sha256": "ce12e3b2fa8012043e74d65e72e27027f3c501c5a333c41defd1dc6fe99d4c93",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
       "install": true
     },
     {
       "source": "PROVENANCE.txt",
       "destination": "PROVENANCE.txt",
       "mode": "0644",
-      "size": 179,
-      "sha256": "81bb769aa14b9a949931cf1eba1a2bc1f94f35a8951ef8fda2700dc687ccd183",
+      "size": 319,
+      "sha256": "96db980505f0c4371a243b7fae94fed1d569be06590e687b3517c40b599678c0",
       "install": true
     },
     {
       "source": "config.jsonc",
       "destination": "config.jsonc",
       "mode": "0644",
-      "size": 724,
-      "sha256": "f82d03cc06867d4016cec5a93aa14b8f435a71da03c9c9d7b2e0722abd378112",
+      "size": 930,
+      "sha256": "e8e03b96e2961272239607f034bcd6c6352fc46efd3af871f20b2212af4b7daf",
       "install": true
     },
     {
       "source": "preview.webp",
       "destination": "preview.webp",
       "mode": "0644",
-      "size": 19104,
-      "sha256": "227af07c624f3266e7b5537e76ade38ac6e33082ee7031ad570f70bd7bdc1d52",
+      "size": 23868,
+      "sha256": "2539ba56290503120cb51d04ef140029f8b2fa6bc9aaf04e74ffac4a88b2cf71",
       "install": false
     }
   ]

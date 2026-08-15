@@ -1,1 +1,1 @@
-Minimal Grid is an original Ryoku Team Fastfetch configuration created for the Ryoku extras catalogue. It uses only Fastfetch built-in modules and has no external runtime assets.
+Minimal Grid is an original Ryoku Team Fastfetch configuration created for the Ryoku extras catalogue. It uses only Fastfetch built-in modules and has no external runtime assets. Its two tones live in the display.color slots and are referenced through {#keys} and {#title}, so the readout can follow the system colour.

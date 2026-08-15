@@ -1,0 +1,102 @@
+// Block Banner - big ARCH block-letter banner over a green/blue labeled card
+// Ported for Ryoku from awesome-fastfetch-collection (configs/kuruma-config/host.jsonc), MIT.
+// ryoku:recolor keys=primary output=onSurfaceVariant
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "none"
+  },
+  "display": {
+    "separator": " ",
+    "color": {
+      "keys": "#a6e3a1",
+      "output": "#c5c9c5"
+    }
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "key": "\n █████╗ ██████╗  ██████╗██╗  ██╗\n██╔══██╗██╔══██╗██╔════╝██║  ██║\n███████║██████╔╝██║     ███████║\n██╔══██║██╔══██╗██║     ██╔══██║\n██║  ██║██║  ██║╚██████╗██║  ██║\n╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝\n"
+    },
+    {
+      "type": "custom",
+      "key": "╭────────────╮"
+    },
+    {
+      "type": "os",
+      "key": "│ {icon} OS       │"
+    },
+    {
+      "type": "kernel",
+      "key": "│ \udb81\udc8b Kernel   │"
+    },
+    {
+      "type": "packages",
+      "key": "│ \udb80\udfd6 Packages │"
+    },
+    {
+      "type": "shell",
+      "key": "│ \uf489 Shell    │"
+    },
+    {
+      "type": "wm",
+      "key": "{#34}│ \uf488 DE/WM    │"
+    },
+    {
+      "type": "lm",
+      "key": "{#34}│ \udb82\udde8 Login    │"
+    },
+    {
+      "type": "wmtheme",
+      "key": "{#34}│ \udb80\ude7c Theme    │"
+    },
+    {
+      "type": "icons",
+      "key": "{#34}│ \udb80\udc3b Icons    │"
+    },
+    {
+      "type": "terminal",
+      "key": "{#34}│ \uf120 Terminal │"
+    },
+    {
+      "type": "wallpaper",
+      "key": "{#34}│ \udb83\ude09 Paper    │"
+    },
+    {
+      "type": "host",
+      "key": "│ \udb80\udf22 Host     │"
+    },
+    {
+      "type": "cpu",
+      "key": "│ \udb83\udee0 CPU      │"
+    },
+    {
+      "type": "gpu",
+      "key": "│ \udb80\udf5b GPU      │"
+    },
+    {
+      "type": "disk",
+      "key": "│ \udb80\udeca Disk     │"
+    },
+    {
+      "type": "memory",
+      "key": "│ \udb81\udc6d Memory   │"
+    },
+    {
+      "type": "swap",
+      "key": "│ \udb81\udce1 Swap     │"
+    },
+    {
+      "type": "uptime",
+      "key": "│ \udb80\udd50 Uptime   │"
+    },
+    {
+      "type": "display",
+      "key": "│ \udb80\udf79 Display  │"
+    },
+    {
+      "type": "custom",
+      "key": "╰────────────╯"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "terminal-online",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/terminal-online",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 1064,
+      "sha256": "d2adb612f5d7708f65c037ec6c5a8eb455fdba7b45434c57c565932ef9062762",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 3693,
+      "sha256": "223c9a616eeb67b0d57f04cc69abf93c2b6f0931b41d559c1ae6b71127c6e9b9",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 73134,
+      "sha256": "398d51543e23fc36bce5f0f582c0f2c26dabd7adf7cd9e1f49c1b4cf5c023127",
+      "install": false
+    }
+  ]
+}

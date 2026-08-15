@@ -1,0 +1,41 @@
+{
+  "schema": 1,
+  "id": "deep-specs",
+  "category": "fastfetch",
+  "version": "1.0.0",
+  "destination": "ryoku/fastfetch/deep-specs",
+  "files": [
+    {
+      "source": "LICENSE",
+      "destination": "LICENSE",
+      "mode": "0644",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
+      "install": true
+    },
+    {
+      "source": "PROVENANCE.txt",
+      "destination": "PROVENANCE.txt",
+      "mode": "0644",
+      "size": 1382,
+      "sha256": "553639b4d02c929915d6044a24086e1040ef0f8dc1cde1c784e460a438341c43",
+      "install": true
+    },
+    {
+      "source": "config.jsonc",
+      "destination": "config.jsonc",
+      "mode": "0644",
+      "size": 2212,
+      "sha256": "a1feffdd10fa62f9fff568b3da3c5cf8c2c927a6fcc86eaeb7d94db2babfb572",
+      "install": true
+    },
+    {
+      "source": "preview.webp",
+      "destination": "preview.webp",
+      "mode": "0644",
+      "size": 69872,
+      "sha256": "e21112f66f95a1a68865f32ca3c4c32217a2057bd63bf35043863f6254b57dca",
+      "install": false
+    }
+  ]
+}

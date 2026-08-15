@@ -2,39 +2,39 @@
   "schema": 1,
   "id": "ryoku-dossier",
   "category": "fastfetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "destination": "ryoku/fastfetch/ryoku-dossier",
   "files": [
     {
       "source": "LICENSE",
       "destination": "LICENSE",
       "mode": "0644",
-      "size": 1067,
-      "sha256": "ce12e3b2fa8012043e74d65e72e27027f3c501c5a333c41defd1dc6fe99d4c93",
+      "size": 1070,
+      "sha256": "a6f8144d0613478bc6fa2661490386c68f72b43db864324e5b7cd215b57cccef",
       "install": true
     },
     {
       "source": "PROVENANCE.txt",
       "destination": "PROVENANCE.txt",
       "mode": "0644",
-      "size": 243,
-      "sha256": "4c78bcc5345138ccaa1358b851dc7be5d9d061b33a000d5a78e72dfca489f32f",
+      "size": 432,
+      "sha256": "7d3a199d86acbbc91c79cc8a8a62eea8cf739c19ba0cb2e9708aa4844357ba79",
       "install": true
     },
     {
       "source": "config.jsonc",
       "destination": "config.jsonc",
       "mode": "0644",
-      "size": 2035,
-      "sha256": "2d0f4bbee98e06c78efdedb4bb828acbae48fc5e6c03a103b2b5ba90ab4f7acb",
+      "size": 2375,
+      "sha256": "b979fd6de6bf9704a55a88bd50ac74530839c84c8fd57b5e509f3616eacd680a",
       "install": true
     },
     {
       "source": "preview.webp",
       "destination": "preview.webp",
       "mode": "0644",
-      "size": 17008,
-      "sha256": "de40517bbdefe003e792c4ba8d3c542f1ad8bc79babad49f4ae2270e7aa75371",
+      "size": 45708,
+      "sha256": "1acd9683beab4e681d8c4d1300b07b9d9573d4fa888eedaa11f6526a90c6cf76",
       "install": false
     }
   ]

@@ -1,0 +1,111 @@
+// Full Frame - a wide grey box framing blue-dot system lines beside the Arch logo
+// Ported for Ryoku from awesome-fastfetch-collection (configs/sofijacom-config/config.jsonc), MIT.
+// ryoku:recolor keys=primary
+{
+  "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
+  "logo": {
+    "type": "builtin",
+    "source": "arch",
+    "color": {
+      "1": "blue"
+    },
+    "padding": {
+      "top": 2,
+      "right": 3
+    }
+  },
+  "display": {
+    "separator": " \u25b8 ",
+    "color": {
+      "keys": "#4c8edf"
+    }
+  },
+  "modules": [
+    {
+      "type": "title"
+    },
+    "break",
+    {
+      "type": "custom",
+      "format": "{#90}\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+    },
+    {
+      "type": "os",
+      "key": "\uf192"
+    },
+    {
+      "type": "kernel",
+      "key": "\uf192"
+    },
+    {
+      "type": "de",
+      "key": "\uf192"
+    },
+    {
+      "type": "wm",
+      "key": "\uf192"
+    },
+    {
+      "type": "packages",
+      "key": "\uf192"
+    },
+    {
+      "type": "custom",
+      "format": "{#90}\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+    },
+    {
+      "type": "memory",
+      "key": "\uf192"
+    },
+    {
+      "type": "host",
+      "key": "\uf192"
+    },
+    {
+      "type": "cpu",
+      "key": "\uf192"
+    },
+    {
+      "type": "gpu",
+      "key": "\uf192"
+    },
+    {
+      "type": "swap",
+      "key": "\uf192"
+    },
+    {
+      "type": "disk",
+      "key": "\uf192"
+    },
+    {
+      "type": "battery",
+      "key": "\uf192"
+    },
+    {
+      "type": "custom",
+      "format": "{#90}\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+    },
+    {
+      "type": "uptime",
+      "key": "\uf192"
+    },
+    {
+      "type": "terminal",
+      "key": "\uf192"
+    },
+    {
+      "type": "locale",
+      "key": "\uf192"
+    },
+    {
+      "type": "custom",
+      "format": "{#90}\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+    },
+    {
+      "type": "colors",
+      "symbol": "circle",
+      "paddingLeft": 2
+    },
+    "break"
+  ]
+}

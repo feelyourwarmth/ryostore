@@ -1,15 +1,21 @@
+// Minimal Grid - a quiet, logo-free readout that keeps the essentials legible
+// in a narrow pane. Its two tones live in display.color and nowhere else.
+// ryoku:recolor keys=primary title=foreground
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
     "type": "none"
   },
   "display": {
-    "color": { "keys": "38;2;104;199;193" },
+    "color": {
+      "keys": "#68c7c1",
+      "title": "#ebeff0"
+    },
     "key": { "width": 7 },
-    "separator": "·"
+    "separator": "\u00b7"
   },
   "modules": [
-    { "type": "custom", "format": "\u001b[1;38;2;235;239;240m{#1}MINIMAL GRID\u001b[0m" },
+    { "type": "custom", "format": "{#1;title}MINIMAL GRID{#}" },
     { "type": "os", "key": "os" },
     { "type": "kernel", "key": "kernel" },
     { "type": "cpu", "key": "cpu" },
