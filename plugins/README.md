@@ -1,7 +1,8 @@
 # Ryoku plugins
 
-Shell plugins for Ryoku. Each plugin is a self-contained folder the shell git-clones from
-this repo and loads from Settings → Plugins.
+Shell plugins for Ryoku. Each plugin is a self-contained folder the shell installs as a
+receipt-owned product (its files are fetched and SHA-verified per `product-manifest.json`)
+and loads from Settings → Plugins.
 
 ## Folder layout
 

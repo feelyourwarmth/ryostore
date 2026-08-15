@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "stargate",
   "category": "plugins",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "destination": "ryoku/plugins/stargate",
   "files": [
     {
@@ -128,9 +128,9 @@
     {
       "source": "manifest.json",
       "destination": "manifest.json",
-      "sha256": "dcfb20f2df471fe9cbd13ed1f10204131096861ea9b7f0b3d07075ecefaf7062",
+      "sha256": "da243d1d7db968fd210911de61624895cc43ce06ed5fa77eb6eb20d5295e120c",
       "mode": "0644",
-      "size": 8100,
+      "size": 8102,
       "install": true
     },
     {

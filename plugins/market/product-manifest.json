@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "market",
   "category": "plugins",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "destination": "ryoku/plugins/market",
   "files": [
     {
@@ -144,9 +144,9 @@
     {
       "source": "manifest.json",
       "destination": "manifest.json",
-      "sha256": "8eaa1cc500dc6af7801b366c9a552ae7f2defbba4f227a1271c6126f0abc4db0",
+      "sha256": "4563d8127f469648a7cad07de37b2862414b7e3bdc4106bbd349cda20f08c9ec",
       "mode": "0644",
-      "size": 7287,
+      "size": 7293,
       "install": true
     },
     {

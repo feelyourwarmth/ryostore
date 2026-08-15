@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "market",
   "category": "plugins",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "destination": "ryoku/plugins/market",
   "name": "Market",
   "author": "Ryoku Team <hello@ryoku.sh>",
@@ -119,11 +119,11 @@
         "type": "choice",
         "label": "Accent",
         "group": "Style",
-        "default": "wallust",
+        "default": "wallpaper",
         "options": [
           {
-            "value": "wallust",
-            "label": "Wallust"
+            "value": "wallpaper",
+            "label": "Wallpaper"
           },
           {
             "value": "brand",

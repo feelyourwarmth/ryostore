@@ -4,7 +4,7 @@
     {
       "id": "obsidian",
       "name": "Obsidian",
-      "version": "1.3.0",
+      "version": "1.3.1",
       "path": "plugins/obsidian",
       "author": "Ryoku Team",
       "summary": "Quick-capture into your Obsidian vault, right from the desktop.",
@@ -24,19 +24,19 @@
         "assets/preview-graph.png"
       ],
       "manifest": "product-manifest.json",
-      "manifestSha256": "87820fe149cccabd1b58ab19b42c8ef8bef3bc4a0d34f4357fcc2b75b1e52397",
+      "manifestSha256": "e06629eb9b8dc98f5d0946ddcdcb19b03dde6c0f37ebe45e87353c77b29888ef",
       "official": true,
       "tagline": "Quick-capture into your Obsidian vault, right from the desktop.",
       "icon": "file",
       "hosts": [
         "desktopWidget"
       ],
-      "lastUpdated": "2026-07-11"
+      "lastUpdated": "2026-08-12"
     },
     {
       "id": "market",
       "name": "Market",
-      "version": "1.1.0",
+      "version": "1.1.1",
       "path": "plugins/market",
       "author": "Ryoku Team",
       "summary": "Track a watchlist of stocks, indices, and crypto on your desktop.",
@@ -53,14 +53,14 @@
         "assets/preview-widget.png"
       ],
       "manifest": "product-manifest.json",
-      "manifestSha256": "adce3f1ba258ec55acce831c4ff092ab017f19130f8707e5fb78fd78e72faa8b",
+      "manifestSha256": "98170d3b23dafc3b93fced145aff8e9c2f213410d0a9694fa6a8782ed0187f89",
       "official": true,
       "tagline": "Track a watchlist of stocks, indices, and crypto on your desktop.",
       "icon": "trending_up",
       "hosts": [
         "desktopWidget"
       ],
-      "lastUpdated": "2026-07-11"
+      "lastUpdated": "2026-08-12"
     },
     {
       "id": "photo-frame",
@@ -93,7 +93,7 @@
     {
       "id": "stargate",
       "name": "Stargate",
-      "version": "1.1.1",
+      "version": "1.1.2",
       "path": "plugins/stargate",
       "author": "Ryoku Team",
       "summary": "A living Stargate that dials the time on your desktop.",
@@ -115,14 +115,14 @@
         "assets/preview-inscription.png"
       ],
       "manifest": "product-manifest.json",
-      "manifestSha256": "80d6ef37ee0794f517a13dace8cbc2013e2fd17d50ff5a738d3fd201e7dc4521",
+      "manifestSha256": "bdc1d21b5569534ae9c9b0ae321b645150a40498c6e3b64755d55fb777a8aaa9",
       "official": true,
       "tagline": "A living Stargate that dials the time on your desktop.",
       "icon": "hotspot",
       "hosts": [
         "desktopWidget"
       ],
-      "lastUpdated": "2026-07-14"
+      "lastUpdated": "2026-08-12"
     }
   ]
 }
