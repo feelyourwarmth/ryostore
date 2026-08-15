@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "deep-specs",
   "category": "fastfetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "destination": "ryoku/fastfetch/deep-specs",
   "files": [
     {
@@ -17,24 +17,32 @@
       "source": "PROVENANCE.txt",
       "destination": "PROVENANCE.txt",
       "mode": "0644",
-      "size": 1382,
-      "sha256": "553639b4d02c929915d6044a24086e1040ef0f8dc1cde1c784e460a438341c43",
+      "size": 1783,
+      "sha256": "81e341faada678e9221bf96e49f126505843c37b06bf685a2b898aca41ff7641",
       "install": true
     },
     {
       "source": "config.jsonc",
       "destination": "config.jsonc",
       "mode": "0644",
-      "size": 2212,
-      "sha256": "a1feffdd10fa62f9fff568b3da3c5cf8c2c927a6fcc86eaeb7d94db2babfb572",
+      "size": 2233,
+      "sha256": "e6c389bb88e22fa62e4342ab244bc90ea98b6244a63d98354e4f17cd8748f1dc",
+      "install": true
+    },
+    {
+      "source": "cat.png",
+      "destination": "cat.png",
+      "mode": "0644",
+      "size": 205171,
+      "sha256": "e676b73131334fc604b1c25628815a05d837d37f61d716404cd4f3d84c570d4e",
       "install": true
     },
     {
       "source": "preview.webp",
       "destination": "preview.webp",
       "mode": "0644",
-      "size": 69872,
-      "sha256": "e21112f66f95a1a68865f32ca3c4c32217a2057bd63bf35043863f6254b57dca",
+      "size": 53674,
+      "sha256": "97632dc2ea37e97ad1e2d7f54b60105c17a36764270243354159a0e79b135634",
       "install": false
     }
   ]

@@ -23,13 +23,33 @@ fastfetch/
 One folder per preset, named for its `id`. Nothing ships until it is listed in
 `registry.json`.
 
-## One file, no assets
+## What a preset may reach for
 
-Applying a preset copies `config.jsonc` and nothing else, so a preset that
-reaches outside itself is a preset that breaks on someone else's machine. A
-config must not name a path, a home directory, or a shell substitution.
+Applying a preset copies `config.jsonc` over `~/.config/fastfetch/config.jsonc`.
+Its other files install alongside it, in the product's own directory:
 
-That rules out image logos. Use a built-in logo, no logo, or inline the art:
+```
+~/.local/share/ryoku/fastfetch/<id>/
+```
+
+So a config may name a file in **its own product directory and nowhere else**.
+fastfetch expands a leading `~`, which makes that path stable for every user:
+
+```jsonc
+"logo": {
+  "type": "kitty-direct",
+  "source": "~/.local/share/ryoku/fastfetch/my-preset/emblem.png",
+  "width": 18, "height": 9,
+  "padding": { "left": 1, "right": 3, "top": 1 }
+}
+```
+
+Every asset named this way must be declared in `manifest.json` with
+`"install": true`, or it will not be there when the config asks for it. A
+config that names a home directory, an absolute path, another product, or a
+shell substitution is rejected.
+
+A logo can also need no asset at all:
 
 ```jsonc
 "logo": { "type": "builtin", "source": "arch" }
@@ -39,18 +59,38 @@ That rules out image logos. Use a built-in logo, no logo, or inline the art:
 ```
 
 `data` processes `$1`-`$9` colour placeholders; `data-raw` prints verbatim.
-Inline only art you are free to redistribute: no character art, no other
-project's logo, no brand marks.
+Ship only art you are free to redistribute, and say where it came from in
+`PROVENANCE.txt`.
 
-For the same reason there are no `command` modules. Anything that shells out
-depends on the user's tools and can hang a terminal on every launch. Use the
-built-in module instead, or drop the row.
+Image logos draw through the kitty graphics protocol. Ryoku ships kitty, so
+they render as intended there; in a terminal without it fastfetch quietly falls
+back to the built-in logo, which is why the readout must still read well
+without the picture.
+
+There are no `command` modules. Anything that shells out depends on the user's
+tools and can hang a terminal on every launch. Use the built-in module instead,
+or drop the row.
+
+## Sizing an emblem
+
+`width` and `height` are character cells, not pixels, and a cell is about twice
+as tall as it is wide. For art that should look square, make the cell box about
+`2.2 : 1`, and derive the rest from the source's aspect:
+
+```
+height = width x (source height / source width) / 2.25
+```
+
+The emblem occupies `left + width + right` columns of every row, so count it
+against the width budget below. Keep the source itself small - 512 px on the
+long side is more than a terminal can show.
 
 ## Design budget
 
 The readout opens in every new terminal, so it stays inside **100 columns and
-40 lines**. Wider wraps on a split pane; taller scrolls the first thing the
-user sees off the top.
+40 lines**, or **105 columns** once an emblem's own columns are counted in.
+Wider wraps on a split pane; taller scrolls the first thing the user sees off
+the top.
 
 Box drawing has to survive a monospace grid: every border row of a box needs
 the same visible width, and Nerd Font icons and CJK count as two columns. Check

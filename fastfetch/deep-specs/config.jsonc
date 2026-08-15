@@ -4,9 +4,15 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "builtin",
-    "source": "arch",
-    "padding": { "top": 2, "right": 2 }
+    "type": "kitty-direct",
+    "source": "~/.local/share/ryoku/fastfetch/deep-specs/cat.png",
+    "width": 16,
+    "height": 13,
+    "padding": {
+      "left": 1,
+      "right": 3,
+      "top": 1
+    }
   },
   "display": {
     "separator": " ➜  ",
@@ -27,11 +33,11 @@
     {
       "type": "packages",
       "format": "{pacman}",
-      "key": " \u251c \udb80\udfd6 "
+      "key": " ├ 󰏖 "
     },
     {
       "type": "shell",
-      "key": " \u2514 \uf489 "
+      "key": " └  "
     },
     "break",
     {
@@ -41,27 +47,27 @@
     },
     {
       "type": "wmtheme",
-      "key": " \u251c \udb80\ude7c ",
+      "key": " ├ 󰉼 ",
       "keyColor": "title"
     },
     {
       "type": "icons",
-      "key": " \u251c \udb80\udc3b ",
+      "key": " ├ 󰀻 ",
       "keyColor": "title"
     },
     {
       "type": "cursor",
-      "key": " \u251c \ue623 ",
+      "key": " ├  ",
       "keyColor": "title"
     },
     {
       "type": "terminal",
-      "key": " \u251c \ue795 ",
+      "key": " ├  ",
       "keyColor": "title"
     },
     {
       "type": "terminalfont",
-      "key": " \u2514 \uf031 ",
+      "key": " └  ",
       "keyColor": "title"
     },
     "break",
@@ -74,29 +80,29 @@
     {
       "type": "cpu",
       "format": "{1} ({3}) @ {7}",
-      "key": " \u251c \uf4bc ",
+      "key": " ├  ",
       "keyColor": "separator"
     },
     {
       "type": "gpu",
       "format": "{2}",
-      "key": " \u251c \udb82\udcae ",
+      "key": " ├ 󰢮 ",
       "keyColor": "separator"
     },
     {
       "type": "memory",
-      "key": " \u251c \uf2db ",
+      "key": " ├  ",
       "keyColor": "separator"
     },
     {
       "type": "disk",
-      "key": " \u251c \udb80\udeca ",
+      "key": " ├ 󰋊 ",
       "keyColor": "separator"
     },
     {
       "type": "monitor",
       "format": "{width}x{height} @ {refresh-rate} Hz",
-      "key": " \u2514 \uf108 ",
+      "key": " └  ",
       "keyColor": "separator"
     },
     "break"

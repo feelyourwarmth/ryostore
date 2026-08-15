@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "terminal-online",
   "category": "fastfetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "destination": "ryoku/fastfetch/terminal-online",
   "files": [
     {
@@ -17,24 +17,32 @@
       "source": "PROVENANCE.txt",
       "destination": "PROVENANCE.txt",
       "mode": "0644",
-      "size": 1064,
-      "sha256": "d2adb612f5d7708f65c037ec6c5a8eb455fdba7b45434c57c565932ef9062762",
+      "size": 1458,
+      "sha256": "2f485e4ff48a3afe7803e2cb8a14c27e726beafb408a18b877aeef8965adf7e7",
       "install": true
     },
     {
       "source": "config.jsonc",
       "destination": "config.jsonc",
       "mode": "0644",
-      "size": 3693,
-      "sha256": "223c9a616eeb67b0d57f04cc69abf93c2b6f0931b41d559c1ae6b71127c6e9b9",
+      "size": 3080,
+      "sha256": "d1dad04fefeab15148ebe5cdc8668bf3b263ba44064222a847be1e8587972f7c",
+      "install": true
+    },
+    {
+      "source": "girl.png",
+      "destination": "girl.png",
+      "mode": "0644",
+      "size": 208057,
+      "sha256": "47ed64afedb8783b22646f0b981e8a73ce29212bdf841c46bb91643c2a5bde4c",
       "install": true
     },
     {
       "source": "preview.webp",
       "destination": "preview.webp",
       "mode": "0644",
-      "size": 73134,
-      "sha256": "398d51543e23fc36bce5f0f582c0f2c26dabd7adf7cd9e1f49c1b4cf5c023127",
+      "size": 49170,
+      "sha256": "e75222897a2d1920503587bd538635a3d6302d90d34474d7c3f2446fbe96da81",
       "install": false
     }
   ]

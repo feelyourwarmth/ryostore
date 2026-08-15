@@ -4,12 +4,14 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "builtin",
-    "source": "arch",
+    "type": "kitty-direct",
+    "source": "~/.local/share/ryoku/fastfetch/bulkhead/tsukikko.png",
+    "width": 18,
+    "height": 8,
     "padding": {
-      "top": 1,
       "left": 1,
-      "right": 2
+      "right": 3,
+      "top": 1
     }
   },
   "display": {
@@ -21,123 +23,123 @@
     "break",
     {
       "type": "custom",
-      "format": "{#33}\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500Hardware\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+      "format": "{#33}┌──────────────────────Hardware──────────────────────┐"
     },
     {
       "type": "title",
-      "key": "\uf109 PC",
+      "key": " PC",
       "format": "{user-name}"
     },
     {
       "type": "host",
-      "key": "\u2502 \u251c\uf51e",
+      "key": "│ ├",
       "hostname": true
     },
     {
       "type": "cpu",
-      "key": "\u2502 \u251c\uf4bc",
+      "key": "│ ├",
       "showPeCoreCount": true
     },
     {
       "type": "gpu",
-      "key": "\u2502 \u251c\udb82\udcae"
+      "key": "│ ├󰢮"
     },
     {
       "type": "memory",
-      "key": "\u2502 \u251c\uefc5"
+      "key": "│ ├"
     },
     {
       "type": "disk",
-      "key": "\u2502 \u251c\uf0a0",
+      "key": "│ ├",
       "format": "{1} / {2} ({3}) - {9}"
     },
     {
       "type": "swap",
-      "key": "\u2502 \u2514\uf1b8"
+      "key": "│ └"
     },
     {
       "type": "custom",
-      "format": "{#33}\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500Software\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+      "format": "{#33}├──────────────────────Software──────────────────────┤"
     },
     {
       "type": "os",
-      "key": "\uf17c OS",
+      "key": " OS",
       "keyColor": "green"
     },
     {
       "type": "kernel",
-      "key": "\u2502 \u251c\uf013",
+      "key": "│ ├",
       "keyColor": "green"
     },
     {
       "type": "packages",
-      "key": "\u2502 \u251c\udb80\udfd6",
+      "key": "│ ├󰏖",
       "keyColor": "green"
     },
     {
       "type": "terminal",
-      "key": "\u2502 \u251c\uf489",
+      "key": "│ ├",
       "keyColor": "green"
     },
     {
       "type": "shell",
-      "key": "\u2502 \u2514\uee41",
+      "key": "│ └",
       "keyColor": "green"
     },
     {
       "type": "de",
-      "key": "\uf488 DE",
+      "key": " DE",
       "keyColor": "blue"
     },
     {
       "type": "lm",
-      "key": "\u2502 \u251c\uf488",
+      "key": "│ ├",
       "keyColor": "blue"
     },
     {
       "type": "wm",
-      "key": "\u2502 \u251c\uf488",
+      "key": "│ ├",
       "keyColor": "blue"
     },
     {
       "type": "wmtheme",
-      "key": "\u2502 \u251c\udb80\ude7c",
+      "key": "│ ├󰉼",
       "keyColor": "blue"
     },
     {
       "type": "font",
-      "key": "\u2502 \u251c\uf031",
+      "key": "│ ├",
       "keyColor": "blue"
     },
     {
       "type": "cursor",
-      "key": "\u2502 \u2514\udb80\uddbf",
+      "key": "│ └󰆿",
       "keyColor": "blue"
     },
     {
       "type": "custom",
-      "format": "{#33}\u251c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500Miscellaneous\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2524"
+      "format": "{#33}├───────────────────Miscellaneous────────────────────┤"
     },
     {
       "type": "uptime",
-      "key": "\u2502 \uf017 Uptime",
+      "key": "│  Uptime",
       "keyColor": "magenta"
     },
     {
       "type": "media",
-      "key": "\u2502 \uf001 Music",
+      "key": "│  Music",
       "keyColor": "magenta",
       "format": "{1} - {4}"
     },
     {
       "type": "datetime",
-      "key": "\u2502 \uf073 Date and Time",
+      "key": "│  Date and Time",
       "keyColor": "magenta",
       "format": "{3}/{11}/{1} - {14}:{18} {22}"
     },
     {
       "type": "custom",
-      "format": "{#33}\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+      "format": "{#33}└────────────────────────────────────────────────────┘"
     },
     {
       "type": "colors",

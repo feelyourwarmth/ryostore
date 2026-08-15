@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "pill-box",
   "category": "fastfetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "destination": "ryoku/fastfetch/pill-box",
   "files": [
     {
@@ -17,24 +17,32 @@
       "source": "PROVENANCE.txt",
       "destination": "PROVENANCE.txt",
       "mode": "0644",
-      "size": 881,
-      "sha256": "5f93a1a54f5157031e2b3af9225460a0e831f0d0625bb2f06d98d938202f6dde",
+      "size": 1327,
+      "sha256": "21a92843e1031e60d9aca3f9ed29120ce1d5698687ffe56117317962cdf45034",
       "install": true
     },
     {
       "source": "config.jsonc",
       "destination": "config.jsonc",
       "mode": "0644",
-      "size": 3397,
-      "sha256": "d737a3b8e0355cb6f87bf4de312f13b8a279379e913fa3cd3278acbbc24dffaa",
+      "size": 4014,
+      "sha256": "fc5b7e40ca30bc23de1706e16c47ff6f2926b1e1359ea2bf061c70f4a5a469e1",
+      "install": true
+    },
+    {
+      "source": "snoopy-mugiwara.png",
+      "destination": "snoopy-mugiwara.png",
+      "mode": "0644",
+      "size": 163146,
+      "sha256": "9da4f7f4ebdefcb479e43d6cf42ecbf49d04620ed7565ba520cf3126b257546f",
       "install": true
     },
     {
       "source": "preview.webp",
       "destination": "preview.webp",
       "mode": "0644",
-      "size": 59568,
-      "sha256": "d2977d8b8682f6a243c7f6a93a67b26291b712823a4c12ae95978b14be7b14eb",
+      "size": 72522,
+      "sha256": "83d961506d04fa01f116346366df5336179a23685fc81a4ae0c56a13e3beba5c",
       "install": false
     }
   ]

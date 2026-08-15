@@ -2,7 +2,7 @@
   "schema": 1,
   "id": "full-frame",
   "category": "fastfetch",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "destination": "ryoku/fastfetch/full-frame",
   "files": [
     {
@@ -17,24 +17,32 @@
       "source": "PROVENANCE.txt",
       "destination": "PROVENANCE.txt",
       "mode": "0644",
-      "size": 1039,
-      "sha256": "4e5f4cbcf7bbbdc362fcd26126d4b88121507b3d63b5e3b02d3e3a1dcc4a8ed1",
+      "size": 1430,
+      "sha256": "743fa3c28478ceda548147927c3561c1141a779f7fa1e94da9be2f4496536cbe",
       "install": true
     },
     {
       "source": "config.jsonc",
       "destination": "config.jsonc",
       "mode": "0644",
-      "size": 3128,
-      "sha256": "496da48dbaba020bd653742c01dd72c6c7f2e3ccbd56e5fefe7b73075d5d1747",
+      "size": 2499,
+      "sha256": "38d40fea31f5c91b9f5cbe09bf69a9243a26d471b3cde3f59e181dd941690e00",
+      "install": true
+    },
+    {
+      "source": "arch-mark.png",
+      "destination": "arch-mark.png",
+      "mode": "0644",
+      "size": 35006,
+      "sha256": "bc91685a9637874c4de84c60cf820dbb1ab3c4d093540daa0c3584dba68964bb",
       "install": true
     },
     {
       "source": "preview.webp",
       "destination": "preview.webp",
       "mode": "0644",
-      "size": 77550,
-      "sha256": "ce8dcb09dbdf56cb847e2fd3125c6178508d7d3fa66eb0839b02bc2de1eb9ecb",
+      "size": 47676,
+      "sha256": "1e54574b48219b68567160dca9964dd983bba7394cc4dcc4c1bc315547583ac3",
       "install": false
     }
   ]

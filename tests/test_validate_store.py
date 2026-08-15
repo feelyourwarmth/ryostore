@@ -458,23 +458,42 @@ class MigratedCatalogueTest(unittest.TestCase):
         self.assertEqual(ported, sorted(ported))
         self.assertEqual(len(registry["fastfetch"]), 27)
 
-    def test_fastfetch_presets_are_self_contained(self) -> None:
+    def test_fastfetch_presets_only_reach_their_own_product(self) -> None:
+        """Applying a preset copies config.jsonc to ~/.config/fastfetch, while its
+        other files install to ~/.local/share/ryoku/fastfetch/<id>. A config may
+        therefore name assets in its own product directory and nowhere else, and
+        every asset it names must actually be installed."""
         root = MODULE_PATH.parent.parent
         registry = json.loads(
             (root / "fastfetch" / "registry.json").read_text(encoding="utf-8")
         )
         forbidden = re.compile(
-            r"~/|\$HOME|/home/|%USERPROFILE%|(?<![A-Za-z])[A-Za-z]:[\\/]"
+            r"\$HOME|/home/|%USERPROFILE%|(?<![A-Za-z])[A-Za-z]:[\\/]"
             r"|\$\(|\"type\"\s*:\s*\"(?:command|exec)\""
         )
         for entry in registry["fastfetch"]:
             with self.subTest(preset=entry["id"]):
-                config = root / entry["path"] / "config.jsonc"
-                text = config.read_text(encoding="utf-8")
+                product = root / entry["path"]
+                text = (product / "config.jsonc").read_text(encoding="utf-8")
                 self.assertIsNone(
                     forbidden.search(text),
-                    f"{entry['id']}: a preset must not reach outside its own file",
+                    f"{entry['id']}: a preset must not shell out or name a foreign path",
                 )
+                manifest = json.loads((product / entry["manifest"]).read_text(encoding="utf-8"))
+                installed = {
+                    row["destination"] for row in manifest["files"] if row.get("install")
+                }
+                own = f"~/.local/share/ryoku/fastfetch/{entry['id']}/"
+                for reference in re.findall(r"~/[^\"']+", text):
+                    self.assertTrue(
+                        reference.startswith(own),
+                        f"{entry['id']}: reaches outside its product: {reference}",
+                    )
+                    self.assertIn(
+                        reference[len(own):],
+                        installed,
+                        f"{entry['id']}: names an asset it does not install: {reference}",
+                    )
 
     def test_lockscreens_satisfy_store_contract_without_core_fallback(self) -> None:
         root = MODULE_PATH.parent.parent

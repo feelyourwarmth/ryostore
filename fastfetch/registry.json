@@ -130,7 +130,7 @@
     {
       "id": "bulkhead",
       "name": "Bulkhead",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "fastfetch/bulkhead",
       "author": "Cmdr_Scotty",
       "summary": "Yellow-framed hardware and software tree",
@@ -140,14 +140,14 @@
         "framed",
         "yellow",
         "sections",
-        "arch"
+        "emblem"
       ],
       "accent": "#e06c75",
       "surface": "#0d0d0d",
       "preview": "preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "65929d969d0fe2c6624929dd7ad6733a4eb40ad9f0a249709721b7ea9907521f"
+      "manifestSha256": "73141480685782399f4385db69072ad686d5010642f5d955bcecd322748425f6"
     },
     {
       "id": "cassette",
@@ -218,7 +218,7 @@
     {
       "id": "deep-specs",
       "name": "Deep Specs",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "fastfetch/deep-specs",
       "author": "ghosttree",
       "summary": "Arrow tree with detailed CPU, GPU and monitor rows",
@@ -228,14 +228,14 @@
         "red",
         "arch",
         "specs",
-        "arrows"
+        "emblem"
       ],
       "accent": "#e06c75",
       "surface": "#0d0d0d",
       "preview": "preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "ffa2c31d8562d0288a8279c82c82350f2d1ce6b4bc446c4d8c2a5fa99a6cd906"
+      "manifestSha256": "2352e0f9cde16667855be107dd4056a376493ef02ec138240ef3d125d04651ab"
     },
     {
       "id": "dog-tag",
@@ -306,7 +306,7 @@
     {
       "id": "full-frame",
       "name": "Full Frame",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "fastfetch/full-frame",
       "author": "sofijacom",
       "summary": "Wide grey box framing blue-dot system lines",
@@ -316,14 +316,14 @@
         "blue",
         "minimal",
         "dots",
-        "arch"
+        "emblem"
       ],
       "accent": "#4c8edf",
       "surface": "#0d0d0d",
       "preview": "preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "63237be9ce12b49a87d3e463f6a8050bb47b710669f8d62c8d037c8858191b6b"
+      "manifestSha256": "68f5bf28ac123d47aea03509f8365dca87e9ae7ef0771d87b54f0477c10f31f7"
     },
     {
       "id": "grimoire",
@@ -416,7 +416,7 @@
     {
       "id": "pill-box",
       "name": "Pill Box",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "fastfetch/pill-box",
       "author": "awesome-fastfetch-collection",
       "summary": "Boxed Nerd Font label column, straw-yellow icons",
@@ -426,14 +426,14 @@
         "pill",
         "icons",
         "yellow",
-        "sectioned"
+        "emblem"
       ],
       "accent": "#f4c430",
       "surface": "#0d0d0d",
       "preview": "preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "7ebf858257a87bab13873d417b9c13a7946f2d8f8ac493929f63dad3972f0b93"
+      "manifestSha256": "fe653dc582564ff3d738b1537d8992ede6d818690c494e93c6bcf29f46c2b1ab"
     },
     {
       "id": "pit-wall",
@@ -526,7 +526,7 @@
     {
       "id": "soft-column",
       "name": "Soft Column",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "fastfetch/soft-column",
       "author": "aayushchalise",
       "summary": "Titled icon list framed by ANSI palette swatch bars",
@@ -536,19 +536,19 @@
         "mauve",
         "arch",
         "titled",
-        "swatch"
+        "emblem"
       ],
       "accent": "#c6a0f6",
       "surface": "#0d0d0d",
       "preview": "preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "556b4225a2d2d5935a5b27cc8423d638131e250f3bfb2f1d68f3a83694f84562"
+      "manifestSha256": "6b1c457b9fe2e960162300bdec4c4b03aa2091365c0c4b625273774a0e4e787b"
     },
     {
       "id": "terminal-online",
       "name": "Terminal Online",
-      "version": "1.0.0",
+      "version": "1.1.0",
       "path": "fastfetch/terminal-online",
       "author": "kitty-cachyos",
       "summary": "TERMINAL ONLINE banner over two bordered panels",
@@ -558,14 +558,14 @@
         "banner",
         "colorful",
         "panels",
-        "arch"
+        "emblem"
       ],
       "accent": "#ff5555",
       "surface": "#0d0d0d",
       "preview": "preview.webp",
       "screenshots": [],
       "manifest": "manifest.json",
-      "manifestSha256": "8b5668806295dc6af926e092fbfce6867b45beea374657e4e88ebc441eb5b057"
+      "manifestSha256": "f07e1b545e1d5d222bf7f78de25eff267054144bdb8e08ca3a29c3abef9be263"
     },
     {
       "id": "wide-card",

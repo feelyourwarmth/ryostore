@@ -4,12 +4,14 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/dev/doc/json_schema.json",
   "logo": {
-    "type": "builtin",
-    "source": "arch",
+    "type": "kitty-direct",
+    "source": "~/.local/share/ryoku/fastfetch/terminal-online/girl.png",
+    "width": 14,
+    "height": 11,
     "padding": {
-      "top": 2,
       "left": 2,
-      "right": 2
+      "right": 3,
+      "top": 1
     }
   },
   "display": {
@@ -24,95 +26,95 @@
   "modules": [
     {
       "type": "custom",
-      "format": "\u001b[1;31m \udb80\udea0 \u001b[1;35m\udb80\udea0 \u001b[1;36m\udb80\udea0 \u001b[1;33m\udb82\udfaf \u001b[0;33m\u00b7 \u00b7 \u00b7 \u00b7 \u001b[1;38;5;208mTERMINAL \u001b[1;32mONLINE"
+      "format": "\u001b[1;31m 󰊠 \u001b[1;35m󰊠 \u001b[1;36m󰊠 \u001b[1;33m󰮯 \u001b[0;33m· · · · \u001b[1;38;5;208mTERMINAL \u001b[1;32mONLINE"
     },
     {
       "type": "custom",
-      "format": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+      "format": "┌────────────────────────────────────────────┐"
     },
     {
       "type": "os",
-      "key": "  \udb82\udcc7  OS",
+      "key": "  󰣇  OS",
       "format": "{2}"
     },
     {
       "type": "kernel",
-      "key": "  \udb80\udf3d  Kernel",
+      "key": "  󰌽  Kernel",
       "format": "{2}"
     },
     {
       "type": "packages",
-      "key": "  \udb80\udfd6  Packages"
+      "key": "  󰏖  Packages"
     },
     {
       "type": "display",
-      "key": "  \udb80\udf79  Display",
+      "key": "  󰍹  Display",
       "keyColor": "green",
       "format": "{1}x{2} @ {3}Hz"
     },
     {
       "type": "wm",
-      "key": "  \udb82\ude07  WM",
+      "key": "  󰨇  WM",
       "keyColor": "green",
       "format": "{2}"
     },
     {
       "type": "de",
-      "key": "  \udb82\udde8  DE",
+      "key": "  󰧨  DE",
       "keyColor": "green",
       "format": "{2}"
     },
     {
       "type": "terminal",
-      "key": "  \udb80\udd8d  Terminal",
+      "key": "  󰆍  Terminal",
       "keyColor": "yellow",
       "format": "{3}"
     },
     {
       "type": "shell",
-      "key": "  \udb81\udfb7  Shell",
+      "key": "  󰞷  Shell",
       "keyColor": "yellow",
       "format": "{1}"
     },
     {
       "type": "custom",
-      "format": "\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+      "format": "└────────────────────────────────────────────┘"
     },
     "break",
     {
       "type": "title",
-      "format": "  \u001b[35m\udb82\uddc2  {1}@{2}"
+      "format": "  \u001b[35m󰧂  {1}@{2}"
     },
     {
       "type": "custom",
-      "format": "\u250c\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2510"
+      "format": "┌────────────────────────────────────────────┐"
     },
     {
       "type": "cpu",
-      "key": "  \udb83\udee0  CPU",
+      "key": "  󰻠  CPU",
       "keyColor": "blue",
       "format": "{1}"
     },
     {
       "type": "gpu",
-      "key": "  \udb82\udcae  GPU",
+      "key": "  󰢮  GPU",
       "keyColor": "blue",
       "format": "{1} {2}"
     },
     {
       "type": "memory",
-      "key": "  \udb80\udf5b  Memory",
+      "key": "  󰍛  Memory",
       "keyColor": "blue",
       "format": "{1} / {2} {3}"
     },
     {
       "type": "uptime",
-      "key": "  \udb80\udd50  Uptime",
+      "key": "  󰅐  Uptime",
       "keyColor": "magenta"
     },
     {
       "type": "custom",
-      "format": "\u2514\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2500\u2518"
+      "format": "└────────────────────────────────────────────┘"
     },
     "break",
     {
