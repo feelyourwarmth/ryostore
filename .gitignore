@@ -4,3 +4,8 @@ superpowers/
 plans/
 docs/superpowers/
 docs/plans/
+
+# Local code-intelligence index and Python bytecode: machine state, never catalogue.
+/.prowl/
+.prowl-setup.lock
+__pycache__/
