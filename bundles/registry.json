@@ -377,7 +377,7 @@
       "path": "bundles/the-influencer",
       "author": "Ryoku Team",
       "summary": "stream · record · edit · publish",
-      "description": "A complete stream, record, edit, reformat, caption, and publish kit: recorders, editors, audio and thumbnail tools, plus a right-click video toolkit in the file manager.",
+      "description": "A complete stream, record, edit, reformat, and publish kit: recorders, editors, audio and thumbnail tools, plus a right-click video toolkit in the file manager.",
       "tags": [
         "stream",
         "record",
@@ -391,7 +391,7 @@
         "assets/hero.png"
       ],
       "manifest": "bundle.json",
-      "manifestSha256": "f50c36dd37446738682a65a7e53ff9626c3632d89a1b481606ee37c06a8eda54",
+      "manifestSha256": "f31800b5cfabbb4e2464257429d9116a1c60a44e3e6909d3d3c9c131a3ccd06a",
       "components": [
         {
           "type": "nautilus-pack",
@@ -546,14 +546,6 @@
           "summary": "GUI and CLI batch transcoder with presets for each platform."
         },
         {
-          "type": "package",
-          "name": "whisper.cpp",
-          "detect": "whisper-cli",
-          "tier": "core",
-          "interactive": false,
-          "summary": "Local speech-to-text engine behind the right-click Generate captions (SRT) action."
-        },
-        {
           "type": "script",
           "name": "capture-website-cli",
           "detect": "capture-website",
@@ -655,7 +647,7 @@
           "detect": "subtitleedit",
           "tier": "optional",
           "interactive": false,
-          "summary": "GUI subtitle editor with built-in whisper.cpp transcription and styling."
+          "summary": "GUI subtitle editor for timing, styling, and format conversion."
         }
       ],
       "tagline": "stream · record · edit · publish",

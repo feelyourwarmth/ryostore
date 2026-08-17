@@ -1,6 +1,6 @@
 # The Influencer
 
-A complete **stream, record, edit, reformat, caption, and publish** kit: a
+A complete **stream, record, edit, reformat, and publish** kit: a
 curated set of recording, editing, audio, and thumbnail tools, plus a
 **right-click video toolkit** in the file manager that ships with the bundle and
 needs no setup. Install it from **Settings, Extras, The Influencer, Install all**
@@ -11,14 +11,15 @@ bundle removes everything it added.
 
 **Video Reformat** is a Nautilus script pack: it adds a **Scripts, Ryoku Creator**
 menu to the file manager. Select one or more clips, right-click, and pick an
-action. It runs on `ffmpeg` (and `whisper.cpp` for captions), both installed by
-the bundle:
+action. It runs on `ffmpeg`, installed by the bundle:
 
 - **Reformat** to 9:16, 1:1, or 16:9 (crop or pad) for Reels, TikTok, and Shorts.
 - **Transcode** to H.264 or H.265, or **Transcode for DaVinci (DNxHR)** so the
   free Resolve build can import your footage.
 - **Compress to 8 MiB** (Discord-safe), **Make GIF**, **Extract audio (MP3)**.
-- **Generate captions (SRT)** with local, offline speech-to-text.
+- **Generate captions (SRT)** with local, offline speech-to-text, if you install
+  a `whisper.cpp` build yourself. No Arch or AUR package provides one, so the
+  bundle does not ship it and this action stays inert until you do.
 - **Strip metadata**, **Grab thumbnail**.
 
 See `nautilus/video-reformat/README.md`.
@@ -41,7 +42,6 @@ See `nautilus/video-reformat/README.md`.
 | gimp / inkscape / krita | Thumbnails, vectors, channel art. | pacman |
 | yt-dlp | Download reference footage / audio. | pacman |
 | handbrake | Batch transcoder with presets. | pacman |
-| whisper.cpp | Local speech-to-text behind the caption action. | AUR |
 | capture-website-cli | Render a URL to a thumbnail image. | npm |
 | youtubeuploader | Scripted YouTube uploads. | Go |
 

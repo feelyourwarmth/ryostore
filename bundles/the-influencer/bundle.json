@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "destination": "ryoku/bundles/the-influencer",
   "name": "The Influencer",
-  "description": "A complete stream, record, edit, reformat, caption, and publish kit: recorders, editors, audio and thumbnail tools, plus a right-click video toolkit in the file manager (reformat, transcode, compress, captions, thumbnails).",
+  "description": "A complete stream, record, edit, reformat, and publish kit: recorders, editors, audio and thumbnail tools, plus a right-click video toolkit in the file manager (reformat, transcode, compress, thumbnails).",
   "icon": "movie",
   "accent": "#e2342a",
   "preview": "assets/hero.png",
@@ -182,15 +182,6 @@
       "upstream": "https://handbrake.fr"
     },
     {
-      "type": "package",
-      "name": "whisper.cpp",
-      "detect": "whisper-cli",
-      "tier": "core",
-      "source": "aur",
-      "summary": "Local speech-to-text engine behind the right-click Generate captions (SRT) action.",
-      "upstream": "https://github.com/ggerganov/whisper.cpp"
-    },
-    {
       "type": "script",
       "name": "capture-website-cli",
       "detect": "capture-website",
@@ -304,7 +295,7 @@
       "detect": "subtitleedit",
       "tier": "optional",
       "source": "aur",
-      "summary": "GUI subtitle editor with built-in whisper.cpp transcription and styling.",
+      "summary": "GUI subtitle editor for timing, styling, and format conversion.",
       "upstream": "https://www.nikse.dk/subtitleedit"
     }
   ],
@@ -313,8 +304,8 @@
       "source": "README.md",
       "destination": "README.md",
       "mode": "0644",
-      "size": 3452,
-      "sha256": "ce152d8e17a136c833e811905bfa5ff38fe5115daa93899c8b148a3763d28c8c",
+      "size": 3494,
+      "sha256": "b78af8e8c79a0ae38eda74d4f9cbae54e02d77f97b002f9859ce8b70971b14b4",
       "install": true
     },
     {
