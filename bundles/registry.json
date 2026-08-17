@@ -672,7 +672,7 @@
       "preview": "assets/preview.webp",
       "screenshots": [],
       "manifest": "bundle.json",
-      "manifestSha256": "67008e592b46a3248c2716f464e4d068f595290440ca5e5d799cd4ca9d4d82d8",
+      "manifestSha256": "49405b732295dda8d36b07eddacc3a07e2f7ebc1b60b40415809a63a66e04bc8",
       "components": [
         {
           "type": "package",

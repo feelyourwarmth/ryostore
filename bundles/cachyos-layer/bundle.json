@@ -36,7 +36,7 @@
       "type": "package",
       "name": "ananicy-cpp",
       "summary": "Auto-nice daemon that reprioritizes processes so the compositor and foreground apps stay responsive under load. From the CachyOS repo (AUR on plain Arch).",
-      "source": "cachyos",
+      "source": "official",
       "upstream": "https://gitlab.com/ananicy-cpp/ananicy-cpp"
     },
     {
