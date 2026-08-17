@@ -21,13 +21,14 @@
         "assets/hero.png"
       ],
       "manifest": "bundle.json",
-      "manifestSha256": "a7075bc9e15c4b875096224a88301031af50f6ae74951e186afc71af09189d5e",
+      "manifestSha256": "2e2802871ff11b3f5b8d5529e038e0697437dc3062fccd8f5a3416d5164cab94",
       "components": [
         {
           "type": "package",
           "name": "steam",
           "detect": "steam",
           "tier": "core",
+          "group": "Launchers",
           "interactive": false,
           "summary": "Valve game store and client, with built-in Proton compatibility."
         },
@@ -36,6 +37,7 @@
           "name": "lutris",
           "detect": "lutris",
           "tier": "core",
+          "group": "Launchers",
           "interactive": false,
           "summary": "Open game manager for Windows, native, and emulated games."
         },
@@ -44,6 +46,7 @@
           "name": "heroic-games-launcher-bin",
           "detect": "heroic",
           "tier": "core",
+          "group": "Launchers",
           "interactive": false,
           "summary": "Launcher for Epic Games, GOG, and Amazon Prime games."
         },
@@ -52,6 +55,7 @@
           "name": "umu-launcher",
           "detect": "umu-run",
           "tier": "core",
+          "group": "Launchers",
           "interactive": false,
           "summary": "Valve's unified Proton runtime for non-Steam games (Lutris and Heroic use it)."
         },
@@ -60,6 +64,7 @@
           "name": "wine",
           "detect": "wine",
           "tier": "core",
+          "group": "Compatibility",
           "interactive": false,
           "summary": "Compatibility layer for running Windows applications on Linux."
         },
@@ -68,6 +73,7 @@
           "name": "winetricks",
           "detect": "winetricks",
           "tier": "core",
+          "group": "Compatibility",
           "interactive": false,
           "summary": "Installs runtime libraries and tweaks into Wine prefixes."
         },
@@ -76,6 +82,7 @@
           "name": "protontricks",
           "detect": "protontricks",
           "tier": "core",
+          "group": "Compatibility",
           "interactive": false,
           "summary": "Runs winetricks tasks inside Steam Proton game prefixes."
         },
@@ -84,6 +91,7 @@
           "name": "protonup-qt",
           "detect": "protonup-qt",
           "tier": "core",
+          "group": "Compatibility",
           "interactive": false,
           "summary": "Installs GE-Proton and Wine-GE for Steam, Lutris, and Heroic."
         },
@@ -92,6 +100,7 @@
           "name": "vkd3d",
           "detect": "vkd3d",
           "tier": "core",
+          "group": "Compatibility",
           "interactive": false,
           "summary": "Direct3D 12 to Vulkan translation for Wine and Lutris games."
         },
@@ -100,6 +109,7 @@
           "name": "lib32-vkd3d",
           "detect": "lib32-vkd3d",
           "tier": "core",
+          "group": "Compatibility",
           "interactive": false,
           "summary": "32-bit Direct3D 12 to Vulkan translation for 32-bit Wine games."
         },
@@ -108,6 +118,7 @@
           "name": "gamemode",
           "detect": "gamemoded",
           "tier": "core",
+          "group": "Performance",
           "interactive": false,
           "summary": "Applies temporary performance optimizations while gaming."
         },
@@ -116,6 +127,7 @@
           "name": "lib32-gamemode",
           "detect": "lib32-gamemode",
           "tier": "core",
+          "group": "Performance",
           "interactive": false,
           "summary": "32-bit GameMode libraries for 32-bit games."
         },
@@ -124,6 +136,7 @@
           "name": "gamescope",
           "detect": "gamescope",
           "tier": "core",
+          "group": "Performance",
           "interactive": false,
           "summary": "Micro-compositor for upscaling, frame limiting, and isolating games."
         },
@@ -132,6 +145,7 @@
           "name": "mangohud",
           "detect": "mangohud",
           "tier": "core",
+          "group": "Performance",
           "interactive": false,
           "summary": "Vulkan and OpenGL overlay for FPS, frametimes, and system metrics."
         },
@@ -140,6 +154,7 @@
           "name": "lib32-mangohud",
           "detect": "lib32-mangohud",
           "tier": "core",
+          "group": "Performance",
           "interactive": false,
           "summary": "32-bit MangoHud libraries for 32-bit games."
         },
@@ -148,6 +163,7 @@
           "name": "goverlay",
           "detect": "goverlay",
           "tier": "core",
+          "group": "Performance",
           "interactive": false,
           "summary": "GUI to configure MangoHud and vkBasalt without editing config files."
         },
@@ -156,6 +172,7 @@
           "name": "vkbasalt",
           "detect": "vkbasalt",
           "tier": "core",
+          "group": "Performance",
           "interactive": false,
           "summary": "Vulkan post-processing layer for sharpening, FXAA, SMAA, and deband."
         },
@@ -164,6 +181,7 @@
           "name": "game-devices-udev",
           "detect": "game-devices-udev",
           "tier": "core",
+          "group": "Controllers",
           "interactive": false,
           "summary": "udev rules for Xbox, PlayStation, Nintendo, Steam, and 8BitDo controllers."
         },
@@ -172,6 +190,7 @@
           "name": "vesktop-bin",
           "detect": "vesktop",
           "tier": "core",
+          "group": "Communication",
           "interactive": false,
           "summary": "Discord client with Vencord and working Wayland screen share."
         },
@@ -180,6 +199,7 @@
           "name": "retroarch",
           "detect": "retroarch",
           "tier": "optional",
+          "group": "RetroArch",
           "interactive": false,
           "summary": "All-in-one frontend for libretro emulator cores (add the cores below or in-app)."
         },
@@ -188,6 +208,7 @@
           "name": "libretro-core-info",
           "detect": "libretro-core-info",
           "tier": "optional",
+          "group": "RetroArch",
           "interactive": false,
           "summary": "Core metadata RetroArch needs to list and load libretro cores."
         },
@@ -196,6 +217,7 @@
           "name": "libretro-snes9x",
           "detect": "libretro-snes9x",
           "tier": "optional",
+          "group": "RetroArch",
           "interactive": false,
           "summary": "SNES / Super Famicom core for RetroArch."
         },
@@ -204,6 +226,7 @@
           "name": "libretro-mesen",
           "detect": "libretro-mesen",
           "tier": "optional",
+          "group": "RetroArch",
           "interactive": false,
           "summary": "NES / Famicom core for RetroArch."
         },
@@ -212,6 +235,7 @@
           "name": "libretro-genesis-plus-gx",
           "detect": "libretro-genesis-plus-gx",
           "tier": "optional",
+          "group": "RetroArch",
           "interactive": false,
           "summary": "Sega Master System, Game Gear, Genesis, and Mega Drive core for RetroArch."
         },
@@ -220,6 +244,7 @@
           "name": "libretro-beetle-psx-hw",
           "detect": "libretro-beetle-psx-hw",
           "tier": "optional",
+          "group": "RetroArch",
           "interactive": false,
           "summary": "Hardware-rendered PlayStation 1 core for RetroArch."
         },
@@ -228,6 +253,7 @@
           "name": "libretro-mupen64plus-next",
           "detect": "libretro-mupen64plus-next",
           "tier": "optional",
+          "group": "RetroArch",
           "interactive": false,
           "summary": "Nintendo 64 core for RetroArch."
         },
@@ -236,6 +262,7 @@
           "name": "dolphin-emu",
           "detect": "dolphin-emu",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "GameCube and Wii emulator."
         },
@@ -244,6 +271,7 @@
           "name": "pcsx2",
           "detect": "pcsx2-qt",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "PlayStation 2 emulator."
         },
@@ -252,6 +280,7 @@
           "name": "rpcs3-bin",
           "detect": "rpcs3",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "PlayStation 3 emulator."
         },
@@ -260,6 +289,7 @@
           "name": "ppsspp",
           "detect": "ppsspp",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "PlayStation Portable (PSP) emulator."
         },
@@ -268,6 +298,7 @@
           "name": "mgba-qt",
           "detect": "mgba-qt",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "Game Boy, Game Boy Color, and Game Boy Advance emulator."
         },
@@ -276,6 +307,7 @@
           "name": "melonds",
           "detect": "melonDS",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "Nintendo DS emulator."
         },
@@ -284,6 +316,7 @@
           "name": "mame",
           "detect": "mame",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "Multi-Arcade Machine Emulator for classic arcade boards."
         },
@@ -292,6 +325,7 @@
           "name": "scummvm",
           "detect": "scummvm",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "Runtime for classic point-and-click adventure games."
         },
@@ -300,6 +334,7 @@
           "name": "dosbox",
           "detect": "dosbox",
           "tier": "optional",
+          "group": "Emulators",
           "interactive": false,
           "summary": "DOS emulator for running classic MS-DOS games."
         },
@@ -308,6 +343,7 @@
           "name": "corectrl",
           "detect": "corectrl",
           "tier": "optional",
+          "group": "Tuning",
           "interactive": false,
           "summary": "Per-profile GPU and CPU tuning and fan curves (AMD-focused)."
         },
@@ -316,6 +352,7 @@
           "name": "antimicrox",
           "detect": "antimicrox",
           "tier": "optional",
+          "group": "Controllers",
           "interactive": false,
           "summary": "Map a gamepad to keyboard and mouse for games without native pad support."
         },
@@ -324,6 +361,7 @@
           "name": "sc-controller",
           "detect": "sc-controller",
           "tier": "optional",
+          "group": "Controllers",
           "interactive": false,
           "summary": "Configure Steam Controller, DualShock, and other gamepads with custom profiles."
         }

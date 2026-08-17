@@ -22,6 +22,7 @@
       "name": "steam",
       "detect": "steam",
       "tier": "core",
+      "group": "Launchers",
       "source": "official",
       "summary": "Valve game store and client, with built-in Proton compatibility.",
       "upstream": "https://store.steampowered.com"
@@ -31,6 +32,7 @@
       "name": "lutris",
       "detect": "lutris",
       "tier": "core",
+      "group": "Launchers",
       "source": "official",
       "summary": "Open game manager for Windows, native, and emulated games.",
       "upstream": "https://lutris.net"
@@ -40,6 +42,7 @@
       "name": "heroic-games-launcher-bin",
       "detect": "heroic",
       "tier": "core",
+      "group": "Launchers",
       "source": "aur",
       "summary": "Launcher for Epic Games, GOG, and Amazon Prime games.",
       "upstream": "https://heroicgameslauncher.com"
@@ -49,6 +52,7 @@
       "name": "umu-launcher",
       "detect": "umu-run",
       "tier": "core",
+      "group": "Launchers",
       "source": "official",
       "summary": "Valve's unified Proton runtime for non-Steam games (Lutris and Heroic use it).",
       "upstream": "https://github.com/Open-Wine-Components/umu-launcher"
@@ -58,6 +62,7 @@
       "name": "wine",
       "detect": "wine",
       "tier": "core",
+      "group": "Compatibility",
       "source": "official",
       "summary": "Compatibility layer for running Windows applications on Linux.",
       "upstream": "https://www.winehq.org"
@@ -67,6 +72,7 @@
       "name": "winetricks",
       "detect": "winetricks",
       "tier": "core",
+      "group": "Compatibility",
       "source": "official",
       "summary": "Installs runtime libraries and tweaks into Wine prefixes.",
       "upstream": "https://github.com/Winetricks/winetricks"
@@ -76,6 +82,7 @@
       "name": "protontricks",
       "detect": "protontricks",
       "tier": "core",
+      "group": "Compatibility",
       "source": "official",
       "summary": "Runs winetricks tasks inside Steam Proton game prefixes.",
       "upstream": "https://github.com/Matoking/protontricks"
@@ -85,6 +92,7 @@
       "name": "protonup-qt",
       "detect": "protonup-qt",
       "tier": "core",
+      "group": "Compatibility",
       "source": "aur",
       "summary": "Installs GE-Proton and Wine-GE for Steam, Lutris, and Heroic.",
       "upstream": "https://davidotek.github.io/protonup-qt"
@@ -93,6 +101,7 @@
       "type": "package",
       "name": "vkd3d",
       "tier": "core",
+      "group": "Compatibility",
       "source": "official",
       "summary": "Direct3D 12 to Vulkan translation for Wine and Lutris games.",
       "upstream": "https://gitlab.winehq.org/wine/vkd3d"
@@ -101,6 +110,7 @@
       "type": "package",
       "name": "lib32-vkd3d",
       "tier": "core",
+      "group": "Compatibility",
       "source": "official",
       "summary": "32-bit Direct3D 12 to Vulkan translation for 32-bit Wine games.",
       "upstream": "https://gitlab.winehq.org/wine/vkd3d"
@@ -110,6 +120,7 @@
       "name": "gamemode",
       "detect": "gamemoded",
       "tier": "core",
+      "group": "Performance",
       "source": "official",
       "summary": "Applies temporary performance optimizations while gaming.",
       "upstream": "https://github.com/FeralInteractive/gamemode"
@@ -118,6 +129,7 @@
       "type": "package",
       "name": "lib32-gamemode",
       "tier": "core",
+      "group": "Performance",
       "source": "official",
       "summary": "32-bit GameMode libraries for 32-bit games.",
       "upstream": "https://github.com/FeralInteractive/gamemode"
@@ -127,6 +139,7 @@
       "name": "gamescope",
       "detect": "gamescope",
       "tier": "core",
+      "group": "Performance",
       "source": "official",
       "summary": "Micro-compositor for upscaling, frame limiting, and isolating games.",
       "upstream": "https://github.com/ValveSoftware/gamescope"
@@ -136,6 +149,7 @@
       "name": "mangohud",
       "detect": "mangohud",
       "tier": "core",
+      "group": "Performance",
       "source": "official",
       "summary": "Vulkan and OpenGL overlay for FPS, frametimes, and system metrics.",
       "upstream": "https://github.com/flightlessmango/MangoHud"
@@ -144,6 +158,7 @@
       "type": "package",
       "name": "lib32-mangohud",
       "tier": "core",
+      "group": "Performance",
       "source": "official",
       "summary": "32-bit MangoHud libraries for 32-bit games.",
       "upstream": "https://github.com/flightlessmango/MangoHud"
@@ -153,6 +168,7 @@
       "name": "goverlay",
       "detect": "goverlay",
       "tier": "core",
+      "group": "Performance",
       "source": "official",
       "summary": "GUI to configure MangoHud and vkBasalt without editing config files.",
       "upstream": "https://github.com/benjamimgois/goverlay"
@@ -161,6 +177,7 @@
       "type": "package",
       "name": "vkbasalt",
       "tier": "core",
+      "group": "Performance",
       "source": "aur",
       "summary": "Vulkan post-processing layer for sharpening, FXAA, SMAA, and deband.",
       "upstream": "https://github.com/DadSchoorse/vkBasalt"
@@ -169,6 +186,7 @@
       "type": "package",
       "name": "game-devices-udev",
       "tier": "core",
+      "group": "Controllers",
       "source": "aur",
       "summary": "udev rules for Xbox, PlayStation, Nintendo, Steam, and 8BitDo controllers.",
       "upstream": "https://codeberg.org/fabiscafe/game-devices-udev"
@@ -178,6 +196,7 @@
       "name": "vesktop-bin",
       "detect": "vesktop",
       "tier": "core",
+      "group": "Communication",
       "source": "aur",
       "summary": "Discord client with Vencord and working Wayland screen share.",
       "upstream": "https://github.com/Vencord/Vesktop"
@@ -187,6 +206,7 @@
       "name": "retroarch",
       "detect": "retroarch",
       "tier": "optional",
+      "group": "RetroArch",
       "source": "official",
       "summary": "All-in-one frontend for libretro emulator cores (add the cores below or in-app).",
       "upstream": "https://www.retroarch.com"
@@ -195,6 +215,7 @@
       "type": "package",
       "name": "libretro-core-info",
       "tier": "optional",
+      "group": "RetroArch",
       "source": "official",
       "summary": "Core metadata RetroArch needs to list and load libretro cores.",
       "upstream": "https://github.com/libretro/libretro-core-info"
@@ -203,6 +224,7 @@
       "type": "package",
       "name": "libretro-snes9x",
       "tier": "optional",
+      "group": "RetroArch",
       "source": "official",
       "summary": "SNES / Super Famicom core for RetroArch.",
       "upstream": "https://github.com/libretro/snes9x"
@@ -211,6 +233,7 @@
       "type": "package",
       "name": "libretro-mesen",
       "tier": "optional",
+      "group": "RetroArch",
       "source": "official",
       "summary": "NES / Famicom core for RetroArch.",
       "upstream": "https://github.com/libretro/Mesen"
@@ -219,6 +242,7 @@
       "type": "package",
       "name": "libretro-genesis-plus-gx",
       "tier": "optional",
+      "group": "RetroArch",
       "source": "official",
       "summary": "Sega Master System, Game Gear, Genesis, and Mega Drive core for RetroArch.",
       "upstream": "https://github.com/libretro/Genesis-Plus-GX"
@@ -227,6 +251,7 @@
       "type": "package",
       "name": "libretro-beetle-psx-hw",
       "tier": "optional",
+      "group": "RetroArch",
       "source": "official",
       "summary": "Hardware-rendered PlayStation 1 core for RetroArch.",
       "upstream": "https://github.com/libretro/beetle-psx-libretro"
@@ -235,6 +260,7 @@
       "type": "package",
       "name": "libretro-mupen64plus-next",
       "tier": "optional",
+      "group": "RetroArch",
       "source": "official",
       "summary": "Nintendo 64 core for RetroArch.",
       "upstream": "https://github.com/libretro/mupen64plus-libretro-nx"
@@ -244,6 +270,7 @@
       "name": "dolphin-emu",
       "detect": "dolphin-emu",
       "tier": "optional",
+      "group": "Emulators",
       "source": "official",
       "summary": "GameCube and Wii emulator.",
       "upstream": "https://dolphin-emu.org"
@@ -253,6 +280,7 @@
       "name": "pcsx2",
       "detect": "pcsx2-qt",
       "tier": "optional",
+      "group": "Emulators",
       "source": "aur",
       "summary": "PlayStation 2 emulator.",
       "upstream": "https://pcsx2.net"
@@ -262,6 +290,7 @@
       "name": "rpcs3-bin",
       "detect": "rpcs3",
       "tier": "optional",
+      "group": "Emulators",
       "source": "aur",
       "summary": "PlayStation 3 emulator.",
       "upstream": "https://rpcs3.net"
@@ -270,6 +299,7 @@
       "type": "package",
       "name": "ppsspp",
       "tier": "optional",
+      "group": "Emulators",
       "source": "official",
       "summary": "PlayStation Portable (PSP) emulator.",
       "upstream": "https://www.ppsspp.org"
@@ -279,6 +309,7 @@
       "name": "mgba-qt",
       "detect": "mgba-qt",
       "tier": "optional",
+      "group": "Emulators",
       "source": "official",
       "summary": "Game Boy, Game Boy Color, and Game Boy Advance emulator.",
       "upstream": "https://mgba.io"
@@ -288,6 +319,7 @@
       "name": "melonds",
       "detect": "melonDS",
       "tier": "optional",
+      "group": "Emulators",
       "source": "aur",
       "summary": "Nintendo DS emulator.",
       "upstream": "https://melonds.kuribo64.net"
@@ -297,6 +329,7 @@
       "name": "mame",
       "detect": "mame",
       "tier": "optional",
+      "group": "Emulators",
       "source": "official",
       "summary": "Multi-Arcade Machine Emulator for classic arcade boards.",
       "upstream": "https://www.mamedev.org"
@@ -306,6 +339,7 @@
       "name": "scummvm",
       "detect": "scummvm",
       "tier": "optional",
+      "group": "Emulators",
       "source": "official",
       "summary": "Runtime for classic point-and-click adventure games.",
       "upstream": "https://www.scummvm.org"
@@ -315,6 +349,7 @@
       "name": "dosbox",
       "detect": "dosbox",
       "tier": "optional",
+      "group": "Emulators",
       "source": "official",
       "summary": "DOS emulator for running classic MS-DOS games.",
       "upstream": "https://www.dosbox.com"
@@ -324,6 +359,7 @@
       "name": "corectrl",
       "detect": "corectrl",
       "tier": "optional",
+      "group": "Tuning",
       "source": "official",
       "summary": "Per-profile GPU and CPU tuning and fan curves (AMD-focused).",
       "upstream": "https://gitlab.com/corectrl/corectrl"
@@ -333,6 +369,7 @@
       "name": "antimicrox",
       "detect": "antimicrox",
       "tier": "optional",
+      "group": "Controllers",
       "source": "official",
       "summary": "Map a gamepad to keyboard and mouse for games without native pad support.",
       "upstream": "https://github.com/AntiMicroX/antimicrox"
@@ -342,6 +379,7 @@
       "name": "sc-controller",
       "detect": "sc-controller",
       "tier": "optional",
+      "group": "Controllers",
       "source": "official",
       "summary": "Configure Steam Controller, DualShock, and other gamepads with custom profiles.",
       "upstream": "https://github.com/C0rn3j/sc-controller"

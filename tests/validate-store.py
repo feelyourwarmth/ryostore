@@ -345,14 +345,20 @@ def normalized_bundle_components(manifest: object) -> list[dict] | None:
             "name": name,
             "detect": item.get("detect") or name,
             "tier": item.get("tier") or "core",
-            "interactive": item.get("interactive", False),
-            "summary": item.get("summary") or "",
         }
+        # `group` is optional and only emitted when set, so an ungrouped bundle
+        # keeps its existing components unchanged.
+        group = item.get("group")
+        if group:
+            component["group"] = group
+        component["interactive"] = item.get("interactive", False)
+        component["summary"] = item.get("summary") or ""
         if (
             not all(isinstance(component[field], str) and component[field]
                     for field in ("type", "name", "detect", "tier"))
             or type(component["interactive"]) is not bool
             or not isinstance(component["summary"], str)
+            or not isinstance(component.get("group", ""), str)
         ):
             return None
         components.append(component)
