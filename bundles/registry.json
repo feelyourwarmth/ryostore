@@ -8,7 +8,7 @@
       "path": "bundles/gaming",
       "author": "Ryoku Team",
       "summary": "proton · overlays · emulators",
-      "description": "The native Linux gaming stack: launchers, Wine and Proton, performance overlays, controller support, and a full lineup of console emulators. Ryoku installs the matching 32-bit GPU drivers for full hardware capacity.",
+      "description": "The native Linux gaming stack: launchers, Wine and Proton, performance overlays, controller support, and console emulators for every system with a proven package. Ryoku installs the matching 32-bit GPU drivers for full hardware capacity.",
       "tags": [
         "proton",
         "overlays",
@@ -21,7 +21,7 @@
         "assets/hero.png"
       ],
       "manifest": "bundle.json",
-      "manifestSha256": "4cbff415232ddeebd8121b0b0780fe0d09acce3e487287569eec23597006a030",
+      "manifestSha256": "a7075bc9e15c4b875096224a88301031af50f6ae74951e186afc71af09189d5e",
       "components": [
         {
           "type": "package",
@@ -161,14 +161,6 @@
         },
         {
           "type": "package",
-          "name": "lib32-vkbasalt",
-          "detect": "lib32-vkbasalt",
-          "tier": "core",
-          "interactive": false,
-          "summary": "32-bit vkBasalt post-processing for 32-bit games."
-        },
-        {
-          "type": "package",
           "name": "game-devices-udev",
           "detect": "game-devices-udev",
           "tier": "core",
@@ -286,30 +278,6 @@
           "tier": "optional",
           "interactive": false,
           "summary": "Nintendo DS emulator."
-        },
-        {
-          "type": "package",
-          "name": "flycast",
-          "detect": "flycast",
-          "tier": "optional",
-          "interactive": false,
-          "summary": "Sega Dreamcast, Naomi, and Atomiswave emulator."
-        },
-        {
-          "type": "package",
-          "name": "cemu",
-          "detect": "cemu",
-          "tier": "optional",
-          "interactive": false,
-          "summary": "Wii U emulator."
-        },
-        {
-          "type": "package",
-          "name": "xemu",
-          "detect": "xemu",
-          "tier": "optional",
-          "interactive": false,
-          "summary": "Original Xbox emulator."
         },
         {
           "type": "package",

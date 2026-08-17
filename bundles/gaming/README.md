@@ -3,10 +3,11 @@
 Turns a fresh Ryoku install into a **ready-to-play** machine: the major
 launchers, the full Wine and Proton compatibility layer, DirectX-to-Vulkan
 translation, the GameMode / Gamescope / MangoHud performance stack, broad
-controller support, a Wayland-friendly Discord, and a complete lineup of console
-emulators. Install it from **Settings, Extras, Gaming, Install all** (core
-items); optional items (the emulators and extra tools) install one at a time
-from the card. Removing the bundle removes everything it added.
+controller support, a Wayland-friendly Discord, and console emulators for every
+system with a proven package. Install it from **Settings, Extras, Gaming,
+Install all** (core items); optional items (the emulators and extra tools)
+install one at a time from the card. Removing the bundle removes everything it
+added.
 
 ## 32-bit GPU drivers, installed for your hardware (native, no setup)
 
@@ -43,7 +44,7 @@ themselves stay managed by Ryoku's hardware layer, not this bundle.
 | gamescope | Upscaling, frame limiting, and per-game isolation. | pacman |
 | mangohud + lib32-mangohud | FPS / frametime / system metrics overlay. | pacman |
 | goverlay | GUI to configure MangoHud and vkBasalt. | pacman |
-| vkbasalt + lib32-vkbasalt | Vulkan post-processing (sharpen, FXAA, SMAA). | AUR |
+| vkbasalt | Vulkan post-processing (sharpen, FXAA, SMAA). | AUR |
 | game-devices-udev | udev rules for Xbox, PS, Nintendo, 8BitDo pads. | AUR |
 | vesktop-bin | Discord with Vencord and working Wayland screen share. | AUR |
 
@@ -61,9 +62,6 @@ themselves stay managed by Ryoku's hardware layer, not this bundle.
 | PlayStation Portable | ppsspp | pacman |
 | Game Boy / GBC / GBA | mgba-qt | pacman |
 | Nintendo DS | melonds | AUR |
-| Dreamcast | flycast | AUR |
-| Wii U | cemu | AUR |
-| Original Xbox | xemu | AUR |
 | Arcade | mame | pacman |
 | Adventure games | scummvm | pacman |
 | MS-DOS | dosbox | pacman |
@@ -79,14 +77,16 @@ they appear in RetroArch under **Load Core** immediately.
 
 - **Detected and skipped.** Anything already on the system is detected and left
   alone, so re-running only fills the gaps.
-- **Routing.** heroic-games-launcher-bin, protonup-qt, vkbasalt, lib32-vkbasalt,
-  game-devices-udev, vesktop-bin, and the AUR emulators build from the AUR; the
-  rest come from the official repos. steam, umu-launcher, and every `lib32-`
-  package live in [multilib], which the bundle enables first.
+- **Routing.** heroic-games-launcher-bin, protonup-qt, vkbasalt,
+  game-devices-udev, vesktop-bin, pcsx2, rpcs3-bin, and melonds come from the
+  AUR; the rest come from the official repos. steam, umu-launcher, and every
+  `lib32-` package live in [multilib], which the bundle enables first.
 - **A faster kernel.** For lower latency and higher throughput under load, add
   the **CachyOS Kernel** bundle; it swaps in the performance-tuned kernel and
   keeps the stock one as a fallback.
-- **NVIDIA controllers / Wii U / Xbox.** cemu and xemu are AUR builds and can
-  lag upstream; if one fails to build, re-run the item after an `AUR` refresh.
+- **Emulator coverage.** Only emulators with a proven package are listed. The
+  Wii U (cemu), original Xbox (xemu), and Dreamcast (flycast) builds were
+  dropped: cemu is flagged out of date upstream, and the other two have too
+  little use to trust the build. Install them by hand if you need them.
 - **corectrl** needs the `amdgpu.ppfeaturemask=0xffffffff` kernel parameter for
   full AMD overclock control; without it, monitoring and fan curves still work.

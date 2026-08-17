@@ -5,7 +5,7 @@
   "version": "1.0.0",
   "destination": "ryoku/bundles/gaming",
   "name": "Gaming",
-  "description": "The native Linux gaming stack: launchers, the Wine and Proton compatibility layer, DirectX-to-Vulkan translation, performance overlays, controller support, a Wayland-friendly Discord, and a full lineup of console emulators. Ryoku's hardware layer installs the matching 32-bit GPU drivers, so games run at full hardware capacity.",
+  "description": "The native Linux gaming stack: launchers, the Wine and Proton compatibility layer, DirectX-to-Vulkan translation, performance overlays, controller support, a Wayland-friendly Discord, and console emulators for every system with a proven package. Ryoku's hardware layer installs the matching 32-bit GPU drivers, so games run at full hardware capacity.",
   "icon": "sports_esports",
   "accent": "#3fb950",
   "preview": "assets/hero.png",
@@ -167,14 +167,6 @@
     },
     {
       "type": "package",
-      "name": "lib32-vkbasalt",
-      "tier": "core",
-      "source": "aur",
-      "summary": "32-bit vkBasalt post-processing for 32-bit games.",
-      "upstream": "https://github.com/DadSchoorse/vkBasalt"
-    },
-    {
-      "type": "package",
       "name": "game-devices-udev",
       "tier": "core",
       "source": "aur",
@@ -302,33 +294,6 @@
     },
     {
       "type": "package",
-      "name": "flycast",
-      "detect": "flycast",
-      "tier": "optional",
-      "source": "aur",
-      "summary": "Sega Dreamcast, Naomi, and Atomiswave emulator.",
-      "upstream": "https://github.com/flyinghead/flycast"
-    },
-    {
-      "type": "package",
-      "name": "cemu",
-      "detect": "cemu",
-      "tier": "optional",
-      "source": "aur",
-      "summary": "Wii U emulator.",
-      "upstream": "https://cemu.info"
-    },
-    {
-      "type": "package",
-      "name": "xemu",
-      "detect": "xemu",
-      "tier": "optional",
-      "source": "aur",
-      "summary": "Original Xbox emulator.",
-      "upstream": "https://xemu.app"
-    },
-    {
-      "type": "package",
       "name": "mame",
       "detect": "mame",
       "tier": "optional",
@@ -387,8 +352,8 @@
       "source": "README.md",
       "destination": "README.md",
       "mode": "0644",
-      "size": 4910,
-      "sha256": "f911e19bd46fb484d300762513baf6d906643918b762d82952e57aefb16898f2",
+      "size": 4961,
+      "sha256": "304bca9bc7b912f977daf58f896e98f529ff6c5faaeee2be0d66eeb6d35c6fcf",
       "install": true
     },
     {
