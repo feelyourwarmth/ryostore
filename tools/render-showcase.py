@@ -248,6 +248,148 @@ def lockscreen_scene(accent, surface, seed):
 
 
 
+# ── Colour schemes ─────────────────────────────────────────────────────────
+# Colour schemes are not manifest products: each is colorschemes/<Name>/<Name>.json
+# ({dark?,light?} of Material roles) plus an optional preview. When a scheme ships
+# no real art we bake a Ryoku-style card -- the desktop's own colour-scheme tile
+# (ThemeCell) rendered as a cover: a paper-and-ink canvas, the bar wearing the
+# palette across its islands, a floating window in surface+ink (app content
+# carries no accent), and the five role pills [onSurface, primary, secondary,
+# tertiary, error] as the hero. A real preview always wins; this only fills gaps.
+CS_DW = 1280
+CS_OW, CS_OH = 1600, 900
+CS_K = CS_OW / CS_DW
+RAW_BASE = "https://raw.githubusercontent.com/neur0map/ryostore/main"
+
+
+def _cu(value) -> int:
+    return int(round(value * CS_K))
+
+
+def _luma(c) -> float:
+    return (0.2126 * c[0] + 0.7152 * c[1] + 0.0722 * c[2]) / 255
+
+
+def _crr(draw, box, rad, fill=None, outline=None, width=1):
+    draw.rounded_rectangle([_cu(box[0]), _cu(box[1]), _cu(box[2]), _cu(box[3])],
+                           radius=_cu(rad), fill=fill, outline=outline, width=max(1, _cu(width)))
+
+
+def _cel(draw, box, **kw):
+    draw.ellipse([_cu(box[0]), _cu(box[1]), _cu(box[2]), _cu(box[3])], **kw)
+
+
+def _cs_masks():
+    """Glow, vignette, and float-shadow masks -- geometry is fixed across every
+    card, so blur them once and reuse (keeps a whole-catalogue render fast)."""
+    m = Image.new("L", (CS_OW, CS_OH), 0)
+    gr = int(CS_OW * 0.42)
+    ImageDraw.Draw(m).ellipse([int(CS_OW * 0.78) - gr, int(CS_OH * 0.12) - gr,
+                               int(CS_OW * 0.78) + gr, int(CS_OH * 0.12) + gr], fill=255)
+    glow = np.asarray(m.filter(ImageFilter.GaussianBlur(_cu(130))), np.float32) / 255
+    ys, xs = np.mgrid[0:CS_OH, 0:CS_OW]
+    dist = np.sqrt(((xs - CS_OW / 2) / (CS_OW / 2)) ** 2 + ((ys - CS_OH / 2) / (CS_OH / 2)) ** 2)
+    vig = np.clip(1 - (dist - 0.72) * 0.55, 0.5, 1.0)[:, :, None]
+    wx, wy, ww, wh = 150, 300, 470, 300
+    px, pw, ph, py = (CS_DW - 520) / 2 + 120, 520, 300, 250
+    sh = Image.new("L", (CS_OW, CS_OH), 0)
+    sd = ImageDraw.Draw(sh)
+    sd.rounded_rectangle([_cu(wx + 10), _cu(wy + 16), _cu(wx + ww + 10), _cu(wy + wh + 16)], radius=_cu(18), fill=95)
+    sd.rounded_rectangle([_cu(px + 8), _cu(py + 16), _cu(px + pw + 8), _cu(py + ph + 16)], radius=_cu(26), fill=120)
+    shadow = np.asarray(sh.filter(ImageFilter.GaussianBlur(_cu(9))), np.float32) / 255
+    return glow, vig, shadow
+
+
+_CS_GLOW, _CS_VIG, _CS_SHADOW = _cs_masks()
+
+
+def colorscheme_card(sw, seed):
+    """sw = [surface, onSurface, primary, secondary, tertiary, error, outline]."""
+    surface, on_s, prim, sec, ter, err, outl = [hex_rgb(c) for c in sw]
+    dark = _luma(surface) < 0.5
+    top = mix(surface, prim, 0.12 if dark else 0.05)
+    bot = darker(surface, 1.6) if dark else mix(surface, (0, 0, 0), 0.07)
+    ramp = np.linspace(0, 1, CS_OH)[:, None]
+    wall = np.empty((CS_OH, CS_OW, 3), np.float32)
+    for i in range(3):
+        wall[:, :, i] = top[i] * (1 - ramp) + bot[i] * ramp
+    glowc = np.array(mix(prim, (255, 255, 255), 0.4), np.float32)
+    wall += (_CS_GLOW * (0.32 if dark else 0.16))[:, :, None] * glowc
+    wall *= (1 - _CS_SHADOW * 0.5)[:, :, None]
+    img = Image.fromarray(np.clip(wall, 0, 255).astype(np.uint8), "RGB")
+    ov = Image.new("RGBA", (CS_OW, CS_OH), (0, 0, 0, 0))
+    d = ImageDraw.Draw(ov)
+    lift = mix(surface, on_s, 0.10)
+    ink = on_s
+    wx, wy, ww, wh = 150, 300, 470, 300
+    px, pw, ph, py = (CS_DW - 520) / 2 + 120, 520, 300, 250
+    by, bh = 40, 58
+    # the bar wears the whole palette across its islands
+    _crr(d, [70, by, CS_DW - 70, by + bh], 20, fill=lift + (235,), outline=outl + (150,), width=1)
+    _crr(d, [88, by + 14, 168, by + bh - 14], 13, fill=prim + (235,))
+    for i, cx in enumerate((CS_DW / 2 - 150, CS_DW / 2 - 96, CS_DW / 2 - 42)):
+        col = prim if i == 1 else ink
+        _cel(d, [cx, by + bh / 2 - 6, cx + 12, by + bh / 2 + 6], fill=col + (230 if i == 1 else 120,))
+    _crr(d, [CS_DW / 2 + 30, by + 16, CS_DW / 2 + 220, by + bh - 16], 12, fill=ink + (38,))
+    _crr(d, [CS_DW / 2 + 44, by + bh / 2 - 4, CS_DW / 2 + 150, by + bh / 2 + 4], 5, fill=sec + (210,))
+    for i, c in enumerate((ter, sec, err)):
+        cx = CS_DW - 250 + i * 54
+        _cel(d, [cx, by + bh / 2 - 7, cx + 14, by + bh / 2 + 7], fill=c + (220,))
+    # paper-and-ink context window: surface + ink, no accent
+    _crr(d, [wx, wy, wx + ww, wy + wh], 18, fill=surface + (255,), outline=outl + (160,), width=1)
+    _crr(d, [wx, wy, wx + ww, wy + 42], 18, fill=lift + (255,))
+    d.rectangle([_cu(wx), _cu(wy + 30), _cu(wx + ww), _cu(wy + 42)], fill=lift + (255,))
+    for i, cx in enumerate((wx + 24, wx + 46, wx + 68)):
+        _cel(d, [cx - 6, wy + 15, cx + 6, wy + 27], fill=(prim if i == 0 else ink) + (200 if i == 0 else 90,))
+    for i in range(4):
+        yl = wy + 70 + i * 40
+        ln = ww - 70 if i % 2 else ww - 150
+        _crr(d, [wx + 28, yl, wx + 28 + ln, yl + 13], 6, fill=ink + (60 if i else 120,))
+    # hero: the ThemeCell plate with the five role pills
+    _crr(d, [px, py, px + pw, py + ph], 26, fill=surface + (255,), outline=outl + (220,), width=2)
+    pills = [on_s, prim, sec, ter, err]
+    pad, gap = 46, 14
+    pill_w = (pw - 2 * pad - gap * 4) / 5
+    py0, ph0 = py + 70, ph - 110
+    for i, c in enumerate(pills):
+        x0 = px + pad + i * (pill_w + gap)
+        _crr(d, [x0, py0, x0 + pill_w, py0 + ph0], pill_w / 2, fill=c + (255,))
+    _cel(d, [px + pw - 34, py + 20, px + pw - 20, py + 34], fill=ink + (230,))
+    out = np.asarray(Image.alpha_composite(img.convert("RGBA"), ov).convert("RGB"), np.float32)
+    out += np.random.default_rng(seed).normal(0, 1, (CS_OH, CS_OW)).astype(np.float32)[:, :, None] * 2.0
+    return Image.fromarray(np.clip(out * _CS_VIG, 0, 255).astype(np.uint8), "RGB")
+
+
+def _cs_swatches(block: dict) -> list[str]:
+    g = block.get
+    return [g("mSurface", "#101010"), g("mOnSurface", "#cdc4ba"), g("mPrimary", "#cdc4ba"),
+            g("mSecondary", g("mPrimary", "#888888")), g("mTertiary", g("mPrimary", "#888888")),
+            g("mError", "#cc4444"), g("mOutline", g("mOnSurface", "#888888"))]
+
+
+def regenerate_colorschemes(root: Path) -> list[str]:
+    """Bake a preview.jpg card for every scheme that ships no real art, and point
+    its registry `preview` at the raw URL. A scheme that already has a preview is
+    left untouched."""
+    from urllib.parse import quote
+    registry_path = root / "colorschemes" / "registry.json"
+    registry = json.loads(registry_path.read_text(encoding="utf-8"))
+    changed: list[str] = []
+    for entry in registry.get("themes", []):
+        if entry.get("preview"):
+            continue
+        block = entry.get("dark") or entry.get("light")
+        if not block:
+            continue
+        folder = root / entry["path"]
+        folder.mkdir(parents=True, exist_ok=True)
+        colorscheme_card(_cs_swatches(block), seed_for(entry["id"])).save(folder / "preview.jpg", quality=85)
+        entry["preview"] = f"{RAW_BASE}/{quote(entry['path'], safe='/')}/preview.jpg"
+        changed.append(entry["id"])
+    registry_path.write_bytes(dump_json(registry))
+    return changed
+
+
 MOTIFS = {"rices": rice_desktop, "bundles": bundle_tiles, "barstyles": bar_style,
           "lockscreens": lockscreen_scene}
 DEFAULT_ACCENT = "#cdc4ba"
@@ -313,11 +455,11 @@ def main(argv: list[str] | None = None) -> int:
     root = Path(args.root).resolve()
     selected = [c.strip() for c in args.categories.split(",") if c.strip()]
     for category in selected:
-        if category not in MOTIFS:
+        if category not in MOTIFS and category != "colorschemes":
             raise SystemExit(f"no showcase motif for category {category!r}")
     total: list[str] = []
     for category in selected:
-        rendered = regenerate(root, category)
+        rendered = regenerate_colorschemes(root) if category == "colorschemes" else regenerate(root, category)
         total.extend(rendered)
         print(f"{category}: rendered {len(rendered)} cover(s)")
     print(f"showcase: {len(total)} product cover(s) refreshed")

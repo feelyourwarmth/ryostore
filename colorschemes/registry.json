@@ -43,7 +43,8 @@
         "mShadow": "#000000",
         "mHover": "#3584e4",
         "mOnHover": "#ffffff"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/ADW/preview.jpg"
     },
     {
       "id": "ayu-blue",
@@ -87,7 +88,8 @@
         "mShadow": "#F8F9FA",
         "mHover": "#55B4D4",
         "mOnHover": "#F8F9FA"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Ayu%20Blue/preview.jpg"
     },
     {
       "id": "ayu-green",
@@ -131,7 +133,8 @@
         "mShadow": "#F8F9FA",
         "mHover": "#86B300",
         "mOnHover": "#F8F9FA"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Ayu%20Green/preview.jpg"
     },
     {
       "id": "ayu-red",
@@ -175,7 +178,8 @@
         "mShadow": "#F8F9FA",
         "mHover": "#E65050",
         "mOnHover": "#F8F9FA"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Ayu%20Red/preview.jpg"
     },
     {
       "id": "breeze",
@@ -219,7 +223,8 @@
         "mShadow": "#e3e5e7",
         "mHover": "#3daee9",
         "mOnHover": "#ffffff"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Breeze/preview.jpg"
     },
     {
       "id": "catppuccin-lavender",
@@ -263,7 +268,8 @@
         "mShadow": "#dce0e8",
         "mHover": "#d20f39",
         "mOnHover": "#eff1f5"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Catppuccin%20Lavender/preview.jpg"
     },
     {
       "id": "cherry-blossom",
@@ -307,7 +313,8 @@
         "mShadow": "#FCEFF5",
         "mHover": "#FFD970",
         "mOnHover": "#2A1B21"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Cherry%20Blossom/preview.jpg"
     },
     {
       "id": "cream",
@@ -351,7 +358,8 @@
         "mShadow": "#bdae93",
         "mHover": "#626b1e",
         "mOnHover": "#fbf1c7"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Cream/preview.jpg"
     },
     {
       "id": "cream-autumn",
@@ -395,7 +403,8 @@
         "mShadow": "#bdae93",
         "mHover": "#b47109",
         "mOnHover": "#fbf1c7"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Cream%20Autumn/preview.jpg"
     },
     {
       "id": "cream-autumn-old",
@@ -439,7 +448,8 @@
         "mShadow": "#c8a870",
         "mHover": "#b47109",
         "mOnHover": "#fbf1c7"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Cream%20Autumn%20Old/preview.jpg"
     },
     {
       "id": "cyberpunk",
@@ -483,7 +493,8 @@
         "mShadow": "#B8D4E6",
         "mHover": "#45D395",
         "mOnHover": "#1A1914"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Cyberpunk/preview.jpg"
     },
     {
       "id": "doomed",
@@ -527,7 +538,8 @@
         "mShadow": "#f0f0f0",
         "mHover": "#51afef",
         "mOnHover": "#f0f0f0"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Doomed/preview.jpg"
     },
     {
       "id": "espresso-cream",
@@ -571,7 +583,8 @@
         "mShadow": "#bfae9b",
         "mHover": "#8e5a44",
         "mOnHover": "#dfd3c3"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Espresso%20Cream/preview.jpg"
     },
     {
       "id": "everdeer",
@@ -615,7 +628,8 @@
         "mShadow": "#000000",
         "mHover": "#755b00",
         "mOnHover": "#ffffff"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Everdeer/preview.jpg"
     },
     {
       "id": "everforest",
@@ -659,7 +673,8 @@
         "mShadow": "#ECF5ED",
         "mHover": "#333c43",
         "mOnHover": "#9DA9A0"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Everforest/preview.jpg"
     },
     {
       "id": "flexoki",
@@ -703,7 +718,8 @@
         "mShadow": "#100f0f",
         "mHover": "#cecdc3",
         "mOnHover": "#100f0f"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Flexoki/preview.jpg"
     },
     {
       "id": "github-dark",
@@ -747,7 +763,8 @@
         "mShadow": "#ffffff",
         "mHover": "#eaeef2",
         "mOnHover": "#1f2328"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/GitHub%20Dark/preview.jpg"
     },
     {
       "id": "gruber-darker",
@@ -791,7 +808,8 @@
         "mShadow": "#f5f5f5",
         "mHover": "#d8d8e4",
         "mOnHover": "#181818"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Gruber%20Darker/preview.jpg"
     },
     {
       "id": "gruvboxalt",
@@ -835,7 +853,8 @@
         "mShadow": "#d5c4a1",
         "mHover": "#458588",
         "mOnHover": "#fbf1c7"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/GruvboxAlt/preview.jpg"
     },
     {
       "id": "hexa34c",
@@ -879,7 +898,8 @@
         "mShadow": "#000000",
         "mHover": "#39656d",
         "mOnHover": "#ffffff"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Hexa34C/preview.jpg"
     },
     {
       "id": "horizon",
@@ -923,7 +943,8 @@
         "mShadow": "#1A1C23",
         "mHover": "#F9CEC3",
         "mOnHover": "#16161C"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Horizon/preview.jpg"
     },
     {
       "id": "kanagawa-dragon",
@@ -967,7 +988,8 @@
         "mShadow": "#737c73",
         "mHover": "#c8c093",
         "mOnHover": "#181616"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Kanagawa%20Dragon/preview.jpg"
     },
     {
       "id": "kanagawa-paper",
@@ -1011,7 +1033,8 @@
         "mShadow": "#c8c5bd",
         "mHover": "#c9cdd7",
         "mOnHover": "#4f5357"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Kanagawa%20Paper/preview.jpg"
     },
     {
       "id": "kemuri",
@@ -1055,7 +1078,8 @@
         "mShadow": "#242120",
         "mHover": "#864A2D",
         "mOnHover": "#DDD7CA"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Kemuri/preview.jpg"
     },
     {
       "id": "kemuri-koke",
@@ -1099,7 +1123,8 @@
         "mShadow": "#242120",
         "mHover": "#4f5e49",
         "mOnHover": "#DDD7CA"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Kemuri%20Koke/preview.jpg"
     },
     {
       "id": "lilac-amoled",
@@ -1143,7 +1168,8 @@
         "mShadow": "#e2d8f5",
         "mHover": "#c79aff",
         "mOnHover": "#ffffff"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Lilac%20AMOLED/preview.jpg"
     },
     {
       "id": "matecito",
@@ -1187,7 +1213,8 @@
         "mShadow": "#bfae9b",
         "mHover": "#4a5944",
         "mOnHover": "#e3dccf"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Matecito/preview.jpg"
     },
     {
       "id": "miasma",
@@ -1231,7 +1258,8 @@
         "mShadow": "#d7d7d0",
         "mHover": "#bb7744",
         "mOnHover": "#fafaf5"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Miasma/preview.jpg"
     },
     {
       "id": "mine",
@@ -1275,7 +1303,8 @@
         "mShadow": "#00000020",
         "mHover": "#e6e4e8",
         "mOnHover": "#1d1b1d"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Mine/preview.jpg"
     },
     {
       "id": "monochrome",
@@ -1319,7 +1348,8 @@
         "mShadow": "#fafafa",
         "mHover": "#333333",
         "mOnHover": "#eeeeee"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Monochrome/preview.jpg"
     },
     {
       "id": "murasaki",
@@ -1363,7 +1393,8 @@
         "mShadow": "#f7e7fe",
         "mHover": "#d990f9",
         "mOnHover": "#300443"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Murasaki/preview.jpg"
     },
     {
       "id": "murata",
@@ -1407,7 +1438,8 @@
         "mShadow": "#cdc5bd",
         "mHover": "#c96666",
         "mOnHover": "#fdf8f2"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Murata/preview.jpg"
     },
     {
       "id": "naysayer",
@@ -1451,7 +1483,8 @@
         "mShadow": "#e0e0e0",
         "mHover": "#e8f4f5",
         "mOnHover": "#062329"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/NaySayer/preview.jpg"
     },
     {
       "id": "neon-surf",
@@ -1495,7 +1528,8 @@
         "mShadow": "#C0DAE8",
         "mHover": "#0284c7",
         "mOnHover": "#FFFFFF"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Neon%20Surf/preview.jpg"
     },
     {
       "id": "noctalia-legacy",
@@ -1539,7 +1573,8 @@
         "mShadow": "#ffffff",
         "mHover": "#c17093",
         "mOnHover": "#ffffff"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Noctalia%20legacy/preview.jpg"
     },
     {
       "id": "oasis-abyss",
@@ -1583,7 +1618,8 @@
         "mShadow": "#eee8e2",
         "mHover": "#696223",
         "mOnHover": "#e8e0d8"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Oasis%20Abyss/preview.jpg"
     },
     {
       "id": "occult-umbral",
@@ -1627,7 +1663,8 @@
         "mShadow": "#000000",
         "mHover": "#8B2E2E",
         "mOnHover": "#FFF8F2"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Occult%20Umbral/preview.jpg"
     },
     {
       "id": "one",
@@ -1671,7 +1708,8 @@
         "mShadow": "#d0d0d0",
         "mHover": "#36b6a2",
         "mOnHover": "#e8e8e8"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/One/preview.jpg"
     },
     {
       "id": "one-dark-two",
@@ -1715,7 +1753,8 @@
         "mShadow": "#E6E6E6",
         "mHover": "#7C9D68",
         "mOnHover": "#E6E6E6"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/One%20Dark%20Two/preview.jpg"
     },
     {
       "id": "osaka-jade",
@@ -1759,7 +1798,8 @@
         "mShadow": "#8A9E90",
         "mHover": "#4A8069",
         "mOnHover": "#D8E5DB"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Osaka%20jade/preview.jpg"
     },
     {
       "id": "oxide",
@@ -1803,7 +1843,8 @@
         "mShadow": "#FFFFFF",
         "mHover": "#DCCFBD",
         "mOnHover": "#3A2E25"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Oxide/preview.jpg"
     },
     {
       "id": "oxocarbon",
@@ -1847,7 +1888,8 @@
         "mShadow": "#ffffff",
         "mHover": "#0f62fe",
         "mOnHover": "#f2f4f8"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Oxocarbon/preview.jpg"
     },
     {
       "id": "peche",
@@ -1891,7 +1933,8 @@
         "mShadow": "#B8C5D0",
         "mHover": "#D68F6E",
         "mOnHover": "#E5EDF0"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Peche/preview.jpg"
     },
     {
       "id": "rose-pine-moon",
@@ -1935,7 +1978,8 @@
         "mShadow": "#faf4ed",
         "mHover": "#cecacd",
         "mOnHover": "#575279"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Rose%20Pine%20Moon/preview.jpg"
     },
     {
       "id": "rosey-amoled",
@@ -1979,7 +2023,8 @@
         "mShadow": "#f0d0e0",
         "mHover": "#ffb3cc",
         "mOnHover": "#ffffff"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Rosey%20AMOLED/preview.jpg"
     },
     {
       "id": "shien",
@@ -2023,7 +2068,8 @@
         "mShadow": "#15131B",
         "mHover": "#5D507C",
         "mOnHover": "#EFEEF1"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Shien/preview.jpg"
     },
     {
       "id": "shinonome",
@@ -2067,7 +2113,8 @@
         "mShadow": "#3D3732",
         "mHover": "#8C4351",
         "mOnHover": "#EBCFB2"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Shinonome/preview.jpg"
     },
     {
       "id": "solarized",
@@ -2111,7 +2158,8 @@
         "mShadow": "#eee8d5",
         "mHover": "#cb4b16",
         "mOnHover": "#fdf6e3"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Solarized/preview.jpg"
     },
     {
       "id": "sway-classic",
@@ -2155,7 +2203,8 @@
         "mShadow": "#BBBBBB",
         "mHover": "#E8E8E8",
         "mOnHover": "#222222"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Sway%20Classic/preview.jpg"
     },
     {
       "id": "tokyo-night-moon",
@@ -2199,7 +2248,8 @@
         "mShadow": "#a4a8b7",
         "mHover": "#4c663b",
         "mOnHover": "#f0f2f7"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Tokyo%20Night%20Moon/preview.jpg"
     },
     {
       "id": "vesper",
@@ -2243,7 +2293,8 @@
         "mShadow": "#D9D9D9",
         "mHover": "#E0E0E0",
         "mOnHover": "#0C0C0C"
-      }
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Vesper/preview.jpg"
     },
     {
       "id": "hancore-aamis",
@@ -3729,6 +3780,1059 @@
           "selectionBg": "#9a9078"
         }
       }
+    },
+    {
+      "id": "bauhaus",
+      "name": "Bauhaus",
+      "provider": "Ryoku",
+      "path": "colorschemes/Bauhaus",
+      "accent": "#E37B66",
+      "surface": "#101318",
+      "dark": {
+        "mPrimary": "#E37B66",
+        "mOnPrimary": "#101318",
+        "mSecondary": "#E0A568",
+        "mOnSecondary": "#101318",
+        "mTertiary": "#809D9E",
+        "mOnTertiary": "#101318",
+        "mError": "#CB886D",
+        "mOnError": "#101318",
+        "mSurface": "#101318",
+        "mOnSurface": "#EAEFF5",
+        "mSurfaceVariant": "#161B22",
+        "mOnSurfaceVariant": "#C6CED8",
+        "mOutline": "#98A0AE",
+        "mShadow": "#101318",
+        "mHover": "#E37B66",
+        "mOnHover": "#101318"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Bauhaus/preview.jpg"
+    },
+    {
+      "id": "black-turq",
+      "name": "Black Turq",
+      "provider": "Ryoku",
+      "path": "colorschemes/Black Turq",
+      "accent": "#ADF0E9",
+      "surface": "#0a0a0a",
+      "dark": {
+        "mPrimary": "#ADF0E9",
+        "mOnPrimary": "#0a0a0a",
+        "mSecondary": "#8FECD5",
+        "mOnSecondary": "#0a0a0a",
+        "mTertiary": "#A9D1D7",
+        "mOnTertiary": "#0a0a0a",
+        "mError": "#D35F5F",
+        "mOnError": "#0a0a0a",
+        "mSurface": "#0a0a0a",
+        "mOnSurface": "#c8dcdc",
+        "mSurfaceVariant": "#141416",
+        "mOnSurfaceVariant": "#A9D1D7",
+        "mOutline": "#485362",
+        "mShadow": "#0a0a0a",
+        "mHover": "#ADF0E9",
+        "mOnHover": "#0a0a0a"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Black%20Turq/preview.jpg"
+    },
+    {
+      "id": "blood-rust",
+      "name": "Blood Rust",
+      "provider": "Ryoku",
+      "path": "colorschemes/Blood Rust",
+      "accent": "#7C545F",
+      "surface": "#1F2932",
+      "dark": {
+        "mPrimary": "#7C545F",
+        "mOnPrimary": "#AFB3BD",
+        "mSecondary": "#54737C",
+        "mOnSecondary": "#AFB3BD",
+        "mTertiary": "#547C71",
+        "mOnTertiary": "#AFB3BD",
+        "mError": "#7C545F",
+        "mOnError": "#AFB3BD",
+        "mSurface": "#1F2932",
+        "mOnSurface": "#AFB3BD",
+        "mSurfaceVariant": "#222E38",
+        "mOnSurfaceVariant": "#AFB3BD",
+        "mOutline": "#2F3E4C",
+        "mShadow": "#1F2932",
+        "mHover": "#7C545F",
+        "mOnHover": "#AFB3BD"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Blood%20Rust/preview.jpg"
+    },
+    {
+      "id": "boo",
+      "name": "Boo",
+      "provider": "Ryoku",
+      "path": "colorschemes/Boo",
+      "accent": "#9c75dd",
+      "surface": "#111113",
+      "dark": {
+        "mPrimary": "#9c75dd",
+        "mOnPrimary": "#111113",
+        "mSecondary": "#63b0b0",
+        "mOnSecondary": "#111113",
+        "mTertiary": "#5786bc",
+        "mOnTertiary": "#111113",
+        "mError": "#cd749c",
+        "mOnError": "#111113",
+        "mSurface": "#111113",
+        "mOnSurface": "#e4dcec",
+        "mSurfaceVariant": "#1a1a1f",
+        "mOnSurfaceVariant": "#849da2",
+        "mOutline": "#5d6f74",
+        "mShadow": "#111113",
+        "mHover": "#9c75dd",
+        "mOnHover": "#111113"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Boo/preview.jpg"
+    },
+    {
+      "id": "catppuccin-frappe",
+      "name": "Catppuccin Frappe",
+      "provider": "Ryoku",
+      "path": "colorschemes/Catppuccin Frappe",
+      "accent": "#babbf1",
+      "surface": "#303446",
+      "dark": {
+        "mPrimary": "#babbf1",
+        "mOnPrimary": "#414559",
+        "mSecondary": "#eebebe",
+        "mOnSecondary": "#414559",
+        "mTertiary": "#81c8be",
+        "mOnTertiary": "#414559",
+        "mError": "#e78284",
+        "mOnError": "#414559",
+        "mSurface": "#303446",
+        "mOnSurface": "#c6d0f5",
+        "mSurfaceVariant": "#414559",
+        "mOnSurfaceVariant": "#b5bfe2",
+        "mOutline": "#a5adce",
+        "mShadow": "#232634",
+        "mHover": "#babbf1",
+        "mOnHover": "#414559"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Catppuccin%20Frappe/preview.jpg"
+    },
+    {
+      "id": "catppuccin-latte",
+      "name": "Catppuccin Latte",
+      "provider": "Ryoku",
+      "path": "colorschemes/Catppuccin Latte",
+      "accent": "#7287fd",
+      "surface": "#eff1f5",
+      "light": {
+        "mPrimary": "#7287fd",
+        "mOnPrimary": "#ccd0da",
+        "mSecondary": "#dd7878",
+        "mOnSecondary": "#ccd0da",
+        "mTertiary": "#179299",
+        "mOnTertiary": "#ccd0da",
+        "mError": "#d20f39",
+        "mOnError": "#ccd0da",
+        "mSurface": "#eff1f5",
+        "mOnSurface": "#4c4f69",
+        "mSurfaceVariant": "#ccd0da",
+        "mOnSurfaceVariant": "#5c5f77",
+        "mOutline": "#6c6f85",
+        "mShadow": "#dce0e8",
+        "mHover": "#7287fd",
+        "mOnHover": "#ccd0da"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Catppuccin%20Latte/preview.jpg"
+    },
+    {
+      "id": "catppuccin-macchiato",
+      "name": "Catppuccin Macchiato",
+      "provider": "Ryoku",
+      "path": "colorschemes/Catppuccin Macchiato",
+      "accent": "#b7bdf8",
+      "surface": "#24273a",
+      "dark": {
+        "mPrimary": "#b7bdf8",
+        "mOnPrimary": "#363a4f",
+        "mSecondary": "#f0c6c6",
+        "mOnSecondary": "#363a4f",
+        "mTertiary": "#8bd5ca",
+        "mOnTertiary": "#363a4f",
+        "mError": "#ed8796",
+        "mOnError": "#363a4f",
+        "mSurface": "#24273a",
+        "mOnSurface": "#cad3f5",
+        "mSurfaceVariant": "#363a4f",
+        "mOnSurfaceVariant": "#b8c0e0",
+        "mOutline": "#a5adcb",
+        "mShadow": "#181926",
+        "mHover": "#b7bdf8",
+        "mOnHover": "#363a4f"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Catppuccin%20Macchiato/preview.jpg"
+    },
+    {
+      "id": "crimson-moonlight",
+      "name": "Crimson Moonlight",
+      "provider": "Ryoku",
+      "path": "colorschemes/Crimson Moonlight",
+      "accent": "#e15774",
+      "surface": "#0f0e0e",
+      "dark": {
+        "mPrimary": "#e15774",
+        "mOnPrimary": "#0f0e0e",
+        "mSecondary": "#fca2ae",
+        "mOnSecondary": "#0f0e0e",
+        "mTertiary": "#714e75",
+        "mOnTertiary": "#0f0e0e",
+        "mError": "#dd5571",
+        "mOnError": "#0f0e0e",
+        "mSurface": "#0f0e0e",
+        "mOnSurface": "#f9f2f3",
+        "mSurfaceVariant": "#1a1414",
+        "mOnSurfaceVariant": "#ab9295",
+        "mOutline": "#796769",
+        "mShadow": "#0f0e0e",
+        "mHover": "#e15774",
+        "mOnHover": "#0f0e0e"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Crimson%20Moonlight/preview.jpg"
+    },
+    {
+      "id": "desert-power",
+      "name": "Desert Power",
+      "provider": "Ryoku",
+      "path": "colorschemes/Desert Power",
+      "accent": "#55504D",
+      "surface": "#11100F",
+      "dark": {
+        "mPrimary": "#55504D",
+        "mOnPrimary": "#A1A09F",
+        "mSecondary": "#8EBABB",
+        "mOnSecondary": "#11100F",
+        "mTertiary": "#AF8F6B",
+        "mOnTertiary": "#11100F",
+        "mError": "#B5745A",
+        "mOnError": "#11100F",
+        "mSurface": "#11100F",
+        "mOnSurface": "#A1A09F",
+        "mSurfaceVariant": "#161413",
+        "mOnSurfaceVariant": "#A1A09F",
+        "mOutline": "#33302D",
+        "mShadow": "#11100F",
+        "mHover": "#55504D",
+        "mOnHover": "#A1A09F"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Desert%20Power/preview.jpg"
+    },
+    {
+      "id": "eldritch",
+      "name": "Eldritch",
+      "provider": "Ryoku",
+      "path": "colorschemes/Eldritch",
+      "accent": "#37f499",
+      "surface": "#212337",
+      "dark": {
+        "mPrimary": "#37f499",
+        "mOnPrimary": "#212337",
+        "mSecondary": "#04d1f9",
+        "mOnSecondary": "#212337",
+        "mTertiary": "#a48cf2",
+        "mOnTertiary": "#212337",
+        "mError": "#f16c75",
+        "mOnError": "#212337",
+        "mSurface": "#212337",
+        "mOnSurface": "#ebfafa",
+        "mSurfaceVariant": "#2a2c40",
+        "mOnSurfaceVariant": "#7081d0",
+        "mOutline": "#7081d0",
+        "mShadow": "#212337",
+        "mHover": "#37f499",
+        "mOnHover": "#212337"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Eldritch/preview.jpg"
+    },
+    {
+      "id": "ethereal",
+      "name": "Ethereal",
+      "provider": "Ryoku",
+      "path": "colorschemes/Ethereal",
+      "accent": "#7d82d9",
+      "surface": "#060B1E",
+      "dark": {
+        "mPrimary": "#7d82d9",
+        "mOnPrimary": "#060B1E",
+        "mSecondary": "#ffcead",
+        "mOnSecondary": "#060B1E",
+        "mTertiary": "#c89dc1",
+        "mOnTertiary": "#060B1E",
+        "mError": "#ED5B5A",
+        "mOnError": "#060B1E",
+        "mSurface": "#060B1E",
+        "mOnSurface": "#ffcead",
+        "mSurfaceVariant": "#0e1530",
+        "mOnSurfaceVariant": "#a3bfd1",
+        "mOutline": "#6d7db6",
+        "mShadow": "#060B1E",
+        "mHover": "#7d82d9",
+        "mOnHover": "#060B1E"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Ethereal/preview.jpg"
+    },
+    {
+      "id": "everforest-dark-hard",
+      "name": "Everforest Dark Hard",
+      "provider": "Ryoku",
+      "path": "colorschemes/Everforest Dark Hard",
+      "accent": "#A7C080",
+      "surface": "#1E2326",
+      "dark": {
+        "mPrimary": "#A7C080",
+        "mOnPrimary": "#1E2326",
+        "mSecondary": "#7FBBB3",
+        "mOnSecondary": "#1E2326",
+        "mTertiary": "#83C092",
+        "mOnTertiary": "#1E2326",
+        "mError": "#E67E80",
+        "mOnError": "#1E2326",
+        "mSurface": "#1E2326",
+        "mOnSurface": "#D3C6AA",
+        "mSurfaceVariant": "#2E383C",
+        "mOnSurfaceVariant": "#9DA9A0",
+        "mOutline": "#7A8478",
+        "mShadow": "#1E2326",
+        "mHover": "#A7C080",
+        "mOnHover": "#1E2326"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Everforest%20Dark%20Hard/preview.jpg"
+    },
+    {
+      "id": "everforest-dark-soft",
+      "name": "Everforest Dark Soft",
+      "provider": "Ryoku",
+      "path": "colorschemes/Everforest Dark Soft",
+      "accent": "#A7C080",
+      "surface": "#293136",
+      "dark": {
+        "mPrimary": "#A7C080",
+        "mOnPrimary": "#293136",
+        "mSecondary": "#7FBBB3",
+        "mOnSecondary": "#293136",
+        "mTertiary": "#83C092",
+        "mOnTertiary": "#293136",
+        "mError": "#E67E80",
+        "mOnError": "#293136",
+        "mSurface": "#293136",
+        "mOnSurface": "#D3C6AA",
+        "mSurfaceVariant": "#3A464C",
+        "mOnSurfaceVariant": "#9DA9A0",
+        "mOutline": "#7A8478",
+        "mShadow": "#293136",
+        "mHover": "#A7C080",
+        "mOnHover": "#293136"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Everforest%20Dark%20Soft/preview.jpg"
+    },
+    {
+      "id": "everforest-light-hard",
+      "name": "Everforest Light Hard",
+      "provider": "Ryoku",
+      "path": "colorschemes/Everforest Light Hard",
+      "accent": "#8DA101",
+      "surface": "#FFFBEF",
+      "light": {
+        "mPrimary": "#8DA101",
+        "mOnPrimary": "#FFFBEF",
+        "mSecondary": "#3A94C5",
+        "mOnSecondary": "#FFFBEF",
+        "mTertiary": "#35A77C",
+        "mOnTertiary": "#FFFBEF",
+        "mError": "#F85552",
+        "mOnError": "#FFFBEF",
+        "mSurface": "#FFFBEF",
+        "mOnSurface": "#5C6A72",
+        "mSurfaceVariant": "#F2EFDF",
+        "mOnSurfaceVariant": "#829181",
+        "mOutline": "#A6B0A0",
+        "mShadow": "#5C6A72",
+        "mHover": "#8DA101",
+        "mOnHover": "#FFFBEF"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Everforest%20Light%20Hard/preview.jpg"
+    },
+    {
+      "id": "everforest-light-medium",
+      "name": "Everforest Light Medium",
+      "provider": "Ryoku",
+      "path": "colorschemes/Everforest Light Medium",
+      "accent": "#8DA101",
+      "surface": "#FDF6E3",
+      "light": {
+        "mPrimary": "#8DA101",
+        "mOnPrimary": "#FDF6E3",
+        "mSecondary": "#3A94C5",
+        "mOnSecondary": "#FDF6E3",
+        "mTertiary": "#35A77C",
+        "mOnTertiary": "#FDF6E3",
+        "mError": "#F85552",
+        "mOnError": "#FDF6E3",
+        "mSurface": "#FDF6E3",
+        "mOnSurface": "#5C6A72",
+        "mSurfaceVariant": "#EFEBD4",
+        "mOnSurfaceVariant": "#829181",
+        "mOutline": "#A6B0A0",
+        "mShadow": "#5C6A72",
+        "mHover": "#8DA101",
+        "mOnHover": "#FDF6E3"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Everforest%20Light%20Medium/preview.jpg"
+    },
+    {
+      "id": "everforest-light-soft",
+      "name": "Everforest Light Soft",
+      "provider": "Ryoku",
+      "path": "colorschemes/Everforest Light Soft",
+      "accent": "#8DA101",
+      "surface": "#F3EAD3",
+      "light": {
+        "mPrimary": "#8DA101",
+        "mOnPrimary": "#F3EAD3",
+        "mSecondary": "#3A94C5",
+        "mOnSecondary": "#F3EAD3",
+        "mTertiary": "#35A77C",
+        "mOnTertiary": "#F3EAD3",
+        "mError": "#F85552",
+        "mOnError": "#F3EAD3",
+        "mSurface": "#F3EAD3",
+        "mOnSurface": "#5C6A72",
+        "mSurfaceVariant": "#E5DFC5",
+        "mOnSurfaceVariant": "#829181",
+        "mOutline": "#A6B0A0",
+        "mShadow": "#5C6A72",
+        "mHover": "#8DA101",
+        "mOnHover": "#F3EAD3"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Everforest%20Light%20Soft/preview.jpg"
+    },
+    {
+      "id": "forest-stream",
+      "name": "Forest Stream",
+      "provider": "Ryoku",
+      "path": "colorschemes/Forest Stream",
+      "accent": "#41b193",
+      "surface": "#0b0c0b",
+      "dark": {
+        "mPrimary": "#41b193",
+        "mOnPrimary": "#0b0c0b",
+        "mSecondary": "#3788a2",
+        "mOnSecondary": "#0b0c0b",
+        "mTertiary": "#7a77cd",
+        "mOnTertiary": "#0b0c0b",
+        "mError": "#c7566f",
+        "mOnError": "#0b0c0b",
+        "mSurface": "#0b0c0b",
+        "mOnSurface": "#e3f5e7",
+        "mSurfaceVariant": "#101c14",
+        "mOnSurfaceVariant": "#609f83",
+        "mOutline": "#3c7153",
+        "mShadow": "#0b0c0b",
+        "mHover": "#41b193",
+        "mOnHover": "#0b0c0b"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Forest%20Stream/preview.jpg"
+    },
+    {
+      "id": "gruvbox-dark-hard",
+      "name": "Gruvbox Dark Hard",
+      "provider": "Ryoku",
+      "path": "colorschemes/Gruvbox Dark Hard",
+      "accent": "#83A598",
+      "surface": "#1D2021",
+      "dark": {
+        "mPrimary": "#83A598",
+        "mOnPrimary": "#1D2021",
+        "mSecondary": "#B8BB26",
+        "mOnSecondary": "#1D2021",
+        "mTertiary": "#8EC07C",
+        "mOnTertiary": "#1D2021",
+        "mError": "#FB4934",
+        "mOnError": "#1D2021",
+        "mSurface": "#1D2021",
+        "mOnSurface": "#EBDBB2",
+        "mSurfaceVariant": "#3C3836",
+        "mOnSurfaceVariant": "#D5C4A1",
+        "mOutline": "#928374",
+        "mShadow": "#1D2021",
+        "mHover": "#83A598",
+        "mOnHover": "#1D2021"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Gruvbox%20Dark%20Hard/preview.jpg"
+    },
+    {
+      "id": "gruvbox-dark-soft",
+      "name": "Gruvbox Dark Soft",
+      "provider": "Ryoku",
+      "path": "colorschemes/Gruvbox Dark Soft",
+      "accent": "#83A598",
+      "surface": "#32302F",
+      "dark": {
+        "mPrimary": "#83A598",
+        "mOnPrimary": "#32302F",
+        "mSecondary": "#B8BB26",
+        "mOnSecondary": "#32302F",
+        "mTertiary": "#8EC07C",
+        "mOnTertiary": "#32302F",
+        "mError": "#FB4934",
+        "mOnError": "#32302F",
+        "mSurface": "#32302F",
+        "mOnSurface": "#EBDBB2",
+        "mSurfaceVariant": "#3C3836",
+        "mOnSurfaceVariant": "#D5C4A1",
+        "mOutline": "#928374",
+        "mShadow": "#32302F",
+        "mHover": "#83A598",
+        "mOnHover": "#32302F"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Gruvbox%20Dark%20Soft/preview.jpg"
+    },
+    {
+      "id": "gruvbox-light-hard",
+      "name": "Gruvbox Light Hard",
+      "provider": "Ryoku",
+      "path": "colorschemes/Gruvbox Light Hard",
+      "accent": "#076678",
+      "surface": "#F9F5D7",
+      "light": {
+        "mPrimary": "#076678",
+        "mOnPrimary": "#F9F5D7",
+        "mSecondary": "#79740E",
+        "mOnSecondary": "#F9F5D7",
+        "mTertiary": "#427B58",
+        "mOnTertiary": "#F9F5D7",
+        "mError": "#9D0006",
+        "mOnError": "#F9F5D7",
+        "mSurface": "#F9F5D7",
+        "mOnSurface": "#3C3836",
+        "mSurfaceVariant": "#EBDBB2",
+        "mOnSurfaceVariant": "#504945",
+        "mOutline": "#928374",
+        "mShadow": "#3C3836",
+        "mHover": "#076678",
+        "mOnHover": "#F9F5D7"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Gruvbox%20Light%20Hard/preview.jpg"
+    },
+    {
+      "id": "gruvbox-light-medium",
+      "name": "Gruvbox Light Medium",
+      "provider": "Ryoku",
+      "path": "colorschemes/Gruvbox Light Medium",
+      "accent": "#076678",
+      "surface": "#FBF1C7",
+      "light": {
+        "mPrimary": "#076678",
+        "mOnPrimary": "#FBF1C7",
+        "mSecondary": "#79740E",
+        "mOnSecondary": "#FBF1C7",
+        "mTertiary": "#427B58",
+        "mOnTertiary": "#FBF1C7",
+        "mError": "#9D0006",
+        "mOnError": "#FBF1C7",
+        "mSurface": "#FBF1C7",
+        "mOnSurface": "#3C3836",
+        "mSurfaceVariant": "#EBDBB2",
+        "mOnSurfaceVariant": "#504945",
+        "mOutline": "#928374",
+        "mShadow": "#3C3836",
+        "mHover": "#076678",
+        "mOnHover": "#FBF1C7"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Gruvbox%20Light%20Medium/preview.jpg"
+    },
+    {
+      "id": "gruvbox-light-soft",
+      "name": "Gruvbox Light Soft",
+      "provider": "Ryoku",
+      "path": "colorschemes/Gruvbox Light Soft",
+      "accent": "#076678",
+      "surface": "#F2E5BC",
+      "light": {
+        "mPrimary": "#076678",
+        "mOnPrimary": "#F2E5BC",
+        "mSecondary": "#79740E",
+        "mOnSecondary": "#F2E5BC",
+        "mTertiary": "#427B58",
+        "mOnTertiary": "#F2E5BC",
+        "mError": "#9D0006",
+        "mOnError": "#F2E5BC",
+        "mSurface": "#F2E5BC",
+        "mOnSurface": "#3C3836",
+        "mSurfaceVariant": "#EBDBB2",
+        "mOnSurfaceVariant": "#504945",
+        "mOutline": "#928374",
+        "mShadow": "#3C3836",
+        "mHover": "#076678",
+        "mOnHover": "#F2E5BC"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Gruvbox%20Light%20Soft/preview.jpg"
+    },
+    {
+      "id": "hackerman",
+      "name": "Hackerman",
+      "provider": "Ryoku",
+      "path": "colorschemes/Hackerman",
+      "accent": "#4fe88f",
+      "surface": "#0B0C16",
+      "dark": {
+        "mPrimary": "#4fe88f",
+        "mOnPrimary": "#0B0C16",
+        "mSecondary": "#7cf8f7",
+        "mOnSecondary": "#0B0C16",
+        "mTertiary": "#829dd4",
+        "mOnTertiary": "#0B0C16",
+        "mError": "#50f872",
+        "mOnError": "#0B0C16",
+        "mSurface": "#0B0C16",
+        "mOnSurface": "#ddf7ff",
+        "mSurfaceVariant": "#13152a",
+        "mOnSurfaceVariant": "#85E1FB",
+        "mOutline": "#6a6e95",
+        "mShadow": "#0B0C16",
+        "mHover": "#4fe88f",
+        "mOnHover": "#0B0C16"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Hackerman/preview.jpg"
+    },
+    {
+      "id": "kanagawa-lotus",
+      "name": "Kanagawa Lotus",
+      "provider": "Ryoku",
+      "path": "colorschemes/Kanagawa Lotus",
+      "accent": "#4d699b",
+      "surface": "#f2ecbc",
+      "light": {
+        "mPrimary": "#4d699b",
+        "mOnPrimary": "#f2ecbc",
+        "mSecondary": "#624c83",
+        "mOnSecondary": "#f2ecbc",
+        "mTertiary": "#597b75",
+        "mOnTertiary": "#f2ecbc",
+        "mError": "#e82424",
+        "mOnError": "#f2ecbc",
+        "mSurface": "#f2ecbc",
+        "mOnSurface": "#545464",
+        "mSurfaceVariant": "#e5ddb0",
+        "mOnSurfaceVariant": "#43436c",
+        "mOutline": "#716e61",
+        "mShadow": "#545464",
+        "mHover": "#4d699b",
+        "mOnHover": "#f2ecbc"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Kanagawa%20Lotus/preview.jpg"
+    },
+    {
+      "id": "monokai-classic",
+      "name": "Monokai Classic",
+      "provider": "Ryoku",
+      "path": "colorschemes/Monokai Classic",
+      "accent": "#A9DC76",
+      "surface": "#221F22",
+      "dark": {
+        "mPrimary": "#A9DC76",
+        "mOnPrimary": "#221F22",
+        "mSecondary": "#FFD866",
+        "mOnSecondary": "#221F22",
+        "mTertiary": "#FF6188",
+        "mOnTertiary": "#221F22",
+        "mError": "#FF6188",
+        "mOnError": "#221F22",
+        "mSurface": "#221F22",
+        "mOnSurface": "#FCFCFA",
+        "mSurfaceVariant": "#2D2A2E",
+        "mOnSurfaceVariant": "#939293",
+        "mOutline": "#727072",
+        "mShadow": "#221F22",
+        "mHover": "#A9DC76",
+        "mOnHover": "#221F22"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Monokai%20Classic/preview.jpg"
+    },
+    {
+      "id": "nightfox",
+      "name": "Nightfox",
+      "provider": "Ryoku",
+      "path": "colorschemes/Nightfox",
+      "accent": "#719cd6",
+      "surface": "#192330",
+      "dark": {
+        "mPrimary": "#719cd6",
+        "mOnPrimary": "#131a24",
+        "mSecondary": "#9d79d6",
+        "mOnSecondary": "#131a24",
+        "mTertiary": "#63cdcf",
+        "mOnTertiary": "#131a24",
+        "mError": "#c94f6d",
+        "mOnError": "#131a24",
+        "mSurface": "#192330",
+        "mOnSurface": "#cdcecf",
+        "mSurfaceVariant": "#212e3f",
+        "mOnSurfaceVariant": "#aeafb0",
+        "mOutline": "#39506d",
+        "mShadow": "#131a24",
+        "mHover": "#719cd6",
+        "mOnHover": "#131a24"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Nightfox/preview.jpg"
+    },
+    {
+      "id": "nord-light",
+      "name": "Nord Light",
+      "provider": "Ryoku",
+      "path": "colorschemes/Nord Light",
+      "accent": "#5E81AC",
+      "surface": "#ECEFF4",
+      "light": {
+        "mPrimary": "#5E81AC",
+        "mOnPrimary": "#ECEFF4",
+        "mSecondary": "#81A1C1",
+        "mOnSecondary": "#ECEFF4",
+        "mTertiary": "#8FBCBB",
+        "mOnTertiary": "#ECEFF4",
+        "mError": "#BF616A",
+        "mOnError": "#ECEFF4",
+        "mSurface": "#ECEFF4",
+        "mOnSurface": "#2E3440",
+        "mSurfaceVariant": "#D8DEE9",
+        "mOnSurfaceVariant": "#4C566A",
+        "mOutline": "#D8DEE9",
+        "mShadow": "#2E3440",
+        "mHover": "#5E81AC",
+        "mOnHover": "#ECEFF4"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Nord%20Light/preview.jpg"
+    },
+    {
+      "id": "oceanic-next",
+      "name": "Oceanic Next",
+      "provider": "Ryoku",
+      "path": "colorschemes/Oceanic Next",
+      "accent": "#6699CC",
+      "surface": "#1B2B34",
+      "dark": {
+        "mPrimary": "#6699CC",
+        "mOnPrimary": "#D8DEE9",
+        "mSecondary": "#5FB3B3",
+        "mOnSecondary": "#D8DEE9",
+        "mTertiary": "#99C794",
+        "mOnTertiary": "#D8DEE9",
+        "mError": "#EC5F67",
+        "mOnError": "#D8DEE9",
+        "mSurface": "#1B2B34",
+        "mOnSurface": "#D8DEE9",
+        "mSurfaceVariant": "#343D46",
+        "mOnSurfaceVariant": "#D8DEE9",
+        "mOutline": "#4F5B66",
+        "mShadow": "#1B2B34",
+        "mHover": "#6699CC",
+        "mOnHover": "#D8DEE9"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Oceanic%20Next/preview.jpg"
+    },
+    {
+      "id": "poimandres",
+      "name": "Poimandres",
+      "provider": "Ryoku",
+      "path": "colorschemes/Poimandres",
+      "accent": "#ADD7FF",
+      "surface": "#1B1E28",
+      "dark": {
+        "mPrimary": "#ADD7FF",
+        "mOnPrimary": "#303340",
+        "mSecondary": "#5DE4C7",
+        "mOnSecondary": "#303340",
+        "mTertiary": "#FCC5E9",
+        "mOnTertiary": "#303340",
+        "mError": "#D0679D",
+        "mOnError": "#303340",
+        "mSurface": "#1B1E28",
+        "mOnSurface": "#E4F0FB",
+        "mSurfaceVariant": "#303340",
+        "mOnSurfaceVariant": "#A6ACCD",
+        "mOutline": "#767C9D",
+        "mShadow": "#171922",
+        "mHover": "#ADD7FF",
+        "mOnHover": "#303340"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Poimandres/preview.jpg"
+    },
+    {
+      "id": "radioactive",
+      "name": "Radioactive",
+      "provider": "Ryoku",
+      "path": "colorschemes/Radioactive",
+      "accent": "#bbbc57",
+      "surface": "#1a1a14",
+      "dark": {
+        "mPrimary": "#bbbc57",
+        "mOnPrimary": "#1a1a14",
+        "mSecondary": "#7b6c97",
+        "mOnSecondary": "#1a1a14",
+        "mTertiary": "#e3e3a8",
+        "mOnTertiary": "#1a1a14",
+        "mError": "#cd749c",
+        "mOnError": "#1a1a14",
+        "mSurface": "#1a1a14",
+        "mOnSurface": "#d9d9cf",
+        "mSurfaceVariant": "#22221a",
+        "mOnSurfaceVariant": "#a2a284",
+        "mOutline": "#74745d",
+        "mShadow": "#1a1a14",
+        "mHover": "#bbbc57",
+        "mOnHover": "#1a1a14"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Radioactive/preview.jpg"
+    },
+    {
+      "id": "retro-82",
+      "name": "Retro 82",
+      "provider": "Ryoku",
+      "path": "colorschemes/Retro 82",
+      "accent": "#faa968",
+      "surface": "#00172e",
+      "dark": {
+        "mPrimary": "#faa968",
+        "mOnPrimary": "#00172e",
+        "mSecondary": "#028391",
+        "mOnSecondary": "#00172e",
+        "mTertiary": "#f85525",
+        "mOnTertiary": "#00172e",
+        "mError": "#f85525",
+        "mOnError": "#00172e",
+        "mSurface": "#00172e",
+        "mOnSurface": "#f6dcac",
+        "mSurfaceVariant": "#0a2540",
+        "mOnSurfaceVariant": "#a7c9c6",
+        "mOutline": "#3f8f8a",
+        "mShadow": "#00172e",
+        "mHover": "#faa968",
+        "mOnHover": "#00172e"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Retro%2082/preview.jpg"
+    },
+    {
+      "id": "rose-pine-dawn",
+      "name": "Rose Pine Dawn",
+      "provider": "Ryoku",
+      "path": "colorschemes/Rose Pine Dawn",
+      "accent": "#907AA9",
+      "surface": "#FAF4ED",
+      "light": {
+        "mPrimary": "#907AA9",
+        "mOnPrimary": "#FAF4ED",
+        "mSecondary": "#56949F",
+        "mOnSecondary": "#FAF4ED",
+        "mTertiary": "#D7827E",
+        "mOnTertiary": "#FAF4ED",
+        "mError": "#B4637A",
+        "mOnError": "#FAF4ED",
+        "mSurface": "#FAF4ED",
+        "mOnSurface": "#575279",
+        "mSurfaceVariant": "#F2E9E1",
+        "mOnSurfaceVariant": "#797593",
+        "mOutline": "#9893A5",
+        "mShadow": "#575279",
+        "mHover": "#907AA9",
+        "mOnHover": "#FAF4ED"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Rose%20Pine%20Dawn/preview.jpg"
+    },
+    {
+      "id": "seoul",
+      "name": "Seoul",
+      "provider": "Ryoku",
+      "path": "colorschemes/Seoul",
+      "accent": "#9A7372",
+      "surface": "#333233",
+      "dark": {
+        "mPrimary": "#9A7372",
+        "mOnPrimary": "#DFDEBD",
+        "mSecondary": "#98BC99",
+        "mOnSecondary": "#DFDEBD",
+        "mTertiary": "#98BCBD",
+        "mOnTertiary": "#DFDEBD",
+        "mError": "#BE7572",
+        "mOnError": "#DFDEBD",
+        "mSurface": "#333233",
+        "mOnSurface": "#DFDEBD",
+        "mSurfaceVariant": "#3F3F3F",
+        "mOnSurfaceVariant": "#DFDEBD",
+        "mOutline": "#565656",
+        "mShadow": "#333233",
+        "mHover": "#9A7372",
+        "mOnHover": "#DFDEBD"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Seoul/preview.jpg"
+    },
+    {
+      "id": "solarized-light",
+      "name": "Solarized Light",
+      "provider": "Ryoku",
+      "path": "colorschemes/Solarized Light",
+      "accent": "#268bd2",
+      "surface": "#fdf6e3",
+      "light": {
+        "mPrimary": "#268bd2",
+        "mOnPrimary": "#fdf6e3",
+        "mSecondary": "#2aa198",
+        "mOnSecondary": "#fdf6e3",
+        "mTertiary": "#b58900",
+        "mOnTertiary": "#fdf6e3",
+        "mError": "#dc322f",
+        "mOnError": "#fdf6e3",
+        "mSurface": "#fdf6e3",
+        "mOnSurface": "#586e75",
+        "mSurfaceVariant": "#eee8d5",
+        "mOnSurfaceVariant": "#657b83",
+        "mOutline": "#657b83",
+        "mShadow": "#002b36",
+        "mHover": "#268bd2",
+        "mOnHover": "#fdf6e3"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Solarized%20Light/preview.jpg"
+    },
+    {
+      "id": "sunset-cloud",
+      "name": "Sunset Cloud",
+      "provider": "Ryoku",
+      "path": "colorschemes/Sunset Cloud",
+      "accent": "#bbc373",
+      "surface": "#0e0f06",
+      "dark": {
+        "mPrimary": "#bbc373",
+        "mOnPrimary": "#0e0f06",
+        "mSecondary": "#cd6d91",
+        "mOnSecondary": "#0e0f06",
+        "mTertiary": "#71d17c",
+        "mOnTertiary": "#0e0f06",
+        "mError": "#bc5050",
+        "mOnError": "#0e0f06",
+        "mSurface": "#0e0f06",
+        "mOnSurface": "#ffffcf",
+        "mSurfaceVariant": "#1a1c0d",
+        "mOnSurfaceVariant": "#809d7b",
+        "mOutline": "#5d6f74",
+        "mShadow": "#0e0f06",
+        "mHover": "#bbc373",
+        "mOnHover": "#0e0f06"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Sunset%20Cloud/preview.jpg"
+    },
+    {
+      "id": "synthwave-84",
+      "name": "Synthwave 84",
+      "provider": "Ryoku",
+      "path": "colorschemes/Synthwave 84",
+      "accent": "#FF536C",
+      "surface": "#18191F",
+      "dark": {
+        "mPrimary": "#FF536C",
+        "mOnPrimary": "#C4C4D6",
+        "mSecondary": "#7F9FFF",
+        "mOnSecondary": "#C4C4D6",
+        "mTertiary": "#C080FF",
+        "mOnTertiary": "#C4C4D6",
+        "mError": "#FF536C",
+        "mOnError": "#C4C4D6",
+        "mSurface": "#18191F",
+        "mOnSurface": "#C4C4D6",
+        "mSurfaceVariant": "#2A2B32",
+        "mOnSurfaceVariant": "#C4C4D6",
+        "mOutline": "#484953",
+        "mShadow": "#18191F",
+        "mHover": "#FF536C",
+        "mOnHover": "#C4C4D6"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Synthwave%2084/preview.jpg"
+    },
+    {
+      "id": "tokyo-night-light",
+      "name": "Tokyo Night Light",
+      "provider": "Ryoku",
+      "path": "colorschemes/Tokyo Night Light",
+      "accent": "#2959aa",
+      "surface": "#e6e7ed",
+      "light": {
+        "mPrimary": "#2959aa",
+        "mOnPrimary": "#e6e7ed",
+        "mSecondary": "#5a3e8e",
+        "mOnSecondary": "#e6e7ed",
+        "mTertiary": "#33635c",
+        "mOnTertiary": "#e6e7ed",
+        "mError": "#8c4351",
+        "mOnError": "#e6e7ed",
+        "mSurface": "#e6e7ed",
+        "mOnSurface": "#343b58",
+        "mSurfaceVariant": "#d5d6db",
+        "mOnSurfaceVariant": "#40434f",
+        "mOutline": "#6c6e75",
+        "mShadow": "#343b58",
+        "mHover": "#2959aa",
+        "mOnHover": "#e6e7ed"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Tokyo%20Night%20Light/preview.jpg"
+    },
+    {
+      "id": "tokyo-night-storm",
+      "name": "Tokyo Night Storm",
+      "provider": "Ryoku",
+      "path": "colorschemes/Tokyo Night Storm",
+      "accent": "#7aa2f7",
+      "surface": "#24283b",
+      "dark": {
+        "mPrimary": "#7aa2f7",
+        "mOnPrimary": "#343b58",
+        "mSecondary": "#bb9af7",
+        "mOnSecondary": "#343b58",
+        "mTertiary": "#73daca",
+        "mOnTertiary": "#343b58",
+        "mError": "#f7768e",
+        "mOnError": "#343b58",
+        "mSurface": "#24283b",
+        "mOnSurface": "#a9b1d6",
+        "mSurfaceVariant": "#343b58",
+        "mOnSurfaceVariant": "#9aa5ce",
+        "mOutline": "#9aa5ce",
+        "mShadow": "#1a1b26",
+        "mHover": "#7aa2f7",
+        "mOnHover": "#343b58"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Tokyo%20Night%20Storm/preview.jpg"
+    },
+    {
+      "id": "varda",
+      "name": "Varda",
+      "provider": "Ryoku",
+      "path": "colorschemes/Varda",
+      "accent": "#52677C",
+      "surface": "#0C0E11",
+      "dark": {
+        "mPrimary": "#52677C",
+        "mOnPrimary": "#D0EBEE",
+        "mSecondary": "#665276",
+        "mOnSecondary": "#D0EBEE",
+        "mTertiary": "#257B76",
+        "mOnTertiary": "#D0EBEE",
+        "mError": "#733447",
+        "mOnError": "#D0EBEE",
+        "mSurface": "#0C0E11",
+        "mOnSurface": "#D0EBEE",
+        "mSurfaceVariant": "#1C2128",
+        "mOnSurfaceVariant": "#D0EBEE",
+        "mOutline": "#8295A9",
+        "mShadow": "#121519",
+        "mHover": "#52677C",
+        "mOnHover": "#D0EBEE"
+      },
+      "preview": "https://raw.githubusercontent.com/neur0map/ryostore/main/colorschemes/Varda/preview.jpg"
     }
   ]
 }
